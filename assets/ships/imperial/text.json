@@ -1,0 +1,406 @@
+{
+  "file": "星球大战：无敌舰队 01战舰中文卡牌v0.1 (1).pdf",
+  "total_pages": 24,
+  "total_images": 24,
+  "ships": [
+    {
+      "ID": 1,
+      "faction": "imperial",
+      "id": "arquitens_command",
+      "name": "阿奎腾斯级指挥巡洋舰",
+      "nameEn": "Arquitens-class Command Cruiser",
+      "size": "small",
+      "image": "images/page_001_img_1.jpeg",
+      "slots": [
+        "officer",
+        "support_team",
+        "defensive_retrofit",
+        "turbolasers"
+      ]
+    },
+    {
+      "ID": 2,
+      "faction": "imperial",
+      "id": "arquitens_light",
+      "name": "阿奎腾斯级轻型巡洋舰",
+      "nameEn": "Arquitens-class Light Cruiser",
+      "size": "small",
+      "image": "images/page_002_img_1.jpeg",
+      "slots": [
+        "officer",
+        "defensive_retrofit",
+        "turbolasers"
+      ]
+    },
+    {
+      "ID": 3,
+      "faction": "imperial",
+      "id": "executor_i",
+      "name": "执行者I级星际无畏舰",
+      "nameEn": "Executor I-Class Star Dreadnought",
+      "size": "huge",
+      "image": "images/page_003_img_1.jpeg",
+      "slots": [
+        "officer",
+        "officer",
+        "officer",
+        "officer",
+        "weapons_team",
+        "fleet_command",
+        "fleet_command",
+        "fleet_command",
+        "fleet_command",
+        "offensive_retrofit",
+        "ion_cannons",
+        "turbolasers"
+      ]
+    },
+    {
+      "ID": 4,
+      "faction": "imperial",
+      "id": "executor_ii",
+      "name": "执行者II级星际无畏舰",
+      "nameEn": "Executor II-Class Star Dreadnought",
+      "size": "huge",
+      "image": "images/page_004_img_1.jpeg",
+      "slots": [
+        "officer",
+        "officer",
+        "officer",
+        "officer",
+        "weapons_team",
+        "fleet_command",
+        "offensive_retrofit",
+        "offensive_retrofit",
+        "ion_cannons",
+        "ion_cannons",
+        "turbolasers",
+        "turbolasers"
+      ]
+    },
+    {
+      "ID": 5,
+      "faction": "imperial",
+      "id": "gladiator_i",
+      "name": "斗士I级歼星舰",
+      "nameEn": "Gladiator I-class Star Destroyer",
+      "size": "small",
+      "image": "images/page_005_img_1.jpeg",
+      "slots": [
+        "officer",
+        "weapons_team",
+        "support_team",
+        "ordnance"
+      ]
+    },
+    {
+      "ID": 6,
+      "faction": "imperial",
+      "id": "gladiator_ii",
+      "name": "斗士II级歼星舰",
+      "nameEn": "Gladiator II-class Star Destroyer",
+      "size": "small",
+      "image": "images/page_006_img_1.jpeg",
+      "slots": [
+        "officer",
+        "weapons_team",
+        "support_team",
+        "ordnance"
+      ]
+    },
+    {
+      "ID": 7,
+      "faction": "imperial",
+      "id": "gozanti_assault",
+      "name": "戈赞蒂级突击母舰",
+      "nameEn": "Gozanti-class Assault Carriers",
+      "size": "small",
+      "image": "images/page_007_img_1.jpeg",
+      "slots": [
+        "officer",
+        "fleet_support",
+        "offensive_retrofit"
+      ]
+    },
+    {
+      "ID": 8,
+      "faction": "imperial",
+      "id": "gozanti_cruiser",
+      "name": "戈赞蒂级母舰",
+      "nameEn": "Gozanti-class Cruisers",
+      "size": "small",
+      "image": "images/page_008_img_1.jpeg",
+      "slots": [
+        "officer",
+        "fleet_support",
+        "offensive_retrofit"
+      ]
+    },
+    {
+      "ID": 9,
+      "faction": "imperial",
+      "id": "imperial_i",
+      "name": "帝国I级歼星舰",
+      "nameEn": "Imperial I-class Star Destroyer",
+      "size": "large",
+      "image": "images/page_009_img_1.jpeg",
+      "slots": [
+        "officer",
+        "weapons_team",
+        "offensive_retrofit",
+        "offensive_retrofit",
+        "ion_cannons",
+        "turbolasers"
+      ]
+    },
+    {
+      "ID": 10,
+      "faction": "imperial",
+      "id": "imperial_ii",
+      "name": "帝国II级歼星舰",
+      "nameEn": "Imperial II-class Star Destroyer",
+      "size": "large",
+      "image": "images/page_010_img_1.jpeg",
+      "slots": [
+        "officer",
+        "weapons_team",
+        "offensive_retrofit",
+        "defensive_retrofit",
+        "ion_cannons",
+        "turbolasers"
+      ]
+    },
+    {
+      "ID": 11,
+      "faction": "imperial",
+      "id": "imperial_cymoon",
+      "name": "帝国级歼星舰赛蒙一号特装型",
+      "nameEn": "Imperial Star Destroyer Cymoon 1 Refit",
+      "size": "large",
+      "image": "images/page_011_img_1.jpeg",
+      "slots": [
+        "officer",
+        "weapons_team",
+        "fleet_command",
+        "offensive_retrofit",
+        "turbolasers",
+        "turbolasers"
+      ]
+    },
+    {
+      "ID": 12,
+      "faction": "imperial",
+      "id": "imperial_kuat",
+      "name": "帝国级歼星舰夸特特装型",
+      "nameEn": "Imperial Star Destroyer Kuat Refit",
+      "size": "large",
+      "image": "images/page_012_img_1.jpeg",
+      "slots": [
+        "officer",
+        "weapons_team",
+        "offensive_retrofit",
+        "defensive_retrofit",
+        "ion_cannons",
+        "turbolasers"
+      ]
+    },
+    {
+      "ID": 13,
+      "faction": "imperial",
+      "id": "interdictor_combat",
+      "name": "阻绝者级战斗特装型",
+      "nameEn": "Interdictor Combat Refit",
+      "size": "medium",
+      "image": "images/page_013_img_1.jpeg",
+      "slots": [
+        "officer",
+        "support_team",
+        "offensive_retrofit",
+        "experimental_retrofit",
+        "ion_cannons"
+      ]
+    },
+    {
+      "ID": 14,
+      "faction": "imperial",
+      "id": "interdictor_suppression",
+      "name": "阻绝者级压制特装型",
+      "nameEn": "Interdictor Suppression Refit",
+      "size": "medium",
+      "image": "images/page_014_img_1.jpeg",
+      "slots": [
+        "officer",
+        "support_team",
+        "offensive_retrofit",
+        "experimental_retrofit",
+        "experimental_retrofit",
+        "ion_cannons"
+      ]
+    },
+    {
+      "ID": 15,
+      "faction": "imperial",
+      "id": "onager",
+      "name": "超弩级歼星舰",
+      "nameEn": "Onager-class Star Destroyer",
+      "size": "large",
+      "image": "images/page_015_img_1.jpeg",
+      "slots": [
+        "officer",
+        "weapons_team",
+        "weapons_team",
+        "turbolasers",
+        "superweapon"
+      ]
+    },
+    {
+      "ID": 16,
+      "faction": "imperial",
+      "id": "onager_testbed",
+      "name": "超弩级试作机",
+      "nameEn": "Onager-class Testbed",
+      "size": "large",
+      "image": "images/page_016_img_1.jpeg",
+      "slots": [
+        "officer",
+        "weapons_team",
+        "weapons_team",
+        "support_team",
+        "superweapon"
+      ]
+    },
+    {
+      "ID": 17,
+      "faction": "imperial",
+      "id": "quasar_i",
+      "name": "类星体火I级巡洋母舰",
+      "nameEn": "Quasar Fire I-class Cruiser-Carrier",
+      "size": "medium",
+      "image": "images/page_017_img_1.jpeg",
+      "slots": [
+        "officer",
+        "weapons_team",
+        "offensive_retrofit",
+        "offensive_retrofit"
+      ]
+    },
+    {
+      "ID": 18,
+      "faction": "imperial",
+      "id": "quasar_ii",
+      "name": "类星体火II级巡洋母舰",
+      "nameEn": "Quasar Fire II-class Cruiser-Carrier",
+      "size": "medium",
+      "image": "images/page_018_img_1.jpeg",
+      "slots": [
+        "officer",
+        "weapons_team",
+        "weapons_team",
+        "offensive_retrofit"
+      ]
+    },
+    {
+      "ID": 19,
+      "faction": "imperial",
+      "id": "raider_i",
+      "name": "袭击者I级护卫舰",
+      "nameEn": "Raider I-class Corvette",
+      "size": "small",
+      "image": "images/page_019_img_1.jpeg",
+      "slots": [
+        "officer",
+        "weapons_team",
+        "offensive_retrofit",
+        "ordnance"
+      ]
+    },
+    {
+      "ID": 20,
+      "faction": "imperial",
+      "id": "raider_ii",
+      "name": "袭击者II级护卫舰",
+      "nameEn": "Raider II-class Corvette",
+      "size": "small",
+      "image": "images/page_020_img_1.jpeg",
+      "slots": [
+        "officer",
+        "weapons_team",
+        "offensive_retrofit",
+        "ion_cannons"
+      ]
+    },
+    {
+      "ID": 21,
+      "faction": "imperial",
+      "id": "star_dreadnought_assault",
+      "name": "星际无畏舰突击原型机",
+      "nameEn": "Star Dreadnought Assault Prototype",
+      "size": "huge",
+      "image": "images/page_021_img_1.jpeg",
+      "slots": [
+        "officer",
+        "officer",
+        "officer",
+        "weapons_team",
+        "offensive_retrofit",
+        "offensive_retrofit",
+        "ion_cannons",
+        "ion_cannons",
+        "turbolasers",
+        "turbolasers"
+      ]
+    },
+    {
+      "ID": 22,
+      "faction": "imperial",
+      "id": "star_dreadnought_command",
+      "name": "星际无畏舰指挥原型机",
+      "nameEn": "Star Dreadnought Command Prototype",
+      "size": "huge",
+      "image": "images/page_022_img_1.jpeg",
+      "slots": [
+        "officer",
+        "officer",
+        "officer",
+        "weapons_team",
+        "fleet_command",
+        "fleet_command",
+        "offensive_retrofit",
+        "ion_cannons",
+        "turbolasers"
+      ]
+    },
+    {
+      "ID": 23,
+      "faction": "imperial",
+      "id": "victory_i",
+      "name": "胜利I级歼星舰",
+      "nameEn": "Victory I-class Star Destroyer",
+      "size": "medium",
+      "image": "images/page_023_img_1.jpeg",
+      "slots": [
+        "officer",
+        "weapons_team",
+        "offensive_retrofit",
+        "ordnance",
+        "turbolasers"
+      ]
+    },
+    {
+      "ID": 24,
+      "faction": "imperial",
+      "id": "victory_ii",
+      "name": "胜利II级歼星舰",
+      "nameEn": "Victory II-class Star Destroyer",
+      "size": "medium",
+      "image": "images/page_024_img_1.jpeg",
+      "slots": [
+        "officer",
+        "weapons_team",
+        "offensive_retrofit",
+        "ion_cannons",
+        "turbolasers"
+      ]
+    }
+  ]
+}

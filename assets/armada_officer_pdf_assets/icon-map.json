@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "file": "星球大战：无敌舰队 04士官升级中文卡牌v0.2.pdf",
+    "pages": 56,
+    "fontFinding": "No custom symbol font. The PDF embeds subset copies of Microsoft YaHei regular/bold and SimHei only.",
+    "iconFinding": "12 semantic icon types are represented by small image XObjects. Text extraction drops them and usually leaves four ASCII spaces.",
+    "smallImageObjects": 26,
+    "smallImageDrawCalls": 29
+  },
+  "escapeRule": {
+    "rawMarker": "four ASCII spaces, optionally followed by a PDF layout newline, immediately before a known label",
+    "tokenFormat": "[[icon:ICON_ID]]",
+    "warning": "Do not replace every run of spaces. Replace only a marker immediately before one of the labels below."
+  },
+  "icons": {
+    "command-squadron": {
+      "labelZh": "中队指令",
+      "markerLabel": "中队",
+      "token": "[[icon:command-squadron]]",
+      "file": "icons/web/command-squadron.png",
+      "canonicalSource": {"page": 26, "object": 117, "resource": "Image117"},
+      "sourcePages": [1, 18, 26, 29, 46, 55, 56],
+      "missingSourceIconPages": [40]
+    },
+    "command-concentrate-fire": {
+      "labelZh": "集火指令",
+      "markerLabel": "集火",
+      "token": "[[icon:command-concentrate-fire]]",
+      "file": "icons/web/command-concentrate-fire.png",
+      "canonicalSource": {"page": 53, "object": 210, "resource": "Image210"},
+      "sourcePages": [15, 53, 55]
+    },
+    "command-repair": {
+      "labelZh": "维修指令",
+      "markerLabel": "维修",
+      "token": "[[icon:command-repair]]",
+      "file": "icons/web/command-repair.png",
+      "canonicalSource": {"page": 20, "object": 94, "resource": "Image94"},
+      "sourcePages": [20, 43, 44]
+    },
+    "command-navigate": {
+      "labelZh": "导航指令",
+      "markerLabel": "导航",
+      "token": "[[icon:command-navigate]]",
+      "file": "icons/web/command-navigate.png",
+      "canonicalSource": {"page": 49, "object": 196, "resource": "Image196"},
+      "sourcePages": [43, 49]
+    },
+    "command-any": {
+      "labelZh": "任意指令",
+      "markerLabel": "任意",
+      "token": "[[icon:command-any]]",
+      "file": "icons/web/command-any.png",
+      "canonicalSource": {"page": 23, "object": 107, "resource": "Image107"},
+      "sourcePages": [23]
+    },
+    "defense-evade": {
+      "labelZh": "回避防御标记",
+      "markerLabel": "回避",
+      "token": "[[icon:defense-evade]]",
+      "file": "icons/web/defense-evade.png",
+      "canonicalSource": {"page": 18, "object": 86, "resource": "Image86"},
+      "sourcePages": [7, 18]
+    },
+    "defense-contain": {
+      "labelZh": "防控防御标记",
+      "markerLabel": "防控",
+      "token": "[[icon:defense-contain]]",
+      "file": "icons/web/defense-contain.png",
+      "canonicalSource": {"page": 42, "object": 169, "resource": "Image169"},
+      "sourcePages": [42]
+    },
+    "defense-redirect": {
+      "labelZh": "传导防御标记",
+      "markerLabel": "传导",
+      "token": "[[icon:defense-redirect]]",
+      "file": "icons/web/defense-redirect.png",
+      "canonicalSource": {"page": 45, "object": 182, "resource": "Image182"},
+      "sourcePages": [45]
+    },
+    "upgrade-commander": {
+      "labelZh": "指挥官升级",
+      "markerLabel": "指挥官",
+      "token": "[[icon:upgrade-commander]]",
+      "file": "icons/web/upgrade-commander.png",
+      "canonicalSource": {"page": 13, "object": 60, "resource": "Image60"},
+      "sourcePages": [13]
+    },
+    "upgrade-officer": {
+      "labelZh": "士官升级",
+      "markerLabel": "士官",
+      "token": "[[icon:upgrade-officer]]",
+      "file": "icons/web/upgrade-officer.png",
+      "canonicalSource": {"page": 13, "object": 61, "resource": "Image61"},
+      "sourcePages": [13]
+    },
+    "upgrade-defensive-retrofit": {
+      "labelZh": "防御改装升级",
+      "markerLabel": "防御改装",
+      "token": "[[icon:upgrade-defensive-retrofit]]",
+      "file": "icons/web/upgrade-defensive-retrofit.png",
+      "canonicalSource": {"page": 21, "object": 98, "resource": "Image98"},
+      "sourcePages": [21]
+    },
+    "attack-critical": {
+      "labelZh": "暴击标志",
+      "markerLabel": "暴击",
+      "token": "[[icon:attack-critical]]",
+      "file": "icons/web/attack-critical.png",
+      "canonicalSource": {"page": 32, "object": 138, "resource": "Image138"},
+      "sourcePages": [32]
+    }
+  }
+}

@@ -1,0 +1,136 @@
+/* Fleet Builder · 数据加载层
+ * 从 data/*.json 加载全部卡牌数据与公共配置（需本地服务器）。
+ * 挂到 window.FleetData，供 fleet-state/rules/calculator/render 使用。
+ * 附带：升级槽位 SVG 图标注入（fill="black" -> currentColor，可随主题取色）。
+ *
+ * 与 Card Database 的 CardDB 保持独立：这里额外加载 objectives，且不依赖 carddb 页面。 */
+window.FleetData = (function () {
+  const FILES = {
+    config: "data/config.json",
+    ships: "data/ships.json",
+    squadrons: "data/squadrons.json",
+    upgrades: "data/upgrades.json",
+    titles: "data/titles.json",
+    objectives: "data/objectives.json",
+  };
+
+  // 槽位 id -> assets/*.svg 文件
+  const SLOT_ICON_FILES = {
+    commander: "commander.svg",
+    defensive_retrofit: "defensive-retro.svg",
+    experimental_retrofit: "experimental-retro.svg",
+    fleet_command: "fleet-command.svg",
+    fleet_support: "fleet-support.svg",
+    ion_cannons: "ion-cannon.svg",
+    offensive_retrofit: "offensive-retro.svg",
+    officer: "officer.svg",
+    ordnance: "ordnance.svg",
+    superweapon: "super-weapon.svg",
+    support_team: "support-team.svg",
+    turbolasers: "turbolaser.svg",
+    weapons_team: "weapons-team.svg",
+    title: "title.svg",
+  };
+
+  const db = {
+    config: null,
+    cards: { ships: [], squadrons: [], upgrades: [], titles: [], objectives: [] },
+    icons: {}, // slotId -> inline svg（fill=currentColor）
+    loaded: false,
+
+    async load() {
+      const [config, ships, squadrons, upgrades, titles, objectives] = await Promise.all([
+        fetchJSON(FILES.config),
+        fetchJSON(FILES.ships),
+        fetchJSON(FILES.squadrons),
+        fetchJSON(FILES.upgrades),
+        fetchJSON(FILES.titles),
+        fetchJSON(FILES.objectives),
+      ]);
+      this.config = config;
+      this.cards.ships = ships;
+      this.cards.squadrons = squadrons;
+      this.cards.upgrades = upgrades;
+      this.cards.titles = titles;
+      this.cards.objectives = objectives;
+      await this.loadIcons();
+      this.loaded = true;
+      return this;
+    },
+
+    /* ---- 配置查找 ---- */
+    faction(id) {
+      return this.config.factions.find(function (f) { return f.id === id; }) || null;
+    },
+    slot(id) {
+      return this.config.upgradeSlots.find(function (s) { return s.id === id; }) || null;
+    },
+    size(id) {
+      return this.config.sizes.find(function (s) { return s.id === id; }) || null;
+    },
+
+    /* ---- 卡牌查找 ---- */
+    ship(id) {
+      return this.cards.ships.find(function (c) { return c.id === id; }) || null;
+    },
+    squadron(id) {
+      return this.cards.squadrons.find(function (c) { return c.id === id; }) || null;
+    },
+    upgrade(id) {
+      return this.cards.upgrades.find(function (c) { return c.id === id; }) || null;
+    },
+    title(id) {
+      return this.cards.titles.find(function (c) { return c.id === id; }) || null;
+    },
+    objective(id) {
+      return this.cards.objectives.find(function (c) { return c.id === id; }) || null;
+    },
+    anyCard(id) {
+      return this.ship(id) || this.squadron(id) || this.upgrade(id) || this.title(id) || this.objective(id);
+    },
+
+    /* ---- 按阵营取卡池 ---- */
+    shipsOf(faction) {
+      return this.cards.ships.filter(function (c) { return c.faction === faction; });
+    },
+    squadronsOf(faction) {
+      return this.cards.squadrons.filter(function (c) { return c.faction === faction; });
+    },
+    upgradesOfSlot(slotId) {
+      // 双槽卡（slots 非空，如 武器小组/进攻改装）在自身任一槽的选择界面都出现
+      return this.cards.upgrades.filter(function (c) {
+        return c.slot === slotId || ((c.slots && c.slots.length) && c.slots.indexOf(slotId) !== -1);
+      });
+    },
+    objectivesOf(category) {
+      return this.cards.objectives.filter(function (c) { return c.category === category; });
+    },
+
+    /* ---- 槽位图标 ---- */
+    async loadIcons() {
+      const tasks = Object.keys(SLOT_ICON_FILES).map(async function (slotId) {
+        const file = SLOT_ICON_FILES[slotId];
+        try {
+          const res = await fetch("assets/" + file, { cache: "no-store" });
+          if (!res.ok) return;
+          let svg = await res.text();
+          // 图标用 currentColor 随阵营主题取色
+          svg = svg.replace(/fill="black"/g, 'fill="currentColor"');
+          db.icons[slotId] = svg;
+        } catch (e) { /* 图标缺失不影响构建 */ }
+      });
+      await Promise.all(tasks);
+    },
+    slotIcon(slotId) {
+      return db.icons[slotId] || "";
+    },
+  };
+
+  async function fetchJSON(url) {
+    const res = await fetch(url, { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status + " — " + url);
+    return res.json();
+  }
+
+  return db;
+})();

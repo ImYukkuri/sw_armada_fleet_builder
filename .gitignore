@@ -1,0 +1,9 @@
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+
+# 临时诊断脚本（_ 开头）
+_*.mjs
+_*.py
+_*.txt

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>写表器 — 舰队构建</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/builder.css">
+  <link rel="stylesheet" href="css/armada-icons.css">
+</head>
+<body class="page-builder">
+  <div class="stars" aria-hidden="true"></div>
+
+  <header class="builder-header">
+    <a class="back-link" href="index.html">← 阵营选择</a>
+
+    <div class="builder-title">
+      <span class="faction-badge" id="faction-badge"><!-- 由 builder.js 填充阵营徽记 --></span>
+      <div class="builder-title-text">
+        <h1 id="faction-title">选择阵营</h1>
+        <span class="en-name" id="faction-en"></span>
+      </div>
+    </div>
+  </header>
+
+  <div class="fb-points"><div class="points-box" id="points-box"><!-- 由 builder.js 填充分数 --></div></div>
+
+  <main class="fb-main">
+    <div class="fb-overview" id="fleet-overview"><!-- 由 fleet-render.js 渲染 --></div>
+  </main>
+
+  <div class="fb-actionbar" id="action-bar"><!-- 由 fleet-render.js 渲染 --></div>
+
+  <div id="selector-root"></div>
+
+  <script src="js/factions.js"></script>
+  <script src="js/fleet/lightbox.js"></script>
+  <script src="js/fleet/armada-icons.js"></script>
+  <script src="js/fleet/fleet-data.js"></script>
+  <script src="js/fleet/fleet-state.js"></script>
+  <script src="js/fleet/fleet-rules.js"></script>
+  <script src="js/fleet/fleet-calculator.js"></script>
+  <script src="js/fleet/fleet-render.js"></script>
+  <script src="js/fleet/selectors.js"></script>
+  <script src="js/builder.js"></script>
+</body>
+</html>

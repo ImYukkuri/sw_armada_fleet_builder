@@ -1,0 +1,1464 @@
+{
+  "arquitens_command": {
+    "points": 55,
+    "en": "Arquitens-class Command Cruiser"
+  },
+  "arquitens_light": {
+    "points": 52,
+    "en": "Arquitens-class Light Cruiser"
+  },
+  "executor_i": {
+    "points": 381,
+    "en": "Executor I-class Star Dreadnought"
+  },
+  "executor_ii": {
+    "points": 411,
+    "en": "Executor II-class Star Dreadnought"
+  },
+  "gladiator_i": {
+    "points": 56,
+    "en": "Gladiator I-class Star Destroyer"
+  },
+  "gladiator_ii": {
+    "points": 62,
+    "en": "Gladiator II-class Star Destroyer"
+  },
+  "gozanti_assault": {
+    "points": 26,
+    "en": "Gozanti-class Assault Carriers"
+  },
+  "gozanti_cruiser": {
+    "points": 23,
+    "en": "Gozanti-class Cruisers"
+  },
+  "imperial_i": {
+    "points": 110,
+    "en": "Imperial I-class Star Destroyer"
+  },
+  "imperial_ii": {
+    "points": 120,
+    "en": "Imperial II-class Star Destroyer"
+  },
+  "imperial_cymoon": {
+    "points": 112,
+    "en": "Imperial Star Destroyer Cymoon 1 Refit"
+  },
+  "imperial_kuat": {
+    "points": 112,
+    "en": "Imperial Star Destroyer Kuat Refit"
+  },
+  "interdictor_combat": {
+    "points": 93,
+    "en": "Interdictor Combat Refit"
+  },
+  "interdictor_suppression": {
+    "points": 90,
+    "en": "Interdictor Suppression Refit"
+  },
+  "onager": {
+    "points": 120,
+    "en": "Onager-class Star Destroyer"
+  },
+  "onager_testbed": {
+    "points": 116,
+    "en": "Onager-class Testbed"
+  },
+  "quasar_i": {
+    "points": 54,
+    "en": "Quasar Fire I-class Cruiser-Carrier"
+  },
+  "quasar_ii": {
+    "points": 61,
+    "en": "Quasar Fire II-class Cruiser-Carrier"
+  },
+  "raider_i": {
+    "points": 44,
+    "en": "Raider I-class Corvette"
+  },
+  "raider_ii": {
+    "points": 48,
+    "en": "Raider II-class Corvette"
+  },
+  "star_dreadnought_assault": {
+    "points": 250,
+    "en": "Star Dreadought Assault Prototype"
+  },
+  "star_dreadnought_command": {
+    "points": 220,
+    "en": "Star Dreadought Command Prototype"
+  },
+  "victory_i": {
+    "points": 73,
+    "en": "Victory I-class Star Destroyer"
+  },
+  "victory_ii": {
+    "points": 80,
+    "en": "Victory II-class Star Destroyer"
+  },
+  "assault_frigate_ii_a": {
+    "points": 77,
+    "en": "Assault Frigate Mark II A"
+  },
+  "assault_frigate_ii_b": {
+    "points": 72,
+    "en": "Assault Frigate Mark II B"
+  },
+  "cr90_a": {
+    "points": 44,
+    "en": "CR90 Corvette A"
+  },
+  "cr90_b": {
+    "points": 39,
+    "en": "CR90 Corvette B"
+  },
+  "gr75_combat": {
+    "points": 24,
+    "en": "GR-75 Combat Retrofits"
+  },
+  "gr75_transport": {
+    "points": 18,
+    "en": "GR-75 Medium Transports"
+  },
+  "hammerhead_scout": {
+    "points": 41,
+    "en": "Hammerhead Scout Corvette"
+  },
+  "hammerhead_torpedo": {
+    "points": 36,
+    "en": "Hammerhead Torpedo Corvette"
+  },
+  "mc30c_scout": {
+    "points": 69,
+    "en": "MC30c Scout Frigate"
+  },
+  "mc30c_torpedo": {
+    "points": 63,
+    "en": "MC30c Torpedo Frigate"
+  },
+  "mc75_armored": {
+    "points": 99,
+    "en": "MC75 Armored Cruiser"
+  },
+  "mc75_ordnance": {
+    "points": 95,
+    "en": "MC75 Ordnance Cruiser"
+  },
+  "mc80_assault": {
+    "points": 110,
+    "en": "MC80 Assault Cruiser"
+  },
+  "mc80_battle": {
+    "points": 103,
+    "en": "MC80 Battle Cruiser"
+  },
+  "mc80_command": {
+    "points": 102,
+    "en": "MC80 Command Cruiser"
+  },
+  "mc80_star": {
+    "points": 96,
+    "en": "MC80 Star Cruiser"
+  },
+  "pelta_assault": {
+    "points": 56,
+    "en": "Modified Pelta-class Assault Ship"
+  },
+  "pelta_command": {
+    "points": 60,
+    "en": "Modified Pelta-class Command Ship"
+  },
+  "nebulon_b_escort": {
+    "points": 57,
+    "en": "Nebulon-B Escort Frigate"
+  },
+  "nebulon_b_support": {
+    "points": 51,
+    "en": "Nebulon-B Support Refit"
+  },
+  "starhawk_i": {
+    "points": 140,
+    "en": "Starhawk-class Battleship Mark I"
+  },
+  "starhawk_ii": {
+    "points": 150,
+    "en": "Starhawk-class Battleship Mark II"
+  },
+  "imperial_squadrons_001": {
+    "points": 9,
+    "en": "•Black Squadron"
+  },
+  "imperial_squadrons_002": {
+    "points": 24,
+    "en": "•Boba Fett (Slave I)"
+  },
+  "imperial_squadrons_003": {
+    "points": 23,
+    "en": "•Bossk (Hound's Tooth)"
+  },
+  "imperial_squadrons_004": {
+    "points": 16,
+    "en": "•Captain Jonus"
+  },
+  "imperial_squadrons_005": {
+    "points": 17,
+    "en": "•Ciena Ree"
+  },
+  "imperial_squadrons_006": {
+    "points": 23,
+    "en": "•Colonel Jendon"
+  },
+  "imperial_squadrons_007": {
+    "points": 21,
+    "en": "•Darth Vader"
+  },
+  "imperial_squadrons_008": {
+    "points": 20,
+    "en": "•Dengar (Punishing One)"
+  },
+  "imperial_squadrons_009": {
+    "points": 10,
+    "en": "•Gamma Squadron"
+  },
+  "imperial_squadrons_010": {
+    "points": 20,
+    "en": "•Gar Saxon"
+  },
+  "imperial_squadrons_011": {
+    "points": 24,
+    "en": "•Hondo Ohnaka (Slave I)"
+  },
+  "imperial_squadrons_012": {
+    "points": 16,
+    "en": "•\"Howlrunner\""
+  },
+  "imperial_squadrons_013": {
+    "points": 19,
+    "en": "•IG-88 (IG-2000)"
+  },
+  "imperial_squadrons_014": {
+    "points": 19,
+    "en": "•IG-88B (IG-2000B)"
+  },
+  "imperial_squadrons_015": {
+    "points": 21,
+    "en": "•Maarek Stele"
+  },
+  "imperial_squadrons_016": {
+    "points": 16,
+    "en": "•Major Rhymer"
+  },
+  "imperial_squadrons_017": {
+    "points": 15,
+    "en": "•\"Mauler\" Mithel"
+  },
+  "imperial_squadrons_018": {
+    "points": 22,
+    "en": "•Moralo Eval"
+  },
+  "imperial_squadrons_019": {
+    "points": 27,
+    "en": "•Morna Kee"
+  },
+  "imperial_squadrons_020": {
+    "points": 12,
+    "en": "•Saber Squadron"
+  },
+  "imperial_squadrons_021": {
+    "points": 18,
+    "en": "•Soontir Fel"
+  },
+  "imperial_squadrons_022": {
+    "points": 17,
+    "en": "•Tel Trevura"
+  },
+  "imperial_squadrons_023": {
+    "points": 13,
+    "en": "•Tempest Squadron"
+  },
+  "imperial_squadrons_024": {
+    "points": 13,
+    "en": "•Valen Rudor"
+  },
+  "imperial_squadrons_025": {
+    "points": 18,
+    "en": "•\"Whisper\""
+  },
+  "imperial_squadrons_026": {
+    "points": 15,
+    "en": "•Zertik Strom"
+  },
+  "imperial_squadrons_027": {
+    "points": 15,
+    "en": "Aggressor Assault Fighter"
+  },
+  "imperial_squadrons_028": {
+    "points": 18,
+    "en": "Firespray-31"
+  },
+  "imperial_squadrons_029": {
+    "points": 12,
+    "en": "JumpMaster 5000"
+  },
+  "imperial_squadrons_030": {
+    "points": 15,
+    "en": "Lambda-class Shuttle"
+  },
+  "imperial_squadrons_031": {
+    "points": 18,
+    "en": "Mandalorian Gauntlet Fighter"
+  },
+  "imperial_squadrons_032": {
+    "points": 12,
+    "en": "TIE Advanced Squadron"
+  },
+  "imperial_squadrons_033": {
+    "points": 9,
+    "en": "TIE Bomber Squadron"
+  },
+  "imperial_squadrons_034": {
+    "points": 16,
+    "en": "TIE Defender Squadron"
+  },
+  "imperial_squadrons_035": {
+    "points": 8,
+    "en": "TIE Fighter Squadron"
+  },
+  "imperial_squadrons_036": {
+    "points": 11,
+    "en": "TIE Interceptor Squadron"
+  },
+  "imperial_squadrons_037": {
+    "points": 14,
+    "en": "TIE Phantom Squadron"
+  },
+  "imperial_squadrons_038": {
+    "points": 22,
+    "en": "VT-49 Decimator"
+  },
+  "imperial_squadrons_039": {
+    "points": 15,
+    "en": "YV-666"
+  },
+  "imperial_title_001": {
+    "points": 3,
+    "en": "•Centicore"
+  },
+  "imperial_title_002": {
+    "points": 2,
+    "en": "•Hand of Justice"
+  },
+  "imperial_title_003": {
+    "points": 10,
+    "en": "•Demolisher"
+  },
+  "imperial_title_004": {
+    "points": 3,
+    "en": "•Insidious"
+  },
+  "imperial_title_005": {
+    "points": 4,
+    "en": "•Suppressor"
+  },
+  "imperial_title_006": {
+    "points": 2,
+    "en": "•Vector"
+  },
+  "imperial_title_007": {
+    "points": 5,
+    "en": "Seventh Fleet Star Destroyer"
+  },
+  "imperial_title_008": {
+    "points": 5,
+    "en": "•Avenger"
+  },
+  "imperial_title_009": {
+    "points": 4,
+    "en": "•Chimaera"
+  },
+  "imperial_title_010": {
+    "points": 10,
+    "en": "•Devastator"
+  },
+  "imperial_title_011": {
+    "points": 3,
+    "en": "•Relentless"
+  },
+  "imperial_title_012": {
+    "points": 4,
+    "en": "•Sovereign"
+  },
+  "imperial_title_013": {
+    "points": 3,
+    "en": "•Interdictor"
+  },
+  "imperial_title_014": {
+    "points": 5,
+    "en": "•Cataclysm"
+  },
+  "imperial_title_015": {
+    "points": 4,
+    "en": "•Impetuous"
+  },
+  "imperial_title_016": {
+    "points": 10,
+    "en": "•Sunder"
+  },
+  "imperial_title_017": {
+    "points": 2,
+    "en": "•Pursuant"
+  },
+  "imperial_title_018": {
+    "points": 7,
+    "en": "•Squall"
+  },
+  "imperial_title_019": {
+    "points": 3,
+    "en": "•Stronghold"
+  },
+  "imperial_title_020": {
+    "points": 2,
+    "en": "•Corvus"
+  },
+  "imperial_title_021": {
+    "points": 4,
+    "en": "•Instigator"
+  },
+  "imperial_title_022": {
+    "points": 4,
+    "en": "•Rakehell"
+  },
+  "imperial_title_023": {
+    "points": 8,
+    "en": "•Annihilator"
+  },
+  "imperial_title_024": {
+    "points": 3,
+    "en": "•Eclipse"
+  },
+  "imperial_title_025": {
+    "points": 2,
+    "en": "•Executor"
+  },
+  "imperial_title_026": {
+    "points": 4,
+    "en": "•Ravager"
+  },
+  "imperial_title_027": {
+    "points": 3,
+    "en": "•Corruptor"
+  },
+  "imperial_title_028": {
+    "points": 7,
+    "en": "•Dominator"
+  },
+  "imperial_title_029": {
+    "points": 3,
+    "en": "•Harrow"
+  },
+  "imperial_title_030": {
+    "points": 8,
+    "en": "•Warlord"
+  },
+  "rebel_title_001": {
+    "points": 8,
+    "en": "•Gallant Haven"
+  },
+  "rebel_title_002": {
+    "points": 5,
+    "en": "•Paragon"
+  },
+  "rebel_title_003": {
+    "points": 4,
+    "en": "•Dodonna's Pride"
+  },
+  "rebel_title_004": {
+    "points": 5,
+    "en": "•Jaina's Light"
+  },
+  "rebel_title_005": {
+    "points": 2,
+    "en": "•Liberator"
+  },
+  "rebel_title_006": {
+    "points": 3,
+    "en": "•Tantive IV"
+  },
+  "rebel_title_007": {
+    "points": 2,
+    "en": "•Bright Hope"
+  },
+  "rebel_title_008": {
+    "points": 1,
+    "en": "•Quantum Storm"
+  },
+  "rebel_title_009": {
+    "points": 4,
+    "en": "•Garel's Honor"
+  },
+  "rebel_title_010": {
+    "points": 3,
+    "en": "Task Force Antilles"
+  },
+  "rebel_title_011": {
+    "points": 1,
+    "en": "Task Force Organa"
+  },
+  "rebel_title_012": {
+    "points": 10,
+    "en": "•Admonition"
+  },
+  "rebel_title_013": {
+    "points": 10,
+    "en": "•Foresight"
+  },
+  "rebel_title_014": {
+    "points": 3,
+    "en": "•Aspiration"
+  },
+  "rebel_title_015": {
+    "points": 7,
+    "en": "•Profundity"
+  },
+  "rebel_title_016": {
+    "points": 5,
+    "en": "Mon Calamari Exodus Fleet"
+  },
+  "rebel_title_017": {
+    "points": 5,
+    "en": "•Defiance"
+  },
+  "rebel_title_018": {
+    "points": 5,
+    "en": "•Home One"
+  },
+  "rebel_title_019": {
+    "points": 8,
+    "en": "•Independence"
+  },
+  "rebel_title_020": {
+    "points": 4,
+    "en": "•Endeavor"
+  },
+  "rebel_title_021": {
+    "points": 3,
+    "en": "•Liberty"
+  },
+  "rebel_title_022": {
+    "points": 6,
+    "en": "•Mon Karren"
+  },
+  "rebel_title_023": {
+    "points": 5,
+    "en": "•Redemption"
+  },
+  "rebel_title_024": {
+    "points": 7,
+    "en": "•Salvation"
+  },
+  "rebel_title_025": {
+    "points": 4,
+    "en": "•Vanguard"
+  },
+  "rebel_title_026": {
+    "points": 5,
+    "en": "•Yavaris"
+  },
+  "rebel_title_027": {
+    "points": 3,
+    "en": "•Phoenix Home"
+  },
+  "rebel_title_028": {
+    "points": 12,
+    "en": "•Concord"
+  },
+  "rebel_title_029": {
+    "points": 6,
+    "en": "•Amity"
+  },
+  "rebel_title_030": {
+    "points": 10,
+    "en": "•Unity"
+  },
+  "commander_001": {
+    "points": 23,
+    "en": "•Admiral Konstantine"
+  },
+  "commander_002": {
+    "points": 24,
+    "en": "•Admiral Motti"
+  },
+  "commander_003": {
+    "points": 20,
+    "en": "•Admiral Ozzel"
+  },
+  "commander_004": {
+    "points": 22,
+    "en": "•Admiral Piett"
+  },
+  "commander_005": {
+    "points": 24,
+    "en": "•Admiral Screed"
+  },
+  "commander_006": {
+    "points": 24,
+    "en": "•Admiral Sloane"
+  },
+  "commander_007": {
+    "points": 34,
+    "en": "•Darth Vader"
+  },
+  "commander_008": {
+    "points": 35,
+    "en": "•Emperor Palpatine"
+  },
+  "commander_009": {
+    "points": 28,
+    "en": "•General Romodi"
+  },
+  "commander_010": {
+    "points": 25,
+    "en": "•General Tagge"
+  },
+  "commander_011": {
+    "points": 32,
+    "en": "•Grand Admiral Thrawn"
+  },
+  "commander_012": {
+    "points": 28,
+    "en": "•Grand Moff Tarkin"
+  },
+  "commander_013": {
+    "points": 23,
+    "en": "•Moff Jerjerrod"
+  },
+  "commander_014": {
+    "points": 38,
+    "en": "•Admiral Ackbar"
+  },
+  "commander_015": {
+    "points": 26,
+    "en": "•Admiral Raddus"
+  },
+  "commander_016": {
+    "points": 27,
+    "en": "•Commander Sato"
+  },
+  "commander_017": {
+    "points": 25,
+    "en": "•Garm Bel Iblis"
+  },
+  "commander_018": {
+    "points": 26,
+    "en": "•General Cracken"
+  },
+  "commander_019": {
+    "points": 20,
+    "en": "•General Dodonna"
+  },
+  "commander_020": {
+    "points": 30,
+    "en": "•General Madine"
+  },
+  "commander_021": {
+    "points": 34,
+    "en": "•General Rieekan"
+  },
+  "commander_022": {
+    "points": 25,
+    "en": "•Kyrsta Agate"
+  },
+  "commander_023": {
+    "points": 28,
+    "en": "•Leia Organa"
+  },
+  "commander_024": {
+    "points": 27,
+    "en": "•Mon Mothma"
+  },
+  "defensive_retrofit_001": {
+    "points": 6,
+    "en": "Advanced Projectors"
+  },
+  "defensive_retrofit_002": {
+    "points": 5,
+    "en": "Cluster Bombs"
+  },
+  "defensive_retrofit_003": {
+    "points": 7,
+    "en": "Early Warning System"
+  },
+  "defensive_retrofit_004": {
+    "points": 7,
+    "en": "Electronic Countermeasures"
+  },
+  "defensive_retrofit_005": {
+    "points": 4,
+    "en": "Reactive Gunnery"
+  },
+  "defensive_retrofit_006": {
+    "points": 8,
+    "en": "Redundant Shields"
+  },
+  "defensive_retrofit_007": {
+    "points": 5,
+    "en": "Reinforced Blast Doors"
+  },
+  "defensive_retrofit_008": {
+    "points": 5,
+    "en": "Thermal Shields"
+  },
+  "experimental_retrofit_001": {
+    "points": 8,
+    "en": "•G-8 Experimental Projector"
+  },
+  "experimental_retrofit_002": {
+    "points": 2,
+    "en": "G7-X Grav Well Projector"
+  },
+  "experimental_retrofit_003": {
+    "points": 2,
+    "en": "Grav Shift Reroute"
+  },
+  "experimental_retrofit_004": {
+    "points": 5,
+    "en": "Targeting Scrambler"
+  },
+  "fleet_command_001": {
+    "points": 5,
+    "en": "•All Fighters, Follow Me!"
+  },
+  "fleet_command_002": {
+    "points": 5,
+    "en": "•Entrapment Formation!"
+  },
+  "fleet_command_003": {
+    "points": 3,
+    "en": "•Hot Landing"
+  },
+  "fleet_command_004": {
+    "points": 6,
+    "en": "•Intensify Firepower!"
+  },
+  "fleet_command_005": {
+    "points": 3,
+    "en": "•Jedi Hostage"
+  },
+  "fleet_command_006": {
+    "points": 5,
+    "en": "•Mercy Mission"
+  },
+  "fleet_command_007": {
+    "points": 6,
+    "en": "•Shields to Maximum!"
+  },
+  "fleet_command_008": {
+    "points": 6,
+    "en": "•Take Evasive Action!"
+  },
+  "fleet_support_001": {
+    "points": 8,
+    "en": "Bomber Command Center"
+  },
+  "fleet_support_002": {
+    "points": 2,
+    "en": "Comms Net"
+  },
+  "fleet_support_003": {
+    "points": 2,
+    "en": "Jamming Field"
+  },
+  "fleet_support_004": {
+    "points": 3,
+    "en": "Munitions Resupply"
+  },
+  "fleet_support_005": {
+    "points": 3,
+    "en": "Parts Resupply"
+  },
+  "fleet_support_006": {
+    "points": 3,
+    "en": "Repair Crews"
+  },
+  "fleet_support_007": {
+    "points": 7,
+    "en": "Slicer Tools"
+  },
+  "ion_cannons_001": {
+    "points": 9,
+    "en": "Heavy Ion Emplacements"
+  },
+  "ion_cannons_002": {
+    "points": 6,
+    "en": "High-Capacity Ion Turbines"
+  },
+  "ion_cannons_003": {
+    "points": 5,
+    "en": "Ion Cannon Batteries"
+  },
+  "ion_cannons_004": {
+    "points": 5,
+    "en": "Leading Shots"
+  },
+  "ion_cannons_005": {
+    "points": 2,
+    "en": "MS-1 Ion Cannons"
+  },
+  "ion_cannons_006": {
+    "points": 6,
+    "en": "NK-7 Ion Cannons"
+  },
+  "ion_cannons_007": {
+    "points": 6,
+    "en": "Overload Pulse"
+  },
+  "ion_cannons_008": {
+    "points": 6,
+    "en": "Point Defense Ion Cannons"
+  },
+  "ion_cannons_009": {
+    "points": 5,
+    "en": "SW-7 Ion Batteries"
+  },
+  "offensive_retrofit_001": {
+    "points": 5,
+    "en": "Advanced Transponder Net"
+  },
+  "offensive_retrofit_002": {
+    "points": 4,
+    "en": "Boosted Comms"
+  },
+  "offensive_retrofit_003": {
+    "points": 7,
+    "en": "B2 Rocket Troopers"
+  },
+  "offensive_retrofit_004": {
+    "points": 3,
+    "en": "Disposable Capacitors"
+  },
+  "offensive_retrofit_005": {
+    "points": 5,
+    "en": "Expanded Hangar Bay"
+  },
+  "offensive_retrofit_006": {
+    "points": 0,
+    "en": "Flag Bridge"
+  },
+  "offensive_retrofit_007": {
+    "points": 3,
+    "en": "Flak Guns"
+  },
+  "offensive_retrofit_008": {
+    "points": 5,
+    "en": "Hardened Bulkheads"
+  },
+  "offensive_retrofit_009": {
+    "points": 3,
+    "en": "Hyperwave Signal Boost"
+  },
+  "offensive_retrofit_010": {
+    "points": 6,
+    "en": "Phylon Q7 Tractor Beams"
+  },
+  "offensive_retrofit_011": {
+    "points": 5,
+    "en": "Point Defense Reroute"
+  },
+  "offensive_retrofit_012": {
+    "points": 4,
+    "en": "Proximity Mines"
+  },
+  "offensive_retrofit_013": {
+    "points": 5,
+    "en": "Quad Laser Turrets"
+  },
+  "offensive_retrofit_014": {
+    "points": 6,
+    "en": "Rapid Launch Bays"
+  },
+  "offensive_retrofit_015": {
+    "points": 4,
+    "en": "Reserve Hangar Deck"
+  },
+  "offensive_retrofit_016": {
+    "points": 7,
+    "en": "SPHA-T"
+  },
+  "officer_001": {
+    "points": 10,
+    "en": "•Admiral Chiraneau"
+  },
+  "officer_002": {
+    "points": 5,
+    "en": "•Admiral Montferrat"
+  },
+  "officer_003": {
+    "points": 2,
+    "en": "•Admiral Ozzel"
+  },
+  "officer_004": {
+    "points": 2,
+    "en": "•Admiral Titus"
+  },
+  "officer_005": {
+    "points": 3,
+    "en": "•Agent Kallus"
+  },
+  "officer_006": {
+    "points": 9,
+    "en": "•Captain Brunson"
+  },
+  "officer_007": {
+    "points": 2,
+    "en": "•Captain Needa"
+  },
+  "officer_008": {
+    "points": 7,
+    "en": "•Commandant Aresko"
+  },
+  "officer_009": {
+    "points": 3,
+    "en": "•Commander Beck"
+  },
+  "officer_010": {
+    "points": 2,
+    "en": "•Commander Gherant"
+  },
+  "officer_011": {
+    "points": 7,
+    "en": "•Commander Vanto"
+  },
+  "officer_012": {
+    "points": 4,
+    "en": "•Commander Woldar"
+  },
+  "officer_013": {
+    "points": 4,
+    "en": "•Darth Vader"
+  },
+  "officer_014": {
+    "points": 3,
+    "en": "•Director Isard"
+  },
+  "officer_015": {
+    "points": 8,
+    "en": "•Director Krennic"
+  },
+  "officer_016": {
+    "points": 3,
+    "en": "•Emperor Palpatine"
+  },
+  "officer_017": {
+    "points": 6,
+    "en": "•Governor Pryce"
+  },
+  "officer_018": {
+    "points": 6,
+    "en": "•Iden Versio"
+  },
+  "officer_019": {
+    "points": 7,
+    "en": "•Instructor Goran"
+  },
+  "officer_020": {
+    "points": 2,
+    "en": "•Lira Wessex"
+  },
+  "officer_021": {
+    "points": 2,
+    "en": "•Minister Tua"
+  },
+  "officer_022": {
+    "points": 4,
+    "en": "•Reeva Demesne"
+  },
+  "officer_023": {
+    "points": 5,
+    "en": "•Taskmaster Grint"
+  },
+  "officer_024": {
+    "points": 4,
+    "en": "•The Grand Inquisitor"
+  },
+  "officer_025": {
+    "points": 7,
+    "en": "•Wulff Yularen"
+  },
+  "officer_026": {
+    "points": 10,
+    "en": "•Adar Tallon"
+  },
+  "officer_027": {
+    "points": 2,
+    "en": "•Ahsoka Tano"
+  },
+  "officer_028": {
+    "points": 4,
+    "en": "•Bail Organa",
+    "banned": true
+  },
+  "officer_029": {
+    "points": 5,
+    "en": "•Captain Rex"
+  },
+  "officer_030": {
+    "points": 3,
+    "en": "•Ezra Bridger"
+  },
+  "officer_031": {
+    "points": 3,
+    "en": "•General Draven"
+  },
+  "officer_032": {
+    "points": 5,
+    "en": "•Kyrsta Agate"
+  },
+  "officer_033": {
+    "points": 4,
+    "en": "•Lando Calrissian"
+  },
+  "officer_034": {
+    "points": 3,
+    "en": "•Leia Organa"
+  },
+  "officer_035": {
+    "points": 7,
+    "en": "•Major Derlin"
+  },
+  "officer_036": {
+    "points": 7,
+    "en": "•Raymus Antilles"
+  },
+  "officer_037": {
+    "points": 4,
+    "en": "•Sabine Wren"
+  },
+  "officer_038": {
+    "points": 7,
+    "en": "•Toryn Farr"
+  },
+  "officer_039": {
+    "points": 5,
+    "en": "•Walex Blissex"
+  },
+  "officer_040": {
+    "points": 4,
+    "en": "•Wedge Antilles"
+  },
+  "officer_041": {
+    "points": 2,
+    "en": "Chart Officer"
+  },
+  "officer_042": {
+    "points": 3,
+    "en": "Damage Control Officer"
+  },
+  "officer_043": {
+    "points": 3,
+    "en": "Defense Liason"
+  },
+  "officer_044": {
+    "points": 6,
+    "en": "Engineering Captain"
+  },
+  "officer_045": {
+    "points": 5,
+    "en": "Expert Shield Tech"
+  },
+  "officer_046": {
+    "points": 3,
+    "en": "Flight Commander"
+  },
+  "officer_047": {
+    "points": 2,
+    "en": "•Hondo Ohnaka"
+  },
+  "officer_048": {
+    "points": 7,
+    "en": "Intel Officer"
+  },
+  "officer_049": {
+    "points": 6,
+    "en": "Navigation Officer"
+  },
+  "officer_050": {
+    "points": 1,
+    "en": "Skilled First Officer"
+  },
+  "officer_051": {
+    "points": 4,
+    "en": "Strategic Advisor",
+    "banned": true
+  },
+  "officer_052": {
+    "points": 2,
+    "en": "Support Officer"
+  },
+  "officer_053": {
+    "points": 6,
+    "en": "Tactical Expert"
+  },
+  "officer_054": {
+    "points": 2,
+    "en": "Veteran Captain"
+  },
+  "officer_055": {
+    "points": 3,
+    "en": "Weapons Liaison"
+  },
+  "officer_056": {
+    "points": 6,
+    "en": "Wing Commander"
+  },
+  "ordnance_001": {
+    "points": 5,
+    "en": "Assault Concussion Missiles"
+  },
+  "ordnance_002": {
+    "points": 4,
+    "en": "Assault Proton Torpedoes"
+  },
+  "ordnance_003": {
+    "points": 8,
+    "en": "Expanded Launchers"
+  },
+  "ordnance_004": {
+    "points": 4,
+    "en": "External Racks"
+  },
+  "ordnance_005": {
+    "points": 3,
+    "en": "Flechette Torpedoes"
+  },
+  "ordnance_006": {
+    "points": 3,
+    "en": "Ordnance Pods"
+  },
+  "ordnance_007": {
+    "points": 4,
+    "en": "Rapid Reload"
+  },
+  "ordnance_008": {
+    "points": 2,
+    "en": "Wide-Area Barrage"
+  },
+  "superweapon_001": {
+    "points": 5,
+    "en": "Orbital Bombardment Particle Cannons"
+  },
+  "superweapon_002": {
+    "points": 7,
+    "en": "Superheavy Composite Beam Turbolasers"
+  },
+  "superweapon_003": {
+    "points": 10,
+    "en": "Magnite Crystal Tractor Beam Array"
+  },
+  "support_team_001": {
+    "points": 3,
+    "en": "Auxiliary Shields Team"
+  },
+  "support_team_002": {
+    "points": 4,
+    "en": "Battle Droid Reserves"
+  },
+  "support_team_003": {
+    "points": 8,
+    "en": "Engine Techs"
+  },
+  "support_team_004": {
+    "points": 3,
+    "en": "Engineering Team"
+  },
+  "support_team_005": {
+    "points": 3,
+    "en": "Fighter Coordination Team"
+  },
+  "support_team_006": {
+    "points": 1,
+    "en": "Medical Team"
+  },
+  "support_team_007": {
+    "points": 4,
+    "en": "Nav Team"
+  },
+  "support_team_008": {
+    "points": 6,
+    "en": "Projection Experts"
+  },
+  "turbolasers_001": {
+    "points": 4,
+    "en": "Dual Turbolaser Turrets"
+  },
+  "turbolasers_002": {
+    "points": 3,
+    "en": "DBY-827 Heavy Turbolasers"
+  },
+  "turbolasers_003": {
+    "points": 10,
+    "en": "Enhanced Armament"
+  },
+  "turbolasers_004": {
+    "points": 8,
+    "en": "H9 Turbolasers"
+  },
+  "turbolasers_005": {
+    "points": 2,
+    "en": "Heavy Fire Zone"
+  },
+  "turbolasers_006": {
+    "points": 4,
+    "en": "Heavy Turbolaser Turrets"
+  },
+  "turbolasers_007": {
+    "points": 7,
+    "en": "Linked Turbolaser Towers"
+  },
+  "turbolasers_008": {
+    "points": 5,
+    "en": "Quad Battery Turrets"
+  },
+  "turbolasers_009": {
+    "points": 10,
+    "en": "Quad Turbolaser Cannons"
+  },
+  "turbolasers_010": {
+    "points": 6,
+    "en": "Slaved Turrets"
+  },
+  "turbolasers_011": {
+    "points": 9,
+    "en": "Spinal Armament"
+  },
+  "turbolasers_012": {
+    "points": 8,
+    "en": "Swivel-Mount Batteries"
+  },
+  "turbolasers_013": {
+    "points": 7,
+    "en": "Turbolaser Reroute Circuits"
+  },
+  "turbolasers_014": {
+    "points": 6,
+    "en": "XI7 Turbolasers"
+  },
+  "turbolasers_015": {
+    "points": 2,
+    "en": "XX-9 Turbolasers"
+  },
+  "weapons_team_001": {
+    "points": 6,
+    "en": "•Gunnery Chief Varnillian"
+  },
+  "weapons_team_002": {
+    "points": 3,
+    "en": "•Darth Vader"
+  },
+  "weapons_team_003": {
+    "points": 6,
+    "en": "•Caitken and Shollan"
+  },
+  "weapons_team_004": {
+    "points": 5,
+    "en": "•Cham Syndulla"
+  },
+  "weapons_team_005": {
+    "points": 4,
+    "en": "•Jyn Erso"
+  },
+  "weapons_team_006": {
+    "points": 4,
+    "en": "•Shriv Surgaav"
+  },
+  "weapons_team_007": {
+    "points": 2,
+    "en": "Fire-Control Team"
+  },
+  "weapons_team_008": {
+    "points": 6,
+    "en": "Flight Controllers"
+  },
+  "weapons_team_009": {
+    "points": 7,
+    "en": "Gunnery Team"
+  },
+  "weapons_team_010": {
+    "points": 4,
+    "en": "Local Fire Control"
+  },
+  "weapons_team_011": {
+    "points": 4,
+    "en": "Ordnance Experts"
+  },
+  "weapons_team_012": {
+    "points": 4,
+    "en": "Ruthless Strategists"
+  },
+  "weapons_team_013": {
+    "points": 5,
+    "en": "Sensor Team"
+  },
+  "weapons_team_014": {
+    "points": 5,
+    "en": "Veteran Gunners"
+  },
+  "weapons_team_015": {
+    "points": 4,
+    "en": "Weapons Battery Techs"
+  },
+  "weapons_team_016": {
+    "points": 2,
+    "en": "Boarding Engineers"
+  },
+  "weapons_team_017": {
+    "points": 3,
+    "en": "Boarding Troopers"
+  },
+  "rebel_squadrons_001": {
+    "points": 19,
+    "en": "•Biggs Darklighter"
+  },
+  "rebel_squadrons_002": {
+    "points": 22,
+    "en": "•Corran Horn"
+  },
+  "rebel_squadrons_003": {
+    "points": 15,
+    "en": "•Dagger Squadron"
+  },
+  "rebel_squadrons_004": {
+    "points": 24,
+    "en": "•Dash Rendar (Outrider)"
+  },
+  "rebel_squadrons_005": {
+    "points": 16,
+    "en": "•\"Dutch\" Vander"
+  },
+  "rebel_squadrons_006": {
+    "points": 12,
+    "en": "•Gold Squadron"
+  },
+  "rebel_squadrons_007": {
+    "points": 12,
+    "en": "•Green Squadron"
+  },
+  "rebel_squadrons_008": {
+    "points": 26,
+    "en": "•Han Solo (Millennium Falcon)"
+  },
+  "rebel_squadrons_009": {
+    "points": 28,
+    "en": "•Hera Syndulla (Ghost)"
+  },
+  "rebel_squadrons_010": {
+    "points": 19,
+    "en": "•Jan Ors (Moldy Crow)"
+  },
+  "rebel_squadrons_011": {
+    "points": 19,
+    "en": "•Kanan Jarrus"
+  },
+  "rebel_squadrons_012": {
+    "points": 22,
+    "en": "•Ketsu Onyo (Shadow Caster)"
+  },
+  "rebel_squadrons_013": {
+    "points": 18,
+    "en": "•Keyan Farlander"
+  },
+  "rebel_squadrons_014": {
+    "points": 24,
+    "en": "•Lando Calrissian (Millennium Falcon)"
+  },
+  "rebel_squadrons_015": {
+    "points": 14,
+    "en": "•Lieutenant Blount"
+  },
+  "rebel_squadrons_016": {
+    "points": 20,
+    "en": "•Luke Skywalker"
+  },
+  "rebel_squadrons_017": {
+    "points": 21,
+    "en": "•Malee Hurra"
+  },
+  "rebel_squadrons_018": {
+    "points": 22,
+    "en": "•Mart Mattin (Sato's Hammer)"
+  },
+  "rebel_squadrons_019": {
+    "points": 17,
+    "en": "•Norra Wexley"
+  },
+  "rebel_squadrons_020": {
+    "points": 21,
+    "en": "•Nym (Havoc)"
+  },
+  "rebel_squadrons_021": {
+    "points": 14,
+    "en": "•Rogue Squadron"
+  },
+  "rebel_squadrons_022": {
+    "points": 17,
+    "en": "•Shara Bey"
+  },
+  "rebel_squadrons_023": {
+    "points": 19,
+    "en": "•Ten Numb"
+  },
+  "rebel_squadrons_024": {
+    "points": 16,
+    "en": "•Tycho Celchu"
+  },
+  "rebel_squadrons_025": {
+    "points": 19,
+    "en": "•Wedge Antilles"
+  },
+  "rebel_squadrons_026": {
+    "points": 11,
+    "en": "A-Wing Squadron"
+  },
+  "rebel_squadrons_027": {
+    "points": 14,
+    "en": "B-Wing Squadron"
+  },
+  "rebel_squadrons_028": {
+    "points": 14,
+    "en": "E-Wing Squadron"
+  },
+  "rebel_squadrons_029": {
+    "points": 12,
+    "en": "HWK-290"
+  },
+  "rebel_squadrons_030": {
+    "points": 14,
+    "en": "Lancer-class Pursuit Craft"
+  },
+  "rebel_squadrons_031": {
+    "points": 16,
+    "en": "Scurrg H-6 Bomber"
+  },
+  "rebel_squadrons_032": {
+    "points": 15,
+    "en": "VCX-100 Freighter"
+  },
+  "rebel_squadrons_033": {
+    "points": 13,
+    "en": "X-Wing Squadron"
+  },
+  "rebel_squadrons_034": {
+    "points": 10,
+    "en": "Y-Wing Squadron"
+  },
+  "rebel_squadrons_035": {
+    "points": 13,
+    "en": "YT-1300"
+  },
+  "rebel_squadrons_036": {
+    "points": 7,
+    "en": "Z-95 Headhunter Squadron"
+  },
+  "rebel_squadrons_037": {
+    "points": 16,
+    "en": "YT-2400"
+  }
+}

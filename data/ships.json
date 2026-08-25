@@ -1,0 +1,842 @@
+[
+  {
+    "id": "arquitens_command",
+    "type": "ship",
+    "faction": "imperial",
+    "name": "阿奎腾斯级指挥巡洋舰",
+    "nameEn": "Arquitens-class Command Cruiser",
+    "size": "small",
+    "points": 55,
+    "image": "assets/ships/imperial/images/page_001_img_1.jpeg",
+    "slots": [
+      "officer",
+      "support_team",
+      "defensive_retrofit",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "arquitens_light",
+    "type": "ship",
+    "faction": "imperial",
+    "name": "阿奎腾斯级轻型巡洋舰",
+    "nameEn": "Arquitens-class Light Cruiser",
+    "size": "small",
+    "points": 52,
+    "image": "assets/ships/imperial/images/page_002_img_1.jpeg",
+    "slots": [
+      "officer",
+      "defensive_retrofit",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "executor_i",
+    "type": "ship",
+    "faction": "imperial",
+    "name": "执行者I级星际无畏舰",
+    "nameEn": "Executor I-Class Star Dreadnought",
+    "size": "huge",
+    "points": 381,
+    "image": "assets/ships/imperial/images/page_003_img_1.jpeg",
+    "slots": [
+      "officer",
+      "officer",
+      "officer",
+      "officer",
+      "weapons_team",
+      "fleet_command",
+      "fleet_command",
+      "fleet_command",
+      "fleet_command",
+      "offensive_retrofit",
+      "ion_cannons",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "executor_ii",
+    "type": "ship",
+    "faction": "imperial",
+    "name": "执行者II级星际无畏舰",
+    "nameEn": "Executor II-Class Star Dreadnought",
+    "size": "huge",
+    "points": 411,
+    "image": "assets/ships/imperial/images/page_004_img_1.jpeg",
+    "slots": [
+      "officer",
+      "officer",
+      "officer",
+      "officer",
+      "weapons_team",
+      "fleet_command",
+      "offensive_retrofit",
+      "offensive_retrofit",
+      "ion_cannons",
+      "ion_cannons",
+      "turbolasers",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "gladiator_i",
+    "type": "ship",
+    "faction": "imperial",
+    "name": "斗士I级歼星舰",
+    "nameEn": "Gladiator I-class Star Destroyer",
+    "size": "small",
+    "points": 56,
+    "image": "assets/ships/imperial/images/page_005_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "support_team",
+      "ordnance"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "gladiator_ii",
+    "type": "ship",
+    "faction": "imperial",
+    "name": "斗士II级歼星舰",
+    "nameEn": "Gladiator II-class Star Destroyer",
+    "size": "small",
+    "points": 62,
+    "image": "assets/ships/imperial/images/page_006_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "support_team",
+      "ordnance"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "gozanti_assault",
+    "type": "ship",
+    "faction": "imperial",
+    "name": "戈赞蒂级突击母舰",
+    "nameEn": "Gozanti-class Assault Carriers",
+    "size": "small",
+    "points": 26,
+    "image": "assets/ships/imperial/images/page_007_img_1.jpeg",
+    "slots": [
+      "officer",
+      "fleet_support",
+      "offensive_retrofit"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "gozanti_cruiser",
+    "type": "ship",
+    "faction": "imperial",
+    "name": "戈赞蒂级母舰",
+    "nameEn": "Gozanti-class Cruisers",
+    "size": "small",
+    "points": 23,
+    "image": "assets/ships/imperial/images/page_008_img_1.jpeg",
+    "slots": [
+      "officer",
+      "fleet_support",
+      "offensive_retrofit"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "imperial_i",
+    "type": "ship",
+    "faction": "imperial",
+    "name": "帝国I级歼星舰",
+    "nameEn": "Imperial I-class Star Destroyer",
+    "size": "large",
+    "points": 110,
+    "image": "assets/ships/imperial/images/page_009_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "offensive_retrofit",
+      "offensive_retrofit",
+      "ion_cannons",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "imperial_ii",
+    "type": "ship",
+    "faction": "imperial",
+    "name": "帝国II级歼星舰",
+    "nameEn": "Imperial II-class Star Destroyer",
+    "size": "large",
+    "points": 120,
+    "image": "assets/ships/imperial/images/page_010_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "offensive_retrofit",
+      "defensive_retrofit",
+      "ion_cannons",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "imperial_cymoon",
+    "type": "ship",
+    "faction": "imperial",
+    "name": "帝国级歼星舰赛蒙一号特装型",
+    "nameEn": "Imperial Star Destroyer Cymoon 1 Refit",
+    "size": "large",
+    "points": 112,
+    "image": "assets/ships/imperial/images/page_011_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "fleet_command",
+      "offensive_retrofit",
+      "turbolasers",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "imperial_kuat",
+    "type": "ship",
+    "faction": "imperial",
+    "name": "帝国级歼星舰夸特特装型",
+    "nameEn": "Imperial Star Destroyer Kuat Refit",
+    "size": "large",
+    "points": 112,
+    "image": "assets/ships/imperial/images/page_012_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "offensive_retrofit",
+      "defensive_retrofit",
+      "ion_cannons",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "interdictor_combat",
+    "type": "ship",
+    "faction": "imperial",
+    "name": "阻绝者级战斗特装型",
+    "nameEn": "Interdictor Combat Refit",
+    "size": "medium",
+    "points": 93,
+    "image": "assets/ships/imperial/images/page_013_img_1.jpeg",
+    "slots": [
+      "officer",
+      "support_team",
+      "offensive_retrofit",
+      "experimental_retrofit",
+      "ion_cannons"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "interdictor_suppression",
+    "type": "ship",
+    "faction": "imperial",
+    "name": "阻绝者级压制特装型",
+    "nameEn": "Interdictor Suppression Refit",
+    "size": "medium",
+    "points": 90,
+    "image": "assets/ships/imperial/images/page_014_img_1.jpeg",
+    "slots": [
+      "officer",
+      "support_team",
+      "offensive_retrofit",
+      "experimental_retrofit",
+      "experimental_retrofit",
+      "ion_cannons"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "onager",
+    "type": "ship",
+    "faction": "imperial",
+    "name": "超弩级歼星舰",
+    "nameEn": "Onager-class Star Destroyer",
+    "size": "large",
+    "points": 120,
+    "image": "assets/ships/imperial/images/page_015_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "weapons_team",
+      "turbolasers",
+      "superweapon"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "onager_testbed",
+    "type": "ship",
+    "faction": "imperial",
+    "name": "超弩级试作机",
+    "nameEn": "Onager-class Testbed",
+    "size": "large",
+    "points": 116,
+    "image": "assets/ships/imperial/images/page_016_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "weapons_team",
+      "support_team",
+      "superweapon"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "quasar_i",
+    "type": "ship",
+    "faction": "imperial",
+    "name": "类星体火I级巡洋母舰",
+    "nameEn": "Quasar Fire I-class Cruiser-Carrier",
+    "size": "medium",
+    "points": 54,
+    "image": "assets/ships/imperial/images/page_017_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "offensive_retrofit",
+      "offensive_retrofit"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "quasar_ii",
+    "type": "ship",
+    "faction": "imperial",
+    "name": "类星体火II级巡洋母舰",
+    "nameEn": "Quasar Fire II-class Cruiser-Carrier",
+    "size": "medium",
+    "points": 61,
+    "image": "assets/ships/imperial/images/page_018_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "weapons_team",
+      "offensive_retrofit"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "raider_i",
+    "type": "ship",
+    "faction": "imperial",
+    "name": "袭击者I级护卫舰",
+    "nameEn": "Raider I-class Corvette",
+    "size": "small",
+    "points": 44,
+    "image": "assets/ships/imperial/images/page_019_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "offensive_retrofit",
+      "ordnance"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "raider_ii",
+    "type": "ship",
+    "faction": "imperial",
+    "name": "袭击者II级护卫舰",
+    "nameEn": "Raider II-class Corvette",
+    "size": "small",
+    "points": 48,
+    "image": "assets/ships/imperial/images/page_020_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "offensive_retrofit",
+      "ion_cannons"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "star_dreadnought_assault",
+    "type": "ship",
+    "faction": "imperial",
+    "name": "星际无畏舰突击原型机",
+    "nameEn": "Star Dreadnought Assault Prototype",
+    "size": "huge",
+    "points": 250,
+    "image": "assets/ships/imperial/images/page_021_img_1.jpeg",
+    "slots": [
+      "officer",
+      "officer",
+      "officer",
+      "weapons_team",
+      "offensive_retrofit",
+      "offensive_retrofit",
+      "ion_cannons",
+      "ion_cannons",
+      "turbolasers",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "star_dreadnought_command",
+    "type": "ship",
+    "faction": "imperial",
+    "name": "星际无畏舰指挥原型机",
+    "nameEn": "Star Dreadnought Command Prototype",
+    "size": "huge",
+    "points": 220,
+    "image": "assets/ships/imperial/images/page_022_img_1.jpeg",
+    "slots": [
+      "officer",
+      "officer",
+      "officer",
+      "weapons_team",
+      "fleet_command",
+      "fleet_command",
+      "offensive_retrofit",
+      "ion_cannons",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "victory_i",
+    "type": "ship",
+    "faction": "imperial",
+    "name": "胜利I级歼星舰",
+    "nameEn": "Victory I-class Star Destroyer",
+    "size": "medium",
+    "points": 73,
+    "image": "assets/ships/imperial/images/page_023_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "offensive_retrofit",
+      "ordnance",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "victory_ii",
+    "type": "ship",
+    "faction": "imperial",
+    "name": "胜利II级歼星舰",
+    "nameEn": "Victory II-class Star Destroyer",
+    "size": "medium",
+    "points": 80,
+    "image": "assets/ships/imperial/images/page_024_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "offensive_retrofit",
+      "ion_cannons",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "assault_frigate_ii_a",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "突击护卫舰MKIIA型",
+    "nameEn": "Assault Frigate Mark II A",
+    "size": "medium",
+    "points": 77,
+    "image": "assets/ships/rebel/images/page_025_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "offensive_retrofit",
+      "defensive_retrofit",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "assault_frigate_ii_b",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "突击护卫舰MKIIB型",
+    "nameEn": "Assault Frigate Mark II B",
+    "size": "medium",
+    "points": 72,
+    "image": "assets/ships/rebel/images/page_026_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "offensive_retrofit",
+      "defensive_retrofit",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "cr90_a",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "CR90A轻型护卫舰",
+    "nameEn": "CR90 Corvette A",
+    "size": "small",
+    "points": 44,
+    "image": "assets/ships/rebel/images/page_027_img_1.jpeg",
+    "slots": [
+      "officer",
+      "support_team",
+      "defensive_retrofit",
+      "ion_cannons"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "cr90_b",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "CR90B轻型护卫舰",
+    "nameEn": "CR90 Corvette B",
+    "size": "small",
+    "points": 39,
+    "image": "assets/ships/rebel/images/page_028_img_1.jpeg",
+    "slots": [
+      "officer",
+      "support_team",
+      "defensive_retrofit",
+      "ion_cannons"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "gr75_combat",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "GR-75战斗改装型",
+    "nameEn": "GR-75 Combat Retrofits",
+    "size": "small",
+    "points": 24,
+    "image": "assets/ships/rebel/images/page_029_img_1.jpeg",
+    "slots": [
+      "officer",
+      "fleet_support",
+      "offensive_retrofit"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "gr75_transport",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "GR-75中型运输舰",
+    "nameEn": "GR-75 Medium Transports",
+    "size": "small",
+    "points": 18,
+    "image": "assets/ships/rebel/images/page_030_img_1.jpeg",
+    "slots": [
+      "officer",
+      "fleet_support",
+      "offensive_retrofit"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "hammerhead_scout",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "锤头侦查轻型护卫舰",
+    "nameEn": "Hammerhead Scout Corvette",
+    "size": "small",
+    "points": 41,
+    "image": "assets/ships/rebel/images/page_031_img_1.jpeg",
+    "slots": [
+      "officer",
+      "offensive_retrofit",
+      "weapons_team",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "hammerhead_torpedo",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "锤头鱼雷轻型护卫舰",
+    "nameEn": "Hammerhead Torpedo Corvette",
+    "size": "small",
+    "points": 36,
+    "image": "assets/ships/rebel/images/page_032_img_1.jpeg",
+    "slots": [
+      "officer",
+      "offensive_retrofit",
+      "weapons_team",
+      "ordnance"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "mc30c_scout",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "MC30C侦查护卫舰",
+    "nameEn": "MC30c Scout Frigate",
+    "size": "small",
+    "points": 69,
+    "image": "assets/ships/rebel/images/page_033_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "defensive_retrofit",
+      "ordnance",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "mc30c_torpedo",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "MC30C鱼雷护卫舰",
+    "nameEn": "MC30c Torpedo Frigate",
+    "size": "small",
+    "points": 63,
+    "image": "assets/ships/rebel/images/page_034_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "defensive_retrofit",
+      "ordnance",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "mc75_armored",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "MC75装甲巡洋舰",
+    "nameEn": "MC75 Armored Cruiser",
+    "size": "large",
+    "points": 99,
+    "image": "assets/ships/rebel/images/page_035_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "offensive_retrofit",
+      "defensive_retrofit",
+      "ordnance",
+      "ion_cannons",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "mc75_ordnance",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "MC75火炮巡洋舰",
+    "nameEn": "MC75 Ordnance Cruiser",
+    "size": "large",
+    "points": 95,
+    "image": "assets/ships/rebel/images/page_036_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "offensive_retrofit",
+      "defensive_retrofit",
+      "ordnance",
+      "ordnance"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "mc80_assault",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "MC80突击巡洋舰",
+    "nameEn": "MC80 Assault Cruiser",
+    "size": "large",
+    "points": 110,
+    "image": "assets/ships/rebel/images/page_037_img_1.jpeg",
+    "slots": [
+      "officer",
+      "support_team",
+      "defensive_retrofit",
+      "defensive_retrofit",
+      "ion_cannons",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "mc80_battle",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "MC80战斗巡洋舰",
+    "nameEn": "MC80 Battle Cruiser",
+    "size": "large",
+    "points": 103,
+    "image": "assets/ships/rebel/images/page_038_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "support_team",
+      "ion_cannons",
+      "turbolasers",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "mc80_command",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "MC80指挥巡洋舰",
+    "nameEn": "MC80 Command Cruiser",
+    "size": "large",
+    "points": 102,
+    "image": "assets/ships/rebel/images/page_039_img_1.jpeg",
+    "slots": [
+      "officer",
+      "support_team",
+      "offensive_retrofit",
+      "defensive_retrofit",
+      "ion_cannons",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "mc80_star",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "MC80星际巡洋舰",
+    "nameEn": "MC80 Star Cruiser",
+    "size": "large",
+    "points": 96,
+    "image": "assets/ships/rebel/images/page_040_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "support_team",
+      "ion_cannons",
+      "turbolasers",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "pelta_assault",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "改装型轻盾级突击舰",
+    "nameEn": "Modified Pelta-class Assault Ship",
+    "size": "small",
+    "points": 56,
+    "image": "assets/ships/rebel/images/page_041_img_1.jpeg",
+    "slots": [
+      "officer",
+      "support_team",
+      "fleet_command",
+      "ordnance"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "pelta_command",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "改装型轻盾级指挥舰",
+    "nameEn": "Modified Pelta-class Command Ship",
+    "size": "small",
+    "points": 60,
+    "image": "assets/ships/rebel/images/page_042_img_1.jpeg",
+    "slots": [
+      "officer",
+      "support_team",
+      "fleet_command",
+      "offensive_retrofit"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "nebulon_b_escort",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "内布伦-B护航护卫舰",
+    "nameEn": "Nebulon-B Escort Frigate",
+    "size": "small",
+    "points": 57,
+    "image": "assets/ships/rebel/images/page_043_img_1.jpeg",
+    "slots": [
+      "officer",
+      "support_team",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "nebulon_b_support",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "内布伦-B支援护卫舰",
+    "nameEn": "Nebulon-B Support Refit",
+    "size": "small",
+    "points": 51,
+    "image": "assets/ships/rebel/images/page_044_img_1.jpeg",
+    "slots": [
+      "officer",
+      "support_team",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "starhawk_i",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "星鹰级战列舰MKI",
+    "nameEn": "Starhawk-Class Battleship Mark I",
+    "size": "large",
+    "points": 140,
+    "image": "assets/ships/rebel/images/page_045_img_1.jpeg",
+    "slots": [
+      "officer",
+      "officer",
+      "weapons_team",
+      "offensive_retrofit",
+      "ion_cannons",
+      "turbolasers",
+      "superweapon"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "starhawk_ii",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "星鹰级战列舰MKII",
+    "nameEn": "Starhawk-Class Battleship Mark II",
+    "size": "large",
+    "points": 150,
+    "image": "assets/ships/rebel/images/page_046_img_1.jpeg",
+    "slots": [
+      "officer",
+      "officer",
+      "weapons_team",
+      "offensive_retrofit",
+      "ion_cannons",
+      "turbolasers",
+      "superweapon"
+    ],
+    "effect": ""
+  }
+]

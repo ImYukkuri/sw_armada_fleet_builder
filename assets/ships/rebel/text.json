@@ -1,0 +1,356 @@
+{
+  "file": "星球大战：无敌舰队 01战舰中文卡牌v0.1 (1).pdf",
+  "total_pages": 22,
+  "total_images": 22,
+  "ships": [
+    {
+      "ID": 25,
+      "faction": "rebel",
+      "id": "assault_frigate_ii_a",
+      "name": "突击护卫舰MKIIA型",
+      "nameEn": "Assault Frigate Mark II A",
+      "size": "medium",
+      "image": "images/page_025_img_1.jpeg",
+      "slots": [
+        "officer",
+        "weapons_team",
+        "offensive_retrofit",
+        "defensive_retrofit",
+        "turbolasers"
+      ]
+    },
+    {
+      "ID": 26,
+      "faction": "rebel",
+      "id": "assault_frigate_ii_b",
+      "name": "突击护卫舰MKIIB型",
+      "nameEn": "Assault Frigate Mark II B",
+      "size": "medium",
+      "image": "images/page_026_img_1.jpeg",
+      "slots": [
+        "officer",
+        "weapons_team",
+        "offensive_retrofit",
+        "defensive_retrofit",
+        "turbolasers"
+      ]
+    },
+    {
+      "ID": 27,
+      "faction": "rebel",
+      "id": "cr90_a",
+      "name": "CR90A轻型护卫舰",
+      "nameEn": "CR90 Corvette A",
+      "size": "small",
+      "image": "images/page_027_img_1.jpeg",
+      "slots": [
+        "officer",
+        "support_team",
+        "defensive_retrofit",
+        "ion_cannons"
+      ]
+    },
+    {
+      "ID": 28,
+      "faction": "rebel",
+      "id": "cr90_b",
+      "name": "CR90B轻型护卫舰",
+      "nameEn": "CR90 Corvette B",
+      "size": "small",
+      "image": "images/page_028_img_1.jpeg",
+      "slots": [
+        "officer",
+        "support_team",
+        "defensive_retrofit",
+        "ion_cannons"
+      ]
+    },
+    {
+      "ID": 29,
+      "faction": "rebel",
+      "id": "gr75_combat",
+      "name": "GR-75战斗改装型",
+      "nameEn": "GR-75 Combat Retrofits",
+      "size": "small",
+      "image": "images/page_029_img_1.jpeg",
+      "slots": [
+        "officer",
+        "fleet_support",
+        "offensive_retrofit"
+      ]
+    },
+    {
+      "ID": 30,
+      "faction": "rebel",
+      "id": "gr75_transport",
+      "name": "GR-75中型运输舰",
+      "nameEn": "GR-75 Medium Transports",
+      "size": "small",
+      "image": "images/page_030_img_1.jpeg",
+      "slots": [
+        "officer",
+        "fleet_support",
+        "offensive_retrofit"
+      ]
+    },
+    {
+      "ID": 31,
+      "faction": "rebel",
+      "id": "hammerhead_scout",
+      "name": "锤头侦查轻型护卫舰",
+      "nameEn": "Hammerhead Scout Corvette",
+      "size": "small",
+      "image": "images/page_031_img_1.jpeg",
+      "slots": [
+        "officer",
+        "offensive_retrofit",
+        "weapons_team",
+        "turbolasers"
+      ]
+    },
+    {
+      "ID": 32,
+      "faction": "rebel",
+      "id": "hammerhead_torpedo",
+      "name": "锤头鱼雷轻型护卫舰",
+      "nameEn": "Hammerhead Torpedo Corvette",
+      "size": "small",
+      "image": "images/page_032_img_1.jpeg",
+      "slots": [
+        "officer",
+        "offensive_retrofit",
+        "weapons_team",
+        "ordnance"
+      ]
+    },
+    {
+      "ID": 33,
+      "faction": "rebel",
+      "id": "mc30c_scout",
+      "name": "MC30C侦查护卫舰",
+      "nameEn": "MC30c Scout Frigate",
+      "size": "small",
+      "image": "images/page_033_img_1.jpeg",
+      "slots": [
+        "officer",
+        "weapons_team",
+        "defensive_retrofit",
+        "ordnance",
+        "turbolasers"
+      ]
+    },
+    {
+      "ID": 34,
+      "faction": "rebel",
+      "id": "mc30c_torpedo",
+      "name": "MC30C鱼雷护卫舰",
+      "nameEn": "MC30c Torpedo Frigate",
+      "size": "small",
+      "image": "images/page_034_img_1.jpeg",
+      "slots": [
+        "officer",
+        "weapons_team",
+        "defensive_retrofit",
+        "ordnance",
+        "turbolasers"
+      ]
+    },
+    {
+      "ID": 35,
+      "faction": "rebel",
+      "id": "mc75_armored",
+      "name": "MC75装甲巡洋舰",
+      "nameEn": "MC75 Armored Cruiser",
+      "size": "large",
+      "image": "images/page_035_img_1.jpeg",
+      "slots": [
+        "officer",
+        "weapons_team",
+        "offensive_retrofit",
+        "defensive_retrofit",
+        "ordnance",
+        "ion_cannons",
+        "turbolasers"
+      ]
+    },
+    {
+      "ID": 36,
+      "faction": "rebel",
+      "id": "mc75_ordnance",
+      "name": "MC75火炮巡洋舰",
+      "nameEn": "MC75 Ordnance Cruiser",
+      "size": "large",
+      "image": "images/page_036_img_1.jpeg",
+      "slots": [
+        "officer",
+        "weapons_team",
+        "offensive_retrofit",
+        "defensive_retrofit",
+        "ordnance",
+        "ordnance"
+      ]
+    },
+    {
+      "ID": 37,
+      "faction": "rebel",
+      "id": "mc80_assault",
+      "name": "MC80突击巡洋舰",
+      "nameEn": "MC80 Assault Cruiser",
+      "size": "large",
+      "image": "images/page_037_img_1.jpeg",
+      "slots": [
+        "officer",
+        "support_team",
+        "defensive_retrofit",
+        "defensive_retrofit",
+        "ion_cannons",
+        "turbolasers"
+      ]
+    },
+    {
+      "ID": 38,
+      "faction": "rebel",
+      "id": "mc80_battle",
+      "name": "MC80战斗巡洋舰",
+      "nameEn": "MC80 Battle Cruiser",
+      "size": "large",
+      "image": "images/page_038_img_1.jpeg",
+      "slots": [
+        "officer",
+        "weapons_team",
+        "support_team",
+        "ion_cannons",
+        "turbolasers",
+        "turbolasers"
+      ]
+    },
+    {
+      "ID": 39,
+      "faction": "rebel",
+      "id": "mc80_command",
+      "name": "MC80指挥巡洋舰",
+      "nameEn": "MC80 Command Cruiser",
+      "size": "large",
+      "image": "images/page_039_img_1.jpeg",
+      "slots": [
+        "officer",
+        "support_team",
+        "offensive_retrofit",
+        "defensive_retrofit",
+        "ion_cannons",
+        "turbolasers"
+      ]
+    },
+    {
+      "ID": 40,
+      "faction": "rebel",
+      "id": "mc80_star",
+      "name": "MC80星际巡洋舰",
+      "nameEn": "MC80 Star Cruiser",
+      "size": "large",
+      "image": "images/page_040_img_1.jpeg",
+      "slots": [
+        "officer",
+        "weapons_team",
+        "support_team",
+        "ion_cannons",
+        "turbolasers",
+        "turbolasers"
+      ]
+    },
+    {
+      "ID": 41,
+      "faction": "rebel",
+      "id": "pelta_assault",
+      "name": "改装型轻盾级突击舰",
+      "nameEn": "Modified Pelta-class Assault Ship",
+      "size": "small",
+      "image": "images/page_041_img_1.jpeg",
+      "slots": [
+        "officer",
+        "support_team",
+        "fleet_command",
+        "ordnance"
+      ]
+    },
+    {
+      "ID": 42,
+      "faction": "rebel",
+      "id": "pelta_command",
+      "name": "改装型轻盾级指挥舰",
+      "nameEn": "Modified Pelta-class Command Ship",
+      "size": "small",
+      "image": "images/page_042_img_1.jpeg",
+      "slots": [
+        "officer",
+        "support_team",
+        "fleet_command",
+        "offensive_retrofit"
+      ]
+    },
+    {
+      "ID": 43,
+      "faction": "rebel",
+      "id": "nebulon_b_escort",
+      "name": "内布伦-B护航护卫舰",
+      "nameEn": "Nebulon-B Escort Frigate",
+      "size": "small",
+      "image": "images/page_043_img_1.jpeg",
+      "slots": [
+        "officer",
+        "support_team",
+        "turbolasers"
+      ]
+    },
+    {
+      "ID": 44,
+      "faction": "rebel",
+      "id": "nebulon_b_support",
+      "name": "内布伦-B支援护卫舰",
+      "nameEn": "Nebulon-B Support Refit",
+      "size": "small",
+      "image": "images/page_044_img_1.jpeg",
+      "slots": [
+        "officer",
+        "support_team",
+        "turbolasers"
+      ]
+    },
+    {
+      "ID": 45,
+      "faction": "rebel",
+      "id": "starhawk_i",
+      "name": "星鹰级战列舰MKI",
+      "nameEn": "Starhawk-Class Battleship Mark I",
+      "size": "large",
+      "image": "images/page_045_img_1.jpeg",
+      "slots": [
+        "officer",
+        "officer",
+        "weapons_team",
+        "offensive_retrofit",
+        "ion_cannons",
+        "turbolasers",
+        "superweapon"
+      ]
+    },
+    {
+      "ID": 46,
+      "faction": "rebel",
+      "id": "starhawk_ii",
+      "name": "星鹰级战列舰MKII",
+      "nameEn": "Starhawk-Class Battleship Mark II",
+      "size": "large",
+      "image": "images/page_046_img_1.jpeg",
+      "slots": [
+        "officer",
+        "officer",
+        "weapons_team",
+        "offensive_retrofit",
+        "ion_cannons",
+        "turbolasers",
+        "superweapon"
+      ]
+    }
+  ]
+}

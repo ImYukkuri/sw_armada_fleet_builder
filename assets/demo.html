@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Armada PDF 图标转义演示</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="armada-icons.css">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(184, 151, 82, 0.18), transparent 30rem),
+        #11151b;
+      color: #e8e5dc;
+      font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+    }
+    main { width: min(1080px, calc(100% - 32px)); margin: 48px auto 80px; }
+    header { margin-bottom: 28px; }
+    h1 { margin: 0 0 8px; font-size: clamp(28px, 5vw, 48px); letter-spacing: 0.02em; }
+    header p { max-width: 760px; color: #b9bec7; line-height: 1.7; }
+    .panel {
+      margin-top: 20px;
+      padding: 24px;
+      border: 1px solid rgba(184, 151, 82, 0.35);
+      border-radius: 18px;
+      background: rgba(248, 245, 236, 0.97);
+      box-shadow: 0 18px 55px rgba(0, 0, 0, 0.28);
+    }
+    .panel h2 { margin: 0 0 16px; color: #1f2227; }
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+    }
+    .icon-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 58px;
+      padding: 10px 12px;
+      border: 1px solid var(--armada-line);
+      border-radius: 12px;
+      color: #20242a;
+      background: #fffdf7;
+    }
+    .icon-row code { display: block; margin-top: 3px; color: #6d6557; font-size: 11px; }
+    .sample-list { display: grid; gap: 12px; }
+    .sample {
+      padding: 16px 18px;
+      border-left: 4px solid var(--armada-gold);
+      border-radius: 8px;
+      background: #fffdf7;
+    }
+    .sample strong { display: block; margin-bottom: 6px; color: #675126; }
+    .notice { color: #6b6253; line-height: 1.65; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Armada 图标转义</h1>
+      <p>把 PDF 文本提取后遗留的“四空格 + 中文标签”固化成显式 token，再以安全的 DOM 节点渲染为行内图标。</p>
+    </header>
+
+    <section class="panel">
+      <h2>12 类图标</h2>
+      <div class="icon-grid" id="icon-grid"></div>
+    </section>
+
+    <section class="panel">
+      <h2>原始 PDF 文本直接渲染</h2>
+      <div class="sample-list" id="samples"></div>
+    </section>
+
+    <section class="panel notice">
+      <h2>第 40 页漏图修复</h2>
+      <p>该页原文的四空格占位仍在，但 PDF 中没有对应图片对象。相同的转义规则会把“花费1个&nbsp;&nbsp;&nbsp;&nbsp;中队指令标记”恢复成带中队指令图标的文本。</p>
+    </section>
+  </main>
+
+  <script src="armada-icons.js"></script>
+  <script>
+    const iconGrid = document.querySelector("#icon-grid");
+    for (const [iconId, definition] of Object.entries(ArmadaIcons.icons)) {
+      const row = document.createElement("div");
+      row.className = "icon-row";
+      row.append(ArmadaIcons.createIcon(iconId, "armada-icon--large"));
+      const label = document.createElement("div");
+      label.append(document.createTextNode(definition.label));
+      const token = document.createElement("code");
+      token.textContent = `[[icon:${iconId}]]`;
+      label.append(token);
+      row.append(label);
+      iconGrid.append(row);
+    }
+
+    const examples = [
+      ["奇拉内奥上将", "    中队：被你激活的中队即使交战中也可以移动。"],
+      ["达斯·维达", "丢弃1个它的    指挥官或    \n士官升级卡，来重投攻击池中任意数量的骰子。"],
+      ["克伦尼克总监", "    集火：如果你花费了1个    集火指挥转盘，则可以重投红色骰子。"],
+      ["图阿部长", "你的升级栏中获得1个额外的    防御改装标志。"],
+      ["防御联络官", "将该指挥转盘改成1个    导航或    维修指挥转盘。"],
+      ["基尔丝塔·阿加特", "红色或蓝色    暴击：你可以消耗此卡来重置防御标记。"],
+      ["第40页源文件漏图", "你可以花费1个    中队指令标记来选择至多3个友方中队。"]
+    ];
+
+    const sampleList = document.querySelector("#samples");
+    for (const [title, source] of examples) {
+      const sample = document.createElement("div");
+      sample.className = "sample";
+      const heading = document.createElement("strong");
+      heading.textContent = title;
+      const text = document.createElement("div");
+      text.className = "armada-rules-text";
+      ArmadaIcons.render(text, source);
+      sample.append(heading, text);
+      sampleList.append(sample);
+    }
+  </script>
+</body>
+</html>

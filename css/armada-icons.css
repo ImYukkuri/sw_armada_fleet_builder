@@ -1,0 +1,42 @@
+/* Armada 图标字库样式（自 assets/armada_officer_pdf_assets 引入）。
+ * 行内小图标：.armada-icon 用于卡面效果文本中的嵌入图标；
+ * .armada-icon--large 用于放大展示（如演示页）。
+ *
+ * 上色方式：PNG 原图是黑白剪影，用 CSS mask（mask-image）+ background-color: currentColor
+ * 让图标颜色跟随所在文本的字体颜色（需求：转义图标颜色与正文一致）。
+ * 每类图标对应一个 .armada-icon--<id> mask-image 规则（id 与 js/fleet/armada-icons.js
+ * 的 icons 表键一致；图标文件位于项目根 icons/web/）。 */
+
+.armada-icon {
+  display: inline-block;
+  width: 1.08em;
+  height: 1.08em;
+  margin: 0 0.08em;
+  vertical-align: -0.19em;
+  background-color: currentColor;   /* 图标上色：用字体颜色填充剪影 */
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+.armada-icon--large {
+  width: 2.2rem;
+  height: 2.2rem;
+  vertical-align: middle;
+}
+
+.armada-icon--command-squadron { -webkit-mask-image: url("../icons/web/command-squadron.png"); mask-image: url("../icons/web/command-squadron.png"); }
+.armada-icon--command-concentrate-fire { -webkit-mask-image: url("../icons/web/command-concentrate-fire.png"); mask-image: url("../icons/web/command-concentrate-fire.png"); }
+.armada-icon--command-repair { -webkit-mask-image: url("../icons/web/command-repair.png"); mask-image: url("../icons/web/command-repair.png"); }
+.armada-icon--command-navigate { -webkit-mask-image: url("../icons/web/command-navigate.png"); mask-image: url("../icons/web/command-navigate.png"); }
+.armada-icon--command-any { -webkit-mask-image: url("../icons/web/command-any.png"); mask-image: url("../icons/web/command-any.png"); }
+.armada-icon--defense-evade { -webkit-mask-image: url("../icons/web/defense-evade.png"); mask-image: url("../icons/web/defense-evade.png"); }
+.armada-icon--defense-contain { -webkit-mask-image: url("../icons/web/defense-contain.png"); mask-image: url("../icons/web/defense-contain.png"); }
+.armada-icon--defense-redirect { -webkit-mask-image: url("../icons/web/defense-redirect.png"); mask-image: url("../icons/web/defense-redirect.png"); }
+.armada-icon--upgrade-commander { -webkit-mask-image: url("../icons/web/upgrade-commander.png"); mask-image: url("../icons/web/upgrade-commander.png"); }
+.armada-icon--upgrade-officer { -webkit-mask-image: url("../icons/web/upgrade-officer.png"); mask-image: url("../icons/web/upgrade-officer.png"); }
+.armada-icon--upgrade-defensive-retrofit { -webkit-mask-image: url("../icons/web/upgrade-defensive-retrofit.png"); mask-image: url("../icons/web/upgrade-defensive-retrofit.png"); }
+.armada-icon--attack-critical { -webkit-mask-image: url("../icons/web/attack-critical.png"); mask-image: url("../icons/web/attack-critical.png"); }

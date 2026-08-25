@@ -1,0 +1,30 @@
+:root {
+  color-scheme: light;
+  --armada-ink: #17191c;
+  --armada-paper: #f8f5ec;
+  --armada-gold: #b89752;
+  --armada-line: #d8cfba;
+}
+
+.armada-rules-text {
+  color: var(--armada-ink);
+  font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+  font-size: 16px;
+  line-height: 1.72;
+  white-space: pre-wrap;
+}
+
+.armada-icon {
+  display: inline-block;
+  width: 1.08em;
+  height: 1.08em;
+  margin: 0 0.08em;
+  object-fit: contain;
+  vertical-align: -0.19em;
+}
+
+.armada-icon--large {
+  width: 2.2rem;
+  height: 2.2rem;
+  vertical-align: middle;
+}

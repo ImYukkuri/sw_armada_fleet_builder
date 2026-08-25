@@ -1,0 +1,340 @@
+{
+  "file": "rebsquad.pdf",
+  "total_pages": 37,
+  "total_images": 37,
+  "pages": [
+    {
+      "ID": 1,
+      "name": "·比格斯 夜明者\nX翼战机中队",
+      "content": "在1个位于距离1且带有护卣关键字的友\n方中队在1次攻击中承受伤害前，你可\n以将总伤害值降低1点。如果你这么做\n了，则在距离1选择1个带有护卣关键字\n的友方中队。该中队承受1点伤害。\n[FAQ：在里肯将军效果影响下，在结算其能力时，你不可\n选择1个已被消灭但仍留在游戏区域内的友方中队。]\n轰炸Bomber：攻击战舰时，你的每个\n标志将增加1点伤害到总伤害而且你可\n以结算暴击效果。\n护卣Escort：与你交战中的中队不能对\n不带护卣关键字的中队进行攻击，除非\n它执行的是反击。\n自带防御标记：    抑制，    抑制",
+      "image": "images/page_001_img_1.jpeg",
+      "nameEn": "•Biggs Darklighter",
+      "unique": true,
+      "ace": true
+    },
+    {
+      "ID": 2,
+      "name": "·科兰 霍恩\nE翼战机中队",
+      "content": "轰炸Bomber：攻击战舰时，你的每个\n标志将增加1点伤害到总伤害而且你可\n以结算暴击效果。\n侠盗Rogue：你在中队阶段激活时可以\n移劢和攻击(以任何顺序执行)。\n狙击Snipe 4：你可以在距离2使用4个\n对-中队武装的蓝色骰子攻击敌方中队。\n该次攻击将忽视反击关键字。\n自带防御标记：    抑制，    抑制",
+      "image": "images/page_002_img_1.jpeg",
+      "nameEn": "•Corran Horn",
+      "unique": true,
+      "ace": true
+    },
+    {
+      "ID": 3,
+      "name": "·匕首中队\nB翼战机中队",
+      "content": "轰炸Bomber：攻击战舰时，你的每个\n标志将增加1点伤害到总伤害而且你可\n以结算暴击效果。\n集群Swarm：在攻击1个与其他友方中\n队交战中的中队时，你可以重投1个骰\n子。",
+      "image": "images/page_003_img_1.jpeg",
+      "nameEn": "•Dagger Squadron",
+      "unique": true,
+      "ace": false
+    },
+    {
+      "ID": 4,
+      "name": "·达什 伦达\n先驱者号",
+      "content": "在攻击时，在你距离1每有1个敌方中队\n或敌方战舰，你便可以重投1颗骰子。\n轰炸Bomber：攻击战舰时，你的每个\n标志将增加1点伤害到总伤害而且你可\n以结算暴击效果。\n侠盗Rogue：你在中队阶段激活时可以\n移劢和攻击(以任何顺序执行)。\n自带防御标记：    抑制，    抑制",
+      "image": "images/page_004_img_1.jpeg",
+      "nameEn": "•Dash Rendar (Outrider)",
+      "unique": true,
+      "ace": true
+    },
+    {
+      "ID": 5,
+      "name": "· “达奇”范德\nY翼战机中队",
+      "content": "当你所攻击的1个中队承受至少1点伤害\n时，你可以将它的激活条切换到已激活\n的那侧去。如果它已经是已激活状态时，\n则改为再承受1点额外的伤害。\n[FAQ：如果在你攻击时防御方者没有承受伤害，但是另1\n个敌方中队因为其他效果而承受了伤害（如比格斯·夜明者\n的效果），这将不会触发你的切换激活条效果。]\n轰炸Bomber：攻击战舰时，你的每个\n标志将增加1点伤害到总伤害而且你可\n以结算暴击效果。\n笨重Heavy：你不会禁止和你交战中的\n中队移劢或攻击战舰。\n自带防御标记：    抑制，    抑制",
+      "image": "images/page_005_img_1.jpeg",
+      "nameEn": "•\"Dutch\" Vander",
+      "unique": true,
+      "ace": true
+    },
+    {
+      "ID": 6,
+      "name": "· 金色中队\nY翼战机中队",
+      "content": "轰炸Bomber：攻击战舰时，你的每个\n标志将增加1点伤害到总伤害而且你可\n以结算暴击效果。",
+      "image": "images/page_006_img_1.jpeg",
+      "nameEn": "•Gold Squadron",
+      "unique": true,
+      "ace": false
+    },
+    {
+      "ID": 7,
+      "name": "· 绿色中队\nA翼战机中队",
+      "content": "轰炸Bomber：攻击战舰时，你的每个\n标志将增加1点伤害到总伤害而且你可\n以结算暴击效果。\n反击Counter 1：在1个中队对你发起\n非-反击攻击后，你可以使用1个对-中\n队武装的蓝色骰子来攻击该中队，即使\n你被摧毁。",
+      "image": "images/page_007_img_1.jpeg",
+      "nameEn": "•Green Squadron",
+      "unique": true,
+      "ace": false
+    },
+    {
+      "ID": 8,
+      "name": "· 汉 索罗\n千年隼号",
+      "content": "在战舰阶段开始时，你可以视为被    中\n队指令激活进行激活。\n坚决Grit：当你只与1个中队交战时你\n不会被禁止移劢。\n侠盗Rogue：你在中队阶段激活时可以\n移劢和攻击(以任何顺序执行)。\n自带防御标记：    抑制，    抑制",
+      "image": "images/page_008_img_1.jpeg",
+      "nameEn": "•Han Solo (Millennium Falcon)",
+      "unique": true,
+      "ace": true
+    },
+    {
+      "ID": 9,
+      "name": "·赫拉 辛杜拉\n幽灵号",
+      "content": "在中队阶段开始时，选择至多2个位于\n距离1-2的友方中队。直到该轮结束为\n止，这些中队得到侠盗关键字。\n坚决Grit：当你只与1个中队交战时你\n不会被禁止移劢。\n侠盗Rogue：你在中队阶段激活时可以\n移劢和攻击(以任何顺序执行)。\n自带防御标记：    抑制",
+      "image": "images/page_009_img_1.jpeg",
+      "nameEn": "•Hera Syndulla (Ghost)",
+      "unique": true,
+      "ace": true
+    },
+    {
+      "ID": 10,
+      "name": "·简 奥斯\n破鸦号",
+      "content": "当1个位于距离1-2的友方中队防御时，\n它可花费你的防御标记。\n[FAQ：除非简 奥斯她自己正在防御，否则她的防御标记不\n能被1个    精确标志的效果选为目标。]\n反击Counter 2：在1个中队对你发起\n非-反击攻击后，你可以使用2个对-中\n队武装的蓝色骰子来攻击该中队，即使\n你被摧毁。\n情报Intel：只要是在你距离1的友方中\n队，得到坚决关键字。[勘误：旧版的给敌中队\n笨重已被1.5版改掉]\n自带防御标记：    抑制，    抑制",
+      "image": "images/page_010_img_1.jpeg",
+      "nameEn": "•Jan Ors (Moldy Crow)",
+      "unique": true,
+      "ace": true
+    },
+    {
+      "ID": 11,
+      "name": "·凯南 贾勒斯\nHWK-290",
+      "content": "在攻击战舰时，你可以花费1个带有\n暴击标志的骰子。如果你这么做了，则\n防御方将获得1个你所选择的突袭标记。\n突袭Assault：当攻击战舰时，你可以\n花费1个带    命中标志的骰子。如果你\n这么做了，防御方将得到1个你所选择\n的突袭标记。\n隐匿Cloak：在中队阶段结束时，你至\n多可以移劢距离1，即使你正处于交战\n中。\n侠盗Rogue：你在中队阶段激活时可以\n移劢和攻击(以任何顺序执行)。\n自带防御标记：    抑制，    抑制",
+      "image": "images/page_011_img_1.jpeg",
+      "nameEn": "•Kanan Jarrus",
+      "unique": true,
+      "ace": true
+    },
+    {
+      "ID": 12,
+      "name": "·凯楚 奥尼奥\n影法师号",
+      "content": "当1个敌方中队位于你距离1时，它的速\n度降低2，最低为1。\n轰炸Bomber：攻击战舰时，你的每个\n标志将增加1点伤害到总伤害而且你可\n以结算暴击效果。\n坚决Grit：当你只与1个中队交战时你\n不会被禁止移劢。\n侠盗Rogue：你在中队阶段激活时可以\n移劢和攻击(以任何顺序执行)。\n自带防御标记：    抑制，    驱散",
+      "image": "images/page_012_img_1.jpeg",
+      "nameEn": "•Ketsu Onyo (Shadow Caster)",
+      "unique": true,
+      "ace": true
+    },
+    {
+      "ID": 13,
+      "name": "·凯恩 法兰德\nB翼战机中队",
+      "content": "在攻击战舰时，如果该防御船体区没有\n护盾，则你可以重投你攻击池中任意数\n量的骰子。\n轰炸Bomber：攻击战舰时，你的每个\n标志将增加1点伤害到总伤害而且你可\n以结算暴击效果。\n自带防御标记：    抑制，    抑制",
+      "image": "images/page_013_img_1.jpeg",
+      "nameEn": "•Keyan Farlander",
+      "unique": true,
+      "ace": true
+    },
+    {
+      "ID": 14,
+      "name": "·兰多 卡瑞辛\n千年隼号",
+      "content": "在攻击时，你可以丢弃1个防御标记来\n将1颗骰子调整到任意面去。但该骰子\n不能再次被修正。\n在防御时，你可以花费1个你的防御标\n记来要求攻击方重投你所选择的1颗或\n更多骰子。\n坚决Grit：当你只与1个中队交战时你\n不会被禁止移劢。\n侠盗Rogue：你在中队阶段激活时可以\n移劢和攻击(以任何顺序执行)。\n自带防御标记：    抑制，    抑制",
+      "image": "images/page_014_img_1.jpeg",
+      "nameEn": "•Lando Calrissian (Millennium Falcon)",
+      "unique": true,
+      "ace": true
+    },
+    {
+      "ID": 15,
+      "name": "·布朗特中校\nZ-95猎头者中队",
+      "content": "当另1个位于距离1且带有集群关键字的\n友方中队在攻击1个中队时，它可以重\n投1颗骰子（在集群关键字所提供的重\n投效果后再额外重投）。\n集群Swarm：在攻击1个与其他友方中\n队交战中的中队时，你可以重投1个骰\n子。\n自带防御标记：    抑制，    驱散",
+      "image": "images/page_015_img_1.jpeg",
+      "nameEn": "•Lieutenant Blount",
+      "unique": true,
+      "ace": true
+    },
+    {
+      "ID": 16,
+      "name": "·卢克 天行者\nX翼战机中队",
+      "content": "在攻击战舰时，将防御方视为没有护盾。\n[FAQ：在结算“校准器失灵”与“护盾失效”伤害卡效果\n时无视卢克的效果。卢克在攻击1个带有护盾的战舰时，不\n会结算诺拉·韦克斯利能力所提供的暴击效果。]\n轰炸Bomber：攻击战舰时，你的每个\n标志将增加1点伤害到总伤害而且你可\n以结算暴击效果。\n护卣Escort：与你交战中的中队不能对\n不带护卣关键字的中队进行攻击，除非\n它执行的是反击。\n自带防御标记：    抑制，    抑制",
+      "image": "images/page_016_img_1.jpeg",
+      "nameEn": "•Luke Skywalker",
+      "unique": true,
+      "ace": true
+    },
+    {
+      "ID": 17,
+      "name": "·马雷 霍拉\n斯克尔格H-6轰战机",
+      "content": "每次激活限生效1回，当1个友方战舰攻\n击位于你距离1处的战舰，且你与1个或\n更少的中队处于交战中，则该友方攻击\n者可以花费1颗骰子来将另1颗骰子改到\n带有1个    暴击标志的那面去。\n轰炸Bomber：攻击战舰时，你的每个\n标志将增加1点伤害到总伤害而且你可\n以结算暴击效果。\n坚决Grit：当你只与1个中队交战时你\n不会被禁止移劢。\n自带防御标记：    抑制，    抑制",
+      "image": "images/page_017_img_1.jpeg",
+      "nameEn": "•Malee Hurra",
+      "unique": true,
+      "ace": true
+    },
+    {
+      "ID": 18,
+      "name": "·马特 马丁\n佐藤之锤号",
+      "content": "在中队阶段开始时，你可以将你的激活\n条切换到已激活那侧去。如果你这么做\n了，则你可以将1个贴附诡雷标记放置\n在距离1处。\n坚决Grit：当你只与1个中队交战时你\n不会被禁止移劢。\n侠盗Rogue：你在中队阶段激活时可以\n移劢和攻击(以任何顺序执行)。\n自带防御标记：    抑制，    抑制",
+      "image": "images/page_018_img_1.jpeg",
+      "nameEn": "•Mart Mattin (Sato's Hammer)",
+      "unique": true,
+      "ace": true
+    },
+    {
+      "ID": 19,
+      "name": "·诺拉 韦克斯利\nY翼战机中队",
+      "content": "位于你距离1且带有轰炸关键字的友方\n中队获得“    暴击：该防御船体区失去\n1点护盾”。\n轰炸Bomber：攻击战舰时，你的每个\n标志将增加1点伤害到总伤害而且你可\n以结算暴击效果。\n自带防御标记：    抑制，    抑制",
+      "image": "images/page_019_img_1.jpeg",
+      "nameEn": "•Norra Wexley",
+      "unique": true,
+      "ace": true
+    },
+    {
+      "ID": 20,
+      "name": "·尼姆\n浩劫号",
+      "content": "蓝色    暴击：如果该防御方是战舰，则\n你可以指定并丢弃它的1个防御标记。\n轰炸Bomber：攻击战舰时，你的每个\n标志将增加1点伤害到总伤害而且你可\n以结算暴击效果。\n坚决Grit：当你只与1个中队交战时你\n不会被禁止移劢。\n自带防御标记：    抑制，    抑制",
+      "image": "images/page_020_img_1.jpeg",
+      "nameEn": "•Nym (Havoc)",
+      "unique": true,
+      "ace": true
+    },
+    {
+      "ID": 21,
+      "name": "·侠盗中队\nX翼战机中队",
+      "content": "轰炸Bomber：攻击战舰时，你的每个\n标志将增加1点伤害到总伤害而且你可\n以结算暴击效果。\n侠盗Rogue：你在中队阶段激活时可以\n移劢和攻击(以任何顺序执行)。",
+      "image": "images/page_021_img_1.jpeg",
+      "nameEn": "•Rogue Squadron",
+      "unique": true,
+      "ace": false
+    },
+    {
+      "ID": 22,
+      "name": "·莎拉 贝\nA翼战机中队",
+      "content": "在执行1次反击攻击时，每个    暴击标\n志将使该次总伤害值增加1点。\n反击Counter 3：在1个中队对你发起\n非-反击攻击后，你可以使用3个对-中\n队武装的蓝色骰子来攻击该中队，即使\n你被摧毁。\n自带防御标记：    抑制，    驱散",
+      "image": "images/page_022_img_1.jpeg",
+      "nameEn": "•Shara Bey",
+      "unique": true,
+      "ace": true
+    },
+    {
+      "ID": 23,
+      "name": "·坦 农布\nB翼战机中队",
+      "content": "在攻击中队时，你可以花费1颗带有1个\n暴击标志的蓝色骰子。如果你这么做了，\n则每个位于该防御方距离1的其他敌方\n中队都承受1点伤害。\n轰炸Bomber：攻击战舰时，你的每个\n标志将增加1点伤害到总伤害而且你可\n以结算暴击效果。\n自带防御标记：    抑制，    抑制",
+      "image": "images/page_023_img_1.jpeg",
+      "nameEn": "•Ten Numb",
+      "unique": true,
+      "ace": true
+    },
+    {
+      "ID": 24,
+      "name": "·泰科 塞尔楚\nA翼战机中队",
+      "content": "当你与敌方中队交战时，你不会被阻止\n进行移劢或攻击战舰。\n反击Counter 2：在1个中队对你发起\n非-反击攻击后，你可以使用2个对-中\n队武装的蓝色骰子来攻击该中队，即使\n你被摧毁。\n自带防御标记：    抑制，    驱散",
+      "image": "images/page_024_img_1.jpeg",
+      "nameEn": "•Tycho Celchu",
+      "unique": true,
+      "ace": true
+    },
+    {
+      "ID": 25,
+      "name": "·韦奇 安蒂列斯\nX翼战机中队",
+      "content": "在攻击1个已激活的中队时，你可以追\n加2颗蓝色骰子到你的攻击池中。\n轰炸Bomber：攻击战舰时，你的每个\n标志将增加1点伤害到总伤害而且你可\n以结算暴击效果。\n护卣Escort：与你交战中的中队不能对\n不带护卣关键字的中队进行攻击，除非\n它执行的是反击。\n自带防御标记：    抑制，    抑制",
+      "image": "images/page_025_img_1.jpeg",
+      "nameEn": "•Wedge Antilles",
+      "unique": true,
+      "ace": true
+    },
+    {
+      "ID": 26,
+      "name": "A翼战机中队",
+      "content": "反击Counter 2：在1个中队对你发起\n非-反击攻击后，你可以使用2个对-中\n队武装的蓝色骰子来攻击该中队，即使\n你被摧毁。",
+      "image": "images/page_026_img_1.jpeg",
+      "nameEn": "A-Wing Squadron",
+      "unique": false,
+      "ace": false
+    },
+    {
+      "ID": 27,
+      "name": "B翼战机中队",
+      "content": "轰炸Bomber：攻击战舰时，你的每个\n标志将增加1点伤害到总伤害而且你可\n以结算暴击效果。",
+      "image": "images/page_027_img_1.jpeg",
+      "nameEn": "B-Wing Squadron",
+      "unique": false,
+      "ace": false
+    },
+    {
+      "ID": 28,
+      "name": "E翼战机中队",
+      "content": "轰炸Bomber：攻击战舰时，你的每个\n标志将增加1点伤害到总伤害而且你可\n以结算暴击效果。\n狙击Snipe 3：你可以在距离2使用3个\n对-中队武装的蓝色骰子攻击敌方中队。\n该次攻击将忽视反击关键字。",
+      "image": "images/page_028_img_1.jpeg",
+      "nameEn": "E-Wing Squadron",
+      "unique": false,
+      "ace": false
+    },
+    {
+      "ID": 29,
+      "name": "HWK-290",
+      "content": "反击Counter 2：在1个中队对你发起\n非-反击攻击后，你可以使用2个对-中\n队武装的蓝色骰子来攻击该中队，即使\n你被摧毁。\n情报Intel：只要是在你距离1的友方中\n队，得到坚决关键字。[勘误：旧版的给敌中队\n笨重已被1.5版改掉]",
+      "image": "images/page_029_img_1.jpeg",
+      "nameEn": "HWK-290",
+      "unique": false,
+      "ace": false
+    },
+    {
+      "ID": 30,
+      "name": "“枪骑兵级”追击船",
+      "content": "轰炸Bomber：攻击战舰时，你的每个\n标志将增加1点伤害到总伤害而且你可\n以结算暴击效果。\n坚决Grit：当你只与1个中队交战时你\n不会被禁止移劢。\n侠盗Rogue：你在中队阶段激活时可以\n移劢和攻击(以任何顺序执行)。",
+      "image": "images/page_030_img_1.jpeg",
+      "nameEn": "Lancer-class Pursuit Craft",
+      "unique": false,
+      "ace": false
+    },
+    {
+      "ID": 31,
+      "name": "斯克尔格H-6轰战机",
+      "content": "轰炸Bomber：攻击战舰时，你的每个\n标志将增加1点伤害到总伤害而且你可\n以结算暴击效果。\n坚决Grit：当你只与1个中队交战时你\n不会被禁止移劢。\n笨重Heavy：你不会禁止和你交战中的\n中队移劢或攻击战舰。",
+      "image": "images/page_031_img_1.jpeg",
+      "nameEn": "Scurrg H-6 Bomber",
+      "unique": false,
+      "ace": false
+    },
+    {
+      "ID": 32,
+      "name": "VCX-100轻型货船",
+      "content": "笨重Heavy：你不会禁止和你交战中的\n中队移劢或攻击战舰。\n转播Relay 1：当友方战舰结算    中队\n指令时，如果你在它的激活范围内，则\n它所激活的1个中队可以改为在你距离\n1-3。\n战略Strategic：当你在1个或更多任务\n标记的距离1结束移劢时，你可以移劢\n其中1个标记只要它保持在你的距离1即\n可。",
+      "image": "images/page_032_img_1.jpeg",
+      "nameEn": "VCX-100 Freighter",
+      "unique": false,
+      "ace": false
+    },
+    {
+      "ID": 33,
+      "name": "X翼战机中队",
+      "content": "轰炸Bomber：攻击战舰时，你的每个\n标志将增加1点伤害到总伤害而且你可\n以结算暴击效果。\n护卣Escort：与你交战中的中队不能对\n不带护卣关键字的中队进行攻击，除非\n它执行的是反击。",
+      "image": "images/page_033_img_1.jpeg",
+      "nameEn": "X-Wing Squadron",
+      "unique": false,
+      "ace": false
+    },
+    {
+      "ID": 34,
+      "name": "Y翼战机中队",
+      "content": "轰炸Bomber：攻击战舰时，你的每个\n标志将增加1点伤害到总伤害而且你可\n以结算暴击效果。\n笨重Heavy：你不会禁止和你交战中的\n中队移劢或攻击战舰。",
+      "image": "images/page_034_img_1.jpeg",
+      "nameEn": "Y-Wing Squadron",
+      "unique": false,
+      "ace": false
+    },
+    {
+      "ID": 35,
+      "name": "YT-1300",
+      "content": "反击Counter 1：在1个中队对你发起\n非-反击攻击后，你可以使用1个对-中\n队武装的蓝色骰子来攻击该中队，即使\n你被摧毁。\n护卣Escort：与你交战中的中队不能对\n不带护卣关键字的中队进行攻击，除非\n它执行的是反击。",
+      "image": "images/page_035_img_1.jpeg",
+      "nameEn": "YT-1300",
+      "unique": false,
+      "ace": false
+    },
+    {
+      "ID": 36,
+      "name": "Z-95猎头者中队",
+      "content": "集群Swarm：在攻击1个与其他友方中\n队交战中的中队时，你可以重投1个骰\n子。",
+      "image": "images/page_036_img_1.jpeg",
+      "nameEn": "Z-95 Headhunter Squadron",
+      "unique": false,
+      "ace": false
+    },
+    {
+      "ID": 37,
+      "name": "YT-2400",
+      "content": "侠盗Rogue：你在中队阶段激活时可以\n移劢和攻击(以任何顺序执行)。",
+      "image": "images/page_037_img_1.jpeg",
+      "nameEn": "YT-2400",
+      "unique": false,
+      "ace": false
+    }
+  ]
+}

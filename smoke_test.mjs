@@ -1,0 +1,53 @@
+// 冒烟测试：模拟 Card Database 的数据加载 + 分组逻辑
+const base = "http://localhost:8123";
+const J = async (f) => (await fetch(base + "/" + f)).json();
+
+try {
+  const config = await J("data/config.json");
+  const cards = {
+    ships: await J("data/ships.json"),
+    squadrons: await J("data/squadrons.json"),
+    upgrades: await J("data/upgrades.json"),
+    titles: await J("data/titles.json"),
+  };
+  console.log("config factions:", config.factions.map((f) => f.id + ":" + f.name).join(", "));
+  console.log("config slots:", config.upgradeSlots.length, "种");
+
+  function groupsOf(category) {
+    const list = cards[category];
+    if (category === "upgrades") {
+      return config.upgradeSlots
+        .map((s) => ({ h: s.name, n: list.filter((c) => c.slot === s.id).length }))
+        .filter((g) => g.n > 0);
+    }
+    return config.factions
+      .map((f) => ({ h: f.name, n: list.filter((c) => c.faction === f.id).length }))
+      .filter((g) => g.n > 0);
+  }
+
+  for (const cat of ["ships", "squadrons", "upgrades", "titles"]) {
+    const g = groupsOf(cat);
+    console.log("[" + cat + "]", cards[cat].length, "张 ->", g.map((x) => x.h + "(" + x.n + ")").join(" "));
+  }
+
+  for (const cat of Object.keys(cards)) {
+    const ids = cards[cat].map((c) => c.id);
+    if (new Set(ids).size !== ids.length) console.log("!! id 重复:", cat);
+  }
+  const slotIds = new Set(config.upgradeSlots.map((s) => s.id));
+  const bad = cards.ships.flatMap((c) => c.slots.filter((s) => !slotIds.has(s)).map((s) => c.id + ":" + s));
+  console.log("ships 未知槽位:", bad.length ? bad : "无");
+  console.log("upgrades 未知slot:", cards.upgrades.filter((c) => !slotIds.has(c.slot)).length);
+
+  const missing = [];
+  for (const cat of Object.keys(cards)) {
+    for (const c of cards[cat]) {
+      const r = await fetch(base + "/" + c.image);
+      if (r.status !== 200) missing.push(c.id + " " + c.image);
+    }
+  }
+  console.log("图片缺失:", missing.length ? missing : "无");
+} catch (e) {
+  console.error("ERR", e.message);
+  process.exit(1);
+}

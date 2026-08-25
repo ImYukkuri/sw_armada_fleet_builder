@@ -1,0 +1,61 @@
+{
+  "file": "星球大战：无敌舰队 11离子炮升级中文卡牌v0.2.pdf",
+  "total_pages": 9,
+  "total_images": 9,
+  "pages": [
+    {
+      "ID": 1,
+      "name": "重型离子炮台",
+      "content": "蓝色    暴击：你可以消耗此卡。如果你这\n么做了，则该防御船体区和每个与之相邻的\n船体区都失去1点护盾。",
+      "image": "images/page_001_img_1.jpeg"
+    },
+    {
+      "ID": 2,
+      "name": "扩容离子涡轮",
+      "content": "改装\n你的左侧和右侧船体区的武装炮组增加1颗\n蓝色骰子。",
+      "image": "images/page_002_img_1.jpeg"
+    },
+    {
+      "ID": 3,
+      "name": "离子加农炮组",
+      "content": "蓝色    暴击：选择并丢弃防御方的1个指令\n标记。如果该防御方没有任何指令标记，则\n改为该防御船体区失去1点护盾。",
+      "image": "images/page_003_img_1.jpeg"
+    },
+    {
+      "ID": 4,
+      "name": "预测射击",
+      "content": "在攻击时，你可以花费1颗蓝色骰子来重投\n你攻击池中任意数量的骰子。",
+      "image": "images/page_004_img_1.jpeg"
+    },
+    {
+      "ID": 5,
+      "name": "MS-1离子加农炮",
+      "content": "蓝色    暴击：选择并消耗1张防御方装备的\n升级卡。\n[FAQ：没有“消耗”需求的升级卡即使在被消耗的状态下还是可\n以正常结算其效果。]",
+      "image": "images/page_005_img_1.jpeg"
+    },
+    {
+      "ID": 6,
+      "name": "NK-7离子加农炮",
+      "content": "蓝色    暴击：你可以消耗此卡来强制防御\n方选择并丢弃它的1个防御标记。",
+      "image": "images/page_006_img_1.jpeg"
+    },
+    {
+      "ID": 7,
+      "name": "过载脉冲",
+      "content": "蓝色    暴击：消耗防御方所有的防御标记。",
+      "image": "images/page_007_img_1.jpeg"
+    },
+    {
+      "ID": 8,
+      "name": "点防御离子炮",
+      "content": "非-巨型战舰限定\n当你在近距射程或距离1防御，到了花费防\n御标记步骤时，你可以迫使攻击方重投1个\n你所选择的骰子。",
+      "image": "images/page_008_img_1.jpeg"
+    },
+    {
+      "ID": 9,
+      "name": "SW-7离子炮组",
+      "content": "在攻击1个战舰时，你的每个未花费的蓝色\n精确标志都会增加1点伤害到总伤害值中。",
+      "image": "images/page_009_img_1.jpeg"
+    }
+  ]
+}

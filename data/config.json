@@ -1,0 +1,100 @@
+{
+  "factions": [
+    {
+      "id": "imperial",
+      "name": "银河帝国",
+      "nameEn": "Galactic Empire"
+    },
+    {
+      "id": "rebel",
+      "name": "义军同盟",
+      "nameEn": "Rebel Alliance"
+    },
+    {
+      "id": "separatist",
+      "name": "分离势力同盟",
+      "nameEn": "Separatist Alliance"
+    },
+    {
+      "id": "republic",
+      "name": "银河共和国",
+      "nameEn": "Galactic Republic"
+    }
+  ],
+  "upgradeSlots": [
+    {
+      "id": "commander",
+      "name": "指挥官"
+    },
+    {
+      "id": "defensive_retrofit",
+      "name": "防御改装"
+    },
+    {
+      "id": "officer",
+      "name": "军官"
+    },
+    {
+      "id": "fleet_support",
+      "name": "舰队支援"
+    },
+    {
+      "id": "support_team",
+      "name": "支援小组"
+    },
+    {
+      "id": "fleet_command",
+      "name": "舰队指挥"
+    },
+    {
+      "id": "weapons_team",
+      "name": "武器小组"
+    },
+    {
+      "id": "ion_cannons",
+      "name": "离子炮"
+    },
+    {
+      "id": "offensive_retrofit",
+      "name": "进攻改装"
+    },
+    {
+      "id": "ordnance",
+      "name": "军械"
+    },
+    {
+      "id": "turbolasers",
+      "name": "涡轮激光"
+    },
+    {
+      "id": "experimental_retrofit",
+      "name": "实验改装"
+    },
+    {
+      "id": "superweapon",
+      "name": "超级武器"
+    }
+  ],
+  "sizes": [
+    {
+      "id": "small",
+      "name": "小型",
+      "nameEn": "Small"
+    },
+    {
+      "id": "medium",
+      "name": "中型",
+      "nameEn": "Medium"
+    },
+    {
+      "id": "large",
+      "name": "大型",
+      "nameEn": "Large"
+    },
+    {
+      "id": "huge",
+      "name": "巨型",
+      "nameEn": "Huge"
+    }
+  ]
+}

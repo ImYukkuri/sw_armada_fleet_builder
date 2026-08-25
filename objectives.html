@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>任务卡一览 · 星球大战：无敌舰队</title>
+  <link rel="stylesheet" href="css/objectives.css">
+  <link rel="stylesheet" href="css/armada-icons.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="btn" href="index.html">← 主页</a>
+    <div class="topbar-title">
+      <h1>任务卡一览</h1>
+      <p class="sub">Objective Cards · 每个军表选择 1 进攻 + 1 防御 + 1 导航任务</p>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="任务分类"></nav>
+
+  <div class="obj-controls" id="obj-controls" role="group" aria-label="显示偏好">
+    <label class="obj-pref"><input type="checkbox" id="pref-en"> 显示英文</label>
+    <label class="obj-pref"><input type="checkbox" id="pref-faq"> 显示FAQ</label>
+  </div>
+
+  <main id="grid" class="grid" aria-live="polite"></main>
+  <div class="empty" id="empty" hidden>该分类暂无任务卡</div>
+
+  <footer class="foot"><a href="index.html">← 写表器主页</a></footer>
+
+  <script src="js/fleet/lightbox.js"></script>
+  <script src="js/fleet/armada-icons.js"></script>
+  <script src="js/objectives/app.js"></script>
+</body>
+</html>
