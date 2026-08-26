@@ -1,0 +1,1041 @@
+[
+  {
+    "id": "imperial_title_001",
+    "type": "title",
+    "faction": "imperial",
+    "name": "半牛马号",
+    "nameEn": "•Centicore",
+    "size": null,
+    "points": 3,
+    "image": "assets/titles/imperial/images/page_001_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国阿奎腾斯级轻巡洋舰 限定 在另1个友方战舰结算1个[[icon:command-squadron]]中队指令后，其中至多2个被它激活的中队可以改成位于 你的近-中射程内。",
+    "shipId": [
+      "arquitens_command",
+      "arquitens_light"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "arquitens_command",
+        "arquitens_light"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true
+  },
+  {
+    "id": "imperial_title_002",
+    "type": "title",
+    "faction": "imperial",
+    "name": "正义之手号",
+    "nameEn": "•Hand of Justice",
+    "size": null,
+    "points": 2,
+    "image": "assets/titles/imperial/images/page_002_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国阿奎腾斯级轻巡洋舰 限定 在你展示1个指挥转盘后，你可以消耗此卡来选择另1个位于距离1-5的友方战舰并重置它的1个防御标记。",
+    "shipId": [
+      "arquitens_command",
+      "arquitens_light"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "arquitens_command",
+        "arquitens_light"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true
+  },
+  {
+    "id": "imperial_title_003",
+    "type": "title",
+    "faction": "imperial",
+    "name": "破坏者号",
+    "nameEn": "•Demolisher",
+    "size": null,
+    "points": 10,
+    "image": "assets/titles/imperial/images/page_003_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国角斗士级歼星舰 限定 在你的激活中，你可以执行完你的机动后发起1回你的攻击（先打1次然后移动完再打1 次）。",
+    "shipId": [
+      "gladiator_i",
+      "gladiator_ii"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "gladiator_i",
+        "gladiator_ii"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true,
+    "faq": "如果破坏者号装备Engine Tech，它不可在执行Engine Tech提供的额外移动后执行它的1次攻击。破坏者号只影响该战舰的其中1次攻击。它的另1次攻击还是必须 在其攻击步骤执行，或者跳过。在雷区任务中，如果破坏者号在执行机动后位于1个诡雷标记范围内，则它还是得先结算诡雷的效果，才进行它的滞后攻击。该攻击会被任何面朝上的伤害卡影响，且如果它被消灭就不能再发起攻击。"
+  },
+  {
+    "id": "imperial_title_004",
+    "type": "title",
+    "faction": "imperial",
+    "name": "潜伏号",
+    "nameEn": "•Insidious",
+    "size": null,
+    "points": 3,
+    "image": "assets/titles/imperial/images/page_004_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国角斗士级歼星舰 限定 你的武装炮组格子中的黑色骰子可在中距射程使用。此效果只有在你攻击1个战舰的后方船体区时才有效。",
+    "shipId": [
+      "gladiator_i",
+      "gladiator_ii"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "gladiator_i",
+        "gladiator_ii"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true,
+    "faq": "此战舰即使在它的武装炮组格子中没有蓝色或红色骰子，也还是可以在中距射程对1个敌方战舰的后方船体区发起攻击。"
+  },
+  {
+    "id": "imperial_title_005",
+    "type": "title",
+    "faction": "imperial",
+    "name": "抑制者号",
+    "nameEn": "•Suppressor",
+    "size": null,
+    "points": 4,
+    "image": "assets/titles/imperial/images/page_005_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国戈赞蒂级突袭运输舰 限定 在1个敌方战舰结束其激活后，如果它位于 你的距离1-3，则你可以选择并消耗1个它的防御标记。",
+    "shipId": [
+      "gozanti_assault",
+      "gozanti_cruiser"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "gozanti_assault",
+        "gozanti_cruiser"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true
+  },
+  {
+    "id": "imperial_title_006",
+    "type": "title",
+    "faction": "imperial",
+    "name": "向量号",
+    "nameEn": "•Vector",
+    "size": null,
+    "points": 2,
+    "image": "assets/titles/imperial/images/page_006_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国戈赞蒂级突袭运输舰 限定中队：你所激活的每个不带重型关键字之中队速度值加1，最高可到5，直到它的激活结束为止。",
+    "shipId": [
+      "gozanti_assault",
+      "gozanti_cruiser"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "gozanti_assault",
+        "gozanti_cruiser"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true
+  },
+  {
+    "id": "imperial_title_007",
+    "type": "title",
+    "faction": "imperial",
+    "name": "第七舰队歼星舰",
+    "nameEn": "Seventh Fleet Star Destroyer",
+    "size": null,
+    "points": 5,
+    "image": "assets/titles/imperial/images/page_007_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国歼星舰 限定 当你的前方船体区防御1次攻击时，在你承受伤害前，你可以选择并消耗装备在另1个位于距离1-4之友方战舰上与此卡相同的升级卡，以使总伤害值降低1点。",
+    "shipId": [
+      "gladiator_i",
+      "gladiator_ii",
+      "imperial_i",
+      "imperial_ii",
+      "imperial_cymoon",
+      "imperial_kuat",
+      "onager",
+      "victory_i",
+      "victory_ii"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "gladiator_i",
+        "gladiator_ii",
+        "imperial_i",
+        "imperial_ii",
+        "imperial_cymoon",
+        "imperial_kuat",
+        "onager",
+        "victory_i",
+        "victory_ii"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": false
+  },
+  {
+    "id": "imperial_title_008",
+    "type": "title",
+    "faction": "imperial",
+    "name": "复仇者号",
+    "nameEn": "•Avenger",
+    "size": null,
+    "points": 5,
+    "image": "assets/titles/imperial/images/page_008_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 帝国级歼星舰 限定 在攻击时，你可以消耗此卡。如果你这么做了，则在本次攻击中防御方不可以花费它的已消耗之防御标记。",
+    "shipId": [
+      "imperial_i",
+      "imperial_ii",
+      "imperial_cymoon",
+      "imperial_kuat"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "imperial_i",
+        "imperial_ii",
+        "imperial_cymoon",
+        "imperial_kuat"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true
+  },
+  {
+    "id": "imperial_title_009",
+    "type": "title",
+    "faction": "imperial",
+    "name": "喷火兽号",
+    "nameEn": "•Chimaera",
+    "size": null,
+    "points": 4,
+    "image": "assets/titles/imperial/images/page_009_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 帝国级歼星舰 限定 在你的升级槽位中获得1个舰队指挥标志。如果你的升级槽位中已有舰队指挥标志的话就不能装备此卡。在指挥阶段开始时，你可以丢弃1张你所装备的舰队指挥升级卡，并用另1张舰队指挥升级卡来替换它。",
+    "shipId": [
+      "imperial_i",
+      "imperial_ii",
+      "imperial_cymoon",
+      "imperial_kuat"
+    ],
+    "addsSlots": [
+      "fleet_command"
+    ],
+    "addsSlotsReject": {
+      "slots": [
+        "fleet_command"
+      ]
+    },
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "imperial_i",
+        "imperial_ii",
+        "imperial_cymoon",
+        "imperial_kuat"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true,
+    "faq": "如果喷火兽号升级卡被比如达斯·维达的效果所丢弃时，它提供的“舰队指挥”升级卡不会跟着被丢弃。如果喷火兽号装备的“舰队指挥”升级卡被丢弃（比如结算升级卡自己的效果），它之后不能再使用喷火兽号的效果来将其替换。结算此卡效果时，选择另1个独特名称与你舰队中其他卡都不同的 “舰队指挥”升级卡，无视点数。被此卡效果替换掉的升级卡不再是装备在此战舰上的卡，也不是 你舰队的一部分。不能再被此卡的效果选择来替换你目前的装备的“舰队指挥”升级卡（用过的不能再用）。在游戏结束判断此战舰的舰队点数时，只计算当前所装备的那张 “舰队指挥”升级卡的点数（即使该升级卡为了结算自己的效果 而被丢弃也要算。"
+  },
+  {
+    "id": "imperial_title_010",
+    "type": "title",
+    "faction": "imperial",
+    "name": "蹂躏者号",
+    "nameEn": "•Devastator",
+    "size": null,
+    "points": 10,
+    "image": "assets/titles/imperial/images/page_010_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 帝国级歼星舰 限定 每轮1次，当使用你的前方船体区攻击时，你的每1个已丢弃之防御标记将可以追加1 个蓝色骰子到你的攻击池中。",
+    "shipId": [
+      "imperial_i",
+      "imperial_ii",
+      "imperial_cymoon",
+      "imperial_kuat"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "imperial_i",
+        "imperial_ii",
+        "imperial_cymoon",
+        "imperial_kuat"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true,
+    "faq": "如果此战舰将它的1个防御标记替换掉（如使用Captain Needa的能力），则被替换掉的防御标记不算是被丢弃。如果此战舰恢复了1个被丢弃的防御标记，则该防御标记就不再算 在被丢弃的数量内。"
+  },
+  {
+    "id": "imperial_title_011",
+    "type": "title",
+    "faction": "imperial",
+    "name": "无情号",
+    "nameEn": "•Relentless",
+    "size": null,
+    "points": 3,
+    "image": "assets/titles/imperial/images/page_011_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 帝国级歼星舰 限定 在指挥阶段时分配到此战舰的指挥转盘总数减少1个。",
+    "shipId": [
+      "imperial_i",
+      "imperial_ii",
+      "imperial_cymoon",
+      "imperial_kuat"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "imperial_i",
+        "imperial_ii",
+        "imperial_cymoon",
+        "imperial_kuat"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true
+  },
+  {
+    "id": "imperial_title_012",
+    "type": "title",
+    "faction": "imperial",
+    "name": "无上号",
+    "nameEn": "•Sovereign",
+    "size": null,
+    "points": 4,
+    "image": "assets/titles/imperial/images/page_012_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 帝国级歼星舰 限定 在战舰阶段开始时，你可以消耗此卡来从至多3个位于距离1-5的友方战舰上各丢弃1个指挥标记。如果你这么做了，这些战舰可以获得1个自选的任意种类之指挥标记。",
+    "shipId": [
+      "imperial_i",
+      "imperial_ii",
+      "imperial_cymoon",
+      "imperial_kuat"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "imperial_i",
+        "imperial_ii",
+        "imperial_cymoon",
+        "imperial_kuat"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true
+  },
+  {
+    "id": "imperial_title_013",
+    "type": "title",
+    "faction": "imperial",
+    "name": "阻绝者号",
+    "nameEn": "•Interdictor",
+    "size": null,
+    "points": 3,
+    "image": "assets/titles/imperial/images/page_013_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国阻绝者级试验星舰 限定 当1个战舰激活时，你可以消耗此卡来重置 1张此战舰所装备之其他升级卡。",
+    "shipId": [
+      "interdictor_combat",
+      "interdictor_suppression"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "interdictor_combat",
+        "interdictor_suppression"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true
+  },
+  {
+    "id": "imperial_title_031",
+    "type": "title",
+    "faction": "imperial",
+    "name": "战巡改装",
+    "nameEn": "Battle Cruiser",
+    "size": null,
+    "points": 2,
+    "image": "assets/titles/imperial/images/page_031_img_1.jpeg",
+    "slots": [],
+    "effect": "你在你的升级槽位中获得一个额外的涡轮激光升级槽。在你部署后，将你的一个防御标记换成齐射标记。",
+    "shipId": [
+      "interdictor_combat"
+    ],
+    "addsSlots": [
+      "turbolasers"
+    ],
+    "addsSlotsReject": {
+      "slots": [
+        "turbolasers"
+      ]
+    },
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "interdictor_combat"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": false
+  },
+  {
+    "id": "imperial_title_014",
+    "type": "title",
+    "faction": "imperial",
+    "name": "灾难号",
+    "nameEn": "•Cataclysm",
+    "size": null,
+    "points": 5,
+    "image": "assets/titles/imperial/images/page_014_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国强弩级歼星舰 限定 在战舰阶段开始后，你可以花费1个[[icon:command-concentrate-fire]]集火指令标记来将你的瞄准标记放置在你的特殊射界且完全位于你的1个点火关键字所指定的射程范围内。",
+    "shipId": [
+      "onager",
+      "onager_testbed"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "onager",
+        "onager_testbed"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true
+  },
+  {
+    "id": "imperial_title_015",
+    "type": "title",
+    "faction": "imperial",
+    "name": "浪子号",
+    "nameEn": "•Impetuous",
+    "size": null,
+    "points": 4,
+    "image": "assets/titles/imperial/images/page_015_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国强弩级歼星舰 限定导航：在执行零速机动时，你可以在速度0的连接点调整转向刻度，并在该本次机动中视为拥有“I”的转向值。",
+    "shipId": [
+      "onager",
+      "onager_testbed"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "onager",
+        "onager_testbed"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true
+  },
+  {
+    "id": "imperial_title_016",
+    "type": "title",
+    "faction": "imperial",
+    "name": "斩裂者号",
+    "nameEn": "•Sunder",
+    "size": null,
+    "points": 10,
+    "image": "assets/titles/imperial/images/page_016_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国强弩级歼星舰 限定蓝色或黑色[[icon:attack-critical]]暴击：你可以丢弃此卡来选择并丢弃1张防御方所装备的攻击改装，防御改装，导弹，激光炮或离子炮升级卡。",
+    "shipId": [
+      "onager",
+      "onager_testbed"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "onager",
+        "onager_testbed"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true
+  },
+  {
+    "id": "imperial_title_017",
+    "type": "title",
+    "faction": "imperial",
+    "name": "追迹者号",
+    "nameEn": "•Pursuant",
+    "size": null,
+    "points": 2,
+    "image": "assets/titles/imperial/images/page_017_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国类星体火级巡洋航母 限定 当你展示1个非[[icon:command-squadron]]中队指令的转盘时，你可以丢弃此卡来结算1次[[icon:command-squadron]]中队指令。并将该指令视为你花费了1个[[icon:command-squadron]]中队转盘。",
+    "shipId": [
+      "quasar_i",
+      "quasar_ii"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "quasar_i",
+        "quasar_ii"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true
+  },
+  {
+    "id": "imperial_title_018",
+    "type": "title",
+    "faction": "imperial",
+    "name": "飓风号",
+    "nameEn": "•Squall",
+    "size": null,
+    "points": 7,
+    "image": "assets/titles/imperial/images/page_018_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国类星体火级巡洋航母 限定 在你激活时，你可以选择至多3个位于近-中射程且未交战的友方中队。这些中队最多可以移动距离2。如果它们这么做了，则它们不能停在会与对方中队变成交战的位置上。",
+    "shipId": [
+      "quasar_i",
+      "quasar_ii"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "quasar_i",
+        "quasar_ii"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true,
+    "faq": "此卡效果在你的转盘展示前就结算了。"
+  },
+  {
+    "id": "imperial_title_019",
+    "type": "title",
+    "faction": "imperial",
+    "name": "要塞号",
+    "nameEn": "•Stronghold",
+    "size": null,
+    "points": 3,
+    "image": "assets/titles/imperial/images/page_019_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国类星体火级巡洋航母 限定 在1个位于距离1-2且带有集群关键字的友方中队防御时，该次攻击视为被阻碍。",
+    "shipId": [
+      "quasar_i",
+      "quasar_ii"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "quasar_i",
+        "quasar_ii"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true
+  },
+  {
+    "id": "imperial_title_020",
+    "type": "title",
+    "faction": "imperial",
+    "name": "渡鸦号",
+    "nameEn": "•Corvus",
+    "size": null,
+    "points": 2,
+    "image": "assets/titles/imperial/images/page_020_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国袭击者级轻型护卫舰 限定 在部署舰队后，你可以将此战舰重新部署在完全位于你部署区内的任何位置。",
+    "shipId": [
+      "raider_i",
+      "raider_ii"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "raider_i",
+        "raider_ii"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true
+  },
+  {
+    "id": "imperial_title_021",
+    "type": "title",
+    "faction": "imperial",
+    "name": "奔袭号",
+    "nameEn": "•Instigator",
+    "size": null,
+    "points": 4,
+    "image": "assets/titles/imperial/images/page_021_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国袭击者级轻型护卫舰 限定 在你的攻击步骤结束时，选择1个你的船体区。你可以用该船体区对1个敌方中队发起攻击，即使你此轮已经用该船体区攻击过。",
+    "shipId": [
+      "raider_i",
+      "raider_ii"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "raider_i",
+        "raider_ii"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true,
+    "faq": "如果此战舰装备了Gunnery Team，则在它激活时，还是不能选择同1个中队做为目标多于1次。"
+  },
+  {
+    "id": "imperial_title_022",
+    "type": "title",
+    "faction": "imperial",
+    "name": "煽动者号",
+    "nameEn": "•Rakehell",
+    "size": null,
+    "points": 4,
+    "image": "assets/titles/imperial/images/page_022_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国袭击者级轻型护卫舰 限定位于距离1的敌方中队都将视为和2个额外的中队交战中，即使它们当前并未交战。",
+    "shipId": [
+      "raider_i",
+      "raider_ii"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "raider_i",
+        "raider_ii"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true,
+    "faq": "如果这些敌方中队没有实际与游戏区域中不带重型关键字之敌方中队交战，则它们可以攻击此战舰。情报关键字不影响此战舰的效果。位于战舰距离1的敌方中队如果和瓦伦鲁多交战中，仍可攻击此战舰，前提是它们没有和其他非瓦伦鲁多的中队交战。"
+  },
+  {
+    "id": "imperial_title_023",
+    "type": "title",
+    "faction": "imperial",
+    "name": "歼灭者号",
+    "nameEn": "•Annihilator",
+    "size": null,
+    "points": 8,
+    "image": "assets/titles/imperial/images/page_023_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国超级歼星无畏舰 限定 在攻击中队时，你可以重投1颗攻击骰子。",
+    "shipId": [
+      "executor_i",
+      "executor_ii",
+      "star_dreadnought_assault",
+      "star_dreadnought_command"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "executor_i",
+        "executor_ii",
+        "star_dreadnought_assault",
+        "star_dreadnought_command"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true
+  },
+  {
+    "id": "imperial_title_024",
+    "type": "title",
+    "faction": "imperial",
+    "name": "日蚀号",
+    "nameEn": "•Eclipse",
+    "size": null,
+    "points": 3,
+    "image": "assets/titles/imperial/images/page_024_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国超级歼星无畏舰 限定 在1个敌方战舰底座与你重叠时，该敌方战舰将承受面朝上的伤害卡，而非面朝下的。",
+    "shipId": [
+      "executor_i",
+      "executor_ii",
+      "star_dreadnought_assault",
+      "star_dreadnought_command"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "executor_i",
+        "executor_ii",
+        "star_dreadnought_assault",
+        "star_dreadnought_command"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true,
+    "faq": "此卡效果在你移动完与敌方战舰底座重叠时不会触发。"
+  },
+  {
+    "id": "imperial_title_025",
+    "type": "title",
+    "faction": "imperial",
+    "name": "执行者号",
+    "nameEn": "•Executor",
+    "size": null,
+    "points": 2,
+    "image": "assets/titles/imperial/images/page_025_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国超级歼星无畏舰 限定 你可以被分配任意数量和类型的指令标记，而非等同于你指挥值数量之指令标记。",
+    "shipId": [
+      "executor_i",
+      "executor_ii",
+      "star_dreadnought_assault",
+      "star_dreadnought_command"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "executor_i",
+        "executor_ii",
+        "star_dreadnought_assault",
+        "star_dreadnought_command"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true,
+    "faq": "此战舰在结算1个指令时，还是只能合并结算1个指挥转盘加1个指挥标记。此战舰在它激活时，不可结算同1个指令超过1 次。"
+  },
+  {
+    "id": "imperial_title_026",
+    "type": "title",
+    "faction": "imperial",
+    "name": "劫掠者号",
+    "nameEn": "•Ravager",
+    "size": null,
+    "points": 4,
+    "image": "assets/titles/imperial/images/page_026_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国超级歼星无畏舰 限定集火：你的[[icon:command-concentrate-fire]]集火标记可用来重投1颗攻击骰子，或是追加1颗骰子到你的攻击池中。如果你追加了1颗骰子，则该骰子的颜色必须属于已存在你攻击池中的骰子颜色。",
+    "shipId": [
+      "executor_i",
+      "executor_ii",
+      "star_dreadnought_assault",
+      "star_dreadnought_command"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "executor_i",
+        "executor_ii",
+        "star_dreadnought_assault",
+        "star_dreadnought_command"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true
+  },
+  {
+    "id": "imperial_title_027",
+    "type": "title",
+    "faction": "imperial",
+    "name": "腐化者号",
+    "nameEn": "•Corruptor",
+    "size": null,
+    "points": 3,
+    "image": "assets/titles/imperial/images/page_027_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国胜利级歼星舰 限定中队：每个被你激活且带有轰炸关键字的中队的速度值加1，直到其激活结束为止。",
+    "shipId": [
+      "victory_i",
+      "victory_ii"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "victory_i",
+        "victory_ii"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true
+  },
+  {
+    "id": "imperial_title_028",
+    "type": "title",
+    "faction": "imperial",
+    "name": "支配者号",
+    "nameEn": "•Dominator",
+    "size": null,
+    "points": 7,
+    "image": "assets/titles/imperial/images/page_028_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国胜利级歼星舰 限定 在近-中射程攻击时，你可以从你任意船体区花费最多2点护盾值，来追加等量的蓝色骰子到你的攻击池中。",
+    "shipId": [
+      "victory_i",
+      "victory_ii"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "victory_i",
+        "victory_ii"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true,
+    "faq": "如果此战舰花费了2个护盾，它可以选择这2点护盾值是来自1个或者2个不同的船体区。"
+  },
+  {
+    "id": "imperial_title_029",
+    "type": "title",
+    "faction": "imperial",
+    "name": "蹂躏号",
+    "nameEn": "•Harrow",
+    "size": null,
+    "points": 3,
+    "image": "assets/titles/imperial/images/page_029_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国胜利级歼星舰 限定 你在你的升级槽位中获得1个额外的支援组标志。当你执行1次速度为1的机动时，在判断航线步骤，你可以将第1个连接点的转向值改变为“II”，直到你的激活结束为止。",
+    "shipId": [
+      "victory_i",
+      "victory_ii"
+    ],
+    "addsSlots": [
+      "support_team"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "victory_i",
+        "victory_ii"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true
+  },
+  {
+    "id": "imperial_title_030",
+    "type": "title",
+    "faction": "imperial",
+    "name": "军阀号",
+    "nameEn": "•Warlord",
+    "size": null,
+    "points": 8,
+    "image": "assets/titles/imperial/images/page_030_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国胜利级歼星舰 限定 在攻击时，你可以将1个带有精确标志的骰子改到带有1个命中标志的那面去。",
+    "shipId": [
+      "victory_i",
+      "victory_ii"
+    ],
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "victory_i",
+        "victory_ii"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "unique": true,
+    "faq": "此战舰可以将1颗红色骰子改到包含2个“命中”标志的那面去。"
+  }
+]

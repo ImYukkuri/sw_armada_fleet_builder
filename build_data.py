@@ -341,6 +341,101 @@ def solidify_all_icons(cards):
     return changed
 
 
+# ---------- FAQ / 勘误 提取 ----------
+# 卡面效果里内嵌的编辑注释（[FAQ：…] / [勘误：…] / [1.5勘误：…]）拆成独立 faq 字段，
+# 控制显示（对齐 data/objectives.json 已有的 faq 字段）。段内可能含 [[icon:…]] 双括号
+# token：`[[`/`]]` 按 ±2 计深度，单 `[`/`]` 按 ±1；深度回到 0 的 `]` 即段尾。
+FAQ_MARKERS = ("[1.5勘误：", "[勘误：", "[FAQ：")  # 长标记在前，startswith 逐一匹配
+
+
+def extract_faq_notes(text):
+    """剥离 [FAQ：]/[勘误：]/[1.5勘误：] 段到 faq；返回 (cleaned_effect, faq_or_None)。
+
+    只删方括号段，保留其余正文（中队卡 FAQ 段后有关键字块；正文里不带方括号的
+    "1.5版FAQ中被官方禁掉" 等不会被误匹配）。多段（简奥斯 FAQ+勘误）换行拼接。
+    """
+    if not text:
+        return text, None
+    notes, out = [], []
+    i, n, last_end = 0, len(text), None
+    while i < n:
+        if text[i] == "[":
+            marker = next((m for m in FAQ_MARKERS if text.startswith(m, i)), None)
+            if marker:
+                depth, j = 1, i + len(marker)
+                while j < n and depth > 0:
+                    if text.startswith("[[", j):
+                        depth += 2
+                        j += 2
+                    elif text.startswith("]]", j):
+                        depth -= 2
+                        j += 2
+                    elif text[j] == "[":
+                        depth += 1
+                        j += 1
+                    elif text[j] == "]":
+                        depth -= 1
+                        j += 1
+                    else:
+                        j += 1
+                notes.append(text[i + len(marker):j - 1])  # 去 [标记： 前缀与末尾 ]
+                last_end = j
+                i = j
+                continue
+        out.append(text[i])
+        i += 1
+    if not notes:
+        return text, None
+    cleaned = "".join(out)
+    cleaned = re.sub(r"[ \t]{2,}", " ", cleaned).strip()
+    cleaned = re.sub(r"\s+", " ", cleaned).strip()
+    cleaned = re.sub(r"([。，：；、！？]) ", r"\1", cleaned)
+    # 段尾孤儿项目符号（仅 defensive_retrofit_004 的「] •」）：末段后只剩空白/一个 • 才剥
+    if last_end is not None and re.fullmatch(r"[\s　]*[•·]?[\s　]*", text[last_end:]):
+        cleaned = re.sub(r"\s*[•·]\s*$", "", cleaned).strip()
+    return cleaned, "\n".join(notes)
+
+
+# ---------- 升级卡阵营归属（镜像 cardFactionAllowed：restrictions.factions 优先，
+# 其次 faction 字段，否则全部阵营 = neutral） ----------
+ALL_FACTIONS = frozenset(f["id"] for f in CONFIG["factions"])
+UPGRADE_BUCKETS = ("neutral", "imperial", "rebel", "separatist", "republic")
+UPGRADE_FILES_BY_MEMBERSHIP = {
+    ALL_FACTIONS: ["neutral"],
+    frozenset(["imperial"]): ["imperial"],
+    frozenset(["rebel"]): ["rebel"],
+    frozenset(["separatist"]): ["separatist"],
+    frozenset(["republic"]): ["republic"],
+    frozenset(["separatist", "republic"]): ["separatist", "republic"],
+}
+
+
+def upgrade_membership(card):
+    """返回升级卡的允许阵营集合（子集 of ALL_FACTIONS）。"""
+    r = card.get("restrictions") or {}
+    facs = r.get("factions") or []
+    if facs:
+        return frozenset(f for f in ALL_FACTIONS if f in facs)
+    f = card.get("faction")
+    if f:
+        return frozenset([f]) if f in ALL_FACTIONS else frozenset()
+    return ALL_FACTIONS
+
+
+def split_upgrades(cards):
+    """按允许阵营把升级卡分发到 neutral/各阵营桶；双阵营卡写两份。返回 (buckets, skipped)。"""
+    buckets = {k: [] for k in UPGRADE_BUCKETS}
+    skipped = []
+    for c in cards:
+        names = UPGRADE_FILES_BY_MEMBERSHIP.get(upgrade_membership(c))
+        if names is None:
+            skipped.append(c["id"])  # 数据守卫：无阵营归属（当前数据 0 张）
+            continue
+        for name in names:
+            buckets[name].append(c)
+    return buckets, skipped
+
+
 def build_ships():
     cards = []
     for faction in ["imperial", "rebel"]:
@@ -551,11 +646,90 @@ def main():
     for c in payloads["titles.json"]:
         c["unique"] = bool((c.get("nameEn") or "").startswith("•"))
 
-    for name, obj in payloads.items():
-        with open(os.path.join(DATA_DIR, name), "w", encoding="utf-8") as f:
-            json.dump(obj, f, ensure_ascii=False, indent=2)
+    # ---- 数据源优先级（data/ 可能含 carddb 手工新增的卡，如 帝国 040/041、义军
+    # 038-041 中队、帝国称号 031；拆分必须原样保留，否则会丢数据）：
+    #   1) data/<cat>.json（旧工作流：carddb 导出覆盖 data/ 后这里优先读取）
+    #   2) 已拆分的 assets 文件（迁移后的工作流：carddb 导出覆盖对应 assets/，
+    #      重建从这里继续，手工卡/编辑都保留）
+    #   3) 本次从 text.json 再生的 payloads（全新检出 / 首次构建）
+    # 注意：每个分类只读一次并复用同一批卡对象（FAQ 提取会就地改写 effect/faq，
+    # 分布写出必须用提取后的同一批对象）。----
+    def authoritative_cards(category):
+        src = os.path.join(DATA_DIR, category + ".json")
+        if os.path.exists(src):
+            with open(src, encoding="utf-8") as fh:
+                return json.load(fh)
+        if category == "upgrades":
+            files = [os.path.join(ASSETS, "upgrades", b + ".json") for b in UPGRADE_BUCKETS]
+        else:
+            files = [os.path.join(ASSETS, category, f, "cards.json") for f in ("imperial", "rebel")]
+        if any(os.path.exists(p) for p in files):
+            seen, merged = set(), []
+            for p in files:
+                if not os.path.exists(p):
+                    continue
+                with open(p, encoding="utf-8") as fh:
+                    for c in json.load(fh):
+                        if not c or (c.get("id") and c["id"] in seen):
+                            continue
+                        if c.get("id"):
+                            seen.add(c["id"])
+                        merged.append(c)
+            if merged:
+                return merged
+        return payloads[category + ".json"]
+
+    card_sources = {name: authoritative_cards(name) for name in ("ships", "squadrons", "upgrades", "titles")}
+
+    # FAQ/勘误 提取：把 [FAQ：]/[勘误：]/[1.5勘误：] 从 effect 剥离为 faq 字段。
+    # 先固化图标（手工卡也可能含 PDF 占位），保证 faq 内图标 token；ships effect 为空跳过。
+    faq_count = 0
+    for name in ("squadrons", "upgrades", "titles"):
+        cards = card_sources[name]
+        solidify_all_icons(cards)
+        for c in cards:
+            c["effect"], faq = extract_faq_notes(c.get("effect") or "")
+            if faq is not None:
+                c["faq"] = faq
+                faq_count += 1
+    print("FAQ 提取: %d 张卡 带 faq 字段" % faq_count)
+
+    # 按阵营分布写出：ships/squadrons/titles → assets/<type>/<faction>/cards.json
+    for category in ("ships", "squadrons", "titles"):
+        cards = card_sources[category]
+        unknown = [c["id"] for c in cards if c.get("faction") not in ("imperial", "rebel")]
+        if unknown:
+            print("!! 未归类 %s: %s" % (category, ", ".join(unknown)))
+        for faction in ("imperial", "rebel"):
+            sub = [c for c in cards if c.get("faction") == faction]
+            path = os.path.join(ASSETS, category, faction, "cards.json")
+            with open(path, "w", encoding="utf-8") as fh:
+                json.dump(sub, fh, ensure_ascii=False, indent=2)
+            print("写出 %-38s %d 条" % (os.path.relpath(path, ROOT), len(sub)))
+
+    # 升级卡 → assets/upgrades/neutral.json + 各阵营文件（双阵营卡写两份）
+    buckets, skipped = split_upgrades(card_sources["upgrades"])
+    if skipped:
+        print("!! 升级卡无阵营归属被跳过: %s" % ", ".join(skipped))
+    for name in UPGRADE_BUCKETS:
+        path = os.path.join(ASSETS, "upgrades", name + ".json")
+        with open(path, "w", encoding="utf-8") as fh:
+            json.dump(buckets[name], fh, ensure_ascii=False, indent=2)
+        print("写出 %-38s %d 条" % (os.path.relpath(path, ROOT), len(buckets[name])))
+
+    # config / objectives 仍写 data/（不拆分）
+    for name in ("config", "objectives"):
+        obj = payloads[name + ".json"]
+        with open(os.path.join(DATA_DIR, name + ".json"), "w", encoding="utf-8") as fh:
+            json.dump(obj, fh, ensure_ascii=False, indent=2)
         count = len(obj) if isinstance(obj, list) else "-"
-        print("写出 %-16s %s 条" % (name, count))
+        print("写出 %-16s %s 条" % (name + ".json", count))
+
+    # 一次性迁移提示：旧的 4 个单文件不再生成
+    for stale in ("ships", "squadrons", "upgrades", "titles"):
+        p = os.path.join(DATA_DIR, stale + ".json")
+        if os.path.exists(p):
+            print("提示: 旧单体 %s 不再生成，请手动删除（一次性迁移）" % p)
 
     # 校验：图片路径存在
     missing = 0

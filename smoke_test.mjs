@@ -1,15 +1,41 @@
 // 冒烟测试：模拟 Card Database 的数据加载 + 分组逻辑
+// 数据已按阵营拆分（assets/<type>/<faction>/cards.json + assets/upgrades/<bucket>.json），
+// 这里对每类文件列表并发加载并按 id 去重（双阵营升级卡会出现在两份里）。
 const base = "http://localhost:8123";
 const J = async (f) => (await fetch(base + "/" + f)).json();
 
+const CATEGORY_FILES = {
+  ships: ["assets/ships/imperial/cards.json", "assets/ships/rebel/cards.json"],
+  squadrons: ["assets/squadrons/imperial/cards.json", "assets/squadrons/rebel/cards.json"],
+  titles: ["assets/titles/imperial/cards.json", "assets/titles/rebel/cards.json"],
+  upgrades: [
+    "assets/upgrades/neutral.json", "assets/upgrades/imperial.json",
+    "assets/upgrades/rebel.json", "assets/upgrades/separatist.json",
+    "assets/upgrades/republic.json",
+  ],
+};
+
+async function loadCategory(fileList) {
+  const lists = await Promise.all(fileList.map(J));
+  const seen = {}, merged = [];
+  lists.forEach((list) => {
+    (list || []).forEach((card) => {
+      if (card && card.id && seen[card.id]) return;
+      if (card) { seen[card.id] = true; merged.push(card); }
+    });
+  });
+  return merged;
+}
+
 try {
   const config = await J("data/config.json");
-  const cards = {
-    ships: await J("data/ships.json"),
-    squadrons: await J("data/squadrons.json"),
-    upgrades: await J("data/upgrades.json"),
-    titles: await J("data/titles.json"),
-  };
+  const [ships, squadrons, upgrades, titles] = await Promise.all([
+    loadCategory(CATEGORY_FILES.ships),
+    loadCategory(CATEGORY_FILES.squadrons),
+    loadCategory(CATEGORY_FILES.upgrades),
+    loadCategory(CATEGORY_FILES.titles),
+  ]);
+  const cards = { ships, squadrons, upgrades, titles };
   console.log("config factions:", config.factions.map((f) => f.id + ":" + f.name).join(", "));
   console.log("config slots:", config.upgradeSlots.length, "种");
 

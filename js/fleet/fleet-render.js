@@ -9,6 +9,13 @@
  * 列表末尾放「＋ 添加舰船 / ＋ 添加中队」按钮（槽位式添加）。
  * 所有卡图 object-fit: contain + 点击 Lightbox 放大（升级 slot 图标 svg 除外）。 */
 window.FleetRender = (function () {
+  // 显示偏好（选择器“显示FAQ”开关同步到这里）：总览已装备条目默认不显示 FAQ/勘误 段
+  var prefs = { showFaq: false };
+
+  function setPrefs(p) {
+    if (p && typeof p.showFaq === "boolean") prefs.showFaq = p.showFaq;
+  }
+
   function escapeHtml(s) {
     return String(s == null ? "" : s)
       .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
@@ -105,6 +112,11 @@ window.FleetRender = (function () {
       '<span class="equip-name">' + (tag ? '<span class="equip-tag">' + escapeHtml(tag) + "</span>" : "") + escapeHtml(card.name) + "</span>" +
       (card.nameEn ? '<span class="equip-en">' + escapeHtml(card.nameEn) + "</span>" : "") +
       '<span class="equip-effect">' + (card.effect ? ArmadaIcons.toHtml(card.effect) : "") + "</span>" +
+      (prefs.showFaq && card.faq
+        ? '<span class="equip-faq"><b>FAQ：</b>' + String(card.faq).split("\n").map(function (line) {
+            return '<span class="equip-faq-line">' + ArmadaIcons.toHtml(line) + "</span>";
+          }).join("") + "</span>"
+        : "") +
       "</span>" +
       '<span class="equip-pts">' + (card.points == null ? "?" : card.points) + "</span>" +
       "</button>" +
@@ -296,5 +308,6 @@ window.FleetRender = (function () {
     renderOverview: renderOverview,
     renderActionBar: renderActionBar,
     renderHeaderPoints: renderHeaderPoints,
+    setPrefs: setPrefs,
   };
 })();

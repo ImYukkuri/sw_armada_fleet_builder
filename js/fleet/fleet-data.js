@@ -1,5 +1,7 @@
 /* Fleet Builder · 数据加载层
- * 从 data/*.json 加载全部卡牌数据与公共配置（需本地服务器）。
+ * 从 data/*.json 与 assets 各阵营目录下的 cards.json 加载全部卡牌数据与公共配置（需本地服务器）。
+ * 卡牌类（ships/squadrons/upgrades/titles）已按阵营拆分为多个文件（见 build_data.py），
+ * 这里对每个文件列表并发加载并按 id 去重（双阵营升级卡会出现在两份里）后合并为扁平数组。
  * 挂到 window.FleetData，供 fleet-state/rules/calculator/render 使用。
  * 附带：升级槽位 SVG 图标注入（fill="black" -> currentColor，可随主题取色）。
  *
@@ -7,11 +9,15 @@
 window.FleetData = (function () {
   const FILES = {
     config: "data/config.json",
-    ships: "data/ships.json",
-    squadrons: "data/squadrons.json",
-    upgrades: "data/upgrades.json",
-    titles: "data/titles.json",
     objectives: "data/objectives.json",
+    ships: ["assets/ships/imperial/cards.json", "assets/ships/rebel/cards.json"],
+    squadrons: ["assets/squadrons/imperial/cards.json", "assets/squadrons/rebel/cards.json"],
+    titles: ["assets/titles/imperial/cards.json", "assets/titles/rebel/cards.json"],
+    upgrades: [
+      "assets/upgrades/neutral.json", "assets/upgrades/imperial.json",
+      "assets/upgrades/rebel.json", "assets/upgrades/separatist.json",
+      "assets/upgrades/republic.json",
+    ],
   };
 
   // 槽位 id -> assets/*.svg 文件
@@ -39,13 +45,15 @@ window.FleetData = (function () {
     loaded: false,
 
     async load() {
-      const [config, ships, squadrons, upgrades, titles, objectives] = await Promise.all([
+      const [config, objectives] = await Promise.all([
         fetchJSON(FILES.config),
-        fetchJSON(FILES.ships),
-        fetchJSON(FILES.squadrons),
-        fetchJSON(FILES.upgrades),
-        fetchJSON(FILES.titles),
         fetchJSON(FILES.objectives),
+      ]);
+      const [ships, squadrons, upgrades, titles] = await Promise.all([
+        loadCategory(FILES.ships),
+        loadCategory(FILES.squadrons),
+        loadCategory(FILES.upgrades),
+        loadCategory(FILES.titles),
       ]);
       this.config = config;
       this.cards.ships = ships;
@@ -130,6 +138,19 @@ window.FleetData = (function () {
     const res = await fetch(url, { cache: "no-store" });
     if (!res.ok) throw new Error("HTTP " + res.status + " — " + url);
     return res.json();
+  }
+
+  // 按文件列表并发加载并按 id 去重：双阵营升级卡（separatist+republic）会在两份里出现。
+  async function loadCategory(fileList) {
+    const lists = await Promise.all(fileList.map(fetchJSON));
+    const seen = {}, merged = [];
+    lists.forEach(function (list) {
+      (list || []).forEach(function (card) {
+        if (card && card.id && seen[card.id]) return;
+        if (card) { seen[card.id] = true; merged.push(card); }
+      });
+    });
+    return merged;
   }
 
   return db;

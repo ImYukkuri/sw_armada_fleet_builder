@@ -1,0 +1,135 @@
+[
+  {
+    "id": "defensive_retrofit_008",
+    "type": "upgrade",
+    "slot": "defensive_retrofit",
+    "faction": null,
+    "name": "热能护盾",
+    "nameEn": "Thermal Shields",
+    "size": null,
+    "points": 5,
+    "image": "assets/upgrades/defensive_retrofit/images/page_008_img_1.jpeg",
+    "slots": [],
+    "effect": "银河共和国/分离势力同盟中型或大型战舰 限定 当防御时，在攻击方取得骰子后，你可以花费1个[[icon:defense-contain]]抑制标记。如果你这么做了，选择并移除掉攻击池中一半的骰子，向下取整。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "republic",
+        "separatist"
+      ],
+      "sizes": [
+        "large",
+        "medium"
+      ],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "fleet_command_003",
+    "type": "upgrade",
+    "slot": "fleet_command",
+    "faction": null,
+    "name": "突袭着陆",
+    "nameEn": "•Hot Landing",
+    "size": null,
+    "points": 3,
+    "image": "assets/upgrades/fleet_command/images/page_003_img_1.jpeg",
+    "slots": [],
+    "effect": "银河共和国/分离势力同盟 限定 在中队阶段开始时，友方带老练关键字的中队到本阶段结束为止都得到坚决关键字。当友方带老练关键字的中队被摧毁时，你可以选择1个位于该中队距离1-2内的敌方战舰。如果你这么做了，则该战舰得到1个你所选择的突袭标记。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "republic",
+        "separatist"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "turbolasers_012",
+    "type": "upgrade",
+    "slot": "turbolasers",
+    "faction": null,
+    "name": "舰载旋回炮组",
+    "nameEn": "Swivel-Mount Batteries",
+    "size": null,
+    "points": 8,
+    "image": "assets/upgrades/turbolasers/images/page_012_img_1.jpeg",
+    "slots": [],
+    "effect": "银河共和国/分离势力同盟 限定 在你展示指挥转盘时，你可以消耗此卡来选择你的1个船体区并用专注标记来标示它。当使用该船体区攻击敌舰时，从相邻船体区的炮组武装中选1个任意颜色的骰子追加到你的攻击池中。而当 你使用相邻船体区攻击时，从你的攻击池中移除1个骰子。在你重置此卡时，移除该专注标记。重置费用：1个[[icon:command-concentrate-fire]]集火",
+    "modification": true,
+    "restrictions": {
+      "factions": [
+        "republic",
+        "separatist"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "fleet_command_006",
+    "type": "upgrade",
+    "slot": "fleet_command",
+    "faction": "republic",
+    "name": "救灾任务",
+    "nameEn": "•Mercy Mission",
+    "size": null,
+    "points": 5,
+    "image": "assets/upgrades/fleet_command/images/page_006_img_1.jpeg",
+    "slots": [],
+    "effect": "银河共和国 限定 在部署舰队前，解除此卡的装备并选择 1个非旗舰的友方小型战舰，将此卡装备到该舰上（即使它并没有相应的舰队指挥升级卡插槽）。在游戏结束时，如果你（插了此卡的战舰）位于敌方部署区内，增加你的舰队得分40分；如果你在敌方部署区内被消灭，则增加你的舰队得分20分。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "republic"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "offensive_retrofit_016",
+    "type": "upgrade",
+    "slot": "offensive_retrofit",
+    "faction": "republic",
+    "name": "SPHA-T",
+    "nameEn": "SPHA-T",
+    "size": null,
+    "points": 7,
+    "image": "assets/upgrades/offensive_retrofit/images/page_016_img_1.jpeg",
+    "slots": [],
+    "effect": "银河共和国歼星舰 限定 你的中队值减少2点。点火【近】 你的每个前，左或右开火射界同时视为特殊射界。你拥有5蓝骰子和1黑骰子的特殊武装炮组。在你放置了瞄准标记后消耗此卡。当此卡处于消耗状态时，你不能再放置瞄准标记。重置费用：1个[[icon:command-concentrate-fire]]集火",
+    "modification": true,
+    "restrictions": {
+      "factions": [
+        "republic"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [
+        "歼星舰"
+      ],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  }
+]

@@ -840,3 +840,75 @@ list-builder/
   重选同一张不误报；图阿部长中/大型已有防御改装被拒、小型允许；蹂躏号无 reject 已有支援小组仍可装；
   UI 标红 + pick 守卫。
 - `node fleet_test.mjs` / `node objectives_test.mjs` 全部通过。
+
+## 2026-08-26 · 阶段十七：FAQ/勘误 拆独立字段 + 卡牌数据按阵营拆分到 assets
+
+### 1. FAQ/勘误 提取（build_data.py）
+
+- 新增 `FAQ_MARKERS = ("[1.5勘误：", "[勘误：", "[FAQ：")`（长标记在前）与
+  `extract_faq_notes(effect)`（深度括号扫描器）：遇命中标记即提取，`[[`/`]]` 按 ±2、
+  单 `[`/`]` 按 ±1 计深度，深度回 0 的 `]` 为段尾；段内 `[[icon:…]]` token 保留
+  （10 张升级卡 FAQ 内含图标，普通正则必错）。多段 newline 拼接。
+- 剥离后归一空白（多空格→单、标点后去空格、strip）；`defensive_retrofit_004` 段尾
+  游离 ` •` 在「末段后仅剩空白/一个 •」时剥掉。
+- 只删方括号段、保留其余正文：中队卡 FAQ 段后的关键字块（`反击Counter`/`自带防御标记`）、
+  `officer_028` 正文不带方括号的「1.5版FAQ中被官方禁掉」不被误匹配。
+- 结果：86 处注释 → 85 张卡带独立 `faq` 字段（ships effect 为空跳过）。
+
+### 2. 按阵营拆分落盘（build_data.py）
+
+- 新增 `upgrade_membership(card)`（镜像 `cardFactionAllowed`：`restrictions.factions`
+  非空数组优先 → `faction` 字段 → 全阵营=neutral）与 `split_upgrades(cards)`
+  （按 `UPGRADE_FILES_BY_MEMBERSHIP` 分桶；{separatist, republic} 双阵营卡写两份）。
+- 写循环改为：ships/squadrons/titles 按 `faction` 写 `assets/<type>/<faction>/cards.json`
+  （unknown 卡打印守卫）；upgrades 写 `assets/upgrades/<neutral|阵营>.json`；
+  `data/` 只留 `config.json` + `objectives.json`，旧的 4 个单文件不再生成（一次性迁移提示）。
+- 目标计数（对真实数据锁定）：ships 24/22、squadrons 41/41、titles 31/30、
+  upgrades neutral 101 / imperial 42 / rebel 31 / separatist 7 / republic 5（盘上 186 = 183 去重；
+  3 张双阵营卡 `defensive_retrofit_008` / `fleet_command_003` / `turbolasers_012` 两份重复）。
+- 数据源优先级 `authoritative_cards`：`data/<cat>.json`（旧工作流）> 已拆分 assets 文件
+  （新工作流，carddb 导出覆盖处）> text.json 再生（全新检出）。删除单文件后重建不会丢
+  7 张手工录入卡（帝国 040/041、义军 038-041、帝国称号 031）与 carddb 编辑。
+
+### 3. 加载器（fleet-data.js / carddb/data.js）
+
+- `FILES` / `CATEGORY_FILES` 改为每类文件数组；新增 `loadCategory(fileList)` 并发加载 +
+  **按 id 去重**（双阵营卡两份合并为一张）；`db.cards.*` 保持扁平数组，公开 API 不变。
+- carddb 暴露 `upgradeFactions(card)` / `upgradeFiles(card)` / `ALL_FACTIONS`（导出切分 + 阵营显示用）。
+- 注意：文件头注释里的 `assets/*/cards.json` 含 `*/` 会提前终结块注释，改写成「assets 各阵营目录」。
+
+### 4. Card Database 对接新布局（app.js / carddb.html / carddb.css）
+
+- `exportAll` 改为切分导出 **12 个文件**：`config.json` + ships/squadrons/titles 各
+  `ships_imperial.json` 等 6 个（按 `faction`）+ upgrades `upgrades_<bucket>.json` 5 个
+  （`DB.upgradeFiles(c)` 分桶，双阵营卡写两份）；toast 提示覆盖对应 assets/ 目录。
+- `viewEdit` 增加 `data-field="faq"` 文本框（`applyField` 通用赋值自动持久化）+
+  门控只读 FAQ 预览（`#pref-faq` 复选框，多行逐行 `ArmadaIcons.toHtml`）。
+- `cardMeta` 升级卡阵营用 `upgradeFactions` 派生标签（双阵营卡 faction 为 null，显示
+  「分离势力 / 共和国」；四阵营允许显示「通用」）。
+- carddb.html 在 #app 前加 `.obj-controls` 复选框，加载 `js/fleet/armada-icons.js`。
+
+### 5. 构建器 FAQ 显示（selectors.js / fleet-render.js / builder.css）
+
+- `prefToggles()` 去掉 objective 早退：**所有卡类选择器**都显示「显示FAQ」（默认关闭）；
+  「显示英文」仅 objective 有。
+- `cardItem` 在 effect 后追加 `<span class="sel-faq">`（`objPrefs.showFaq && card.faq`，
+  多行按 linesOf 拆分逐行 toHtml）；`fleet-render.js` `equipItem` 同样追加 `.equip-faq`，
+  新增模块级 `prefs` + 导出 `setPrefs({showFaq})`。
+- change 委托：pref-faq 更新 `objPrefs.showFaq` + `FleetRender.setPrefs` + `ctx.onChange()`
+  （builder render 只碰 overview/action-bar/points-box，不会关掉选择器）。
+
+### 6. 一次性迁移
+
+- 删除 `data/ships.json` / `data/squadrons.json` / `data/upgrades.json` / `data/titles.json`
+  （data/ 只剩 config + objectives）；git 记为 `D`。
+- `build_data.py` 迁移后重建验证：计数全部匹配上表、85 个 faq 字段与 7 张手工卡保留。
+
+### 测试与验证
+
+- `fleet_test.mjs`：mock 的 assets 分支补 `.json()`；新断言（46/82/61/183 总数、双阵营去重、
+  `commander_002.faq` 含莫蒂且 effect 无 `[FAQ：`、`rebel_squadrons_010` faq 2 行且 effect 保留
+  关键字块、`officer_028` 正文「1.5版FAQ」未被误拆）；指挥官选择器 FAQ 开关 UI 断言；修 37→41。
+- `smoke_test.mjs` 按文件列表并发加载 + 去重；`dom_test.mjs` 导出数改 12 并校验 FAQ 编辑框。
+- `node fleet_test.mjs` / `node objectives_test.mjs` / `node smoke_test.mjs`（8123 起服务）/
+  `node dom_test.mjs` 全部通过；`grep data/(ships|squadrons|upgrades|titles).json` 无代码残留。

@@ -1,0 +1,395 @@
+[
+  {
+    "id": "assault_frigate_ii_a",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "突击护卫舰MKIIA型",
+    "nameEn": "Assault Frigate Mark II A",
+    "size": "medium",
+    "points": 77,
+    "image": "assets/ships/rebel/images/page_025_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "offensive_retrofit",
+      "defensive_retrofit",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "assault_frigate_ii_b",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "突击护卫舰MKIIB型",
+    "nameEn": "Assault Frigate Mark II B",
+    "size": "medium",
+    "points": 72,
+    "image": "assets/ships/rebel/images/page_026_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "offensive_retrofit",
+      "defensive_retrofit",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "cr90_a",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "CR90A轻型护卫舰",
+    "nameEn": "CR90 Corvette A",
+    "size": "small",
+    "points": 44,
+    "image": "assets/ships/rebel/images/page_027_img_1.jpeg",
+    "slots": [
+      "officer",
+      "support_team",
+      "defensive_retrofit",
+      "ion_cannons"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "cr90_b",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "CR90B轻型护卫舰",
+    "nameEn": "CR90 Corvette B",
+    "size": "small",
+    "points": 39,
+    "image": "assets/ships/rebel/images/page_028_img_1.jpeg",
+    "slots": [
+      "officer",
+      "support_team",
+      "defensive_retrofit",
+      "ion_cannons"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "gr75_combat",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "GR-75战斗改装型",
+    "nameEn": "GR-75 Combat Retrofits",
+    "size": "small",
+    "points": 24,
+    "image": "assets/ships/rebel/images/page_029_img_1.jpeg",
+    "slots": [
+      "officer",
+      "fleet_support",
+      "offensive_retrofit"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "gr75_transport",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "GR-75中型运输舰",
+    "nameEn": "GR-75 Medium Transports",
+    "size": "small",
+    "points": 18,
+    "image": "assets/ships/rebel/images/page_030_img_1.jpeg",
+    "slots": [
+      "officer",
+      "fleet_support",
+      "offensive_retrofit"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "hammerhead_scout",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "锤头侦查轻型护卫舰",
+    "nameEn": "Hammerhead Scout Corvette",
+    "size": "small",
+    "points": 41,
+    "image": "assets/ships/rebel/images/page_031_img_1.jpeg",
+    "slots": [
+      "officer",
+      "offensive_retrofit",
+      "weapons_team",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "hammerhead_torpedo",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "锤头鱼雷轻型护卫舰",
+    "nameEn": "Hammerhead Torpedo Corvette",
+    "size": "small",
+    "points": 36,
+    "image": "assets/ships/rebel/images/page_032_img_1.jpeg",
+    "slots": [
+      "officer",
+      "offensive_retrofit",
+      "weapons_team",
+      "ordnance"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "mc30c_scout",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "MC30C侦查护卫舰",
+    "nameEn": "MC30c Scout Frigate",
+    "size": "small",
+    "points": 69,
+    "image": "assets/ships/rebel/images/page_033_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "defensive_retrofit",
+      "ordnance",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "mc30c_torpedo",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "MC30C鱼雷护卫舰",
+    "nameEn": "MC30c Torpedo Frigate",
+    "size": "small",
+    "points": 63,
+    "image": "assets/ships/rebel/images/page_034_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "defensive_retrofit",
+      "ordnance",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "mc75_armored",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "MC75装甲巡洋舰",
+    "nameEn": "MC75 Armored Cruiser",
+    "size": "large",
+    "points": 99,
+    "image": "assets/ships/rebel/images/page_035_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "offensive_retrofit",
+      "defensive_retrofit",
+      "ordnance",
+      "ion_cannons",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "mc75_ordnance",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "MC75火炮巡洋舰",
+    "nameEn": "MC75 Ordnance Cruiser",
+    "size": "large",
+    "points": 95,
+    "image": "assets/ships/rebel/images/page_036_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "offensive_retrofit",
+      "defensive_retrofit",
+      "ordnance",
+      "ordnance"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "mc80_assault",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "MC80突击巡洋舰",
+    "nameEn": "MC80 Assault Cruiser",
+    "size": "large",
+    "points": 110,
+    "image": "assets/ships/rebel/images/page_037_img_1.jpeg",
+    "slots": [
+      "officer",
+      "support_team",
+      "defensive_retrofit",
+      "defensive_retrofit",
+      "ion_cannons",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "mc80_battle",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "MC80战斗巡洋舰",
+    "nameEn": "MC80 Battle Cruiser",
+    "size": "large",
+    "points": 103,
+    "image": "assets/ships/rebel/images/page_038_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "support_team",
+      "ion_cannons",
+      "turbolasers",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "mc80_command",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "MC80指挥巡洋舰",
+    "nameEn": "MC80 Command Cruiser",
+    "size": "large",
+    "points": 102,
+    "image": "assets/ships/rebel/images/page_039_img_1.jpeg",
+    "slots": [
+      "officer",
+      "support_team",
+      "offensive_retrofit",
+      "defensive_retrofit",
+      "ion_cannons",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "mc80_star",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "MC80星际巡洋舰",
+    "nameEn": "MC80 Star Cruiser",
+    "size": "large",
+    "points": 96,
+    "image": "assets/ships/rebel/images/page_040_img_1.jpeg",
+    "slots": [
+      "officer",
+      "weapons_team",
+      "support_team",
+      "ion_cannons",
+      "turbolasers",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "pelta_assault",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "改装型轻盾级突击舰",
+    "nameEn": "Modified Pelta-class Assault Ship",
+    "size": "small",
+    "points": 52,
+    "image": "assets/ships/rebel/images/page_041_img_1.jpeg",
+    "slots": [
+      "officer",
+      "support_team",
+      "fleet_command",
+      "ordnance"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "pelta_command",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "改装型轻盾级指挥舰",
+    "nameEn": "Modified Pelta-class Command Ship",
+    "size": "small",
+    "points": 60,
+    "image": "assets/ships/rebel/images/page_042_img_1.jpeg",
+    "slots": [
+      "officer",
+      "support_team",
+      "fleet_command",
+      "offensive_retrofit"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "nebulon_b_escort",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "内布伦-B护航护卫舰",
+    "nameEn": "Nebulon-B Escort Frigate",
+    "size": "small",
+    "points": 57,
+    "image": "assets/ships/rebel/images/page_043_img_1.jpeg",
+    "slots": [
+      "officer",
+      "support_team",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "nebulon_b_support",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "内布伦-B支援护卫舰",
+    "nameEn": "Nebulon-B Support Refit",
+    "size": "small",
+    "points": 51,
+    "image": "assets/ships/rebel/images/page_044_img_1.jpeg",
+    "slots": [
+      "officer",
+      "support_team",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "starhawk_i",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "星鹰级战列舰MKI",
+    "nameEn": "Starhawk-Class Battleship Mark I",
+    "size": "large",
+    "points": 140,
+    "image": "assets/ships/rebel/images/page_045_img_1.jpeg",
+    "slots": [
+      "officer",
+      "officer",
+      "weapons_team",
+      "offensive_retrofit",
+      "ion_cannons",
+      "turbolasers",
+      "superweapon"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "starhawk_ii",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "星鹰级战列舰MKII",
+    "nameEn": "Starhawk-Class Battleship Mark II",
+    "size": "large",
+    "points": 150,
+    "image": "assets/ships/rebel/images/page_046_img_1.jpeg",
+    "slots": [
+      "officer",
+      "officer",
+      "weapons_team",
+      "offensive_retrofit",
+      "ion_cannons",
+      "turbolasers",
+      "superweapon"
+    ],
+    "effect": ""
+  }
+]

@@ -86,6 +86,15 @@ window.FleetSelectors = (function () {
     var effect = effectOverride !== undefined
       ? effectOverride
       : (card.effect ? ArmadaIcons.toHtml(card.effect) : "");   // 全文显示 + 行内图标（不缩减内容）
+    // FAQ/勘误 段（独立 faq 字段）：仅“显示FAQ”勾选时展示；多行拆分逐行 toHtml（toHtml 默认压平换行）。
+    // 任务卡（effectOverride = objectiveFullHtml）已内联 FAQ 段落，不再重复渲染通用 faq 块
+    var faqHtml = "";
+    if (effectOverride === undefined && objPrefs.showFaq && card.faq) {
+      var faqLines = String(card.faq).split("\n").map(function (line) {
+        return '<span class="sel-faq-line">' + ArmadaIcons.toHtml(line) + "</span>";
+      }).join("");
+      faqHtml = '<span class="sel-faq"><b>FAQ：</b>' + faqLines + "</span>";
+    }
     var actionAttr = blocked
       ? ' data-blocked="1"'
       : ' data-action="sel-pick" data-id="' + escapeHtml(card.id) + '"';
@@ -98,6 +107,7 @@ window.FleetSelectors = (function () {
       (extra ? '<span class="sel-meta">' + extra + "</span>" : "") +
       (slotIcons ? slotIcons : "") +
       (effect ? '<span class="sel-effect">' + effect + "</span>" : "") +
+      (faqHtml ? faqHtml : "") +
       (blocked ? '<span class="sel-warn">' + escapeHtml(blocked) + "</span>" : "") +
       "</span>" +
       '<span class="sel-pts">' + (card.points == null ? "" : card.points) + "</span>" +
@@ -271,17 +281,18 @@ window.FleetSelectors = (function () {
     return [];
   }
 
-  /* ---- 顶部偏好开关：仅任务选择显示（控制英文原文 / FAQ） ---- */
+  /* ---- 顶部偏好开关：控制 FAQ 显示（所有卡类选择器都显示“显示FAQ”，默认隐藏）；
+   * “显示英文”仅任务选择显示（objective 卡有英文原文字段） ---- */
   function prefToggles() {
-    if (!state || state.kind !== "objective") return "";
+    if (!state) return "";
     var enChecked = objPrefs.showEn ? " checked" : "";
     var faqChecked = objPrefs.showFaq ? " checked" : "";
-    return (
-      '<div class="sel-prefs" role="group" aria-label="显示偏好">' +
-      '<label class="sel-pref"><input type="checkbox" data-action="pref-en"' + enChecked + "> 显示英文</label>" +
-      '<label class="sel-pref"><input type="checkbox" data-action="pref-faq"' + faqChecked + "> 显示FAQ</label>" +
-      "</div>"
-    );
+    var html = '<div class="sel-prefs" role="group" aria-label="显示偏好">';
+    if (state.kind === "objective") {
+      html += '<label class="sel-pref"><input type="checkbox" data-action="pref-en"' + enChecked + "> 显示英文</label>";
+    }
+    html += '<label class="sel-pref"><input type="checkbox" data-action="pref-faq"' + faqChecked + "> 显示FAQ</label>";
+    return html + "</div>";
   }
 
   /* ---- 渲染 ---- */
@@ -377,7 +388,13 @@ window.FleetSelectors = (function () {
       var cb = e.target.closest("[data-action='pref-en'],[data-action='pref-faq']");
       if (!cb) return;
       if (cb.dataset.action === "pref-en") objPrefs.showEn = cb.checked;
-      else objPrefs.showFaq = cb.checked;
+      else {
+        objPrefs.showFaq = cb.checked;
+        // 总览常驻表面（选中卡行 equipItem 的 FAQ 段）也随开关刷新；onChange 只碰
+        // overview/action-bar/points-box，不会关掉当前选择器
+        if (window.FleetRender && FleetRender.setPrefs) FleetRender.setPrefs({ showFaq: objPrefs.showFaq });
+        if (ctx && ctx.onChange) ctx.onChange();
+      }
       renderBody();
     });
   }

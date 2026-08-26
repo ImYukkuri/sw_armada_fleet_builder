@@ -51,7 +51,8 @@ global.fetch = async (url) => {
   const s = u.match(/(?:^|\/)assets\/([^?#]+)$/);
   if (s) {
     const body = fs.readFileSync("assets/" + s[1], "utf8");
-    return { ok: true, status: 200, async text() { return body; } };
+    // assets/ 下既有 .svg（text 用）也有拆分后的 .json 卡牌文件（json 用）
+    return { ok: true, status: 200, async json() { return JSON.parse(body); }, async text() { return body; } };
   }
   throw new Error("unexpected url " + u);
 };
@@ -153,9 +154,31 @@ const flagshipShip = { instanceId: "ship-other", cardId: "gladiator_i", title: n
 r = FleetRules.canEquipUpgrade(data, fleetWithCmd, flagshipShip, "commander", impCmd2);
 check("旗舰可更换为其它指挥官", r.allowed, JSON.stringify(r.reasons));
 
+/* ---------------- 按阵营拆分加载 + FAQ/勘误 字段 ---------------- */
+check("加载器按阵营拆分后舰船总数不变(46)", data.cards.ships.length === 46, "n=" + data.cards.ships.length);
+check("中队总数 82(含手工录入 6 张)", data.cards.squadrons.length === 82, "n=" + data.cards.squadrons.length);
+check("称号总数 61", data.cards.titles.length === 61, "n=" + data.cards.titles.length);
+check("升级总数 183(双阵营卡去重)", data.cards.upgrades.length === 183, "n=" + data.cards.upgrades.length);
+["defensive_retrofit_008", "turbolasers_012", "fleet_command_003"].forEach(function (id) {
+  const dup = data.cards.upgrades.filter((c) => c.id === id);
+  check("双阵营升级卡去重(" + id + ")", dup.length === 1, "n=" + dup.length);
+});
+check("neutral 升级卡可查(weapons_team_017)", !!data.upgrade("weapons_team_017"));
+
+// effect 内嵌 [FAQ：/[勘误：/[1.5勘误： 已拆成独立 faq 字段（默认不渲染）
+const c002 = data.upgrade("commander_002");
+check("commander_002 faq 含莫蒂", !!c002.faq && c002.faq.includes("莫蒂"), c002.faq || "无");
+check("commander_002 effect 不再含 [FAQ：", !c002.effect.includes("[FAQ："));
+const rs010 = data.squadron("rebel_squadrons_010");
+check("简奥斯 FAQ+勘误 两段拆为 2 行", (rs010.faq || "").split("\n").length === 2, rs010.faq || "无");
+check("简奥斯 effect 保留关键字块(反击Counter/自带防御标记)", rs010.effect.includes("反击Counter") && rs010.effect.includes("自带防御标记"));
+const o028 = data.upgrade("officer_028");
+check("officer_028 正文 1.5版FAQ 未被误拆", o028.effect.includes("1.5版FAQ中被官方禁掉"));
+check("officer_028 尾部真 FAQ 段已提取", !!o028.faq, o028.faq || "无");
+
 /* ---------------- 义军中队数据 + unique/limit 执行 ---------------- */
 const rebelCards = data.cards.squadrons.filter((c) => c.id.startsWith("rebel_"));
-check("义军中队 37 张已列入", rebelCards.length === 37, "count=" + rebelCards.length);
+check("义军中队 41 张已列入", rebelCards.length === 41, "count=" + rebelCards.length);
 check("义军中队已合并点数", data.squadron("rebel_squadrons_001").points === 19 &&
   data.squadron("rebel_squadrons_037").points === 16);
 check("义军比格斯 unique+ace", data.squadron("rebel_squadrons_001").unique && data.squadron("rebel_squadrons_001").ace);
@@ -231,7 +254,8 @@ overview = els["fleet-overview"].innerHTML;
 check("军官已装备显示", overview.includes("奇拉内奥"));
 check("已装备条目显示在舰船下方(equip-item)", overview.includes("equip-item"));
 check("已装备槽位图标变暗(slot-btn is-equipped)", overview.includes("slot-btn is-equipped"));
-check("已装备条目效果全文显示(不截断)", overview.includes("速度为3"));
+check("已装备条目效果全文显示(不截断)", overview.includes("即使交战中也可移动"));
+check("已装备条目默认不显示 FAQ 段(速度为3 在 faq)", !overview.includes("速度为3"));
 // 两艘阿奎腾斯(55×2) + 军官(10) = 120
 check("分数含两艘舰+军官 120", els["points-box"].innerHTML.includes("120"));
 
@@ -317,6 +341,13 @@ check("当前有舰船可装指挥官", !!cmdShipId, cmdShipId);
 clickBtn("fleet-overview", { action: "open-upgrade", id: cmdShipId, slot: "commander" });
 check("指挥官选择器打开(选择指挥官)", els["selector-root"].innerHTML.includes("选择指挥官"));
 check("指挥官列表只列指挥官卡(不列军官)", selBodyEl.innerHTML.includes("康斯坦丁") && !selBodyEl.innerHTML.includes("奇拉内奥"));
+// FAQ 开关：所有卡类选择器都显示“显示FAQ”（默认隐藏），勾选后卡上出现独立 faq 段
+check("指挥官选择器顶部含 显示FAQ 开关", els["selector-root"].innerHTML.includes('data-action="pref-faq"'));
+check("默认隐藏 FAQ(莫蒂 faq 段不在)", !selBodyEl.innerHTML.includes("伤害卡数量"));
+prefChange("pref-faq", true);
+check("勾选后指挥官卡显示 FAQ(莫蒂·伤害卡数量)", selBodyEl.innerHTML.includes("伤害卡数量"));
+prefChange("pref-faq", false);
+check("取消后 FAQ 段消失", !selBodyEl.innerHTML.includes("伤害卡数量"));
 selClick({ action: "sel-pick", id: "commander_001" });
 overview = els["fleet-overview"].innerHTML;
 check("选择后 Commander 存入 Fleet 级状态", fleet.commander === "commander_001" && fleet.commanderShipId === cmdShipId,

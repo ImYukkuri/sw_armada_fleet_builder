@@ -31,24 +31,20 @@ list-builder/
 │   ├── lightbox.js         # 图片大图查看（全站卡图点击放大，svg 图标除外）
 │   ├── armada-icons.js     # Armada 图标字库（自 assets/armada_officer_pdf_assets 引入）：
 │   │                       #   3+ 空格占位→token→<img>；toHtml 字符串式渲染 / render DOM 版
-│   ├── fleet-data.js       # 加载全部 data/*.json + 槽位 SVG 图标 + 查找 API
+│   ├── fleet-data.js       # 加载 data/config+objectives + assets 拆分卡牌文件 + 槽位 SVG 图标 + 查找 API
 │   ├── fleet-state.js      # Fleet State：唯一数据真相（可序列化，task.md §28）
 │   ├── fleet-rules.js      # 规则引擎：canEquipUpgrade → {allowed, reasons}
 │   ├── fleet-calculator.js # 点数计算（舰船+指挥官+称号+升级，任务卡不计）
 │   ├── fleet-render.js     # 总览渲染（舰船 / 中队 / 任务卡三节）
 │   └── selectors.js        # 选择器（移动全屏 / 桌面抽屉，同一 DOM）
-├── js/carddb/data.js   # 数据加载层：fetch data/*.json，提供查找 API
-├── js/carddb/app.js    # 卡牌资料库：状态 + 渲染、编辑表单、JSON 导出
+├── js/carddb/data.js   # 数据加载层：fetch data/config + assets 拆分卡牌文件，按 id 去重
+├── js/carddb/app.js    # 卡牌资料库：状态 + 渲染、编辑表单、JSON 导出（12 个拆分文件）
 ├── js/objectives/app.js    # 任务卡一览：分类 tab + 卡片网格 + 详情弹层
-├── data/               # 由 build_data.py 从 assets/ 生成（本阶段数据源）
+├── data/               # 不拆分 / 需要聚合的公共数据（其余卡牌已按阵营拆分到 assets/）
 │   ├── config.json     #   阵营 / 升级槽 / 舰船规模 配置
-│   ├── ships.json      #   舰船 46 张（全部带最新点数）
-│   ├── squadrons.json  #   中队 76 个（帝国 39 + 义军 37，全部带最新点数 + unique/ace/limit）
-│   ├── upgrades.json   #   升级卡 183 张（全部带最新点数 + restrictions + 双槽卡 slots + 加槽卡 addsSlots）
-│   ├── titles.json     #   称号 60 个（全部带最新点数 + restrictions + 加槽卡 addsSlots）
 │   └── objectives.json #   任务卡 36 张（规则 / 翻译 / 卡图路径）
 ├── points_map.json     # 持久化点数表（卡 id -> {points, en, banned?}），build_data.py 合并用
-├── build_data.py       # 数据管线：assets/ 各 text.json → data/*.json + 合并点数 + 限定解析
+├── build_data.py       # 数据管线：assets/ 各 text.json → assets/ 拆分卡牌文件 + 合并点数 + 限定解析
 ├── restrictions.py     # 解析「限定」子句 → restrictions（阵营/规模/舰船/旗舰/称号）
 ├── extract_objectives.py # 从 xlsx 提取任务卡（规则 / 翻译 / 卡图）→ assets/objectives/
 ├── fleet_test.mjs      # 写表器冒烟测试（DOM stub，真实跑 builder.js 全流程）
@@ -58,29 +54,29 @@ list-builder/
     │   ├── imperial/   #   帝国 24 艘
     │   └── rebel/      #   义军 22 艘
     ├── squadrons/      # 中队（按阵营）
-    │   ├── imperial/   #   帝国 39 个
-    │   └── rebel/      #   义军 37 个（含 unique/ace/nameEn，源自 BattleScribe）
-    ├── upgrades/       # 升级卡（按槽位类型，目录名 = 槽位 slug）
-    │   ├── commander/
-    │   ├── officer/
-    │   ├── support_team/
-    │   ├── weapons_team/
-    │   ├── offensive_retrofit/
-    │   ├── defensive_retrofit/
-    │   ├── fleet_support/
-    │   ├── fleet_command/
-    │   ├── ion_cannons/
-    │   ├── ordnance/
-    │   ├── turbolasers/
-    │   ├── experimental_retrofit/
-    │   └── superweapon/
+    │   ├── imperial/   #   帝国 41 个
+    │   └── rebel/      #   义军 41 个（含 unique/ace/nameEn，源自 BattleScribe）
+    ├── upgrades/       # 升级卡（按槽位类型的 text.json 源 + 按阵营归属的拆分输出）
+    │   ├── commander/ … superweapon/   # 13 种槽位源目录（text.json + images/）
+    │   ├── neutral.json     #   101 张 通用（四阵营都允许）
+    │   ├── imperial.json    #   42 张（银河帝国限定）
+    │   ├── rebel.json       #   31 张（义军同盟限定）
+    │   ├── separatist.json  #   7 张（含 3 张双阵营卡，与 republic 重复）
+    │   └── republic.json    #   5 张（含 3 张双阵营卡，与 separatist 重复）
     ├── titles/         # 称号（与升级卡平级，按阵营）
-    │   ├── imperial/   #   帝国 30
+    │   ├── imperial/   #   帝国 31
     │   └── rebel/      #   义军 30
     └── objectives/     # 任务卡（由 extract_objectives.py 生成）
         ├── text.json   #   规则 / 翻译
         └── images/     #   36 张卡图
 ```
+
+每个叶子目录内含 `text.json`（卡牌数据，PDF 提取源）与 `images/`（卡图，`image` 字段为相对本目录的路径）。
+`build_data.py` 从这些源**按阵营拆分**写出卡牌数据：
+`ships/squadrons/titles` → `assets/<type>/<faction>/cards.json`；`upgrades` → `assets/upgrades/<neutral|阵营>.json`
+（双阵营升级卡 `defensive_retrofit_008` / `fleet_command_003` / `turbolasers_012` 写两份，JS 加载器按 id 去重）。
+`data/` 只保留 `config.json` 与 `objectives.json`。
+舰船 `slots` 数组的取值与 `upgrades/` 目录名一一对应，可直接用文件名匹配槽位。
 
 每个叶子目录内含 `text.json`（卡牌数据）与 `images/`（卡图，`image` 字段为相对本目录的路径）。
 舰船 `slots` 数组的取值与 `upgrades/` 目录名一一对应，可直接用文件名匹配槽位。
@@ -109,10 +105,10 @@ python -m http.server 8000
 
 功能：
 - **浏览**：首页分「舰船 / 中队 / 升级卡 / 称号」四类；列表按阵营或升级槽位分组（升级卡按 13 种槽位，其余按 4 阵营）
-- **编辑**：中文名 / 英文名 / 类型 / 阵营 / 分数 / 中文效果；舰船另有「舰船规模」与「升级槽」编辑器（可增、可删、可重复，不做去重）；升级卡可改槽位
+- **编辑**：中文名 / 英文名 / 类型 / 阵营 / 分数 / 中文效果 / **FAQ·勘误**（独立 `faq` 字段，多行换行分隔）；舰船另有「舰船规模」与「升级槽」编辑器（可增、可删、可重复，不做去重）；升级卡可改槽位。编辑页顶部「显示 FAQ 预览」开关（默认关）控制只读 FAQ 预览块
 - **保存机制**：读取 JSON → 内存编辑 → 导出 JSON。本阶段不改写服务器文件
-- **导出**：顶栏「导出 JSON」一次性下载 `config.json` / `ships.json` / `squadrons.json` / `upgrades.json` / `titles.json` 五个文件；导出文件覆盖到 `data/` 目录即完成「保存」
-- **分数约定**：328 张卡牌已全部录入 AMG Armada 1.5 最终官方点数（整数，存于 `points_map.json`，`build_data.py` 合并进 `data/*.json`）。1.5 官方禁卡 2 张（战略顾问 / 贝尔·奥加纳）带 `banned: true`；普赖斯总督经 RRII（2023）再版效果重做已解禁（6 分）。未录入的分数仍为 `null`，导出时空字段不自动填 `0`
+- **导出**：顶栏「导出 JSON」按阵营拆分下载 **12 个文件**——`config.json` + `ships/squadrons/titles` 各 2 个（`<type>_<faction>.json`，覆盖到 `assets/<type>/<faction>/cards.json`）+ 升级卡 5 个（`upgrades_<neutral|imperial|rebel|separatist|republic>.json`，双阵营卡写两份）；覆盖到对应 `assets/` 目录即完成「保存」（覆盖后再跑 `build_data.py` 也会从这些文件继续，不会丢编辑）
+- **分数约定**：328 张卡牌已全部录入 AMG Armada 1.5 最终官方点数（整数，存于 `points_map.json`，`build_data.py` 合并进拆分后的卡牌文件）。1.5 官方禁卡 2 张（战略顾问 / 贝尔·奥加纳）带 `banned: true`；普赖斯总督经 RRII（2023）再版效果重做已解禁（6 分）。未录入的分数仍为 `null`，导出时空字段不自动填 `0`
 
 数据由 `build_data.py` 从 `assets/` 各 `text.json` 生成，改了源文件后重新执行即可（幂等，可重复运行）：
 
@@ -121,7 +117,11 @@ cd list-builder
 python build_data.py
 ```
 
-`build_data.py` 会同时把效果文本里的「3+ 空格 + 中文标签」占位（PDF 提取残留，宽度实测 3–5 空格，源文本从不出现 2 空格）固化为 `[[icon:<id>]]` token（`solidify_icons()`），供 `ArmadaIcons.toHtml` 渲染为行内图标；无图标标签（精确 / 驱散 / 命中 等）只清占位、保留自然中文。图标字库源项目保留在 `assets/armada_officer_pdf_assets/`。
+`build_data.py` 的职责：
+- 把效果文本里的「3+ 空格 + 中文标签」占位（PDF 提取残留，宽度实测 3–5 空格，源文本从不出现 2 空格）固化为 `[[icon:<id>]]` token（`solidify_icons()`），供 `ArmadaIcons.toHtml` 渲染为行内图标；无图标标签（精确 / 驱散 / 命中 等）只清占位、保留自然中文。图标字库源项目保留在 `assets/armada_officer_pdf_assets/`
+- **FAQ / 勘误拆分**：把 effect 内嵌的编辑注释 `[FAQ：…]` / `[勘误：…]` / `[1.5勘误：…]`（86 处 / 85 张卡）剥离为独立 `faq` 字段，控制显示（对齐 `objectives.json` 已有的 `faq`）。段内 `[[icon:…]]` 双括号按 ±2 计深度找闭合，普通 `[` / `]` 按 ±1，图标 token 保留
+- **按阵营拆分写出**：`ships/squadrons/titles` → `assets/<type>/<faction>/cards.json`（按 `faction` 字段）；升级卡按允许阵营集合（镜像 `cardFactionAllowed`：`restrictions.factions` 优先 → `faction` → 全阵营=neutral）写入 `assets/upgrades/` 各文件
+- **数据源优先级**：`data/<cat>.json`（旧工作流）> 已拆分的 assets 文件（新工作流，carddb 导出覆盖处）> 从 text.json 再生（全新检出）。所以覆盖 assets 后再跑也不会丢手工卡 / 编辑；要彻底从 PDF 源重生成，先删除对应 assets 拆分文件再跑
 
 ## 写表器（builder.html）
 
@@ -148,13 +148,15 @@ python build_data.py
 - **改装（按自身槽 + 每舰 1 张）**：`modification: true/false` 为**数据字段**（`build_data.py` 标定 18 张，非运行时解析），卡面标签位「改装」前缀已在构建时剥离（正文语义保留）；改装卡按自身升级类型出现在对应槽位选择界面（`sel-meta` 显示「改装」徽章），**不是独立槽位**——每舰最多 1 张，已装改装的舰再开选择器时其它改装卡**边框变红**并提示「每艘船只能有一个改装类组件」（不可选），普通卡不受影响
 - **加槽位升级卡**：7 张卡（旗舰舰桥→舰队指挥、图阿部长→防御改装、喷火兽号→舰队指挥、蹂躏号→支援小组、解放者号→舰队指挥、前卫号→武器小组、凤凰之巢号→军官）带 `addsSlots:[...]` 数据字段，装备后**给舰船追加对应升级槽位**（选择器 `sel-meta` 显示「增加槽位:XX」，槽位图标标注「（称号添加）/（升级添加）」），追加的槽位可正常装对应卡。**仅卡面写明「已有该槽则不能装备」的卡**（喷火兽号 / 解放者号 / 图阿部长，`addsSlotsReject`）拒绝已拥有该槽的战舰（标红 + 提示「该舰已有升级槽位：XX，此卡（卡面限制）不可装备」；图阿部长仅对中型/大型生效）；其余加槽卡允许额外/重复槽。**删除加槽卡时其添加的子槽连同槽内组件一并清理**，不留孤儿组件；称号换装时 `addedBy: "title"` 的子槽整组清理
 - **任务卡**：每个军表 3 个任务槽（进攻 / 防御 / 导航），点槽后按类别筛选选择（assault / defense / navigation）；任务选择卡**内联全部规则段落**（布设/特殊规则/回合结束/游戏结束/FAQ，图标渲染）；选择器顶部有「显示英文 / 显示FAQ」两个开关（**默认关闭**，打开后才显示英文原文与 FAQ）
+- **FAQ / 勘误显示开关**：所有卡类选择器（舰船 / 中队 / 升级 / 称号 / 任务）顶部都有「显示FAQ」复选框（**默认关闭**）——打开后卡上才显示独立 `faq` 段（含行内图标，多行换行分隔），任务卡另有「显示英文」开关。总览已装备条目也随开关刷新；「显示英文」仅任务选择器有
 - **同舰重复**：用 `instanceId` 区分同一卡牌的多个实例（§4）
 - **军表结构**：`JSON.stringify(fleet)` 即得可序列化军表（`version:1`，含 ships / squadrons / objectives / commander，§28）。本阶段**未做**保存 / 导入 / 导出
 
 ### 数据覆盖
 
-- 帝国：舰船 24 / 称号 30 / 中队 39 / 全部升级
-- 义军：舰船 22 / 称号 30 / 中队 37 / 部分升级
+- 帝国：舰船 24 / 称号 31 / 中队 41 / 全部升级（另有独立 42 张帝国升级卡）
+- 义军：舰船 22 / 称号 30 / 中队 41 / 部分升级（另有独立 31 张义军升级卡）
+- 通用升级卡：neutral 101 张（四阵营都允许）；共和国 5 / 分离势力 7 张（其中 3 张双阵营卡两份重复，实为 4 张）
 - **缺口**：共和国 / 分离势力舰船、称号与中队（UI 已支持 4 阵营，卡池为空）；部分升级阵营仍为通用，待人工核对
 - 1.5 禁卡 2 张（战略顾问 / 贝尔·奥加纳）带 `banned: true`，写表器暂未接入禁用逻辑
 
@@ -169,4 +171,4 @@ python build_data.py
 - 军表保存 / 导入 / 导出（状态已是可序列化 JSON，§28）
 - 1.5 禁卡（`banned`）与重复卡唯一性接入写表器规则（§37 预留项）
 - 补充共和国 / 分离势力舰船、称号与中队数据
-- 升级卡阵营 134 张 neutral 待人工核对（部分实为共和国/分离势力卡）
+- 升级卡阵营 101 张 neutral 待人工核对（部分实为共和国/分离势力卡）

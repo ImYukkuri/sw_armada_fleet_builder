@@ -1,0 +1,793 @@
+[
+  {
+    "id": "commander_014",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "rebel",
+    "name": "阿克巴 上将",
+    "nameEn": "•Admiral Ackbar",
+    "size": null,
+    "points": 38,
+    "image": "assets/upgrades/commander/images/page_014_img_1.jpeg",
+    "slots": [],
+    "effect": "在1个友方战舰的攻击步骤前，它可以选择是否此轮只从它的左或右方船体区发起攻击。若为如此，则在它攻击1个战舰时，可以追加2颗红色骰子到它的攻击池中。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "faq": "如果1个战舰装备了Gunnery Team火炮组，则阿克巴上将的能力对从同一船体区发起的2次攻击都生效。"
+  },
+  {
+    "id": "commander_015",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "rebel",
+    "name": "拉杜斯 上将",
+    "nameEn": "•Admiral Raddus",
+    "size": null,
+    "points": 26,
+    "image": "assets/upgrades/commander/images/page_015_img_1.jpeg",
+    "slots": [],
+    "effect": "在部署舰队前，你可以选择将另1个指挥值 3或更少的友方战舰放在一旁（场外）。而 在任意游戏轮开始时，你可以选择将该战舰部署在你的距离1-2内。该战舰部署时不能不中队底座重叠，也不能成为该轮第1个激活的战舰。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "faq": "如果装备此升级卡的战舰在结算此卡效果部署1个战舰后就被消灭，则被此卡效果所部署的战舰仍不可以是此轮第1个激活的战舰。如果其他战舰在此卡效果生效且部署战舰上场的该轮战舰阶段，因为一些卡牌效果而导致双方玩家都不可激活时（例如拉杜斯上将或普赖斯总督），则被此卡效果所部署的战舰才可以选择第1个激活。分配给放在一旁的战舰之各种标记或效果（例如Blocked Run或 Intel Sweep任务卡），只有在它们被放在一旁之前就得到的才不会因为离开游戏区域而失效丢弃。"
+  },
+  {
+    "id": "commander_016",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "rebel",
+    "name": "指挥官 佐藤",
+    "nameEn": "•Commander Sato",
+    "size": null,
+    "points": 27,
+    "image": "assets/upgrades/commander/images/page_016_img_1.jpeg",
+    "slots": [],
+    "effect": "当友方战舰在攻击1个位于友方中队距离1 的战舰时，可以加入最多两颗任意颜色骰子，如果这么做了，则必须取消两颗攻击骰",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "commander_017",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "rebel",
+    "name": "加姆 贝尔 伊布利斯",
+    "nameEn": "•Garm Bel Iblis",
+    "size": null,
+    "points": 25,
+    "image": "assets/upgrades/commander/images/page_017_img_1.jpeg",
+    "slots": [],
+    "effect": "在部署完舰队后，放置2个不连续的轮数标记在此卡上。在每个相应轮数的战舰阶段开始时，每个友方战舰可以得到等同其指挥值的指令标记。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "faq": "战舰不能被分配重复的指令标记。"
+  },
+  {
+    "id": "commander_018",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "rebel",
+    "name": "克拉肯 将军",
+    "nameEn": "•General Cracken",
+    "size": null,
+    "points": 26,
+    "image": "assets/upgrades/commander/images/page_018_img_1.jpeg",
+    "slots": [],
+    "effect": "当1个小型或中型的友方战舰对1个战舰进行防御时，如果防御方的船速为3或更高，则该次攻击视为被阻碍。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "commander_019",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "rebel",
+    "name": "多登纳 将军",
+    "nameEn": "•General Dodonna",
+    "size": null,
+    "points": 20,
+    "image": "assets/upgrades/commander/images/page_019_img_1.jpeg",
+    "slots": [],
+    "effect": "在1个敌方战舰将被分配1张面朝上的伤害卡前，查看它伤害卡组最上方的4张卡，挑其中1张放回该卡组顶部，然后丢弃其余的卡牌。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "faq": "在1次All-Out全面攻击（战役模式）中，只有在指定目标步骤被你挑中的对手战舰将分配1张面朝上的伤害卡时，此卡的效果才能结算。"
+  },
+  {
+    "id": "commander_020",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "rebel",
+    "name": "梅丁 将军",
+    "nameEn": "•General Madine",
+    "size": null,
+    "points": 30,
+    "image": "assets/upgrades/commander/images/page_020_img_1.jpeg",
+    "slots": [],
+    "effect": "当1个友方战舰结算1次[[icon:command-navigate]]导航指令时，如果它花费了1个[[icon:command-navigate]]导航指挥转盘，则它可以选择1个连接点的转向值增加1。如果它花费了1个[[icon:command-navigate]]导航指令标记，则它可以选择将改变船速1级或是选择1个连接点的转向值增加1 。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "faq": "当1个友方战舰花费1个[[icon:command-navigate]]导航指挥转盘来结算[[icon:command-navigate]]导航指令时，它可使用此卡效果来将1个连接点的转向值额外再增加1 级。当1个装备Nav Team导航组的友方战舰花费1个[[icon:command-navigate]]导航标记来结算[[icon:command-navigate]]导航指令时，则Nav Team导航组的效果不此卡效果将不会累计。"
+  },
+  {
+    "id": "commander_021",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "rebel",
+    "name": "里肯 将军",
+    "nameEn": "•General Rieekan",
+    "size": null,
+    "points": 34,
+    "image": "assets/upgrades/commander/images/page_021_img_1.jpeg",
+    "slots": [],
+    "effect": "每轮1次，当1个友方战舰或独特中队被摧毁时，它能留在游戏区域内直到状态阶段结束，在此期间它都将被视为未被摧毁。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "faq": "被此能力影响的战舰和中队在状态阶段结束时被消灭，无视当时它的伤害卡数量或船体值。这些战舰或中队将在结算任何 “回合结束”或“游戏结束”效果前被移除。被此能力影响的战舰和中队在状态阶段结束前，对任何情况都被视为未摧毁（攻击，防御，结算卡牌能力等）。这些战舰不中队可通过结算效果来承受额外的伤害，如Ruthless Strategists无情战略家。如果1个战舰或中队将因离开游戏区域而被消灭的话，它将立刻被消灭，不适用此卡能力。如果装备里肯将军的战舰离开了游戏区域，则已被此卡效果影响的战舰或中队仍然可以留在游戏区域直到状态阶段结束。此卡的能力也会影响所装备的战舰。如果此能力暂时阻止了此舰队的最后1个战舰被摧毁，则此轮结束时游戏仍会结束。装备此卡的战舰可在被消灭的战舰或中队从游戏区域被移除前，决定是否要对它们结算此卡效果。"
+  },
+  {
+    "id": "commander_022",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "rebel",
+    "name": "基尔丝塔 阿加特",
+    "nameEn": "•Kyrsta Agate",
+    "size": null,
+    "points": 25,
+    "image": "assets/upgrades/commander/images/page_022_img_1.jpeg",
+    "slots": [],
+    "effect": "在你部署后，获得1个非驱散防御标记。在你的“花费防御标记”步骤中，如果你的船速不是0，则你可以丢弃1个防御标记来结算它的效果（绕过攻击方的精确标志限制）。在每次攻击中，每1种防御标记仍然不能结算多于1次。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "commander_023",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "rebel",
+    "name": "莱娅 奥加纳",
+    "nameEn": "•Leia Organa",
+    "size": null,
+    "points": 28,
+    "image": "assets/upgrades/commander/images/page_023_img_1.jpeg",
+    "slots": [],
+    "effect": "当友方飞船揭露指令转盘并结算指令时，可以视作额外花费了一个相应的指令标记。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "commander_024",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "rebel",
+    "name": "蒙 莫思马",
+    "nameEn": "•Mon Mothma",
+    "size": null,
+    "points": 27,
+    "image": "assets/upgrades/commander/images/page_024_img_1.jpeg",
+    "slots": [],
+    "effect": "当1个友方战舰结算[[icon:defense-evade]]回避防御标记的效果时，它可在中距射程以内取消1颗骰子，或 在近距射程或距离1以内多重投1颗额外的骰子。当友方战舰防御时，可以花费被精准标记骰子锁定的[[icon:defense-evade]]回避防御标记。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_026",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "rebel",
+    "name": "阿达尔 塔隆",
+    "nameEn": "•Adar Tallon",
+    "size": null,
+    "points": 10,
+    "image": "assets/upgrades/officer/images/page_026_img_1.jpeg",
+    "slots": [],
+    "effect": "义军 限定 在你结算完1个[[icon:command-squadron]]中队指令后，消耗此卡来将其中1个被此指令所激活的中队乊激活条切换到另1侧去。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "rebel"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_027",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "rebel",
+    "name": "阿索卡 塔诺",
+    "nameEn": "•Ahsoka Tano",
+    "size": null,
+    "points": 2,
+    "image": "assets/upgrades/officer/images/page_027_img_1.jpeg",
+    "slots": [],
+    "effect": "义军 限定 当1个位于你距离1-5的友方战舰激活时，你可以消耗此卡来从该战舰上丢弃1个指令标记。如果你这么做了，则该战舰可以获得 1个任意类型的指令标记。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "rebel"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_028",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "rebel",
+    "name": "贝尔 奥加纳",
+    "nameEn": "•Bail Organa",
+    "size": null,
+    "points": 4,
+    "image": "assets/upgrades/officer/images/page_028_img_1.jpeg",
+    "slots": [],
+    "effect": "此卡在1.5版FAQ中被官方禁掉，以后再也不能于正式比赛环境中使用义军中型不大型战舰 限定 在部署舰队后，你可以选择将1个轮数标记放置在此卡上。在不该标记相应游戏轮次的战舰阶段开始时，如果你是后手玩家，则你必须激活。如果你是先手玩家，则你可以选择获得最多2个你自选的指令标记。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "rebel"
+      ],
+      "sizes": [
+        "large",
+        "medium"
+      ],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "banned": true,
+    "faq": "如果装备此卡的战舰被放在场外，你不能结算此卡的效果来放置轮数标记。如果此卡被比如达斯维达的1个效果丢弃，则在游戏中它不再有效。"
+  },
+  {
+    "id": "officer_029",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "rebel",
+    "name": "雷克斯 舰长",
+    "nameEn": "•Captain Rex",
+    "size": null,
+    "points": 5,
+    "image": "assets/upgrades/officer/images/page_029_img_1.jpeg",
+    "slots": [],
+    "effect": "义军 限定中队：你可以选择1个位于你近距射程的敌方战舰。该舰获得1个你指定的突袭标记。当你位于1个敌方战舰的距离1-3时，该战舰在丢弃1个指挥转盘后，也只能丢弃1个任意类型的突袭标记(本来是丢转盘就突袭标记都全丢)。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "rebel"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_030",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "rebel",
+    "name": "埃兹拉 布里杰",
+    "nameEn": "•Ezra Bridger",
+    "size": null,
+    "points": 3,
+    "image": "assets/upgrades/officer/images/page_030_img_1.jpeg",
+    "slots": [],
+    "effect": "义军 限定 当你展示1个指挥转盘时，你可以丢弃此卡来将1个位于你距离1-2的障碍物，移动到完全位于它当前距离1-2乊内的位置去。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "rebel"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_031",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "rebel",
+    "name": "德雷文 将军",
+    "nameEn": "•General Draven",
+    "size": null,
+    "points": 3,
+    "image": "assets/upgrades/officer/images/page_031_img_1.jpeg",
+    "slots": [],
+    "effect": "义军 限定 在攻击1个带有反击或情报关键字的中队时，追加1颗任意颜色的骰子到你的攻击池中。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "rebel"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_032",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "rebel",
+    "name": "基尔丝塔 阿加特",
+    "nameEn": "•Kyrsta Agate",
+    "size": null,
+    "points": 5,
+    "image": "assets/upgrades/officer/images/page_032_img_1.jpeg",
+    "slots": [],
+    "effect": "义军 限定红色或蓝色[[icon:attack-critical]]暴击：你可以消耗此卡来重置1个你已消耗的防御标记。你可在1次奇袭攻击中结算此[[icon:attack-critical]]暴击效果。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "rebel"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_033",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "rebel",
+    "name": "兰多 卡瑞辛",
+    "nameEn": "•Lando Calrissian",
+    "size": null,
+    "points": 4,
+    "image": "assets/upgrades/officer/images/page_033_img_1.jpeg",
+    "slots": [],
+    "effect": "义军 限定 当你防御时，在花费防御标记步骤，你可以丢弃此卡来强制攻击方重投1颗或更多你所选择的骰子。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "rebel"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_034",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "rebel",
+    "name": "莱娅 奥加纳",
+    "nameEn": "•Leia Organa",
+    "size": null,
+    "points": 3,
+    "image": "assets/upgrades/officer/images/page_034_img_1.jpeg",
+    "slots": [],
+    "effect": "义军 限定 当你展示1个指挥转盘时，你可以选择另1 个位于你距离1-5的友方战舰，将该战舰最顶上的指挥转盘改成跟你所展示的指令转盘相同。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "rebel"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_035",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "rebel",
+    "name": "德林 少校",
+    "nameEn": "•Major Derlin",
+    "size": null,
+    "points": 7,
+    "image": "assets/upgrades/officer/images/page_035_img_1.jpeg",
+    "slots": [],
+    "effect": "义军 限定 在你承受来自1次攻击的伤害前，你可以消耗此卡来将总伤害值减少1点。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "rebel"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_036",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "rebel",
+    "name": "雷穆斯 安蒂列斯",
+    "nameEn": "•Raymus Antilles",
+    "size": null,
+    "points": 7,
+    "image": "assets/upgrades/officer/images/page_036_img_1.jpeg",
+    "slots": [],
+    "effect": "义军 限定 当你展示1个指挥转盘时，你可以获得1个相应的指令标记，而不需要花费该指挥转盘。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "rebel"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_037",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "rebel",
+    "name": "莎宾 雷恩",
+    "nameEn": "•Sabine Wren",
+    "size": null,
+    "points": 4,
+    "image": "assets/upgrades/officer/images/page_037_img_1.jpeg",
+    "slots": [],
+    "effect": "义军 限定 在战舰阶段开始时，你可以丢弃此卡来将1 个贴附诡雷标记放置在游戏区域中，位于1 个障碍物的距离1-2且距离敌方战舰3以上的位置。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "rebel"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_038",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "rebel",
+    "name": "托丽恩 法尔",
+    "nameEn": "•Toryn Farr",
+    "size": null,
+    "points": 7,
+    "image": "assets/upgrades/officer/images/page_038_img_1.jpeg",
+    "slots": [],
+    "effect": "义军 限定 当另1个位于你距离1-3的友方战舰或中队攻击时，它可以重投1颗蓝色的骰子。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "rebel"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_039",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "rebel",
+    "name": "威利克斯 布利塞克斯",
+    "nameEn": "•Walex Blissex",
+    "size": null,
+    "points": 5,
+    "image": "assets/upgrades/officer/images/page_039_img_1.jpeg",
+    "slots": [],
+    "effect": "义军 限定 当你激活时，你可以丢弃此卡来恢复1个你已丢弃的防御标记。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "rebel"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "faq": "被此卡效果所恢复的防御标记是已就绪的。"
+  },
+  {
+    "id": "officer_040",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "rebel",
+    "name": "韦奇 安蒂列斯",
+    "nameEn": "•Wedge Antilles",
+    "size": null,
+    "points": 4,
+    "image": "assets/upgrades/officer/images/page_040_img_1.jpeg",
+    "slots": [],
+    "effect": "义军 限定 在中队阶段结束前，你可以花费1个[[icon:command-squadron]]中队指令标记来选择至多3个位于你距离1-5且不带有战略关键字的友方非独特中队。这些中队获得隐匿关键字直到该轮结束为止。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "rebel"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "superweapon_003",
+    "type": "upgrade",
+    "slot": "superweapon",
+    "faction": "rebel",
+    "name": "磁水晶牵引波束阵列",
+    "nameEn": "Magnite Crystal Tractor Beam Array",
+    "size": null,
+    "points": 10,
+    "image": "assets/upgrades/superweapon/images/page_003_img_1.jpeg",
+    "slots": [],
+    "effect": "义军纳迪里星鹰级战列舰 限定 在你的激活结束后，你可以消耗此卡来选择 1个位于距离1-5的敌方战舰。该战舰的船速将被增加或减少到与你的船速相同为止。当你船速为0时，你不能重置此卡。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "rebel"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "starhawk_i",
+        "starhawk_ii"
+      ],
+      "shipNames": [
+        "纳迪里星鹰级战列舰"
+      ],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "weapons_team_003",
+    "type": "upgrade",
+    "slot": "weapons_team",
+    "faction": "rebel",
+    "name": "赛肯与索兰",
+    "nameEn": "•Caitken and Shollan",
+    "size": null,
+    "points": 6,
+    "image": "assets/upgrades/weapons_team/images/page_003_img_1.jpeg",
+    "slots": [],
+    "effect": "义军限定 在攻击时，你可以消耗此卡来重投1种颜色中任意数量的骰子。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "rebel"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "weapons_team_004",
+    "type": "upgrade",
+    "slot": "weapons_team",
+    "faction": "rebel",
+    "name": "查姆 辛杜拉",
+    "nameEn": "•Cham Syndulla",
+    "size": null,
+    "points": 5,
+    "image": "assets/upgrades/weapons_team/images/page_004_img_1.jpeg",
+    "slots": [
+      "weapons_team",
+      "offensive_retrofit"
+    ],
+    "effect": "义军限定 在你展示1个指挥转盘时，你可以丢弃1个中队转盘或指令标记，并丢弃此卡，来选择 1个位于近距射程的敌方战舰。如果你这么做了，则你可以替该战舰的每个指挥转盘都 重新指定1个新的指令。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "rebel"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "faq": "此卡效果允许装备它的战舰展示并改变敌方战舰的转盘。该敌方战舰的拥有者如果不希望对方玩家的手碰触自己的转盘，则他可以按照此卡拥有者所要求的指令来亲手调整转盘。"
+  },
+  {
+    "id": "weapons_team_005",
+    "type": "upgrade",
+    "slot": "weapons_team",
+    "faction": "rebel",
+    "name": "琴 厄索",
+    "nameEn": "•Jyn Erso",
+    "size": null,
+    "points": 4,
+    "image": "assets/upgrades/weapons_team/images/page_005_img_1.jpeg",
+    "slots": [
+      "weapons_team",
+      "offensive_retrofit"
+    ],
+    "effect": "义军限定 在你展示1个指挥转盘时，你可以丢弃1个中队转盘或指令标记，并丢弃此卡，来选择 1个位于近距射程的敌方战舰。如果该战舰没有突袭标记，则它获得2个你所指定的突袭标记。如果该战舰有1个任务标记，则你可以再得到1个胜利标记。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "rebel"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "weapons_team_006",
+    "type": "upgrade",
+    "slot": "weapons_team",
+    "faction": "rebel",
+    "name": "施里夫 苏尔加夫",
+    "nameEn": "•Shriv Surgaav",
+    "size": null,
+    "points": 4,
+    "image": "assets/upgrades/weapons_team/images/page_006_img_1.jpeg",
+    "slots": [
+      "weapons_team",
+      "offensive_retrofit"
+    ],
+    "effect": "义军限定 在你展示1个指挥转盘时，你可以丢弃1个中队转盘或指令标记，并丢弃此卡，来选择 1个位于近距射程的敌方战舰。选择并丢弃该战舰所装备的1张武器组，支援组，攻击改装，[[icon:upgrade-defensive-retrofit]]防御改装，导弹，离子炮或激光炮升级卡。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "rebel"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  }
+]

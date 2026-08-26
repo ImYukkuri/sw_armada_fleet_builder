@@ -80,7 +80,7 @@ console.log("[list] 含银河帝国分组:", app.html.includes("银河帝国"), 
 // 打开第一艘舰船（取第一个 open-card 的 id）
 const m = app.html.match(/data-action="open-card" data-id="([^"]+)"/);
 clickBtn({ action: "open-card", id: m[1] });
-console.log("[edit] 含舰船规模:", app.html.includes("舰船规模"), "| 含升级槽:", app.html.includes("升级槽"), "| 含中文效果:", app.html.includes("中文效果"));
+console.log("[edit] 含舰船规模:", app.html.includes("舰船规模"), "| 含升级槽:", app.html.includes("升级槽"), "| 含中文效果:", app.html.includes("中文效果"), "| 含 FAQ 编辑框:", app.html.includes('data-field="faq"'));
 
 // 修改中文名
 inputField("name", "测试舰船名");
@@ -106,9 +106,9 @@ console.log("[home] 返回后 dirty 提示:", app.html.includes("有未导出的
 clickBtn({ action: "open-cat", category: "ships" });
 console.log("[list] 改名持久化:", app.html.includes("测试舰船名"));
 
-// 导出（触发 5 次下载）
+// 导出（按阵营拆分 12 个文件，每个下载间隔 350ms → 等全部触发）
 clickBtn({ action: "export" });
-await sleep(2200);
+await sleep(5000);
 console.log("[export] 下载文件数:", downloads.length, "->", downloads.join(", "));
 
 console.log("\nDOM 冒烟测试完成");

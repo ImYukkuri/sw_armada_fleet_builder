@@ -18,6 +18,7 @@
     category: null,      // ships | squadrons | upgrades | titles
     editingId: null,     // 正在编辑的卡牌 id
     dirty: false,
+    showFaq: false,      // #pref-faq 复选框：编辑页是否渲染只读 FAQ 预览
   };
 
   /* ---------------- 工具 ---------------- */
@@ -87,7 +88,12 @@
 
   function cardMeta(c) {
     const parts = [];
-    if (c.faction) {
+    if (c.type === "upgrade") {
+      // 升级卡阵营 = 允许集合（镜像 cardFactionAllowed）：双阵营卡 faction 为空，派生态标签
+      const fs = DB.upgradeFactions(c);
+      const names = fs.map(function (f) { const x = DB.faction(f); return x ? x.name : f; });
+      parts.push(fs.length >= DB.ALL_FACTIONS.length ? "通用" : names.join(" / "));
+    } else if (c.faction) {
       const f = DB.faction(c.faction);
       parts.push(f ? f.name : c.faction);
     }
@@ -177,6 +183,17 @@
     );
   }
 
+  // 只读 FAQ 预览（受 #pref-faq 复选框门控）：多行拆分后逐行 toHtml（toHtml 默认压平换行）
+  function faqPreview(c) {
+    if (!state.showFaq || !c.faq) return "";
+    const lines = String(c.faq).split("\n");
+    const body = lines.map(function (line) {
+      const html = window.ArmadaIcons ? ArmadaIcons.toHtml(line) : escapeHtml(line);
+      return '<div class="preview-faq-line">' + html + "</div>";
+    }).join("");
+    return '<div class="edit-faq"><h4>FAQ 预览（只读）</h4>' + body + "</div>";
+  }
+
   function viewEdit() {
     const c = currentCard();
     if (!c) {
@@ -194,6 +211,8 @@
       factionField(c) +
       '<label>分数<input data-field="points" type="number" min="0" step="1" value="' + (c.points == null ? "" : c.points) + '" placeholder="未录入"></label>' +
       '<label>中文效果<textarea data-field="effect" rows="8" placeholder="（暂无）">' + escapeHtml(c.effect || "") + "</textarea></label>" +
+      '<label>FAQ / 勘误<textarea data-field="faq" rows="4" placeholder="（可选）effect 里的 [FAQ：/勘误：/1.5勘误： 注释已拆到此处，多段换行分隔）">' + escapeHtml(c.faq || "") + "</textarea></label>" +
+      faqPreview(c) +
       shipExtras(c) +
       "</div></main>"
     );
@@ -251,18 +270,27 @@
   }
 
   function exportAll() {
-    const files = [
-      ["config.json", DB.config],
-      ["ships.json", DB.cards.ships],
-      ["squadrons.json", DB.cards.squadrons],
-      ["upgrades.json", DB.cards.upgrades],
-      ["titles.json", DB.cards.titles],
-    ];
+    const files = [];
+    // config 仍是单文件
+    files.push(["config.json", DB.config]);
+    // ships/squadrons/titles 按 faction 拆两文件（对应 assets/<type>/<faction>/cards.json）
+    ["ships", "squadrons", "titles"].forEach(function (cat) {
+      ["imperial", "rebel"].forEach(function (f) {
+        files.push([cat + "_" + f + ".json", DB.cards[cat].filter(function (c) { return c.faction === f; })]);
+      });
+    });
+    // upgrades 按允许阵营集合分桶（双阵营卡写两份，镜像 build_data.split_upgrades）
+    ["neutral", "imperial", "rebel", "separatist", "republic"].forEach(function (b) {
+      files.push([
+        "upgrades_" + b + ".json",
+        DB.cards.upgrades.filter(function (c) { return DB.upgradeFiles(c).indexOf("assets/upgrades/" + b + ".json") !== -1; }),
+      ]);
+    });
     files.forEach(function (pair, i) {
       setTimeout(function () { download(pair[0], JSON.stringify(pair[1], null, 2)); }, i * 350);
     });
     state.dirty = false;
-    toast("已导出 5 个 JSON 文件：覆盖到 data/ 后重新执行 build_data.py");
+    toast("已导出 12 个 JSON 文件：覆盖到对应 assets/ 目录（ships/squadrons/titles 重命名为 cards.json）后重新执行 build_data.py");
   }
 
   function toast(msg) {
@@ -332,6 +360,14 @@
   (async function init() {
     try {
       await DB.load();
+      // 编辑页 FAQ 预览开关（#pref-faq 在 #app 之外，单独绑定）
+      const prefFaq = document.getElementById("pref-faq");
+      if (prefFaq) {
+        prefFaq.addEventListener("change", function () {
+          state.showFaq = prefFaq.checked;
+          render();
+        });
+      }
       bind();
       render();
     } catch (err) {

@@ -1,0 +1,1076 @@
+[
+  {
+    "id": "commander_001",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "imperial",
+    "name": "康斯坦丁 上将",
+    "nameEn": "•Admiral Konstantine",
+    "size": null,
+    "points": 23,
+    "image": "assets/upgrades/commander/images/page_001_img_1.jpeg",
+    "slots": [],
+    "effect": "在每个状态阶段开始时，你可以选择任何数量的敌方战舰，只要它们位于至少2个友方非-船队战舰的距离1-5内，且其中至少1个友方战舰为中或大型尺寸。你可以从每个被 你选择的敌方战舰上丢弃1个[[icon:command-navigate]]导航标记或使其船速增加或减少1级，最少为1。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "faq": "如果康斯坦丁上将的效果改变了1个带有面朝上 “Thruster Fissure推进器开裂”伤害卡的战舰速度，则该战舰不会因伤害卡的效果而承受1点伤害。在战役玩法的全军突击模式时，此卡的效果可以对属于任意对手的敌方战舰进行使用。"
+  },
+  {
+    "id": "commander_002",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "imperial",
+    "name": "莫蒂 上将",
+    "nameEn": "•Admiral Motti",
+    "size": null,
+    "points": 20,
+    "image": "assets/upgrades/commander/images/page_002_img_1.jpeg",
+    "slots": [],
+    "effect": "每个友方战舰的船体值根据其尺寸等级增加以下的数值：小型战舰：1 中型战舰：2 大型战舰：3",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "faq": "如果由于失去莫蒂上将的效果影响而导致1个战舰的船体值等于其伤害卡数量，则该战舰被消灭。"
+  },
+  {
+    "id": "commander_003",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "imperial",
+    "name": "奥泽尔 上将",
+    "nameEn": "•Admiral Ozzel",
+    "size": null,
+    "points": 20,
+    "image": "assets/upgrades/commander/images/page_003_img_1.jpeg",
+    "slots": [],
+    "effect": "在友方战舰判断航线步骤时，它可以改变其船速1级。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "faq": "装备了Nav Team导航组的友方战舰在使用1个[[icon:command-navigate]]导航标记来结算1个导航指令并将其Yaw转向值增加时，可以先结算奥泽尔上将的效果再将其船速改变1级。"
+  },
+  {
+    "id": "commander_004",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "imperial",
+    "name": "皮耶特 上将",
+    "nameEn": "•Admiral Piett",
+    "size": null,
+    "points": 22,
+    "image": "assets/upgrades/commander/images/page_004_img_1.jpeg",
+    "slots": [],
+    "effect": "当1个友方战舰只花费了1个指挥标记来结算1个指令时，你可以消耗此卡。如果你这么做了，则该战舰改成视为花费了同类型的指挥转盘来结算该指令。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "commander_005",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "imperial",
+    "name": "斯克里德 上将",
+    "nameEn": "•Admiral Screed",
+    "size": null,
+    "points": 26,
+    "image": "assets/upgrades/commander/images/page_005_img_1.jpeg",
+    "slots": [],
+    "effect": "每次激活一次，当一艘友方舰船攻击时，可以花费1颗骰子来将1个骰子改为带有1个[[icon:attack-critical]]暴击标志的骰面。该骰子无法被重骰。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "commander_006",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "imperial",
+    "name": "斯隆 上将",
+    "nameEn": "•Admiral Sloane",
+    "size": null,
+    "points": 24,
+    "image": "assets/upgrades/commander/images/page_006_img_1.jpeg",
+    "slots": [],
+    "effect": "当1个不带侠盗关键字的友方中队攻击时，它可以花费1颗带有1个精确标志的骰子，来选择并花费防御方的1个防御标记。在攻击1个战舰时，它还可以选择重投1颗带有[[icon:attack-critical]]暴击标志的骰子。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "faq": "被此卡效果指定花费的防御标记不能在该次攻击中再被防御方所花费。防御方可在该次攻击中花费另1个相同类别的防御标记。"
+  },
+  {
+    "id": "commander_007",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "imperial",
+    "name": "达斯 维达",
+    "nameEn": "•Darth Vader",
+    "size": null,
+    "points": 28,
+    "image": "assets/upgrades/commander/images/page_007_img_1.jpeg",
+    "slots": [],
+    "effect": "当1个友方战舰攻击1个战舰时，它可以花费1个防御标记来重投其攻击池中任意数量的骰子。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "commander_008",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "imperial",
+    "name": "帕尔帕廷 皇帝",
+    "nameEn": "•Emperor Palpatine",
+    "size": null,
+    "points": 32,
+    "image": "assets/upgrades/commander/images/page_008_img_1.jpeg",
+    "slots": [],
+    "effect": "在部署舰队后，将每种类型的防御标记各放置1枚在此卡上。在每个战舰阶段开始时，你可以选择丢弃其中1个标记。如果你这么做了，则直到该轮结束为止，只要1个敌方战舰或中队在它的花费防御标记步骤花费了 1个相应的防御标记，便将该防御标记丢弃。这张卡的效果无法对友方战舰或中队生效。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "commander_009",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "imperial",
+    "name": "罗莫迪 将军",
+    "nameEn": "•General Romodi",
+    "size": null,
+    "points": 28,
+    "image": "assets/upgrades/commander/images/page_009_img_1.jpeg",
+    "slots": [],
+    "effect": "当1个友方战舰攻击1个战舰时，如果该次攻击被1个战舰或障碍物所阻碍，则该攻击方不但不需要移除1颗骰子（即使该攻击也被1个卡牌效果而导致被阻碍），而且还能 在其攻击池中加入1颗红色的骰子。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "commander_010",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "imperial",
+    "name": "塔格 将军",
+    "nameEn": "•General Tagge",
+    "size": null,
+    "points": 25,
+    "image": "assets/upgrades/commander/images/page_010_img_1.jpeg",
+    "slots": [],
+    "effect": "在部署完舰队后，放置2个不连续的轮数标记在此卡上。在每个相应轮数的战舰阶段开始时，每个友方战舰可以恢复1个它所丢弃的防御标记。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "commander_011",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "imperial",
+    "name": "索龙 元帅",
+    "nameEn": "•Grand Admiral Thrawn",
+    "size": null,
+    "points": 32,
+    "image": "assets/upgrades/commander/images/page_011_img_1.jpeg",
+    "slots": [],
+    "effect": "在部署舰队后，替放置在此卡上的指挥转盘选择各别的指令。在每个战舰阶段开始时，你可以选择展示并丢弃此卡上的1个指挥转盘。如果你这么做了，则直到此轮结束为止，当每个友方战舰激活时，它将获得1个相应的额外指挥转盘。自带指挥转盘：3个可带指令种类：[[icon:command-any]]任意",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "faq": "在1个友方战舰由于此效果获得1个指挥转盘时，该战舰可以选择花费该转盘来获得对应的指令标记，或者在合适的时间点花费该转盘来结算1个指令。但战舰仍然不能在它激活期间重复结算同1个指令。在1个巨型战舰展示其指挥转盘时，它只会获得原本所展示转盘相应之指令标记。它并不会得到不此卡效果所提供的额外指挥转盘相应之指令标记。1个战舰不能通过丢弃此卡效果所提供的额外指挥转盘，来丢弃分配给它的突袭标记。在部署时，如果装备此卡的战舰部署在场外，比如任务卡 Hyperspace Assault超空间突袭的部署效果，则此卡效果不能生效并选择放置面朝下的指挥转盘。"
+  },
+  {
+    "id": "commander_012",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "imperial",
+    "name": "高级星区总督 塔金",
+    "nameEn": "•Grand Moff Tarkin",
+    "size": null,
+    "points": 28,
+    "image": "assets/upgrades/commander/images/page_012_img_1.jpeg",
+    "slots": [],
+    "effect": "在每个战舰阶段开始时，你可以选择1种指令。每个友方战舰获得1个相应之指令标记。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "commander_013",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "imperial",
+    "name": "星区总督 杰杰罗德",
+    "nameEn": "•Moff Jerjerrod",
+    "size": null,
+    "points": 23,
+    "image": "assets/upgrades/commander/images/page_013_img_1.jpeg",
+    "slots": [],
+    "effect": "在1个友方战舰的判断航线步骤，它可以承受1点伤害来将其当前船速的第1个连接处转向值改为“II”，直到它激活结束为止。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "faq": "此卡效果对巨型战舰适用。"
+  },
+  {
+    "id": "officer_001",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "imperial",
+    "name": "奇拉内奥 上将",
+    "nameEn": "•Admiral Chiraneau",
+    "size": null,
+    "points": 10,
+    "image": "assets/upgrades/officer/images/page_001_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 限定中队：被你激活的中队即使交战中也可移动。而当1个交战中的中队以此方式移动时，将它卡面所印刷的速度值视为“2”。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "faq": "如果1个战舰装备腐化者号不奇拉内奥上将，则带有轰炸关键字的已交战中队激活时速度为3。"
+  },
+  {
+    "id": "officer_002",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "imperial",
+    "name": "蒙特费拉特 上将",
+    "nameEn": "•Admiral Montferrat",
+    "size": null,
+    "points": 5,
+    "image": "assets/upgrades/officer/images/page_002_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 限定 在对1个战舰防御时，如果你的船速为3或更高，则该次攻击视为被阻碍。在你执行1次机动后，如果你不1个战舰底座重叠，则丢弃此卡。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "faq": "1个带有正面朝上 Disengaged Fire Control 火控失联伤害卡的战舰不能将装备蒙特费拉特上将且船速3或以上的战舰作为目标。"
+  },
+  {
+    "id": "officer_003",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "imperial",
+    "name": "奥泽尔 上将",
+    "nameEn": "•Admiral Ozzel",
+    "size": null,
+    "points": 2,
+    "image": "assets/upgrades/officer/images/page_003_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 限定 在第1轮开始时，你可以执行1个速度1的机动。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_004",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "imperial",
+    "name": "泰特斯 上将",
+    "nameEn": "•Admiral Titus",
+    "size": null,
+    "points": 2,
+    "image": "assets/upgrades/officer/images/page_004_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 限定 在第1轮开始时，你可以选择将1个敌方战舰的船速改变1级。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_005",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "imperial",
+    "name": "卡勒斯 特工",
+    "nameEn": "•Agent Kallus",
+    "size": null,
+    "points": 3,
+    "image": "assets/upgrades/officer/images/page_005_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 限定 在攻击1个独特中队时，追加1个任意颜色的骰子到你的攻击池中。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_006",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "imperial",
+    "name": "布伦森 舰长",
+    "nameEn": "•Captain Brunson",
+    "size": null,
+    "points": 9,
+    "image": "assets/upgrades/officer/images/page_006_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 限定 当你位于1个障碍物的距离1-2防御时，在花费防御标记步骤，你可以消耗此卡来选择 并抵消1颗攻击骰子。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_007",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "imperial",
+    "name": "尼达 舰长",
+    "nameEn": "•Captain Needa",
+    "size": null,
+    "points": 2,
+    "image": "assets/upgrades/officer/images/page_007_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 限定 在第1轮开始时，你可以将你的1个防御标记更换为1个[[icon:defense-evade]]回避防御标记。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_008",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "imperial",
+    "name": "阿雷斯科 校长",
+    "nameEn": "•Commandant Aresko",
+    "size": null,
+    "points": 7,
+    "image": "assets/upgrades/officer/images/page_008_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 限定 当另1个位于你距离1-3的友方战舰展示1个指挥转盘后，你可以消耗此卡来获得1个相应的指令标记。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_009",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "imperial",
+    "name": "指挥官 贝克",
+    "nameEn": "•Commander Beck",
+    "size": null,
+    "points": 3,
+    "image": "assets/upgrades/officer/images/page_009_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 限定 在你的激活中，你可以视为花费了1个指令标记那样来结算1个指令。如果你这么做了，则获得1个相应种类的突袭标记。每次你激活时可以结算此卡效果2次。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "faq": "在1个装备此卡的战舰结算此效果时，将其视为已花费1个所选类别的指令标记。该战舰仍可花费所选类别的指挥转盘并不该效果合并结算。"
+  },
+  {
+    "id": "officer_010",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "imperial",
+    "name": "指挥官 格兰特",
+    "nameEn": "•Commander Gherant",
+    "size": null,
+    "points": 2,
+    "image": "assets/upgrades/officer/images/page_010_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 限定 当你防御时，攻击方不能结算[[icon:attack-critical]]暴击效果。在你执行1次对战舰的攻击后，丢弃此卡。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_011",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "imperial",
+    "name": "指挥官 万托",
+    "nameEn": "•Commander Vanto",
+    "size": null,
+    "points": 7,
+    "image": "assets/upgrades/officer/images/page_011_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 限定 在你的激活期间，当你结算完第1个指令后，你可以消耗此卡来获得1个相应的指令标记。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_012",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "imperial",
+    "name": "指挥官 沃尔达",
+    "nameEn": "•Commander Woldar",
+    "size": null,
+    "points": 4,
+    "image": "assets/upgrades/officer/images/page_012_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 限定 当1个位于你距离1-3的友方非集群关键字的中队攻击1个中队时，它可以选择重投1 颗任意颜色的骰子。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_013",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "imperial",
+    "name": "达斯 维达",
+    "nameEn": "•Darth Vader",
+    "size": null,
+    "points": 4,
+    "image": "assets/upgrades/officer/images/page_013_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 限定 当1个位于你距离1-5的友方战舰在攻击1个战舰时，它可以丢弃1个它的[[icon:upgrade-commander]]指挥官或士官升级卡（除达斯维达外），来重投它攻击池中任意数量的骰子。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_014",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "imperial",
+    "name": "艾萨德 总监",
+    "nameEn": "•Director Isard",
+    "size": null,
+    "points": 3,
+    "image": "assets/upgrades/officer/images/page_014_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 限定 当你展示1个指挥转盘时，你可以查看分配给1个敌方战舰的所有指挥转盘。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_015",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "imperial",
+    "name": "克伦尼克 总监",
+    "nameEn": "•Director Krennic",
+    "size": null,
+    "points": 8,
+    "image": "assets/upgrades/officer/images/page_015_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 限定集火：在中-远射程攻击时，如果你花费了1个[[icon:command-concentrate-fire]]集火指挥转盘，则你还可以选择重投你攻击池中任意数量的红色骰子。如果你花费了1个[[icon:command-concentrate-fire]]集火指令标记，则你还可以选择重投你攻击池中至多2颗红色骰子。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_016",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "imperial",
+    "name": "帕尔帕廷 皇帝",
+    "nameEn": "•Emperor Palpatine",
+    "size": null,
+    "points": 3,
+    "image": "assets/upgrades/officer/images/page_016_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 限定 当1个敌方战舰或独特中队宣布你作为1次攻击的目标时，它必须花费1个它的防御标记（如有）。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_017",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "imperial",
+    "name": "普赖斯 总督",
+    "nameEn": "•Governor Pryce",
+    "size": null,
+    "points": 6,
+    "image": "assets/upgrades/officer/images/page_017_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 限定 每次激活时，当你对1个敌方战舰执行攻击时，你可以从攻击舰体区消耗1个护盾，将 1个骰面改为任意结果。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_018",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "imperial",
+    "name": "艾登 韦尔西奥",
+    "nameEn": "•Iden Versio",
+    "size": null,
+    "points": 6,
+    "image": "assets/upgrades/officer/images/page_018_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 限定 当你在近距射程或距离1结算[[icon:defense-evade]]回避防御标记的效果时，你可取消1颗骰子。中队：你可以丢弃此卡来选择1个位于你近距射程的敌舰。该舰获得1个你所选择的突袭标记。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_019",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "imperial",
+    "name": "指导员 戈兰",
+    "nameEn": "•Instructor Goran",
+    "size": null,
+    "points": 7,
+    "image": "assets/upgrades/officer/images/page_019_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 限定 当1个友方非重型中队位于你距离1-2时，它获得反击1或将其反击值增加1。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_020",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "imperial",
+    "name": "莉拉 韦塞克斯",
+    "nameEn": "•Lira Wessex",
+    "size": null,
+    "points": 2,
+    "image": "assets/upgrades/officer/images/page_020_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 限定 当你被分配1张面朝上的伤害卡时，你可以花费1个[[icon:command-repair]]维修指令标记，来将该卡翻为面朝下（不会结算其效果）。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_021",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "imperial",
+    "name": "图阿 部长",
+    "nameEn": "•Minister Tua",
+    "size": null,
+    "points": 2,
+    "image": "assets/upgrades/officer/images/page_021_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 限定 你的升级栏中获得1个额外的[[icon:upgrade-defensive-retrofit]]防御改装标志。你不能在1个升级栏中已带有[[icon:upgrade-defensive-retrofit]]防御改装的中型或大型战舰上再装备此卡。",
+    "modification": false,
+    "addsSlots": [
+      "defensive_retrofit"
+    ],
+    "addsSlotsReject": {
+      "slots": [
+        "defensive_retrofit"
+      ],
+      "sizes": [
+        "medium",
+        "large"
+      ]
+    },
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "faq": "使用图阿部长效果装备在战舰的[[icon:upgrade-defensive-retrofit]]防御改装升级卡，在图阿部长被达斯维达等效果丢弃后，该[[icon:upgrade-defensive-retrofit]]防御改装卡不会被丢弃。"
+  },
+  {
+    "id": "officer_022",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "imperial",
+    "name": "里娃 德梅恩",
+    "nameEn": "•Reeva Demesne",
+    "size": null,
+    "points": 4,
+    "image": "assets/upgrades/officer/images/page_022_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 限定 当你被宣布为1次攻击的目标后，如果被指定的防御船体区至少有1点护盾值，则你可以消耗此卡来重置1个防御标记。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_023",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "imperial",
+    "name": "格林特 监工",
+    "nameEn": "•Taskmaster Grint",
+    "size": null,
+    "points": 5,
+    "image": "assets/upgrades/officer/images/page_023_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 限定 在部署舰队后，选择并将1枚指挥标记放置 在此卡上。在你展示一个对应该标记的指挥时，你可以选择获得1个对应的指挥标记，而不需要花费该指挥转盘。自带指令标记：1个可带指令种类：[[icon:command-any]]任意",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_024",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "imperial",
+    "name": "最高裁判官",
+    "nameEn": "•The Grand Inquisitor",
+    "size": null,
+    "points": 4,
+    "image": "assets/upgrades/officer/images/page_024_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 限定 当1个位于你距离1-5的敌方战舰改变其船速时，你可以消耗此卡来将你的船速增加或降低1级。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "faq": "此卡效果只在敌舰速度转盘上的数值被改变时才生效。"
+  },
+  {
+    "id": "officer_025",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "imperial",
+    "name": "伍尔夫 尤拉伦",
+    "nameEn": "•Wulff Yularen",
+    "size": null,
+    "points": 7,
+    "image": "assets/upgrades/officer/images/page_025_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国 限定 在你花费1个指令标记时，你可以消耗此卡来获得1个相同类别的指令标记。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "faq": "如果1个战舰花费了1个指令标记来结算指令时，本轮中它就不可再花费伍尔夫尤拉伦效果所提供的指令标记再次结算该指令以及伍尔夫尤拉伦的效果。"
+  },
+  {
+    "id": "superweapon_001",
+    "type": "upgrade",
+    "slot": "superweapon",
+    "faction": "imperial",
+    "name": "轨道轰炸粒子加农炮",
+    "nameEn": "Orbital Bombardment Particle Cannons",
+    "size": null,
+    "points": 5,
+    "image": "assets/upgrades/superweapon/images/page_001_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国强弩级歼星舰 限定点火【远】点火，红色[[icon:attack-critical]]暴击：每个位于该防御者距离1的其他战舰承受2点伤害，然后每个位于该防御者距离1的中队承受1点伤害。",
+    "modification": true,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "onager",
+        "onager_testbed"
+      ],
+      "shipNames": [
+        "强弩级歼星舰"
+      ],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "superweapon_002",
+    "type": "upgrade",
+    "slot": "superweapon",
+    "faction": "imperial",
+    "name": "超重型复合光束涡轮激光炮",
+    "nameEn": "Superheavy Composite Beam Turbolasers",
+    "size": null,
+    "points": 7,
+    "image": "assets/upgrades/superweapon/images/page_002_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国强弩级歼星舰 限定点火【中】点火，红色[[icon:attack-critical]]暴击：该防御者承受1点伤害。此卡效果在攻击池中每有1个红色或蓝色[[icon:attack-critical]]暴击标志就结算1次。",
+    "modification": true,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "onager",
+        "onager_testbed"
+      ],
+      "shipNames": [
+        "强弩级歼星舰"
+      ],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "weapons_team_001",
+    "type": "upgrade",
+    "slot": "weapons_team",
+    "faction": "imperial",
+    "name": "首席炮手瓦莉安",
+    "nameEn": "•Gunnery Chief Varnillian",
+    "size": null,
+    "points": 6,
+    "image": "assets/upgrades/weapons_team/images/page_001_img_1.jpeg",
+    "slots": [],
+    "effect": "帝国限定 在你部署后，放置1颗以空白面朝上的红色骰子在此卡上。如果你是后手玩家，则可以改为将它调整到任意面去。当攻击1个战舰时，你可以花费1个在攻击池中的骰子，来将它不放在此卡上的骰子交换。2颗骰子保持各自当前所设置的骰面。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "weapons_team_002",
+    "type": "upgrade",
+    "slot": "weapons_team",
+    "faction": "imperial",
+    "name": "达斯 维达",
+    "nameEn": "•Darth Vader",
+    "size": null,
+    "points": 3,
+    "image": "assets/upgrades/weapons_team/images/page_002_img_1.jpeg",
+    "slots": [
+      "weapons_team",
+      "offensive_retrofit"
+    ],
+    "effect": "帝国限定 在你展示1个指挥转盘时，你可以丢弃1个中队转盘或指令标记，并丢弃此卡，来选择 1个位于近距射程的敌方战舰。从它所装备的非-[[icon:upgrade-commander]]指挥官升级卡中选择1张丢弃。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "imperial"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  }
+]
