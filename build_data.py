@@ -585,7 +585,7 @@ def apply_restrictions(upgrades, titles):
 
 
 def build_objectives():
-    """任务卡：直接采用 extract_objectives.py 生成的规范结构。"""
+    """任务卡：直接采用 assets/objectives/text.json 的规范结构（一次性提取，源脚本已清理）。"""
     src = os.path.join(ASSETS, "objectives", "text.json")
     if not os.path.exists(src):
         return []

@@ -912,3 +912,13 @@ list-builder/
 - `smoke_test.mjs` 按文件列表并发加载 + 去重；`dom_test.mjs` 导出数改 12 并校验 FAQ 编辑框。
 - `node fleet_test.mjs` / `node objectives_test.mjs` / `node smoke_test.mjs`（8123 起服务）/
   `node dom_test.mjs` 全部通过；`grep data/(ships|squadrons|upgrades|titles).json` 无代码残留。
+
+## 2026-08-26 · 清理：删除一次性提取源与脚本
+
+- 删除 `assets/rebsquad.pdf`（义军中队 PDF 提取源，数据已存 `assets/squadrons/rebel/text.json`）。
+- 删除 `assets/armada_officer_pdf_assets/`（图标嵌入参考源项目：extract_icons.py / armada-icons.js/css /
+  demo.html / icon-map.json / icons/ 原图与 web 版），运行时图标库为 `js/fleet/armada-icons.js` + `icons/web/` 副本。
+- 删除 `extract_rebel_squadrons.py`（依赖已删的 rebsquad.pdf）、`extract_objectives.py`（xlsx 源不在仓库）。
+- 保留 `build_data.py` / `restrictions.py`（`build_data.py` import `restrictions`，构建活依赖）。
+- 同步：`build_data.py` `build_objectives` docstring、README 目录树与 4 处引用改为「一次性提取，源脚本已清理」；
+  `process.md` 历史条目保留不动。

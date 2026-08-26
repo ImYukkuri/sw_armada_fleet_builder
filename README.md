@@ -29,7 +29,7 @@ list-builder/
 ├── js/builder.js       # 写表器引导：读 ?faction=、加载数据、接线选择器、渲染
 ├── js/fleet/           # 写表器核心模块（Fleet 数据流：State → Render → Action）
 │   ├── lightbox.js         # 图片大图查看（全站卡图点击放大，svg 图标除外）
-│   ├── armada-icons.js     # Armada 图标字库（自 assets/armada_officer_pdf_assets 引入）：
+│   ├── armada-icons.js     # Armada 图标字库（PDF 提取占位 → 行内图标，一次提取的副本）：
 │   │                       #   3+ 空格占位→token→<img>；toHtml 字符串式渲染 / render DOM 版
 │   ├── fleet-data.js       # 加载 data/config+objectives + assets 拆分卡牌文件 + 槽位 SVG 图标 + 查找 API
 │   ├── fleet-state.js      # Fleet State：唯一数据真相（可序列化，task.md §28）
@@ -46,7 +46,6 @@ list-builder/
 ├── points_map.json     # 持久化点数表（卡 id -> {points, en, banned?}），build_data.py 合并用
 ├── build_data.py       # 数据管线：assets/ 各 text.json → assets/ 拆分卡牌文件 + 合并点数 + 限定解析
 ├── restrictions.py     # 解析「限定」子句 → restrictions（阵营/规模/舰船/旗舰/称号）
-├── extract_objectives.py # 从 xlsx 提取任务卡（规则 / 翻译 / 卡图）→ assets/objectives/
 ├── fleet_test.mjs      # 写表器冒烟测试（DOM stub，真实跑 builder.js 全流程）
 ├── objectives_test.mjs # 任务卡一览冒烟测试
 └── assets/             # 卡牌资料库源文件（全英文小写路径）
@@ -66,7 +65,7 @@ list-builder/
     ├── titles/         # 称号（与升级卡平级，按阵营）
     │   ├── imperial/   #   帝国 31
     │   └── rebel/      #   义军 30
-    └── objectives/     # 任务卡（由 extract_objectives.py 生成）
+    └── objectives/     # 任务卡（一次性提取，源脚本已清理）
         ├── text.json   #   规则 / 翻译
         └── images/     #   36 张卡图
 ```
@@ -118,7 +117,7 @@ python build_data.py
 ```
 
 `build_data.py` 的职责：
-- 把效果文本里的「3+ 空格 + 中文标签」占位（PDF 提取残留，宽度实测 3–5 空格，源文本从不出现 2 空格）固化为 `[[icon:<id>]]` token（`solidify_icons()`），供 `ArmadaIcons.toHtml` 渲染为行内图标；无图标标签（精确 / 驱散 / 命中 等）只清占位、保留自然中文。图标字库源项目保留在 `assets/armada_officer_pdf_assets/`
+- 把效果文本里的「3+ 空格 + 中文标签」占位（PDF 提取残留，宽度实测 3–5 空格，源文本从不出现 2 空格）固化为 `[[icon:<id>]]` token（`solidify_icons()`），供 `ArmadaIcons.toHtml` 渲染为行内图标；无图标标签（精确 / 驱散 / 命中 等）只清占位、保留自然中文。图标字库为一次提取的副本（源项目已随仓库清理删除）
 - **FAQ / 勘误拆分**：把 effect 内嵌的编辑注释 `[FAQ：…]` / `[勘误：…]` / `[1.5勘误：…]`（86 处 / 85 张卡）剥离为独立 `faq` 字段，控制显示（对齐 `objectives.json` 已有的 `faq`）。段内 `[[icon:…]]` 双括号按 ±2 计深度找闭合，普通 `[` / `]` 按 ±1，图标 token 保留
 - **按阵营拆分写出**：`ships/squadrons/titles` → `assets/<type>/<faction>/cards.json`（按 `faction` 字段）；升级卡按允许阵营集合（镜像 `cardFactionAllowed`：`restrictions.factions` 优先 → `faction` → 全阵营=neutral）写入 `assets/upgrades/` 各文件
 - **数据源优先级**：`data/<cat>.json`（旧工作流）> 已拆分的 assets 文件（新工作流，carddb 导出覆盖处）> 从 text.json 再生（全新检出）。所以覆盖 assets 后再跑也不会丢手工卡 / 编辑；要彻底从 PDF 源重生成，先删除对应 assets 拆分文件再跑
@@ -140,7 +139,7 @@ python build_data.py
 - **规则引擎 `FleetRules.canEquipUpgrade`**（§14）：返回 `{allowed, reasons}`，按 槽位（双槽卡 `slots` 任一可进）→ 阵营 → **dual-slot（双槽卡需两槽都在舰船上且都空闲）** → 规模 → 舰船 id/名称 → 旗舰 → modification-limit（每舰 1 张改装）→ 指挥官（舰队级）→ unique-name（全局同名）→ **dual-locked（双槽卡占用的槽位不可替换，须先删除）** → **adds-slots（加槽卡卡面写明「已有该槽则不能装备」时拒绝）** 顺序校验
 - **中队上限 `FleetRules.canEquipSquadron`**：阵营校验后按数量限制——**独特单位（unique）全舰队仅限 1 个**（reason `squadron-unique`），其余中队上限 `card.limit`（王牌/普通默认 4）；选择器按 `allowed` 过滤并显示 `独特/王牌 · 已带 n/limit · x 分`；跨卡牌类型同名 unique 冲突时该中队标红 + 提示
 - **中队数量调节**：非 unique 非 ace 的普通中队在总览合并为**单卡 + `− 数量 ＋` 步进器**（达上限 `card.limit` 时 `＋` 禁用标红，点数按 点数×数量 显示），`×` 整组删除；unique / ace 单卡无步进器。舰船不套用此逻辑
-- **限制数据 `restrictions`**：由 `restrictions.py` 从卡面「限定」子句解析（阵营 / 规模 / 舰船 / 舰船特性 / 需要旗舰 / 限定称号），写入 `upgrades.json` / `titles.json` 每张卡；title 的舰船限制以 `assets/titles/*/text.json` 的 **`shipId` 字段为权威**（用户维护，覆盖文本解析）
+- **限制数据 `restrictions`**：由 `restrictions.py` 从卡面「限定」子句解析（阵营 / 规模 / 舰船 / 舰船特性 / 需要旗舰 / 限定称号），写入每张升级卡 / 称号卡；title 的舰船限制以 `assets/titles/*/text.json` 的 **`shipId` 字段为权威**（用户维护，覆盖文本解析）
 - **指挥官（舰队级 + 槽位图标 + 上舰）**：`fleet.commander` 全舰队仅 1 名，存舰队级（不塞入舰船）；选中它的舰船为**旗舰**，点数计入旗舰。未选时**每艘舰**的槽位横排都显示指挥官槽图标；选中后其它舰的指挥官槽**隐藏**（删除后恢复），旗舰槽图标变暗。指挥官块显示在**总览顶部居中**（卡图裁上半部分，点击 Lightbox 放大，可更换 / 删除）；同时指挥官卡也作为**旗舰的装备条目**显示（带「指挥官」标签，一眼看出在哪个船）。指挥官仅限阵营（无规模/舰船限制）
 - **称号（槽位图标 + 独特）**：每舰最多 1 个，槽位图标**永远排在其他升级槽之后**（已装备变暗，舰船下方显示称号条目）；独特称号**舰队级唯一**（按 nameEn 全局同名，跨舰不可重选，删除后恢复）
 - **全局 unique（按 nameEn）**：unique 卡对所有槽位生效——以 `nameEn` 的 `•` 前缀判定，跨 **指挥官 / 称号 / 升级 / 中队 / 舰船** 同名不可重复（如指挥官、军官、双槽武器小组 三个 `•Darth Vader` 互相挡住）。选择界面同名卡**标红不可用**并提示「舰队中已存在同名卡：[槽位名]中文名」；重选/替换本槽同一张不误报（排除当前占用卡）
@@ -164,7 +163,7 @@ python build_data.py
 
 - 顶部 3 个分类 tab（进攻 / 防御 / 导航，各 12 张），点击切换；tab 下方有「显示英文 / 显示FAQ」两个开关（**默认关闭**，控制网格卡与详情弹层的英文原文 / FAQ 显示）
 - 卡片网格内联全部规则段落（布设 / 特殊规则 / 回合结束 / 游戏结束 / FAQ，图标渲染）+ 英文原文；详情弹层展示中文规则与英文原文（可折叠）
-- 数据来自 `assets/objectives/text.json`（`extract_objectives.py` 从 `Armada_规则简述和任务卡翻译_BY_Remo.xlsx` 提取）
+- 数据来自 `assets/objectives/text.json`（从 `Armada_规则简述和任务卡翻译_BY_Remo.xlsx` 一次性提取，源脚本已清理）
 
 ## 下一阶段规划（待定）
 
