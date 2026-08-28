@@ -1,0 +1,246 @@
+[
+  {
+    "id": "consular_armed_cruiser",
+    "type": "ship",
+    "faction": "republic",
+    "name": "领事级武装巡洋舰",
+    "nameEn": "Consular-class Armed Cruiser",
+    "size": "small",
+    "points": 37,
+    "image": "assets/ships/republic/images/page_001_img_1.jpeg",
+    "slots": [
+      "commander",
+      "officer",
+      "support_team",
+      "defensive_retrofit",
+      "ordnance"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "consular_charger_c70",
+    "type": "ship",
+    "faction": "republic",
+    "name": "领事级C70改装型",
+    "nameEn": "Consular-class Charger C70",
+    "size": "small",
+    "points": 42,
+    "image": "assets/ships/republic/images/page_002_img_1.jpeg",
+    "slots": [
+      "commander",
+      "officer",
+      "weapons_team",
+      "defensive_retrofit",
+      "ordnance"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "pelta_medical_frigate",
+    "type": "ship",
+    "faction": "republic",
+    "name": "佩尔塔级医疗护卫舰",
+    "nameEn": "Pelta-class Medical Frigate",
+    "size": "small",
+    "points": 49,
+    "image": "assets/ships/republic/images/page_003_img_1.jpeg",
+    "slots": [
+      "commander",
+      "officer",
+      "support_team",
+      "fleet_command",
+      "offensive_retrofit"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "pelta_transport_frigate",
+    "type": "ship",
+    "faction": "republic",
+    "name": "佩尔塔级运输护卫舰",
+    "nameEn": "Pelta-class Transport Frigate",
+    "size": "small",
+    "points": 45,
+    "image": "assets/ships/republic/images/page_004_img_1.jpeg",
+    "slots": [
+      "commander",
+      "officer",
+      "support_team",
+      "fleet_command",
+      "defensive_retrofit"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "acclamator_i",
+    "type": "ship",
+    "faction": "republic",
+    "name": "欢呼者I型突击舰",
+    "nameEn": "Acclamator I-class Assault Ship",
+    "size": "medium",
+    "points": 64,
+    "image": "assets/ships/republic/images/page_005_img_1.jpeg",
+    "slots": [
+      "commander",
+      "officer",
+      "weapons_team",
+      "offensive_retrofit",
+      "offensive_retrofit",
+      "ordnance",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "acclamator_ii",
+    "type": "ship",
+    "faction": "republic",
+    "name": "欢呼者II型突击舰",
+    "nameEn": "Acclamator II-class Assault Ship",
+    "size": "medium",
+    "points": 71,
+    "image": "assets/ships/republic/images/page_006_img_1.jpeg",
+    "slots": [
+      "commander",
+      "officer",
+      "weapons_team",
+      "defensive_retrofit",
+      "ordnance",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "venator_i",
+    "type": "ship",
+    "faction": "republic",
+    "name": "猎兵I型歼星舰",
+    "nameEn": "Venator I-class Star Destroyer",
+    "size": "large",
+    "points": 86,
+    "image": "assets/ships/republic/images/page_007_img_1.jpeg",
+    "slots": [
+      "commander",
+      "officer",
+      "weapons_team",
+      "fleet_command",
+      "offensive_retrofit",
+      "ordnance",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "venator_ii",
+    "type": "ship",
+    "faction": "republic",
+    "name": "猎兵II型歼星舰",
+    "nameEn": "Venator II-class Star Destroyer",
+    "size": "large",
+    "points": 100,
+    "image": "assets/ships/republic/images/page_008_img_1.jpeg",
+    "slots": [
+      "commander",
+      "officer",
+      "weapons_team",
+      "offensive_retrofit",
+      "defensive_retrofit",
+      "ordnance",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "venator_imperator_refit",
+    "type": "ship",
+    "faction": "republic",
+    "name": "猎兵级歼星舰统治者型改装",
+    "nameEn": "Venator Star Destroyer Imperator Refit",
+    "size": "large",
+    "points": 95,
+    "image": "assets/ships/republic/images/page_009_img_1.jpeg",
+    "slots": [
+      "commander",
+      "officer",
+      "weapons_team",
+      "defensive_retrofit",
+      "ordnance",
+      "ordnance"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "arquitens_light_cruiser",
+    "type": "ship",
+    "faction": "republic",
+    "name": "阿奎腾斯级轻巡洋舰",
+    "nameEn": "Arquitens-class Light Cruiser",
+    "size": "small",
+    "points": 49,
+    "image": "assets/ships/republic/images/page_010_img_1.jpeg",
+    "slots": [
+      "commander",
+      "officer",
+      "officer",
+      "weapons_team",
+      "weapons_team"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "arquitens_escort_cruiser",
+    "type": "ship",
+    "faction": "republic",
+    "name": "阿奎腾斯级护航巡洋舰",
+    "nameEn": "Arquitens-class Escort Cruiser",
+    "size": "small",
+    "points": 51,
+    "image": "assets/ships/republic/images/page_011_img_1.jpeg",
+    "slots": [
+      "commander",
+      "officer",
+      "support_team",
+      "turbolasers",
+      "turbolasers"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "arquitens_assult_cruiser",
+    "type": "ship",
+    "faction": "republic",
+    "name": "阿奎腾斯级突击巡洋舰",
+    "nameEn": "Arquitens-class Assault Cruiser",
+    "size": "small",
+    "points": 46,
+    "image": "assets/ships/republic/images/page_012_img_1.jpeg",
+    "slots": [
+      "commander",
+      "officer",
+      "weapons_team",
+      "offensive_retrofit",
+      "ordnance"
+    ],
+    "effect": ""
+  },
+  {
+    "id": "victory_i_republic",
+    "type": "ship",
+    "faction": "republic",
+    "name": "胜利I型歼星舰",
+    "nameEn": "Victory I-class Star Destroyer",
+    "size": "small",
+    "points": 71,
+    "image": "assets/ships/republic/images/page_013_img_1.jpeg",
+    "slots": [
+      "commander",
+      "officer",
+      "weapons_team",
+      "support_team",
+      "offensive_retrofit",
+      "ordnance",
+      "ordnance"
+    ],
+    "effect": ""
+  }
+]

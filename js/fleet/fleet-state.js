@@ -44,6 +44,76 @@ window.FleetState = (function () {
 
   function get() { return fleet; }
 
+  /* ---- 原地清空 / 载入（保外部引用，见 load 说明） ---- */
+  // 原地清空当前军表并重置序列号。**绝不重赋值模块级 fleet**：
+  // builder.js `const fleet = FleetState.create(...)` 与 selectors 的 ctx.fleet 都持有同一引用。
+  function resetShell(faction, pointsLimit) {
+    fleet.version = 1;
+    fleet.id = null;
+    fleet.name = "";
+    fleet.faction = faction || null;
+    fleet.pointsLimit = pointsLimit || 400;
+    fleet.commander = null;
+    fleet.commanderShipId = null;
+    fleet.ships = [];
+    fleet.squadrons = [];
+    fleet.objectives = { assault: null, defense: null, navigation: null };
+    shipSeq = 0;
+    squadronSeq = 0;
+    return fleet;
+  }
+
+  // 清空当前军表（清空按钮 / clearFleet 用），返回同一引用
+  function clear(faction, pointsLimit) {
+    return resetShell(faction, pointsLimit);
+  }
+
+  // 用解析后的军表数据整体替换当前军表（原地变更，外部引用保持有效）。
+  // fleetData 结构 = 保存格式 v2（见 fleet-io）：只含已装备槽，原生槽 {slotIndex, cardId}、
+  // 加槽子槽带 slotId+addedBy；无 instanceId（这里重新分配）、无 shared（重建层已派生）。
+  // 注意：本函数只做机械填装，不校验卡/槽（校验与槽位恢复在 fleet-io 导入层完成）。
+  function load(fleetData) {
+    const n = fleetData || {};
+    resetShell(n.faction, n.pointsLimit);
+    fleet.version = typeof n.version === "number" ? n.version : 1;
+    fleet.name = n.name || "";
+    (Array.isArray(n.ships) ? n.ships : []).forEach(function (s) {
+      shipSeq += 1;
+      const ship = {
+        instanceId: makeId("ship", shipSeq),
+        cardId: s.cardId,
+        title: s.title || null,
+        upgrades: (Array.isArray(s.upgrades) ? s.upgrades : []).map(function (u) {
+          const out = { slotIndex: u.slotIndex, cardId: u.cardId };
+          if (u.slotId) { out.slotId = u.slotId; out.addedBy = u.addedBy; }
+          if (u.shared) out.shared = true;
+          return out;
+        }),
+      };
+      fleet.ships.push(ship);
+    });
+    (Array.isArray(n.squadrons) ? n.squadrons : []).forEach(function (q) {
+      squadronSeq += 1;
+      fleet.squadrons.push({ instanceId: makeId("squadron", squadronSeq), cardId: q.cardId });
+    });
+    fleet.objectives = Object.assign(
+      { assault: null, defense: null, navigation: null },
+      (n.objectives && typeof n.objectives === "object") ? n.objectives : {}
+    );
+    // 指挥官挂载：commanderShipIndex（int，-1=无）→ 新 instanceId；越界/缺失则丢弃（导入层已告警）
+    if (n.commander) {
+      const idx = typeof n.commanderShipIndex === "number" ? n.commanderShipIndex : -1;
+      if (idx >= 0 && idx < fleet.ships.length) {
+        fleet.commander = n.commander;
+        fleet.commanderShipId = fleet.ships[idx].instanceId;
+      } else {
+        fleet.commander = null;
+        fleet.commanderShipId = null;
+      }
+    }
+    return fleet;
+  }
+
   /* ---- 舰船 ---- */
   // slots: 舰船卡槽位 id 数组（来自 Card Database），用于初始化 upgrades
   function addShip(cardId, slots) {
@@ -210,6 +280,8 @@ window.FleetState = (function () {
   return {
     create: create,
     get: get,
+    clear: clear,
+    load: load,
     addShip: addShip,
     findShip: findShip,
     removeShip: removeShip,

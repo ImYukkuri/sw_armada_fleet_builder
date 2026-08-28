@@ -765,3 +765,168 @@ body.lb-lock { overflow: hidden; }
   .sel-card:hover { border-color: var(--accent); }
   .selector-search input { background: rgba(12, 19, 32, 0.8); }
 }
+
+/* ---- 军表操作：通用按钮 / 底部工具组 ---- */
+.btn {
+  min-height: 42px;
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--panel);
+  color: var(--text);
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn:hover { border-color: var(--accent); }
+.btn:active { transform: translateY(1px); }
+.btn-danger { color: var(--danger, #ff5a5a); }
+.btn-danger:hover { border-color: var(--danger, #ff5a5a); }
+
+/* 底部操作条内部：总分 + 工具按钮横向排列 */
+.action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.act-tools {
+  display: flex;
+  gap: 8px;
+  margin-left: 14px;
+}
+.act-btn { min-height: 38px; padding: 6px 12px; font-size: 13px; }
+@media (max-width: 640px) {
+  .act-btn { padding: 6px 8px; font-size: 12px; }
+  .act-tools { gap: 6px; margin-left: 8px; }
+}
+
+/* ---- 弹层（导入 / 导出 / 清空确认） ---- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.sheet {
+  width: 100%;
+  max-width: 520px;
+  max-height: 82vh;
+  overflow-y: auto;
+  background: var(--bg-2);
+  border-radius: 16px 16px 0 0;
+  padding: 18px 16px calc(18px + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.sheet h3 { font-size: 16px; text-align: center; letter-spacing: 0.06em; color: var(--text); }
+.modal-overlay { z-index: 130; }
+.modal-hint { font-size: 13px; color: var(--text-faint); line-height: 1.6; }
+.modal-textarea {
+  width: 100%;
+  min-height: 150px;
+  resize: vertical;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: rgba(7, 11, 18, 0.7);
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.6;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+.modal-textarea:focus { outline: none; border-color: var(--accent); }
+.modal-warn {
+  max-height: 46vh;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0 4px 0 20px;
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.8;
+}
+.modal-warn li { margin-bottom: 4px; }
+.modal-warn b { color: var(--accent); font-weight: 600; }
+.modal-warn-note { font-size: 14px; color: var(--text-dim); line-height: 1.8; text-align: center; }
+.modal-file-btn { display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
+.modal-do { margin-top: 4px; }
+.modal-close { margin-top: 4px; }
+@media (min-width: 769px) {
+  .sheet { border-radius: 16px; margin-bottom: 20px; }
+}
+
+/* ---- Toast 提示 ---- */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 26px;
+  transform: translateX(-50%);
+  max-width: 90vw;
+  background: #16233a;
+  color: var(--text);
+  padding: 11px 18px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  font-size: 13px;
+  z-index: 150;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* ---- 启动 / 切页加载遮罩 + 进度条 ---- */
+.boot-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(4, 7, 12, 0.86);
+  backdrop-filter: blur(6px);
+}
+.boot-overlay[hidden] { display: none; }   /* 覆盖默认 display:flex，尊重 hidden */
+.boot-card {
+  width: min(320px, 84vw);
+  padding: 26px 24px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--panel);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.boot-faction {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+.boot-bar {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(150, 175, 210, 0.14);
+  overflow: hidden;
+}
+.boot-fill {
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+.boot-label {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-faint);
+  letter-spacing: 0.04em;
+}

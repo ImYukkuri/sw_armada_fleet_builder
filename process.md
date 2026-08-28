@@ -993,3 +993,75 @@ list-builder/
   计数断言随先前新增数据更新（舰船 46→47、称号 80→81，rebel 新增 神意级航母 + 诺提利安 称号）。
 - 验证：`fleet_test.mjs` / `objectives_test.mjs` 全绿；`smoke_test.mjs`（8124）`图片缺失: 无`（47/82/225/81）；
   `dom_test.mjs`（8124）导出 14 文件。
+
+### 2026-08-28 · 军表存储 / 读取（导出 JSON · 压缩分享 · 导入 · 自动存档）
+
+用户要求：设计存储 / 读取整个军表的功能——存为 JSON 或压缩 JSON（可复制的字符串，非 .gz 文件），
+读取时两种格式都能通过文本 / 文件导入，读取时留意槽位分配（双槽、加槽子槽、槽位类型匹配），
+导入报错处理完善（跨版本等）。用户澄清后锁定：localStorage 自动存档（每次改动写入、刷新恢复、
+返回阵营选择页清空、清空按钮封装 `clearFleet()`）、跨阵营导入切页 + 进度条。
+
+- **新模块 `js/fleet/fleet-io.js`（`FleetIO`，纯逻辑不碰 DOM）**：保存格式 v2（`SAVE_VERSION=2`）。
+  - 序列化 `serializePlain(fleet)`：只存已装备槽；原生槽 `{slotIndex, cardId}`，加槽子槽额外带
+    `slotId+addedBy`；**不存** `instanceId`（导入重编号）/ `shared`（按双槽卡重新派生）；
+    指挥官挂载用 `commanderShipIndex`（ships 下标，-1=无）；信封 `app: "sw-armada-fleet-builder"`。
+  - 压缩 `exportCompressed`：`"FA2:" + base64(gzip(utf8(json)))`。浏览器 `CompressionStream`；
+    `setCodec` 供测试注入 `node:zlib` 同步实现（Node 18 无 CompressionStream）。
+  - `importFromText(text, data)` → `{ok, faction, fleet, warnings}`：trim → FA2: 前缀识别（剥前缀解压）→
+    JSON.parse（含 `obj.app` 信封解开）→ 版本检查（`v>2` 拒绝 `newer-version`；`v<2` 走 `migrateToCurrent`
+    空实现作为未来迁移挂点）→ `buildNormalized` 数据感知重建，**不落地 state**（落地由 UI 判断阵营决定）。
+  - **导入重建（槽位恢复核心）**：铺满 `shipCard.slots` 原生槽 + `occ` 占用表 → title 先处理（其
+    `addsSlots` 子槽 `addedBy:"title"` 先铺好）→ 按文件顺序放卡：未知卡 / 阵营不符 / 槽位不足跳过 + 警告；
+    双槽卡对每个槽位类型各找空闲槽、兄弟条目标 `shared`；单槽卡 `findFreeSlot(slot, prefer=entry.slotIndex)`
+    按 类型对且空 → 原生顺序 → `slotId` 子槽 顺序兜底；意图槽位未满足时按类型归位 + `slot-rematched` 警告；
+    同一卡已占用（双槽兄弟条目 / 重复条目）静默跳过；加槽卡放置后按**实际父槽下标**追加子槽（不盲信文件）。
+    **只做结构性校验，不重跑规则引擎**（per-ship-duplicate / unique / 改装上限等不管）。
+  - 存储适配：`autosave` 写 `armada.fleet.autosave.<faction>`（明文 JSON，非空才写、空表清键）、
+    `readAutosave`、`clearStorage`、`setStorage`（测试注入 Map 桩）；全部 try/catch（file:// 静默）。
+- **fleet-state.js 增补 `load(fleetData)` / `clear(faction, pointsLimit)`**：私有 `resetShell` **原地**清空
+  （绝不重赋值模块级 `fleet`，保 builder.js `const fleet` 与 selectors `ctx.fleet` 引用）；`load` 重编号
+  instanceId（shipSeq 从头）、深拷贝 upgrades（保 slotIndex/cardId/slotId/addedBy，shared 原样带）、
+  指挥官按 `commanderShipIndex` remap 到新 instanceId（越界置 null）。
+- **进度条**：`FleetData.load(onProgress)` 可选回调，改为按类顺序加载（config+objectives 0.1 → ships 0.28 →
+  squadrons 0.45 → upgrades 0.65 → titles 0.82 → icons 1.0），各类内部仍并发；不传行为不变。
+- **UI（builder.js / fleet-render / builder.html / builder.css）**：
+  - 底部操作条 `.act-tools` 四按钮：导出 JSON（Blob+a.download，文件名「军表-<阵营> N分.json」）/
+    压缩分享（modal 显示 FA2: 串 + 复制）/ 导入（modal：textarea 粘贴 或 file 选择，FileReader 读文本）/
+    清空（确认 modal → `clearFleet()` 封装 = `FleetState.clear` + `FleetIO.clearStorage` + `render`）。
+  - `render()` 末尾 `FleetIO.autosave(fleet)`（内部空表清键）；`<a class="back-link">` click → 清源阵营存档。
+  - **跨阵营导入**：`r.faction !== 页面阵营` → 清源阵营档 → 显示 boot 遮罩 → `sessionStorage`
+    (`armada.fleet.pending-import`) 存原始文本 → 跳 `builder.html?faction=<目标>`；目标页 init 数据加载完
+    （进度条走完）后 pending 优先于自动存档恢复，重跑同一 `importFromText` 管线。sessionStorage 全 try/catch，
+    file:// 不可用时退化错误弹窗提示需本地服务器。
+  - **init 恢复**：pending > 自动存档；自动存档损坏/阵营不符 → 清键空表开始；恢复/切页导入的 warnings 也弹。
+  - 新增 boot 遮罩（阵营名 + 进度条 + 标签，`[hidden]` 守卫避免 `display:flex` 覆盖）、modal（overlay/sheet/
+    textarea/警告清单）、toast、`.btn/.btn-danger` 样式（从 carddb.css 适配变量名）。
+- **测试（fleet_test.mjs）**：模块列表加 `fleet-io`；注入 `zlib` 同步 codec + Map 存储桩；新增 30+ 断言：
+  序列化格式（无 instanceId/shared、含 commanderShipIndex）、明文/压缩往返、双槽重建、加槽子槽还原（addedBy
+  按实际父槽重派生，非文件值）、称号子槽重铺、槽位错位归位 + slot-rematched、未知舰船/升级跳过、版本 999/
+  1、三种非法数据、FleetState.load 原地引用不变 + 指挥官 remap、指挥官挂载越界、未知任务卡、阵营不符卡跳过、
+  自动存档写读清 + 空表不落键、损坏/异阵营存档恢复分支清键。
+- 验证：`fleet_test.mjs`（全绿，含既有 UI/规则断言）、`objectives_test.mjs` 全绿。`smoke_test`/`dom_test`
+  （carddb 页，需 8124 服务器）为既有失败，与本次改动无关。
+
+### 2026-08-28 · 共和国舰船数据接入（4 阵营加载 + 容错 + id 去重修复）
+
+用户手动添加了 `assets/ships/republic/cards.json`（13 艘，结构完整、点数/槽位/图片齐全）+ 13 张图片，
+但写表器页面看不到。原因与修复：
+
+- **根因 1：`fleet-data.js` 只加载帝国/义军舰船**。`FILES.ships`/`squadrons` 原只列 imperial+rebel，
+  共和国舰船从未被 `loadCategory` 读取。
+- **根因 2：separatist 目录为空**（无 cards.json），不能直接硬加 4 阵营列表，否则 404 会让整个加载失败。
+- **根因 3：`victory_i` id 撞车**。共和国文件里也有 `victory_i`（小型/71 分，配置与帝国中型/73 分不同，
+  是用户故意要的独立卡），而 `loadCategory` 按 id 去重、先到先得 → 帝国版获胜，共和国版静默消失。
+- **修复**：
+  - `fleet-data.js`：`FILES.ships`/`squadrons` 扩为 4 阵营全列；`loadCategory` 改用容错 `fetchJSONOrEmpty`
+    ——文件拉取失败 / 404（阵营尚未录入）→ 空列表跳过该文件；但已存在文件 JSON 解析失败仍上抛（不掩盖
+    真损坏）。config/objectives 仍走严格 `fetchJSON`。共和国/分离势力中队文件缺失时自动跳过，录入后自动出现。
+  - `assets/ships/republic/cards.json`：`victory_i` → `victory_i_republic`（唯一 id；帝国 `victory_i` 及
+    其称号限制/points_map 引用不变）。图片文件名无关 id，无需改。
+- **测试（fleet_test.mjs）**：新增共和国数据断言——13 艘加载、id 不与帝国/义军撞车、猎兵I型数据完整、
+  `victory_i_republic` 唯一 id + 图片存在、帝国 `victory_i` 未被覆盖、13 张图片全部 `fs.existsSync`、
+  分离势力缺失被容错（加载仍成功）；既有「舰船总数 47」→ 60（+13 共和国）。
+- **验证**：`fleet_test.mjs` 全绿；临时脚本模拟 `builder.html?faction=republic` 启动——页面渲染、添加舰船
+  选择器列出全部 13 艘共和国舰、图片路径指向 `assets/ships/republic/images/`、可装备猎兵I型。

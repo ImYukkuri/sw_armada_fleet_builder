@@ -293,6 +293,12 @@ window.FleetRender = (function () {
       '<div class="act-total' + overCls + '"><span>' + calc.total + " / " + calc.pointsLimit + " 分</span>" +
       (calc.isOverLimit ? '<span class="act-over-label">超出限制</span>' : "") +
       "</div>" +
+      '<div class="act-tools">' +
+      '<button class="btn act-btn" data-action="fleet-export-json">导出 JSON</button>' +
+      '<button class="btn act-btn" data-action="fleet-export-compressed">压缩分享</button>' +
+      '<button class="btn act-btn" data-action="fleet-import">导入</button>' +
+      '<button class="btn act-btn act-btn-danger" data-action="fleet-clear">清空</button>' +
+      "</div>" +
       "</div>"
     );
   }

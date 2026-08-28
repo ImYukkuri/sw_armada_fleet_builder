@@ -10,8 +10,15 @@ window.FleetData = (function () {
   const FILES = {
     config: "data/config.json",
     objectives: "data/objectives.json",
-    ships: ["assets/ships/imperial/cards.json", "assets/ships/rebel/cards.json"],
-    squadrons: ["assets/squadrons/imperial/cards.json", "assets/squadrons/rebel/cards.json"],
+    // 舰船 / 中队 4 阵营全列（共和国/分离势力文件尚未录入时由 loadCategory 容错跳过）
+    ships: [
+      "assets/ships/imperial/cards.json", "assets/ships/rebel/cards.json",
+      "assets/ships/separatist/cards.json", "assets/ships/republic/cards.json",
+    ],
+    squadrons: [
+      "assets/squadrons/imperial/cards.json", "assets/squadrons/rebel/cards.json",
+      "assets/squadrons/separatist/cards.json", "assets/squadrons/republic/cards.json",
+    ],
     titles: [
       "assets/titles/imperial/cards.json", "assets/titles/rebel/cards.json",
       "assets/titles/separatist/cards.json", "assets/titles/republic/cards.json",
@@ -47,25 +54,38 @@ window.FleetData = (function () {
     icons: {}, // slotId -> inline svg（fill=currentColor）
     loaded: false,
 
-    async load() {
+    // load(onProgress?)：onProgress(fraction, label) 可选，切页/启动进度条用。
+    // 不传则行为不变（await FleetData.load() 全量加载）。按类顺序加载，
+    // 各类内部仍并发拉文件，每完成一类回调一次进度。
+    async load(onProgress) {
+      const report = typeof onProgress === "function" ? onProgress : null;
+      const step = function (fraction, label) { if (report) report(fraction, label); };
+
+      step(0.1, "正在加载基础配置…");
       const [config, objectives] = await Promise.all([
         fetchJSON(FILES.config),
         fetchJSON(FILES.objectives),
       ]);
-      const [ships, squadrons, upgrades, titles] = await Promise.all([
-        loadCategory(FILES.ships),
-        loadCategory(FILES.squadrons),
-        loadCategory(FILES.upgrades),
-        loadCategory(FILES.titles),
-      ]);
       this.config = config;
-      this.cards.ships = ships;
-      this.cards.squadrons = squadrons;
-      this.cards.upgrades = upgrades;
-      this.cards.titles = titles;
       this.cards.objectives = objectives;
+
+      step(0.28, "正在加载舰船数据…");
+      this.cards.ships = await loadCategory(FILES.ships);
+
+      step(0.45, "正在加载中队数据…");
+      this.cards.squadrons = await loadCategory(FILES.squadrons);
+
+      step(0.65, "正在加载升级卡数据…");
+      this.cards.upgrades = await loadCategory(FILES.upgrades);
+
+      step(0.82, "正在加载称号数据…");
+      this.cards.titles = await loadCategory(FILES.titles);
+
+      step(0.92, "正在加载图标…");
       await this.loadIcons();
+
       this.loaded = true;
+      step(1, "加载完成");
       return this;
     },
 
@@ -144,8 +164,9 @@ window.FleetData = (function () {
   }
 
   // 按文件列表并发加载并按 id 去重：双阵营升级卡（separatist+republic）会在两份里出现。
+  // 单个阵营文件缺失（尚未录入，如共和国/分离势力舰船或中队）→ 跳过该文件，不影响整体加载。
   async function loadCategory(fileList) {
-    const lists = await Promise.all(fileList.map(fetchJSON));
+    const lists = await Promise.all(fileList.map(fetchJSONOrEmpty));
     const seen = {}, merged = [];
     lists.forEach(function (list) {
       (list || []).forEach(function (card) {
@@ -154,6 +175,19 @@ window.FleetData = (function () {
       });
     });
     return merged;
+  }
+
+  // 容错版 fetch：文件拉取失败 / 404（阵营尚未录入）→ 空列表跳过；
+  // 但已存在的文件若 JSON 解析失败则上抛（真损坏不掩盖）。config/objectives 仍走严格 fetchJSON。
+  async function fetchJSONOrEmpty(url) {
+    let res;
+    try {
+      res = await fetch(url, { cache: "no-store" });
+    } catch (e) {
+      return [];
+    }
+    if (!res.ok) return [];
+    return await res.json();
   }
 
   return db;

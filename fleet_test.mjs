@@ -1,5 +1,6 @@
 // 写表器 DOM stub 冒烟测试：真实执行 builder.js 全流程 + 纯规则/点数断言
 import fs from "node:fs";
+import zlib from "node:zlib";
 
 let failures = 0;
 function check(name, cond, extra) {
@@ -62,12 +63,23 @@ process.on("unhandledRejection", (e) => { console.error("!! unhandledRejection:"
 /* ---------------- 加载脚本 ---------------- */
 // factions.js 顶层 const 在严格模式 eval 内不进入全局，需在同一 eval 作用域内导出
 eval(fs.readFileSync("js/factions.js", "utf8") + "\nglobalThis.FACTIONS = FACTIONS;");
-for (const mod of ["lightbox", "armada-icons", "fleet-data", "fleet-state", "fleet-rules", "fleet-calculator", "fleet-render", "selectors"]) {
+for (const mod of ["lightbox", "armada-icons", "fleet-data", "fleet-state", "fleet-io", "fleet-rules", "fleet-calculator", "fleet-render", "selectors"]) {
   eval(fs.readFileSync("js/fleet/" + mod + ".js", "utf8"));
 }
+// 军表存取测试环境：注入 zlib 同步 codec（Node 18 无 CompressionStream）+ Map 存储桩
+const _store = new Map();
+FleetIO.setCodec({
+  gzip: (bytes) => new Uint8Array(zlib.gzipSync(Buffer.from(bytes))),
+  gunzip: (bytes) => new Uint8Array(zlib.gunzipSync(Buffer.from(bytes))),
+});
+FleetIO.setStorage({
+  getItem: (k) => _store.get(k) || null,
+  setItem: (k, v) => _store.set(k, String(v)),
+  removeItem: (k) => _store.delete(k),
+});
 eval(fs.readFileSync("js/builder.js", "utf8"));
-console.log("[load] ArmadaIcons/FleetData/FleetState/FleetRules/FleetCalculator/FleetRender/Selectors 均已挂载:",
-  !!global.ArmadaIcons && !!global.FleetData && !!global.FleetState && !!global.FleetRules && !!global.FleetCalculator && !!global.FleetRender && !!global.FleetSelectors);
+console.log("[load] ArmadaIcons/FleetData/FleetState/FleetIO/FleetRules/FleetCalculator/FleetRender/Selectors 均已挂载:",
+  !!global.ArmadaIcons && !!global.FleetData && !!global.FleetState && !!global.FleetIO && !!global.FleetRules && !!global.FleetCalculator && !!global.FleetRender && !!global.FleetSelectors);
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 for (let i = 0; i < 30 && !els["fleet-overview"].innerHTML.includes("overview-section"); i++) await sleep(100);
@@ -78,6 +90,24 @@ if (!els["fleet-overview"].innerHTML.includes("overview-section")) {
 
 const data = FleetData;
 const fleet = FleetState.get();
+
+/* ---------------- 共和国舰船数据（4 阵营加载 + 容错 + 去重） ---------------- */
+const repShips = data.shipsOf("republic");
+check("共和国舰船已加载(13 艘)", repShips.length === 13, "count=" + repShips.length + " ids=" + repShips.map((c) => c.id).join(","));
+check("共和国舰船 id 不与帝国/义军撞车",
+  repShips.every((c) => !["imperial", "rebel"].some((f) => data.ship(c.id) && data.ship(c.id).faction === f)));
+check("共和国猎兵I型 数据完整", data.ship("venator_i") && data.ship("venator_i").faction === "republic" &&
+  data.ship("venator_i").points === 86 && data.ship("venator_i").slots.length === 7,
+  data.ship("venator_i") && JSON.stringify({ pts: data.ship("venator_i").points, slots: data.ship("venator_i").slots }));
+check("共和国胜利I 已改唯一 id 且图片路径存在",
+  data.ship("victory_i_republic") && data.ship("victory_i_republic").faction === "republic" &&
+  fs.existsSync(data.ship("victory_i_republic").image),
+  data.ship("victory_i_republic") && data.ship("victory_i_republic").image);
+check("帝国 victory_i 未被共和国版覆盖(仍为帝国)",
+  data.ship("victory_i") && data.ship("victory_i").faction === "imperial");
+check("共和国 13 艘舰图片文件全部存在",
+  repShips.every((c) => fs.existsSync(c.image)), repShips.filter((c) => !fs.existsSync(c.image)).map((c) => c.image).join(","));
+check("分离势力舰船缺失被容错(加载仍成功)", data.shipsOf("separatist").length === 0);
 
 /* ---------------- 头部与初始状态 ---------------- */
 check("阵营主题已设置", els["faction-title"].textContent.includes("帝国"), els["faction-title"].textContent);
@@ -155,7 +185,7 @@ r = FleetRules.canEquipUpgrade(data, fleetWithCmd, flagshipShip, "commander", im
 check("旗舰可更换为其它指挥官", r.allowed, JSON.stringify(r.reasons));
 
 /* ---------------- 按阵营拆分加载 + FAQ/勘误 字段 ---------------- */
-check("加载器按阵营拆分后舰船总数(47, 含新增 神意级航母)", data.cards.ships.length === 47, "n=" + data.cards.ships.length);
+check("加载器按阵营拆分后舰船总数(60, 帝国24+义军23+共和国13)", data.cards.ships.length === 60, "n=" + data.cards.ships.length);
 check("中队总数 82(含手工录入 6 张)", data.cards.squadrons.length === 82, "n=" + data.cards.squadrons.length);
 check("称号总数 81(含新增 诺提利安 + 共和国/分离势力 19 张)", data.cards.titles.length === 81, "n=" + data.cards.titles.length);
 check("升级总数 225(19 张 title 已迁出, 双阵营卡去重)", data.cards.upgrades.length === 225, "n=" + data.cards.upgrades.length);
@@ -746,6 +776,156 @@ overview = els["fleet-overview"].innerHTML;
 check("unique 中队单卡无数量调节", overview.includes(qtyUnique.name) && !overview.includes("sq-stepper"));
 // 舰船不套用数量逻辑
 check("舰船不套用中队数量逻辑", !overview.includes("sq-stepper"));
+
+/* ================ 军表存取（FleetIO：序列化 / 压缩 / 导入重建 / 自动存档） ================ */
+// 构造“现场”军表（live shape：instanceId/commanderShipId/shared 齐全），序列化后走导入管线还原
+const liveFleet = {
+  faction: "imperial", pointsLimit: 400, name: "测试军表",
+  commander: "commander_001", commanderShipId: "live-0",
+  ships: [
+    {
+      instanceId: "live-0", cardId: "imperial_i", title: null,
+      upgrades: [
+        { slotIndex: 2, cardId: "offensive_retrofit_006" },                    // 旗舰舰桥 → 加 fleet_command 子槽
+        { slotIndex: 6, slotId: "fleet_command", addedBy: 2, cardId: "fleet_command_001" },  // 子槽
+        { slotIndex: 1, cardId: "weapons_team_017" },                          // 双槽主条目
+        { slotIndex: 3, cardId: "weapons_team_017", shared: true },            // 双槽兄弟条目
+        { slotIndex: 0, cardId: "officer_001" },
+      ],
+    },
+    {
+      instanceId: "live-1", cardId: "victory_i", title: "imperial_title_029",
+      upgrades: [
+        { slotIndex: 0, cardId: "officer_001" },
+        { slotIndex: 5, slotId: "support_team", addedBy: "title", cardId: null },  // 空子槽（serialize 会滤掉，重建时由称号重铺）
+      ],
+    },
+  ],
+  squadrons: [{ instanceId: "q-1", cardId: "imperial_squadrons_001" }],
+  objectives: { assault: "advanced_gunnery", defense: null, navigation: null },
+};
+
+const serialized = FleetIO.serializePlain(liveFleet);
+const parsed = JSON.parse(serialized);
+check("序列化包含 版本2 + app 标识", parsed.version === 2 && parsed.app === "sw-armada-fleet-builder");
+check("序列化不含 instanceId / shared", !JSON.stringify(parsed.ships).includes("instanceId") && !JSON.stringify(parsed.ships).includes("shared"));
+check("序列化含 commanderShipIndex", parsed.commanderShipIndex === 0, "idx=" + parsed.commanderShipIndex);
+
+const r1 = await FleetIO.importFromText(serialized, data);
+check("明文导入 ok + faction 供切页判断", r1.ok && r1.faction === "imperial", JSON.stringify(r1.error));
+check("明文导入无警告", r1.warnings.length === 0, JSON.stringify(r1.warnings));
+const n1 = r1.fleet;
+check("导入后版本归一为 2 + 舰船数 2", n1.version === 2 && n1.ships.length === 2);
+check("导入后指挥官保留(commanderShipIndex)", n1.commander === "commander_001" && n1.commanderShipIndex === 0);
+const s0 = n1.ships[0];
+check("双槽卡重建占两槽且兄弟条目标 shared",
+  s0.upgrades.filter(function (u) { return u.cardId === "weapons_team_017"; }).length === 2 &&
+  s0.upgrades.find(function (u) { return u.slotIndex === 3; }).shared === true,
+  JSON.stringify(s0.upgrades));
+check("加槽子槽还原(slotId+addedBy=实际父槽)",
+  s0.upgrades.some(function (u) { return u.slotId === "fleet_command" && u.addedBy === 2 && u.cardId === "fleet_command_001"; }),
+  JSON.stringify(s0.upgrades));
+check("原生槽无 slotId", s0.upgrades.every(function (u) { return !u.slotId || u.slotId === "fleet_command"; }));
+check("称号加槽子槽重铺(addedBy=title)",
+  n1.ships[1].title === "imperial_title_029" &&
+  n1.ships[1].upgrades.some(function (u) { return u.slotId === "support_team" && u.addedBy === "title"; }),
+  JSON.stringify(n1.ships[1].upgrades));
+check("中队/任务卡保留", n1.squadrons.length === 1 && n1.objectives.assault === "advanced_gunnery");
+
+// 压缩格式：FA2: 前缀 + 导入还原一致
+const compressed = await FleetIO.exportCompressed(liveFleet);
+check("压缩串以 FA2: 开头", compressed.startsWith("FA2:"), compressed.slice(0, 20));
+const r2 = await FleetIO.importFromText(compressed, data);
+check("压缩导入 ok 且结构一致", r2.ok && r2.fleet.faction === "imperial" && r2.fleet.ships.length === 2, JSON.stringify(r2.error));
+
+// 槽位错位：原生槽 slotIndex 故意改成越界 99 → 按类型归位 + slot-rematched 警告
+const corrupt = JSON.parse(serialized);
+corrupt.ships[0].upgrades.forEach(function (u) { if (u.cardId === "officer_001") u.slotIndex = 99; });
+const r3 = await FleetIO.importFromText(JSON.stringify(corrupt), data);
+check("槽位错位按类型归位(越界 slotIndex→0)",
+  r3.fleet.ships[0].upgrades.some(function (u) { return u.slotIndex === 0 && u.cardId === "officer_001"; }),
+  JSON.stringify(r3.fleet.ships[0].upgrades));
+check("槽位错位触发 slot-rematched 警告",
+  r3.warnings.some(function (w) { return w.type === "slot-rematched"; }), JSON.stringify(r3.warnings));
+
+// 未知卡：未知舰船整艘跳过 + 警告；未知升级仅该卡跳过
+const unk = JSON.parse(serialized);
+unk.ships.push({ cardId: "nonexistent_ship_xyz", title: null, upgrades: [] });
+unk.ships[0].upgrades.push({ slotIndex: 0, cardId: "nonexistent_upg_xyz" });
+const r4 = await FleetIO.importFromText(JSON.stringify(unk), data);
+check("未知舰船整艘跳过 + 警告", r4.fleet.ships.length === 2 && r4.warnings.some(function (w) { return w.type === "ship"; }));
+check("未知升级仅该卡跳过(舰保留)",
+  r4.fleet.ships[0].upgrades.every(function (u) { return u.cardId !== "nonexistent_upg_xyz"; }) &&
+  r4.warnings.some(function (w) { return w.type === "upgrade"; }));
+
+// 版本：999 拒绝（newer-version）；1 正常导入并归一
+const ver999 = JSON.parse(serialized); ver999.version = 999;
+const r5 = await FleetIO.importFromText(JSON.stringify(ver999), data);
+check("版本 999 拒绝(newer-version)", !r5.ok && r5.error.code === "newer-version", JSON.stringify(r5.error));
+const ver1 = JSON.parse(serialized); ver1.version = 1;
+const r6 = await FleetIO.importFromText(JSON.stringify(ver1), data);
+check("版本 1 可导入且归一为 2", r6.ok && r6.fleet.version === 2);
+
+// 非法数据
+const r7a = await FleetIO.importFromText("not json at all", data);
+check("非 JSON → parse-error", !r7a.ok && r7a.error.code === "parse-error");
+const r7b = await FleetIO.importFromText("FA2:%%%not-base64%%%", data);
+check("坏压缩串 → parse-error", !r7b.ok && r7b.error.code === "parse-error");
+const r7c = await FleetIO.importFromText("[1,2,3]", data);
+check("非对象 → not-a-fleet", !r7c.ok && r7c.error.code === "not-a-fleet");
+
+// 落地：FleetState.load 原地替换，引用不变，指挥官 remap
+const r8 = await FleetIO.importFromText(serialized, data);
+const beforeLoad = FleetState.get();
+FleetState.load(r8.fleet);
+check("FleetState.load 原地变更(引用不变)", FleetState.get() === beforeLoad);
+check("load 后 faction/点数/version 正确", FleetState.get().faction === "imperial" && FleetState.get().pointsLimit === 400 && FleetState.get().version === 2);
+check("load 重编号 instanceId(ship-001…)", FleetState.get().ships[0].instanceId === "ship-001");
+check("指挥官 remap 到新 instanceId",
+  FleetState.get().commander === "commander_001" && FleetState.get().commanderShipId === FleetState.get().ships[0].instanceId);
+
+// 指挥官挂载越界 → 移除 + 警告
+const badCmd = JSON.parse(serialized); badCmd.commanderShipIndex = 99;
+const r9 = await FleetIO.importFromText(JSON.stringify(badCmd), data);
+check("指挥官挂载越界 → 移除 + 警告", r9.fleet.commander === null && r9.warnings.some(function (w) { return w.type === "commander"; }));
+
+// 未知任务卡 → 置空 + 警告
+const badObj = JSON.parse(serialized); badObj.objectives.assault = "objective_nope";
+const r10 = await FleetIO.importFromText(JSON.stringify(badObj), data);
+check("未知任务卡 → 置空 + 警告", r10.fleet.objectives.assault == null && r10.warnings.some(function (w) { return w.type === "objective"; }));
+
+// 阵营不符卡 → 跳过 + 警告（officer_026 为义军限定）
+const mix = JSON.parse(serialized);
+mix.ships[0].upgrades.push({ slotIndex: 0, cardId: "officer_026" });
+const r11 = await FleetIO.importFromText(JSON.stringify(mix), data);
+check("阵营不符升级卡跳过 + 警告",
+  r11.fleet.ships[0].upgrades.every(function (u) { return u.cardId !== "officer_026"; }) &&
+  r11.warnings.some(function (w) { return w.type === "upgrade" && /阵营/.test(w.reason); }),
+  JSON.stringify(r11.warnings));
+
+// 自动存档：Map 桩写入 / 读回 / 清除；空表不落键
+const AUTO_KEY = "armada.fleet.autosave.imperial";
+_store.clear();
+FleetIO.autosave(liveFleet);
+check("自动存档写入键", _store.has(AUTO_KEY));
+const savedParsed = JSON.parse(_store.get(AUTO_KEY));
+check("自动存档可解析且含 faction/版本", savedParsed.faction === "imperial" && savedParsed.version === 2);
+check("readAutosave 读回", FleetIO.readAutosave("imperial") === _store.get(AUTO_KEY));
+check("readAutosave 无键返回 null", FleetIO.readAutosave("rebel") === null);
+FleetIO.clearStorage("imperial");
+check("clearStorage 删除键", !_store.has(AUTO_KEY));
+FleetIO.autosave({ faction: "imperial", ships: [], squadrons: [], commander: null });
+check("空表 autosave 不落键", !_store.has(AUTO_KEY));
+
+// 恢复分支：损坏存档导入失败 → 清键；阵营不符存档 → 不落地
+_store.set(AUTO_KEY, "{ not valid json !!!");
+const r12 = await FleetIO.importFromText(_store.get(AUTO_KEY), data);
+check("损坏存档导入失败(parse-error)", !r12.ok && r12.error.code === "parse-error");
+if (!r12.ok) FleetIO.clearStorage("imperial");
+check("损坏存档被清键", !_store.has(AUTO_KEY));
+const rebelSave = FleetIO.serializePlain(Object.assign({}, liveFleet, { faction: "rebel" }));
+const r13 = await FleetIO.importFromText(rebelSave, data);
+check("存档 faction 供切页判断(异阵营)", r13.ok && r13.faction === "rebel");
 
 console.log("\nfleet_test 结果: " + (failures === 0 ? "全部通过 ✓" : failures + " 项失败 ✗"));
 process.exit(failures === 0 ? 0 : 1);

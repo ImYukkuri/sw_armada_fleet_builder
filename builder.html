@@ -33,11 +33,23 @@
 
   <div id="selector-root"></div>
 
+  <!-- 启动 / 跨阵营切换 加载遮罩 + 进度条 -->
+  <div id="boot-overlay" class="boot-overlay" hidden>
+    <div class="boot-card">
+      <div class="boot-faction" id="boot-faction"></div>
+      <div class="boot-bar"><div class="boot-fill" id="boot-fill"></div></div>
+      <div class="boot-label" id="boot-label"></div>
+    </div>
+  </div>
+
+  <div id="modal-root"><!-- 军表弹窗（导入 / 导出 / 清空确认） --></div>
+
   <script src="js/factions.js"></script>
   <script src="js/fleet/lightbox.js"></script>
   <script src="js/fleet/armada-icons.js"></script>
   <script src="js/fleet/fleet-data.js"></script>
   <script src="js/fleet/fleet-state.js"></script>
+  <script src="js/fleet/fleet-io.js"></script>
   <script src="js/fleet/fleet-rules.js"></script>
   <script src="js/fleet/fleet-calculator.js"></script>
   <script src="js/fleet/fleet-render.js"></script>
