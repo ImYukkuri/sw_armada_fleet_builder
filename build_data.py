@@ -662,7 +662,7 @@ def main():
         if category == "upgrades":
             files = [os.path.join(ASSETS, "upgrades", b + ".json") for b in UPGRADE_BUCKETS]
         else:
-            files = [os.path.join(ASSETS, category, f, "cards.json") for f in ("imperial", "rebel")]
+            files = [os.path.join(ASSETS, category, f, "cards.json") for f in ("imperial", "rebel", "separatist", "republic")]
         if any(os.path.exists(p) for p in files):
             seen, merged = set(), []
             for p in files:
@@ -697,12 +697,16 @@ def main():
     # 按阵营分布写出：ships/squadrons/titles → assets/<type>/<faction>/cards.json
     for category in ("ships", "squadrons", "titles"):
         cards = card_sources[category]
-        unknown = [c["id"] for c in cards if c.get("faction") not in ("imperial", "rebel")]
+        known = ("imperial", "rebel", "separatist", "republic")
+        unknown = [c["id"] for c in cards if c.get("faction") not in known]
         if unknown:
             print("!! 未归类 %s: %s" % (category, ", ".join(unknown)))
-        for faction in ("imperial", "rebel"):
+        for faction in sorted({c.get("faction") for c in cards if c.get("faction") in known}):
             sub = [c for c in cards if c.get("faction") == faction]
+            if not sub:
+                continue
             path = os.path.join(ASSETS, category, faction, "cards.json")
+            os.makedirs(os.path.dirname(path), exist_ok=True)
             with open(path, "w", encoding="utf-8") as fh:
                 json.dump(sub, fh, ensure_ascii=False, indent=2)
             print("写出 %-38s %d 条" % (os.path.relpath(path, ROOT), len(sub)))

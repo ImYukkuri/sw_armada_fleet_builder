@@ -187,18 +187,18 @@ window.FleetSelectors = (function () {
         var res = FleetRules.canEquipSquadron(ctx.data, ctx.fleet, c);
         if (res.allowed) { sqAllowed.push(c); return; }
         // 同名 unique 冲突（跨指挥官/升级/称号/中队/舰船）→ 标红 + 提示；
-        // 数量上限（独特仅 1、普通 4）等其余原因照旧过滤隐藏
+        // 数量上限（独特仅 1、显式 limit）等其余原因照旧过滤隐藏
         if (res.reasons.length === 1 && res.reasons[0] === "unique-name") {
           sqBlocked.push({ card: c, msg: FleetRules.uniqueNameHint(ctx.data, ctx.fleet, c, c.id) });
         }
       });
       var sqMeta = function (c) {
         var owned = ctx.fleet.squadrons.filter(function (s) { return s.cardId === c.id; }).length;
-        var limit = c.limit || (c.unique ? 1 : 4);
+        var limit = c.limit;   // 无 limit 字段 = 不封顶
         var tags = [];
         if (c.unique) tags.push("独特");
         if (c.ace) tags.push("王牌");
-        tags.push("已带 " + owned + "/" + limit);
+        tags.push("已带 " + owned + (limit ? "/" + limit : ""));
         tags.push((c.points == null ? "?" : c.points) + " 分");
         return tags.join(" · ");
       };

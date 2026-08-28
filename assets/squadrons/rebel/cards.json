@@ -389,8 +389,7 @@
     "slots": [],
     "effect": "反击Counter 2：在1个中队对你发起非-反击攻击后，你可以使用2个对-中队武装的蓝色骰子来攻击该中队，即使 你被摧毁。",
     "unique": false,
-    "ace": false,
-    "limit": 4
+    "ace": false
   },
   {
     "id": "rebel_squadrons_027",
@@ -404,8 +403,7 @@
     "slots": [],
     "effect": "轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。",
     "unique": false,
-    "ace": false,
-    "limit": 4
+    "ace": false
   },
   {
     "id": "rebel_squadrons_028",
@@ -419,8 +417,7 @@
     "slots": [],
     "effect": "轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。狙击Snipe 3：你可以在距离2使用3个对-中队武装的蓝色骰子攻击敌方中队。该次攻击将忽视反击关键字。",
     "unique": false,
-    "ace": false,
-    "limit": 4
+    "ace": false
   },
   {
     "id": "rebel_squadrons_029",
@@ -435,7 +432,6 @@
     "effect": "反击Counter 2：在1个中队对你发起非-反击攻击后，你可以使用2个对-中队武装的蓝色骰子来攻击该中队，即使 你被摧毁。情报Intel：只要是在你距离1的友方中队，得到坚决关键字。",
     "unique": false,
     "ace": false,
-    "limit": 4,
     "faq": "旧版的给敌中队笨重已被1.5版改掉"
   },
   {
@@ -450,8 +446,7 @@
     "slots": [],
     "effect": "轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。坚决Grit：当你只与1个中队交战时你不会被禁止移动。侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。",
     "unique": false,
-    "ace": false,
-    "limit": 4
+    "ace": false
   },
   {
     "id": "rebel_squadrons_031",
@@ -465,8 +460,7 @@
     "slots": [],
     "effect": "轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。坚决Grit：当你只与1个中队交战时你不会被禁止移动。笨重Heavy：你不会禁止和你交战中的中队移动或攻击战舰。",
     "unique": false,
-    "ace": false,
-    "limit": 4
+    "ace": false
   },
   {
     "id": "rebel_squadrons_032",
@@ -480,8 +474,7 @@
     "slots": [],
     "effect": "笨重Heavy：你不会禁止和你交战中的中队移动或攻击战舰。转播Relay 1：当友方战舰结算[[icon:command-squadron]]中队指令时，如果你在它的激活范围内，则它所激活的1个中队可以改为在你距离 1-3。战略Strategic：当你在1个或更多任务标记的距离1结束移动时，你可以移动其中1个标记只要它保持在你的距离1即可。",
     "unique": false,
-    "ace": false,
-    "limit": 4
+    "ace": false
   },
   {
     "id": "rebel_squadrons_033",
@@ -495,8 +488,7 @@
     "slots": [],
     "effect": "轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。护卫Escort：与你交战中的中队不能对不带护卫关键字的中队进行攻击，除非 它执行的是反击。",
     "unique": false,
-    "ace": false,
-    "limit": 4
+    "ace": false
   },
   {
     "id": "rebel_squadrons_034",
@@ -510,8 +502,7 @@
     "slots": [],
     "effect": "轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。笨重Heavy：你不会禁止和你交战中的中队移动或攻击战舰。",
     "unique": false,
-    "ace": false,
-    "limit": 4
+    "ace": false
   },
   {
     "id": "rebel_squadrons_035",
@@ -525,8 +516,7 @@
     "slots": [],
     "effect": "反击Counter 1：在1个中队对你发起非-反击攻击后，你可以使用1个对-中队武装的蓝色骰子来攻击该中队，即使 你被摧毁。护卫Escort：与你交战中的中队不能对不带护卫关键字的中队进行攻击，除非 它执行的是反击。",
     "unique": false,
-    "ace": false,
-    "limit": 4
+    "ace": false
   },
   {
     "id": "rebel_squadrons_036",
@@ -540,8 +530,7 @@
     "slots": [],
     "effect": "集群Swarm：在攻击1个与其他友方中队交战中的中队时，你可以重投1个骰子。",
     "unique": false,
-    "ace": false,
-    "limit": 4
+    "ace": false
   },
   {
     "id": "rebel_squadrons_037",
@@ -555,8 +544,7 @@
     "slots": [],
     "effect": "侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。",
     "unique": false,
-    "ace": false,
-    "limit": 4
+    "ace": false
   },
   {
     "id": "rebel_squadrons_038",

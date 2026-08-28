@@ -613,6 +613,38 @@
     },
     "unique": true
   },
+    {
+    "id": "rebel_title_031",
+    "type": "title",
+    "faction": "rebel",
+    "name": "诺提利安",
+    "nameEn": "•Nautilian",
+    "size": null,
+    "points": 4,
+    "image": "assets/titles/rebel/images/page_031_img_1.jpeg",
+    "slots": [],
+    "effect": "旗舰限定 义军 MC-80 指挥巡洋舰 限定\n增加一个舰队指挥升级槽，当友方舰船需要选择消耗另一张舰船称号升级卡时，可以将此卡当作那艘船的同名称号卡来使用。当你激活时，准备此卡",
+    "shipId": [
+      "mc80_command"
+    ],
+    "addsSlots": [
+      "fleet_command"
+    ],
+    "restrictions": {
+      "factions": [
+        "rebel"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "mc80_command"
+      ],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": true,
+      "requiredTitles": []
+    },
+    "unique": true
+  },
   {
     "id": "rebel_title_020",
     "type": "title",

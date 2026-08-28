@@ -273,10 +273,11 @@
     const files = [];
     // config 仍是单文件
     files.push(["config.json", DB.config]);
-    // ships/squadrons/titles 按 faction 拆两文件（对应 assets/<type>/<faction>/cards.json）
+    // ships/squadrons/titles 按 faction 拆分（对应 assets/<type>/<faction>/cards.json，空阵营跳过）
     ["ships", "squadrons", "titles"].forEach(function (cat) {
-      ["imperial", "rebel"].forEach(function (f) {
-        files.push([cat + "_" + f + ".json", DB.cards[cat].filter(function (c) { return c.faction === f; })]);
+      DB.ALL_FACTIONS.forEach(function (f) {
+        const sub = DB.cards[cat].filter(function (c) { return c.faction === f; });
+        if (sub.length) files.push([cat + "_" + f + ".json", sub]);
       });
     });
     // upgrades 按允许阵营集合分桶（双阵营卡写两份，镜像 build_data.split_upgrades）
@@ -290,7 +291,7 @@
       setTimeout(function () { download(pair[0], JSON.stringify(pair[1], null, 2)); }, i * 350);
     });
     state.dirty = false;
-    toast("已导出 12 个 JSON 文件：覆盖到对应 assets/ 目录（ships/squadrons/titles 重命名为 cards.json）后重新执行 build_data.py");
+    toast("已导出 " + files.length + " 个 JSON 文件：覆盖到对应 assets/ 目录（ships/squadrons/titles 重命名为 cards.json）后重新执行 build_data.py");
   }
 
   function toast(msg) {

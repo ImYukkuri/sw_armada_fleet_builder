@@ -155,15 +155,41 @@ r = FleetRules.canEquipUpgrade(data, fleetWithCmd, flagshipShip, "commander", im
 check("旗舰可更换为其它指挥官", r.allowed, JSON.stringify(r.reasons));
 
 /* ---------------- 按阵营拆分加载 + FAQ/勘误 字段 ---------------- */
-check("加载器按阵营拆分后舰船总数不变(46)", data.cards.ships.length === 46, "n=" + data.cards.ships.length);
+check("加载器按阵营拆分后舰船总数(47, 含新增 神意级航母)", data.cards.ships.length === 47, "n=" + data.cards.ships.length);
 check("中队总数 82(含手工录入 6 张)", data.cards.squadrons.length === 82, "n=" + data.cards.squadrons.length);
-check("称号总数 61", data.cards.titles.length === 61, "n=" + data.cards.titles.length);
-check("升级总数 183(双阵营卡去重)", data.cards.upgrades.length === 183, "n=" + data.cards.upgrades.length);
+check("称号总数 81(含新增 诺提利安 + 共和国/分离势力 19 张)", data.cards.titles.length === 81, "n=" + data.cards.titles.length);
+check("升级总数 225(19 张 title 已迁出, 双阵营卡去重)", data.cards.upgrades.length === 225, "n=" + data.cards.upgrades.length);
 ["defensive_retrofit_008", "turbolasers_012", "fleet_command_003"].forEach(function (id) {
   const dup = data.cards.upgrades.filter((c) => c.id === id);
   check("双阵营升级卡去重(" + id + ")", dup.length === 1, "n=" + dup.length);
 });
 check("neutral 升级卡可查(weapons_team_017)", !!data.upgrade("weapons_team_017"));
+// 新增共和国/分离势力卡已重编号为全局唯一 id（不与帝国/义军碰撞），且无跨阵营重复
+const newUpIds = ["commander_025", "officer_057", "commander_031", "officer_065", "defensive_retrofit_009", "defensive_retrofit_010"];
+check("新阵营升级卡重编号后可查", newUpIds.every((id) => !!data.upgrade(id)), "missing=" + newUpIds.filter((id) => !data.upgrade(id)).join(","));
+const allUpIds = data.cards.upgrades.map((c) => c.id);
+check("升级 id 全局唯一(无双阵营卡之外重复)", new Set(allUpIds).size === allUpIds.length, "n=" + allUpIds.length + ", 唯一=" + new Set(allUpIds).size);
+const allTitleIds = data.cards.titles.map((c) => c.id);
+check("称号 id 全局唯一", new Set(allTitleIds).size === allTitleIds.length, "n=" + allTitleIds.length + ", 唯一=" + new Set(allTitleIds).size);
+check("title_011 是称号而非升级卡", !!data.title("title_011") && !data.upgrade("title_011") && data.title("title_011").type === "title", JSON.stringify(data.title("title_011")));
+check("title_028 是称号而非升级卡", !!data.title("title_028") && !data.upgrade("title_028") && data.title("title_028").type === "title", JSON.stringify(data.title("title_028")));
+check("共和国指挥官 贝尔奥加纳 有分离图像链接(commander_031)", !!data.upgrade("commander_031") && data.upgrade("commander_031").image === "assets/upgrades/commander/republic/page_001_img_1.jpeg", data.upgrade("commander_031") && data.upgrade("commander_031").image);
+check("分离势力指挥官 杜库伯爵 有分离图像链接(commander_025)", !!data.upgrade("commander_025") && data.upgrade("commander_025").image === "assets/upgrades/commander/separatist/page_001_img_1.jpeg", data.upgrade("commander_025") && data.upgrade("commander_025").image);
+check("分离势力称号 爱国者之拳号 有图片链接(title_010)", !!data.title("title_010") && data.title("title_010").image === "assets/titles/separatist/images/page_010_img_1.jpeg", data.title("title_010") && data.title("title_010").image);
+check("共和国称号 无可饶恕号 有图片链接(title_020)", !!data.title("title_020") && data.title("title_020").image === "assets/titles/republic/images/page_001_img_1.jpeg", data.title("title_020") && data.title("title_020").image);
+// 同名克隆卡/用户补图：升级卡图片指向已有共享页（反应炮组/弹药补充/克隆人炮手等）
+const imgChecks = {
+  "defensive_retrofit_010": "assets/upgrades/defensive_retrofit/images/page_005_img_1.jpeg",  // 共和国 反应炮组=neutral克隆
+  "fleet_support_008": "assets/upgrades/fleet_support/images/page_004_img_1.jpeg",            // 分离势力 弹药补充=neutral克隆
+  "fleet_support_009": "assets/upgrades/fleet_support/images/page_005_img_1.jpeg",            // 分离势力 备件补充=neutral克隆
+  "ordnance_009": "assets/upgrades/ordnance/images/page_001_img_1.jpeg",                      // 共和国 突击震荡导弹=neutral克隆
+  "support_team_010": "assets/upgrades/support_team/images/page_001_img_1.jpeg",              // 共和国 辅助护盾机组=neutral克隆
+  "offensive_retrofit_020": "assets/upgrades/offensive_retrofit/images/page_017_img_1.jpeg",  // 共和国 超空间环(用户补图)
+  "weapons_team_018": "assets/upgrades/weapons_team/images/page_018_img_1.jpeg",              // 共和国 克隆人炮手(用户补图)
+};
+Object.keys(imgChecks).forEach(function (id) {
+  check("升级卡图已关联(" + id + ")", !!data.upgrade(id) && data.upgrade(id).image === imgChecks[id], data.upgrade(id) && data.upgrade(id).image);
+});
 
 // effect 内嵌 [FAQ：/[勘误：/[1.5勘误： 已拆成独立 faq 字段（默认不渲染）
 const c002 = data.upgrade("commander_002");
@@ -183,7 +209,7 @@ check("义军中队已合并点数", data.squadron("rebel_squadrons_001").points
   data.squadron("rebel_squadrons_037").points === 16);
 check("义军比格斯 unique+ace", data.squadron("rebel_squadrons_001").unique && data.squadron("rebel_squadrons_001").ace);
 check("义军匕首 unique 非 ace", data.squadron("rebel_squadrons_003").unique && !data.squadron("rebel_squadrons_003").ace);
-check("义军A翼普通 limit4", !data.squadron("rebel_squadrons_026").unique && data.squadron("rebel_squadrons_026").limit === 4);
+check("义军A翼普通 无limit(不封顶)", !data.squadron("rebel_squadrons_026").unique && data.squadron("rebel_squadrons_026").limit == null);
 
 // 帝国中队标记（检测回退，与 BattleScribe 一致）
 const impBlack = data.squadron("imperial_squadrons_001");
@@ -191,9 +217,9 @@ const impBoba = data.squadron("imperial_squadrons_002");
 check("帝国黑色中队 unique 非 ace limit1", impBlack.unique && !impBlack.ace && impBlack.limit === 1);
 check("帝国波巴 unique+ace limit1", impBoba.unique && impBoba.ace && impBoba.limit === 1);
 const impGeneric = data.cards.squadrons.find((c) => c.faction === "imperial" && !c.unique);
-check("帝国普通中队 limit4", !!impGeneric && impGeneric.limit === 4, impGeneric && impGeneric.id);
+check("帝国普通中队 无limit(不封顶)", !!impGeneric && impGeneric.limit == null, impGeneric && impGeneric.id);
 
-// 义军舰队副本：unique 限 1、普通限 4（不污染真实军表）
+// 义军舰队副本：unique 限 1、普通不封顶（不污染真实军表）
 const rebelFleet = { faction: "rebel", ships: [], squadrons: [], objectives: {}, version: 1 };
 const luke = data.squadron("rebel_squadrons_016"); // 卢克 unique+ace
 r = FleetRules.canEquipSquadron(data, rebelFleet, luke);
@@ -201,10 +227,10 @@ check("义军卢克可装义军舰队", r.allowed, JSON.stringify(r.reasons));
 rebelFleet.squadrons.push({ instanceId: "sq-l1", cardId: luke.id });
 r = FleetRules.canEquipSquadron(data, rebelFleet, luke);
 check("unique 中队第 2 个被拒(squadron-unique)", !r.allowed && r.reasons.includes("squadron-unique"), JSON.stringify(r.reasons));
-const xwing = data.squadron("rebel_squadrons_033"); // X翼 普通 limit4
-for (let i = 0; i < 4; i++) rebelFleet.squadrons.push({ instanceId: "sq-x" + i, cardId: xwing.id });
+const xwing = data.squadron("rebel_squadrons_033"); // X翼 普通，无 limit（不封顶）
+for (let i = 0; i < 5; i++) rebelFleet.squadrons.push({ instanceId: "sq-x" + i, cardId: xwing.id });
 r = FleetRules.canEquipSquadron(data, rebelFleet, xwing);
-check("普通中队第 5 个被拒(limit)", !r.allowed && r.reasons.includes("limit"), JSON.stringify(r.reasons));
+check("普通中队第 6 个仍允许(不封顶)", r.allowed, JSON.stringify(r.reasons));
 r = FleetRules.canEquipSquadron(data, rebelFleet, data.squadron("rebel_squadrons_001")); // 比格斯 另一 unique
 check("同舰队其它 unique 不冲突", r.allowed, JSON.stringify(r.reasons));
 r = FleetRules.canEquipSquadron(data, rebelFleet, data.squadron("rebel_squadrons_026")); // A翼
@@ -421,7 +447,7 @@ check("未装改装时另一改装卡同槽可装备", r.allowed, JSON.stringify
 const shipWithMod = { ...shipA, upgrades: [{ slotIndex: 3, cardId: "turbolasers_001" }] };
 r = FleetRules.canEquipUpgrade(data, fleet, shipWithMod, "turbolasers", modTurbo2);
 check("已装备改装后其它改装不可选(modification-limit)", !r.allowed && r.reasons.includes("modification-limit"), JSON.stringify(r.reasons));
-r = FleetRules.canEquipUpgrade(data, fleet, shipWithMod, "turbolasers", modTurbo);
+r = FleetRules.canEquipUpgrade(data, fleet, shipWithMod, "turbolasers", modTurbo, 3);
 check("已装备改装可替换同一张", r.allowed);
 r = FleetRules.canEquipUpgrade(data, fleet, shipWithMod, "turbolasers", normalTurbo);
 check("已装备改装不影响普通卡装备", r.allowed, JSON.stringify(r.reasons));
@@ -538,6 +564,20 @@ check("UI 选双槽卡后两槽都被占用", dualInst.upgrades[dualIdxOR].cardI
   dualInst.upgrades[dualIdxWT].shared === true,
   JSON.stringify(dualInst.upgrades.map(function (u) { return { i: u.slotIndex, c: u.cardId, s: u.shared }; })));
 FleetState.removeShip(dualInst.instanceId);
+
+/* ---------------- 每舰同一张升级卡最多一次（per-ship-duplicate） ---------------- */
+// 同一艘舰两个同类型槽位（帝国I级 原生 offensive_retrofit 双槽），同一张单槽卡不可装两次
+const dupSlots = ["offensive_retrofit", "offensive_retrofit"];
+const dupInst = FleetState.addShip("imperial_i", dupSlots);
+const comms = data.upgrade("offensive_retrofit_002"); // 强力通讯（中性 单槽）
+FleetState.setUpgrade(dupInst.instanceId, 0, comms.id, null);
+r = FleetRules.canEquipUpgrade(data, fleet, dupInst, "offensive_retrofit", comms, 1);
+check("per-ship：同一张卡装进该舰第二个同类型槽被拒", !r.allowed && r.reasons.includes("per-ship-duplicate"), JSON.stringify(r.reasons));
+r = FleetRules.canEquipUpgrade(data, fleet, dupInst, "offensive_retrofit", data.upgrade("offensive_retrofit_007"), 1);
+check("per-ship：不同单槽卡可装第二个槽", r.allowed, JSON.stringify(r.reasons));
+r = FleetRules.canEquipUpgrade(data, fleet, dupInst, "offensive_retrofit", comms, 0);
+check("per-ship：替换/重选同槽位自身不误报", r.allowed, JSON.stringify(r.reasons));
+FleetState.removeShip(dupInst.instanceId);
 
 /* ---------------- 加槽卡：数据字段 + 状态(加槽/清理) + 规则(adds-slots) + 渲染/选择器 ---------------- */
 // 数据：7 张加槽卡 addsSlots 字段 + 3 张带 reject（卡面写明"已有该槽则不能装备"）
@@ -684,17 +724,17 @@ check("同一普通中队不产生多个卡片(单 chip)", (overview.match(/squa
   "chips=" + (overview.match(/squadron-chip/g) || []).length);
 check("单卡显示数量 ×3", overview.includes("×3"));
 check("普通中队分数为 点数×数量", overview.includes((qtySq.points * 3) + " 分"));
-// 数量调节：+ 到 4 封顶（limit 校验），− 减 1
+// 数量调节：+ 不封顶（普通战机已去掉 limit），− 减 1
 clickBtn("fleet-overview", { action: "squadron-inc", id: qtySq.id });
 overview = els["fleet-overview"].innerHTML;
 check("数量 + 到 4", overview.includes("×4"));
-check("数量达上限 + 按钮禁用(is-max)", overview.includes('sq-step is-max" data-action="squadron-inc" data-id="' + qtySq.id + '"'));
-const qtyBefore = fleet.squadrons.length;
-clickBtn("fleet-overview", { action: "squadron-inc", id: qtySq.id });   // 试图加到 5
-check("第 5 个被拒(4 个上限校验生效)", fleet.squadrons.length === qtyBefore, "count=" + fleet.squadrons.length);
+check("普通战机无上限 + 按钮不禁用(无 is-max)", !overview.includes('sq-step is-max"'));
+clickBtn("fleet-overview", { action: "squadron-inc", id: qtySq.id });   // 继续加到 5
+overview = els["fleet-overview"].innerHTML;
+check("数量 + 到 5 仍可继续(不封顶)", overview.includes("×5") && fleet.squadrons.length === 5, "count=" + fleet.squadrons.length);
 clickBtn("fleet-overview", { action: "squadron-dec", id: qtySq.id });
 overview = els["fleet-overview"].innerHTML;
-check("数量 − 回 3", overview.includes("×3"));
+check("数量 − 回 4", overview.includes("×4"));
 // × 删除整组
 clickBtn("fleet-overview", { action: "squadron-del", id: qtySq.id });
 check("删除后该中队全部移除", !fleet.squadrons.some(function (s) { return s.cardId === qtySq.id; }));

@@ -1,0 +1,275 @@
+[
+  {
+    "id": "title_020",
+    "type": "title",
+    "faction": "republic",
+    "name": "无可饶恕号",
+    "nameEn": "•Implacable",
+    "size": null,
+    "points": 4,
+    "image": "assets/titles/republic/images/page_001_img_1.jpeg",
+    "slots": [],
+    "effect": "在位于距离1-2的友方战舰或中队承受攻击伤害前，你可以消耗此卡并花费你的前方船体区至多2点护盾来减少等量之总伤害值。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [
+        "republic"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "acclamator_i",
+        "acclamator_ii"
+      ],
+      "shipNames": [
+        "欢呼者级突击舰"
+      ],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "title_021",
+    "type": "title",
+    "faction": "republic",
+    "name": "勤奋之蜂号",
+    "nameEn": "•Nevoota Bee",
+    "size": null,
+    "points": 5,
+    "image": "assets/titles/republic/images/page_002_img_1.jpeg",
+    "slots": [],
+    "effect": "[[icon:command-squadron]]中队：每个你所激活的非-独特中队在它结束激活前获得集群关键字。每个你所激活的带集群关键字中队在攻击敌舰时可以重投1个骰子。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [
+        "republic"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "acclamator_i",
+        "acclamator_ii"
+      ],
+      "shipNames": [
+        "欢呼者级突击舰"
+      ],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "title_022",
+    "type": "title",
+    "faction": "republic",
+    "name": "光点七号",
+    "nameEn": "•Radiant VII",
+    "size": null,
+    "points": 1,
+    "image": "assets/titles/republic/images/page_003_img_1.jpeg",
+    "slots": [],
+    "effect": "你获得1个额外的[[icon:upgrade-fleet-support]]舰队支援升级卡插槽。你不能装备[[icon:upgrade-turbolasers]]激光炮或[[icon:upgrade-ordnance]]导弹升级卡。",
+    "modification": false,
+    "unique": true,
+    "addsSlots": [
+      "fleet_support"
+    ],
+    "restrictions": {
+      "factions": [
+        "republic"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "consular_armed_cruiser",
+        "consular_charger_c70"
+      ],
+      "shipNames": [
+        "领事级太空巡洋舰"
+      ],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "title_023",
+    "type": "title",
+    "faction": "republic",
+    "name": "迅捷回旋号",
+    "nameEn": "•Swift Return",
+    "size": null,
+    "points": 3,
+    "image": "assets/titles/republic/images/page_004_img_1.jpeg",
+    "slots": [],
+    "effect": "在你的判断航线步骤，如果你位于1个障碍物的距离1-2，你可以改变你的船速1点或增加1个转向值Yaw1点。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [
+        "republic"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "consular_armed_cruiser",
+        "consular_charger_c70"
+      ],
+      "shipNames": [
+        "领事级太空巡洋舰"
+      ],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "title_024",
+    "type": "title",
+    "faction": "republic",
+    "name": "坚决号",
+    "nameEn": "•Resolute",
+    "size": null,
+    "points": 4,
+    "image": "assets/titles/republic/images/page_005_img_1.jpeg",
+    "slots": [],
+    "effect": "你必须为此卡选择至少2种自带的指令标记。在你花费转盘来结算指令后，你可以从此卡上丢弃1个相应的指令标记来让该战舰得到该指令标记。自带指令标记：4个[[icon:command-repair]]维修/[[icon:command-squadron]]中队/[[icon:command-concentrate-fire]]集火",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [
+        "republic"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "venator_i",
+        "venator_ii"
+      ],
+      "shipNames": [
+        "猎兵级歼星舰"
+      ],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "title_025",
+    "type": "title",
+    "faction": "republic",
+    "name": "宁静号",
+    "nameEn": "•Tranquility",
+    "size": null,
+    "points": 7,
+    "image": "assets/titles/republic/images/page_006_img_1.jpeg",
+    "slots": [],
+    "effect": "当你被攻击，在花费防御标记步骤后，若你花费少于2个防御标记，则你可以从1个船体区移动至多2点护盾值到该受击船体区去。如果你这么做了，该受击船体区的护盾值不能超过“6”点的最大值限制。而当你有任何船体区的护盾值超过原来的护盾值上限时，不能再回复护盾值。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [
+        "republic"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "venator_i",
+        "venator_ii"
+      ],
+      "shipNames": [
+        "猎兵级歼星舰"
+      ],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "title_026",
+    "type": "title",
+    "faction": "republic",
+    "name": "凯旋号",
+    "nameEn": "•Triumphant",
+    "size": null,
+    "points": 5,
+    "image": "assets/titles/republic/images/page_007_img_1.jpeg",
+    "slots": [],
+    "effect": "当其他友方非-船队战舰结算[[icon:command-squadron]]中队指令时，最多3个不带老练关键字的中队可以位于你的近距射程内（即使这些中队超出了该舰近-中射程的激活范围）。此卡效果在第1轮中无法生效。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [
+        "republic"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "venator_i",
+        "venator_ii"
+      ],
+      "shipNames": [
+        "猎兵级歼星舰"
+      ],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "title_027",
+    "type": "title",
+    "faction": "republic",
+    "name": "TB-73",
+    "nameEn": "•TB-73",
+    "size": null,
+    "points": 5,
+    "image": "assets/titles/republic/images/page_008_img_1.jpeg",
+    "slots": [],
+    "effect": "在你部署后，得到1个额外的[[icon:defense-evade]]回避防御标记。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [
+        "republic"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "pelta_transport_frigate",
+        "pelta_medical_frigate"
+      ],
+      "shipNames": [
+        "轻盾级护卫舰"
+      ],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "title_028",
+    "type": "title",
+    "faction": "republic",
+    "name": "FB-88",
+    "nameEn": "•FB-88",
+    "size": null,
+    "points": 4,
+    "image": "assets/titles/republic/images/page_009_img_1.jpeg",
+    "slots": [],
+    "effect": "在你展示指挥转盘前，你可以丢弃你最上面的指挥转盘。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [
+        "republic"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "pelta_transport_frigate",
+        "pelta_medical_frigate"
+      ],
+      "shipNames": [
+        "轻盾级护卫舰"
+      ],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  }
+]

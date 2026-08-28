@@ -391,5 +391,26 @@
       "superweapon"
     ],
     "effect": ""
+  },
+  {
+    "id": "reb_providence",
+    "type": "ship",
+    "faction": "rebel",
+    "name": "·神意级航母",
+    "nameEn": "·Providence-class Carrier",
+    "size": "large",
+    "points": 95,
+    "image": "assets/ships/rebel/images/page_047_img_1.jpeg",
+    "slots": [
+      "officer",
+      "officer",
+      "weapons_team",
+      "weapons_team",
+      "support_team",
+      "support_team",
+      "offensive_retrofit",
+      "offensive_retrofit"
+    ],
+    "effect": ""
   }
 ]

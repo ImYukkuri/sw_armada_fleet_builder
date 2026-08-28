@@ -131,5 +131,498 @@
       "requiresFlagship": false,
       "requiredTitles": []
     }
+  },
+  {
+    "id": "commander_031",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "republic",
+    "name": "贝尔 奥加纳",
+    "nameEn": "•Bail Organa",
+    "size": null,
+    "points": 28,
+    "image": "assets/upgrades/commander/republic/page_001_img_1.jpeg",
+    "slots": [],
+    "effect": "在友方战舰展示转盘时，你可以从此卡上丢弃至多每种各1个的指令标记。你每丢弃1个指令标记，该友方战舰便能得到1个额外的相应指挥转盘。自带指令标记：5个可带指令种类：[[icon:command-navigate]]导航 /[[icon:command-repair]]维修",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "commander_032",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "republic",
+    "name": "欧比旺 肯诺比",
+    "nameEn": "•Obi-Wan Kenobi",
+    "size": null,
+    "points": 22,
+    "image": "assets/upgrades/commander/republic/page_002_img_1.jpeg",
+    "slots": [],
+    "effect": "当友方战舰防御时，在它花费1个已就绪的[[icon:defense-redirect]]传导防御标记时，它可以在承受伤害前先降低总伤害1点。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "defensive_retrofit_010",
+    "type": "upgrade",
+    "slot": "defensive_retrofit",
+    "faction": "republic",
+    "name": "反应炮组",
+    "nameEn": "Reactive Gunnery",
+    "size": null,
+    "points": 4,
+    "image": "assets/upgrades/defensive_retrofit/images/page_005_img_1.jpeg",
+    "slots": [],
+    "effect": "在防御时，你可以消耗此卡并花费1个已就绪的防御标记来改成结算[[icon:defense-salvo]]奇袭防御标记的效果。你在每波攻击中不能结算[[icon:defense-salvo]]奇袭防御标记效果多于1次。",
+    "modification": false,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "fleet_support_010",
+    "type": "upgrade",
+    "slot": "fleet_support",
+    "faction": "republic",
+    "name": "弹药补充",
+    "nameEn": "Munitions Resupply",
+    "size": null,
+    "points": 3,
+    "image": "assets/upgrades/fleet_support/images/page_004_img_1.jpeg",
+    "slots": [],
+    "effect": "在你的展示指挥转盘步骤结束后，你可以消耗此卡并从此卡上丢弃任何数量的[[icon:command-concentrate-fire]]集火指令标记来选择位于距离1-5之同等数量的友方战舰。分配1个[[icon:command-concentrate-fire]]集火指令标记给每个你选择的战舰。自带指令标记：5个[[icon:command-concentrate-fire]]集火重置费用：1个[[icon:command-concentrate-fire]]集火 /[[icon:command-repair]]维修 /[[icon:command-navigate]]导航",
+    "modification": false,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "fleet_support_011",
+    "type": "upgrade",
+    "slot": "fleet_support",
+    "faction": "republic",
+    "name": "备件补充",
+    "nameEn": "Parts Resupply",
+    "size": null,
+    "points": 3,
+    "image": "assets/upgrades/fleet_support/images/page_005_img_1.jpeg",
+    "slots": [],
+    "effect": "在你的展示指挥转盘步骤结束后，你可以消耗此卡并从此卡上丢弃任何数量的[[icon:command-repair]]维修指令标记来选择位于距离1-5之同等数量的友方战舰。分配1个[[icon:command-repair]]维修指令标记给每个你选择的战舰。自带指令标记：5个[[icon:command-repair]]维修重置费用：1个[[icon:command-repair]]维修 /[[icon:command-navigate]]导航 /[[icon:command-squadron]]中队",
+    "modification": false,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "offensive_retrofit_020",
+    "type": "upgrade",
+    "slot": "offensive_retrofit",
+    "faction": "republic",
+    "name": "超空间环",
+    "nameEn": "Hyperspace Rings",
+    "size": null,
+    "points": 3,
+    "image": "assets/upgrades/offensive_retrofit/images/page_017_img_1.jpeg",
+    "slots": [],
+    "effect": "在部署舰队前，你可以选择至多等同装备此卡战舰之中队值数量的友方非-侠盗关键字战机中队。这些中队得到侦察关键字。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "republic"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_065",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "republic",
+    "name": "克隆人 上尉 扎克",
+    "nameEn": "•Clone Captain Zak",
+    "size": null,
+    "points": 5,
+    "image": "assets/upgrades/officer/republic/page_001_img_1.jpeg",
+    "slots": [],
+    "effect": "当你从侧面或后方船体区发起攻击时，你可以消耗此卡来追加1个已存在于攻击攻击池中的颜色骰子(你不能在[[icon:defense-salvo]]奇袭攻击时追加骰子)。你可以花费此卡上的指令标记来重置它。自带指令标记：1个[[icon:command-concentrate-fire]]集火重置费用：1个[[icon:command-concentrate-fire]]集火",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [
+        "republic"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_066",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "republic",
+    "name": "克隆人 导航 士官",
+    "nameEn": "Clone Navigation Officer",
+    "size": null,
+    "points": 4,
+    "image": "assets/upgrades/officer/republic/page_002_img_1.jpeg",
+    "slots": [],
+    "effect": "在你展示1个[[icon:command-concentrate-fire]]集火，[[icon:command-navigate]]导航或[[icon:command-squadron]]中队指挥转盘时，你可以消耗此卡来选择1个位于距离1-5的友方战舰。该战舰可以获得1个符合你展示转盘种类之指令标记。你可以花费此卡上的指令标记来重置它。自带指令标记：1个[[icon:command-navigate]]导航重置费用：1个[[icon:command-any]]任意",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "republic"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "ordnance_009",
+    "type": "upgrade",
+    "slot": "ordnance",
+    "faction": "republic",
+    "name": "突击震荡导弹",
+    "nameEn": "Assault Concussion Missiles",
+    "size": null,
+    "points": 5,
+    "image": "assets/upgrades/ordnance/images/page_001_img_1.jpeg",
+    "slots": [],
+    "effect": "黑色[[icon:attack-critical]]暴击：消耗此卡。与该防御船体区相邻的每个船体区承受1点伤害。",
+    "modification": false,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    },
+    "faq": "此卡造成的伤害不能被[[icon:defense-brace]]抑制防御标记减少。"
+  },
+  {
+    "id": "support_team_010",
+    "type": "upgrade",
+    "slot": "support_team",
+    "faction": "republic",
+    "name": "辅助护盾机组",
+    "nameEn": "Auxiliary Shields Team",
+    "size": null,
+    "points": 3,
+    "image": "assets/upgrades/support_team/images/page_001_img_1.jpeg",
+    "slots": [],
+    "effect": "[[icon:command-repair]]维修：在你恢复或移动护盾到你的左侧和右侧船体区时，你可以选择视为该最大护盾值增加1。如此的话，这些船体区的护盾数不能超过最大4。",
+    "modification": false,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "weapons_team_018",
+    "type": "upgrade",
+    "slot": "weapons_team",
+    "faction": "republic",
+    "name": "克隆人炮手",
+    "nameEn": "Clone Gunners",
+    "size": null,
+    "points": 4,
+    "image": "assets/upgrades/weapons_team/images/page_018_img_1.jpeg",
+    "slots": [],
+    "effect": "[[icon:command-concentrate-fire]]集火：你可以丢弃位于防御方距离1-5的其他友方战舰上的1个[[icon:command-concentrate-fire]]集火指令标记。如果你这么做了，追加1个设定为[[icon:attack-accuracy]]精确标志的蓝骰子到你的攻击池中。",
+    "modification": false,
+    "restrictions": {
+      "factions": [
+        "republic"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [
+        "clone"
+      ],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "commander_033",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "republic",
+    "name": "塔金 上将",
+    "nameEn": "•Admiral Tarkin",
+    "size": null,
+    "points": 30,
+    "image": "assets/upgrades/commander/republic/page_003_img_1.jpeg",
+    "slots": [],
+    "effect": "在每个战舰阶段开始时，你可以从此卡上丢弃1个指令标记。如果你这么做了，你可以得到1个相应的指挥转盘，或每个友方战舰得到1个相应的指令标记。自带指令标记：6个[[icon:command-any]]任意",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "commander_034",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "republic",
+    "name": "尤拉伦 上将",
+    "nameEn": "•Admiral Yularen",
+    "size": null,
+    "points": 24,
+    "image": "assets/upgrades/commander/republic/page_004_img_1.jpeg",
+    "slots": [],
+    "effect": "当1个友方战舰结算[[icon:command-squadron]]中队指令时，如果它花费的是[[icon:command-squadron]]中队指令标记，则它可以再额外激活1个中队。当1个友方战舰结算[[icon:command-repair]]维修指令时，它可以把工程点数用于以下的维修效果：中队维修：花费2点工程点数来选择1个位于距离1-3的友方中队，该中队回复1点船体值。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "commander_035",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "republic",
+    "name": "卢米娜拉 昂杜利",
+    "nameEn": "•Luminara Unduli",
+    "size": null,
+    "points": 25,
+    "image": "assets/upgrades/commander/republic/page_005_img_1.jpeg",
+    "slots": [],
+    "effect": "当1个友方战舰或独特中队防御时，在花费防御标记步骤后，如果它花费的防御标记少于2个，则它可以选择重置自己的1个未花费的防御标记，或是选择另1个距离1-5内的友方战舰并重置它的1个防御标记。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "commander_036",
+    "type": "upgrade",
+    "slot": "commander",
+    "faction": "republic",
+    "name": "普洛 孔",
+    "nameEn": "•Plo Koon",
+    "size": null,
+    "points": 26,
+    "image": "assets/upgrades/commander/republic/page_006_img_1.jpeg",
+    "slots": [],
+    "effect": "当1个友方中队攻击位于友方战舰距离1-3内的战舰时，攻击方可以追加1颗设置为[[icon:attack-accuracy]]精确标志那面的蓝色骰子到攻击池内。该骰子不能再被重掷或改变。不带老练关键字的友方中队在它们位于带老练关键字的友方中队距离1之内时都得到坚决关键字。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_067",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "republic",
+    "name": "阿迪 加利亚",
+    "nameEn": "•Adi Gallia",
+    "size": null,
+    "points": 3,
+    "image": "assets/upgrades/officer/republic/page_003_img_1.jpeg",
+    "slots": [],
+    "effect": "当你作为防御方要承受攻击伤害时，每1个在花费防御标记步骤所花费的防御标记可以让你选择1个与被攻击船体区相邻的船体区护盾来分摊最多1点的伤害值。如果你这么做了，则任何剩余的伤害值将继续由被攻击船体区来承受。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [
+        "republic"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_068",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "republic",
+    "name": "阿索卡 塔诺",
+    "nameEn": "•Ahsoka Tano",
+    "size": null,
+    "points": 6,
+    "image": "assets/upgrades/officer/republic/page_004_img_1.jpeg",
+    "slots": [],
+    "effect": "[[icon:command-squadron]]中队：被你所激活的最多3个非-独特中队，到它们结束激活前，都将按照它们对-中队武装格子内的每个骰子数量得到狙击1关键字，最大为狙击3。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [
+        "republic"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_069",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "republic",
+    "name": "巴丽斯 奥菲",
+    "nameEn": "•Barriss Offee",
+    "size": null,
+    "points": 6,
+    "image": "assets/upgrades/officer/republic/page_005_img_1.jpeg",
+    "slots": [],
+    "effect": "当你防御时，在攻击方宣告要攻击的船体区后，你可以花费1个[[icon:defense-redirect]]传导标记。如果你这么做了，在结算伤害步骤开始时，选择1个不同的船体区来代替原本在这次攻击中要被攻击的船体区。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [
+        "republic"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_070",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "republic",
+    "name": "克隆人 舰长 白银",
+    "nameEn": "•Clone Captain Silver",
+    "size": null,
+    "points": 4,
+    "image": "assets/upgrades/officer/republic/page_006_img_1.jpeg",
+    "slots": [],
+    "effect": "在你判断航线步骤中执行机动时，若你于本次激活没有结算[[icon:command-navigate]]导航指令，则你可以消耗此卡来增加或减少你的船速最多3级。如果你这么做了，你就不能在本次激活中再结算[[icon:command-navigate]]导航指令。你可以花费此卡上的指令标记来重置它。自带指令标记：1个[[icon:command-navigate]]导航重置费用：1个[[icon:command-navigate]]导航",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [
+        "republic"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "officer_071",
+    "type": "upgrade",
+    "slot": "officer",
+    "faction": "republic",
+    "name": "克隆人 指挥官 沃尔夫",
+    "nameEn": "•Clone Commander Wolffe",
+    "size": null,
+    "points": 6,
+    "image": "assets/upgrades/officer/republic/page_007_img_1.jpeg",
+    "slots": [],
+    "effect": "当你结算[[icon:command-squadron]]中队指令时：你可以消耗此卡。如果你这么做了：• 被你所激活的最多3个不带老练关键字的友方中队得到突袭关键字。• 每个被你所激活且带突袭关键字的中队可以花费带有1个[[icon:attack-hit]]命中或[[icon:attack-accuracy]]精确标志的骰子来结算突袭关键字的效果。你可以花费此卡上的指令标记来重置它。自带指令标记：1个[[icon:command-squadron]]中队重置费用：1个[[icon:command-squadron]]中队",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [
+        "republic"
+      ],
+      "sizes": [],
+      "shipIds": [],
+      "shipNames": [],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
   }
 ]

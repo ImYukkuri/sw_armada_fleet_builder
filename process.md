@@ -922,3 +922,74 @@ list-builder/
 - 保留 `build_data.py` / `restrictions.py`（`build_data.py` import `restrictions`，构建活依赖）。
 - 同步：`build_data.py` `build_objectives` docstring、README 目录树与 4 处引用改为「一次性提取，源脚本已清理」；
   `process.md` 历史条目保留不动。
+
+## 2026-08-26 · 共和国/分离势力数据整理（去重 + 重编号 + 图片 + title 迁移）
+
+用户更新了 `assets/upgrades/republic.json` / `separatist.json`（新增共和国/分离势力卡），要求：
+(1) 确认 text.json 引用；(2) 查重复项；(3) 新卡图片链接关联到新增图片。
+
+### 去重与重编号
+- text.json 仍被 `build_data.py`（payloads 兜底）引用，保留。
+- 重复项：separatist 46→39（去 7 张：8 张同名去 1 张占位 + 双阵营卡重排序），republic 35→34（去 1 张）。
+- **关键 bug**：新卡沿用了帝国/义军/通用 id（commander_001-006、officer_001-008 等），
+  合并去重按 id 丢卡 → `build_data.py` 曾把 sep 写成 14、rep 写成 5。恢复备份后重编号 63 张为全局唯一 id：
+  sep commander_025-030 / officer_057-064 / defensive_retrofit_009 / ion_cannons_010-011 / fleet_support_008-009 /
+  offensive_retrofit_017-019 / support_team_009 / fleet_command_009 / turbolasers_016 / title_011-020；
+  rep commander_031-036 / officer_065-071 / defensive_retrofit_010 / fleet_support_010-011 / offensive_retrofit_020 /
+  ordnance_009 / support_team_010 / weapons_team_018 / title_020-028。
+  3 张双阵营卡（defensive_retrofit_008 / fleet_command_003 / turbolasers_012）保留两份按 id 去重。
+
+### 图片链接
+- 用户新增 46 张图：`assets/upgrades/{commander,officer}/{separatist,republic}/`（27 张）+ `assets/titles/{separatist,republic}/images/`（19 张）。
+- 27 张指挥官/军官图已全部关联；`ion_cannons_010`/`turbolasers_016` 为同名克隆卡，共享图本就正确。
+- 仍缺：7 张共和国非指挥官/军官/称号升级卡（指向 `assets/upgrades/<槽位>/republic/`，用户未提供）；
+  另 ~10 张分离势力非指挥官/军官卡指向共享槽位图但卡名不同（占位，待用户给图）。
+
+### title 卡迁移（结构修正）
+- 19 张 title 卡原为 `type:"upgrade"`+`slot:"title"` 混在升级桶里——config 无 title 槽、title 从 `assets/titles/` 单独加载，
+  两条路径都不可达（死数据）。按用户图片放置位置（`assets/titles/{sep,rep}/images/`）确认归属，
+  迁移为 `type:"title"`、去掉 slot、图片指向 `assets/titles/<faction>/images/page_NNN_img_1.jpeg`（保留原页号）。
+- 同步：`fleet-data.js` / `carddb/data.js` / `smoke_test.mjs` 的 titles 文件列表加 sep/rep；
+  `build_data.py` `authoritative_cards` 与写出循环支持 4 阵营（写循环按实际存在的阵营、空阵营跳过）；
+  `carddb/app.js` exportAll 按 `DB.ALL_FACTIONS` 切分、空阵营跳过，toast 计数动态。
+- 计数变化：升级 244→225，称号 61→80；`fleet_test.mjs` 断言同步更新（升级总数 225、称号 80、
+  title_011/title_028 是称号而非升级、title 图链接断言）；`dom_test.mjs` 导出 12→14 文件。
+- 验证：`fleet_test.mjs` / `objectives_test.mjs` / `smoke_test.mjs`（服务器 8123）全绿；
+  `build_data.py` 幂等（titles 31+30+10+9=80，upgrades 101+42+31+29+25=225，图片校验全过）。
+
+### 2026-08-26 · 升级卡图回退修复（克隆共享页 / 用户补图）
+
+用户指出：反应炮组/弹药补充/备件补充/超空间环/突击震荡导弹/辅助护盾机组/克隆人炮手 的卡图原本就有。
+排查确认后统一修复 16 张图（separatist 9 + republic 7）：
+
+- **同名克隆**（10 张）：卡为 neutral/imperial/rebel 已有卡的同名克隆，图指向克隆卡所在共享页——
+  反应炮组→defensive_retrofit/005、弹药补充→fleet_support/004、备件补充→fleet_support/005、
+  预备机库→offensive_retrofit/015、点防御离子炮→ion_cannons/008、防空炮→offensive_retrofit/007、
+  突击震荡导弹→ordnance/001、辅助护盾机组→support_team/001（sep/rep 同名各一张）。
+- **用户补图**（2 张）：超空间环→offensive_retrofit/images/page_017、克隆人炮手→weapons_team/images/page_018。
+- **推断未引用页**（3 张，待用户目验）：超波段信号增强→offensive_retrofit/009、
+  战斗机器人备品→support_team/002、绝地人质→fleet_command/005（该槽唯一未被现有卡引用的页，即新卡扫描位）。
+- **保留不动**：commander_031 贝尔·奥加纳、officer_068 阿索卡·塔诺（与军官槽同名但为指挥官/共和国专属新图，非错图）；
+  B2火箭→offensive_retrofit/003、SPHA-T→016、救灾任务→fleet_command/006 本就指向自身扫描页。
+- 修复后 smoke_test `图片缺失: 无`；`build_data.py` 幂等保留改动；fleet_test 新增 7 条图关联断言。
+
+### 2026-08-28 · 每舰升级卡唯一（通用规则）+ 常规战机去掉 4 架上限
+
+用户要求：不改 JSON 直接加通用规则「同一张升级卡同一艘舰只能装一次」；常规战机 JSON 去掉 `limit:4`（unique 保持原样）。
+
+- **每舰升级卡唯一（fleet-rules.js 代码层，不改数据）**：`canEquipUpgrade` 新增第 9 步
+  `per-ship-duplicate`——目标槽（slotIndex）非指挥官/称号、且当前占用卡不是该卡（替换/重选自身不算重复）时，
+  舰上 upgrades 已存在同 cardId 即拒绝，reason 文案「同一张升级卡在同一艘舰上只能装一次」。
+  双槽卡两槽共享同 cardId 按一次安装计（兄弟槽 shared 不误报）；无 slotIndex（无法定位目标槽）时不判定，
+  避免把重选已有卡误判为重复。文档注释、过滤顺序、reasonLabel 同步更新。
+- **常规战机不封顶**：25 张普通（unique=false）中队 JSON 删除 `limit: 4`（imperial_squadrons_027-039、
+  rebel_squadrons_026-037）；unique 保持 `limit: 1` 不动（规则仍走 squadron-unique 分支）。
+  - `fleet-rules.js` `canEquipSquadron`：`const limit = card.limit || (card.unique ? 1 : 4)` → 仅 `card.limit`
+    显式上限，无字段即不封顶。
+  - `fleet-render.js`：`var limit = card.limit`，`atLimit = limit && count >= limit`（无 limit 不出现 is-max/禁用）。
+  - `selectors.js`：`var limit = c.limit`，meta 显示「已带 n」（有 limit 才 `/limit`）。
+- **测试**：fleet_test 更新（A翼/帝国普通中队无 limit、X翼第 6 个仍允许、数量步进器到 5 仍可继续、
+  新增 per-ship 三断言：同舰第二同类型槽装同卡被拒 / 不同卡可装 / 重选自身槽位不误报；改装「可替换同一张」补 slotIndex）；
+  计数断言随先前新增数据更新（舰船 46→47、称号 80→81，rebel 新增 神意级航母 + 诺提利安 称号）。
+- 验证：`fleet_test.mjs` / `objectives_test.mjs` 全绿；`smoke_test.mjs`（8124）`图片缺失: 无`（47/82/225/81）；
+  `dom_test.mjs`（8124）导出 14 文件。

@@ -180,17 +180,18 @@ window.FleetRender = (function () {
   function squadronGroup(data, group) {
     var card = data.squadron(group.cardId) || {};
     var count = group.instances.length;
-    var generic = !card.unique && !card.ace;   // 普通中队可调节数量（上限 card.limit，默认 4）
+    var generic = !card.unique && !card.ace;   // 普通中队可调节数量（仅受显式 card.limit 约束；无 limit = 不封顶）
     var pts = card.points == null ? "?" : (card.points * count);
     var stepper = "";
     if (generic) {
-      var limit = card.limit || 4;
+      var limit = card.limit;
+      var atLimit = !!(limit && count >= limit);
       stepper =
         '<span class="sq-stepper">' +
         '<button class="sq-step" data-action="squadron-dec" data-id="' + escapeHtml(card.id) + '" aria-label="减少数量">−</button>' +
         '<span class="sq-count">' + count + "</span>" +
-        '<button class="sq-step' + (count >= limit ? " is-max" : "") + '" data-action="squadron-inc" data-id="' + escapeHtml(card.id) +
-        '" aria-label="增加数量"' + (count >= limit ? " disabled" : "") + ">＋</button>" +
+        '<button class="sq-step' + (atLimit ? " is-max" : "") + '" data-action="squadron-inc" data-id="' + escapeHtml(card.id) +
+        '" aria-label="增加数量"' + (atLimit ? " disabled" : "") + ">＋</button>" +
         "</span>";
     }
     return (

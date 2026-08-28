@@ -12,6 +12,7 @@
  * 已实现：slot（含双槽卡 slots）/ faction / size / shipId / shipName / requiresFlagship /
  *   commander 舰队级唯一 / 全局 unique（按 nameEn "•" 前缀，跨指挥官/称号/升级/中队/舰船
  *   同名不可重复，uniqueNameConflict/uniqueNameHint）/ modification 每舰 1 张 /
+ *   通用每舰升级卡唯一（per-ship-duplicate：同一张升级卡在同一艘舰上最多一次，跨槽位）/
  *   双槽卡 atomic（dual-slot/dual-locked，两槽都空闲才能装、占位不可直接替换）/
  *   加槽卡 adds-slots（卡面注明"已有该槽则不能装备"时拒绝，addsSlotsReject；其余加槽卡允许重复槽）
  * 预留（第一版不做，见 task.md §10）：
@@ -240,7 +241,17 @@ window.FleetRules = (function () {
       reasons.push("unique-name");
     }
 
-    // 9. 双槽卡占用的槽位不可替换（须先删除整组，再重新装备）——防止双槽半占位 bug
+    // 9. 通用限制：同一张升级卡在同一艘舰上最多装备一次（跨槽位；正在替换/重选自身的槽位不算）。
+    //    覆盖双槽卡（占两槽）与舰船重复同类型槽位装同一张卡的情况。
+    //    仅当 slotIndex 给定（能定位目标槽）时判定；目标槽正被该卡占用 = 替换/重选自身，不算重复。
+    if (slotId !== COMMANDER_SLOT && slotId !== TITLE_SLOT && slotIndex != null) {
+      if (currentCardId !== card.id) {
+        const dup = (shipInstance.upgrades || []).some(function (u) { return u.cardId === card.id; });
+        if (dup) reasons.push("per-ship-duplicate");
+      }
+    }
+
+    // 10. 双槽卡占用的槽位不可替换（须先删除整组，再重新装备）——防止双槽半占位 bug
     if (slotId !== COMMANDER_SLOT && slotId !== TITLE_SLOT && currentCardId) {
       const curCard = data.anyCard(currentCardId);
       if (curCard && curCard.slots && curCard.slots.length > 1) {
@@ -248,7 +259,7 @@ window.FleetRules = (function () {
       }
     }
 
-    // 10. 加槽卡：仅卡面明确写“已有该槽则不能装备”时限制（addsSlotsReject）。
+    // 11. 加槽卡：仅卡面明确写“已有该槽则不能装备”时限制（addsSlotsReject）。
     //     舰船原生/其它卡已含限制槽位且规模符合 → 拒绝（重选/替换本卡自身时排除自己加的槽）。
     const addsReject = card.addsSlotsReject;
     if (addsReject && Array.isArray(addsReject.slots) && addsReject.slots.length) {
@@ -272,13 +283,12 @@ window.FleetRules = (function () {
     if (reasons.length) {
       return { allowed: false, reasons: reasons };
     }
-    // 数量上限：unique 单位全舰队仅限 1 个；有防御标记的王牌/普通单位上限
-    // card.limit（构建器默认 4，unique 为 1）。
+    // 数量上限：unique 单位全舰队仅限 1 个；其余仅受显式 card.limit 约束
+    // （常规战机 JSON 已去掉 limit 字段 = 不封顶；王牌单位仍可写 limit）。
     const owned = fleet.squadrons.filter(function (s) { return s.cardId === card.id; }).length;
-    const limit = card.limit || (card.unique ? 1 : 4);
     if (card.unique && owned >= 1) {
       reasons.push("squadron-unique");
-    } else if (owned >= limit) {
+    } else if (card.limit && owned >= card.limit) {
       reasons.push("limit");
     }
     // 跨类型同名 unique（如 中队“•XXX”与升级/指挥官同名）也不可重复；
@@ -319,6 +329,7 @@ window.FleetRules = (function () {
       "dual-locked": "双槽位卡占用的槽位不可替换（请先删除）",
       "adds-slots": "该舰已有此卡要增加的升级槽位（卡面限制）",
       "modification-limit": "每艘船只能有一个改装类组件",
+      "per-ship-duplicate": "同一张升级卡在同一艘舰上只能装一次",
       "squadron-unique": "独特单位全舰队仅限 1 个",
       limit: "该中队已达携带上限",
       category: "任务类别不符",

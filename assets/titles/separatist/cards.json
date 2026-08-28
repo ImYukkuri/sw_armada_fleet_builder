@@ -1,0 +1,305 @@
+[
+  {
+    "id": "title_011",
+    "type": "title",
+    "faction": "separatist",
+    "name": "负载之兽号",
+    "nameEn": "•Beast of Burden",
+    "size": null,
+    "points": 6,
+    "image": "assets/titles/separatist/images/page_001_img_1.jpeg",
+    "slots": [],
+    "effect": "当你激活时，你可以消耗此卡并花费1个或更多你的防御标记来选择位于距离1-3内至多等量的友方战舰之防御标记，将它(们)重置。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [
+        "separatist"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "hardcell_transport",
+        "hardcell_battle_refit"
+      ],
+      "shipNames": [
+        "硬细胞级"
+      ],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "title_012",
+    "type": "title",
+    "faction": "separatist",
+    "name": "工头之力号",
+    "nameEn": "•Foreman's Labor",
+    "size": null,
+    "points": 5,
+    "image": "assets/titles/separatist/images/page_002_img_1.jpeg",
+    "slots": [],
+    "effect": "在你承受1次攻击伤害前，如果该防御船体区至少还有1点护盾值，则你可以选择消耗此卡来将总伤害值降低1点。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [
+        "separatist"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "hardcell_transport",
+        "hardcell_battle_refit"
+      ],
+      "shipNames": [
+        "硬细胞级"
+      ],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "title_013",
+    "type": "title",
+    "faction": "separatist",
+    "name": "萨 纳拉尔号",
+    "nameEn": "•Sa Nalaor",
+    "size": null,
+    "points": 5,
+    "image": "assets/titles/separatist/images/page_003_img_1.jpeg",
+    "slots": [],
+    "effect": "在防御时，如果你的船速在2或更高，你可以选择花费1个防御标记来改为结算[[icon:defense-evade]]回避防御标记的效果。但你在一波攻击中不能结算[[icon:defense-evade]]回避防御标记效果多于1次。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [
+        "separatist"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "munificent_star_frigate",
+        "munificent_comms_frigate"
+      ],
+      "shipNames": [
+        "慷慨级护卫舰"
+      ],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "title_014",
+    "type": "title",
+    "faction": "separatist",
+    "name": "进步之潮12号",
+    "nameEn": "•Tide of Progress XII",
+    "size": null,
+    "points": 2,
+    "image": "assets/titles/separatist/images/page_004_img_1.jpeg",
+    "slots": [],
+    "effect": "在你得到1张面朝上的战舰SHIP类别之伤害卡前，你可以选择消耗此卡来丢弃该伤害卡(无须结算其效果)。重置费用：1个[[icon:command-repair]]维修",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [
+        "separatist"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "munificent_star_frigate",
+        "munificent_comms_frigate"
+      ],
+      "shipNames": [
+        "慷慨级护卫舰"
+      ],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "title_015",
+    "type": "title",
+    "faction": "separatist",
+    "name": "无敌号",
+    "nameEn": "•Invincible",
+    "size": null,
+    "points": 5,
+    "image": "assets/titles/separatist/images/page_005_img_1.jpeg",
+    "slots": [],
+    "effect": "你得到1个额外的[[icon:upgrade-defensive-retrofit]]防御改装升级槽位。",
+    "modification": false,
+    "unique": true,
+    "addsSlots": [
+      "defensive_retrofit"
+    ],
+    "restrictions": {
+      "factions": [
+        "separatist"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "providence_carrier",
+        "providence_dreadnought"
+      ],
+      "shipNames": [
+        "天意级无畏舰"
+      ],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "title_016",
+    "type": "title",
+    "faction": "separatist",
+    "name": "无形之手号",
+    "nameEn": "•Invisible Hand",
+    "size": null,
+    "points": 8,
+    "image": "assets/titles/separatist/images/page_006_img_1.jpeg",
+    "slots": [],
+    "effect": "当部署舰队时，如果你位于游戏区域内，则在你将要部署带有集群关键字的中队时，可以改为将该中队放置在你的战舰卡旁边。你可以这样放置最多5个中队。[[icon:command-squadron]]中队：选择任意数量以此卡放置一旁的中队，然后将它们放置在你距离1-3以内。在你本次激活期间，这些中队不能移动；如果它们带有AI关键字，可以将其AI值增加1。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [
+        "separatist"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "providence_carrier",
+        "providence_dreadnought"
+      ],
+      "shipNames": [
+        "天意级无畏舰"
+      ],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "title_017",
+    "type": "title",
+    "faction": "separatist",
+    "name": "明亮之声号",
+    "nameEn": "•Lucid Voice",
+    "size": null,
+    "points": 6,
+    "image": "assets/titles/separatist/images/page_007_img_1.jpeg",
+    "slots": [],
+    "effect": "将打印在你后方船体区的武装炮组视为3个红色骰子。你的左右船体区武装炮组各别追加1个黑色骰子且减少1个蓝色骰子。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [
+        "separatist"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "providence_carrier",
+        "providence_dreadnought"
+      ],
+      "shipNames": [
+        "天意级无畏舰"
+      ],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "title_018",
+    "type": "title",
+    "faction": "separatist",
+    "name": "闪耀神盾号",
+    "nameEn": "•Gilded Aegis",
+    "size": null,
+    "points": 5,
+    "image": "assets/titles/separatist/images/page_008_img_1.jpeg",
+    "slots": [],
+    "effect": "在指挥阶段或战舰阶段结束时，你可以丢弃1个[[icon:defense-redirect]]传导防御标记来集中转移你船体区之间的护盾值到其中1个去。如果你这么做了，则该船体区的护盾值不能超过最大值“6”点。当该船体区的护盾值超过原本的上限时你就不能回复它的护盾值。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [
+        "separatist"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "recusant_light_destroyer",
+        "recusant_support_destroyer"
+      ],
+      "shipNames": [
+        "抗命者级驱逐舰"
+      ],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "title_019",
+    "type": "title",
+    "faction": "separatist",
+    "name": "抗命新星号",
+    "nameEn": "•Nova Defiant",
+    "size": null,
+    "points": 4,
+    "image": "assets/titles/separatist/images/page_009_img_1.jpeg",
+    "slots": [],
+    "effect": "在你部署后，你必须为此卡选择并放置相应的每种指令标记，而数量总和为4。你的指挥值增加到4点。你所持有的每种指令标记数量可以多于1个。当你展示指挥转盘时，你可以从此卡上丢弃所有的指令标记来得到相应的指令标记。自带指令标记：4个可带指令种类：[[icon:command-repair]]维修/[[icon:command-navigate]]导航/[[icon:command-squadron]]中队/[[icon:command-concentrate-fire]]集火",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [
+        "separatist"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "recusant_light_destroyer",
+        "recusant_support_destroyer"
+      ],
+      "shipNames": [
+        "抗命者级驱逐舰"
+      ],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  },
+  {
+    "id": "title_010",
+    "type": "title",
+    "faction": "separatist",
+    "name": "爱国者之拳号",
+    "nameEn": "•Patriot Fist",
+    "size": null,
+    "points": 6,
+    "image": "assets/titles/separatist/images/page_010_img_1.jpeg",
+    "slots": [],
+    "effect": "当你攻击位于中-远射程的战舰时，若这是你本次激活的第1次攻击，你可以追加2颗蓝色骰子到你的攻击池中。如果你这么做了，在本次激活期间就不能再攻击。",
+    "modification": false,
+    "unique": true,
+    "restrictions": {
+      "factions": [
+        "separatist"
+      ],
+      "sizes": [],
+      "shipIds": [
+        "recusant_light_destroyer",
+        "recusant_support_destroyer"
+      ],
+      "shipNames": [
+        "抗命者级驱逐舰"
+      ],
+      "shipTraits": [],
+      "requiresFlagship": false,
+      "requiredTitles": []
+    }
+  }
+]

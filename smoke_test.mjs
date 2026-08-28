@@ -7,7 +7,10 @@ const J = async (f) => (await fetch(base + "/" + f)).json();
 const CATEGORY_FILES = {
   ships: ["assets/ships/imperial/cards.json", "assets/ships/rebel/cards.json"],
   squadrons: ["assets/squadrons/imperial/cards.json", "assets/squadrons/rebel/cards.json"],
-  titles: ["assets/titles/imperial/cards.json", "assets/titles/rebel/cards.json"],
+  titles: [
+    "assets/titles/imperial/cards.json", "assets/titles/rebel/cards.json",
+    "assets/titles/separatist/cards.json", "assets/titles/republic/cards.json",
+  ],
   upgrades: [
     "assets/upgrades/neutral.json", "assets/upgrades/imperial.json",
     "assets/upgrades/rebel.json", "assets/upgrades/separatist.json",
