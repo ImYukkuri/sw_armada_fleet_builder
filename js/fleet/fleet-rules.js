@@ -337,6 +337,20 @@ window.FleetRules = (function () {
     return map[reason] || reason;
   }
 
+  // 防御标记规则（中队 tag / 浮窗展示用；图标 id 见 armada-icons.js 的 defense-*）
+  const DEFENSE_TOKEN_RULES = {
+    evade: { nameZh: "回避", nameEn: "Evade", effect: "在远射程时，防御方选择1颗攻击骰子被取消；在中和近射程时，防御方选择1颗攻击骰子被重投。" },
+    redirect: { nameZh: "传导", nameEn: "Redirect", effect: "防御者选择一个与受击船体区相邻的船体区，先让该船体区的护盾代为扣除伤害，再由受击船体区承受余下伤害。" },
+    contain: { nameZh: "防控", nameEn: "Contain", effect: "攻击方无法结算标准的暴击效果（仍可结算非标准的暴击效果）。" },
+    salvo: { nameZh: "奇袭", nameEn: "Salvo", effect: "防御方可以在攻击的“结算伤害”步骤后发起1个奇袭攻击。" },
+    brace: { nameZh: "抑制", nameEn: "Brace", effect: "当伤害在“结算伤害”步骤加总时，它的总数将被减半计算，向上取整。" },
+    scatter: { nameZh: "驱散", nameEn: "Scatter", effect: "防御方取消所有攻击骰子。" },
+  };
+
+  function defenseTokenRule(id) {
+    return DEFENSE_TOKEN_RULES[id] || null;
+  }
+
   return {
     canEquipUpgrade: canEquipUpgrade,
     canEquipSquadron: canEquipSquadron,
@@ -350,5 +364,6 @@ window.FleetRules = (function () {
     dualSlotHint: dualSlotHint,
     addsSlotsHint: addsSlotsHint,
     currentOccupant: currentOccupant,
+    defenseTokenRule: defenseTokenRule,
   };
 })();

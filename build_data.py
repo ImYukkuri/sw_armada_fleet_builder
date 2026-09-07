@@ -74,6 +74,129 @@ ADDS_SLOTS_CARDS = {
 }
 
 
+# ---------- 中队关键字（squadron_keyword） ----------
+# 关键字条目在效果文本里的形式是「中文名 英文名 [数字] ：」，据此区别于正文里对
+# 关键字的引用（如「护卫关键字」「集群关键字」「老练1（…）」——不带「中文英文：」冒号结构）。
+# 中文名/英文名的别名（数据里的错字/翻译变体）一并归一。
+_SQUADRON_KEYWORD_ZH = {
+    "老练": "adept",
+    "炮组": "battery",
+    "对-中队": "anti_squadron", "对中队": "anti_squadron",
+    "突袭": "assault", "突击": "assault",
+    "轰炸": "bomber",
+    "隐匿": "cloak",
+    "反击": "counter",
+    "回避": "dodge", "闪避": "dodge",
+    "护卫": "escort",
+    "坚决": "grit",
+    "笨重": "heavy",
+    "情报": "intel",
+    "转播": "relay",
+    "侠盗": "rogue",
+    "侦察": "scout",
+    "屏障": "screen", "屏卫": "screen",
+    "狙击": "snipe",
+    "战略": "strategic",
+    "集群": "swarm",
+}
+_SQUADRON_KEYWORD_EN = {
+    "Adept": "adept",
+    "Battery": "battery",
+    "Anti-Squadron": "anti_squadron", "AntiSquadron": "anti_squadron",
+    "Assault": "assault", "Assult": "assault",
+    "Bomber": "bomber",
+    "Cloak": "cloak",
+    "Counter": "counter",
+    "Dodge": "dodge",
+    "Escort": "escort",
+    "Grit": "grit",
+    "Heavy": "heavy",
+    "Intel": "intel",
+    "Relay": "relay",
+    "Rogue": "rogue",
+    "Scout": "scout",
+    "Screen": "screen",
+    "Snipe": "snipe",
+    "Strategic": "strategic",
+    "Swarm": "swarm",
+}
+_SQUADRON_KEYWORD_NUMBERED = {"adept", "battery", "anti_squadron", "counter", "dodge", "relay", "snipe"}
+
+_ZH_ALT = "|".join(re.escape(k) for k in sorted(_SQUADRON_KEYWORD_ZH, key=len, reverse=True))
+_EN_ALT = "|".join(re.escape(k) for k in sorted(_SQUADRON_KEYWORD_EN, key=len, reverse=True))
+_SQUADRON_KEYWORD_RE = re.compile(r"(%s)\s*(%s)?\s*(\d+)?\s*[:：]" % (_ZH_ALT, _EN_ALT))
+
+
+def extract_squadron_keywords(effect):
+    """从中队效果文本提取关键字（含 X 值）。返回 [{key, value}]，value 为 None 表示无数字。"""
+    if not effect:
+        return []
+    found, seen = [], set()
+    for m in _SQUADRON_KEYWORD_RE.finditer(effect or ""):
+        zh, en, num = m.group(1), m.group(2), m.group(3)
+        kid = _SQUADRON_KEYWORD_ZH.get(zh) or (en and _SQUADRON_KEYWORD_EN.get(en))
+        if not kid or kid in seen:
+            continue
+        seen.add(kid)
+        value = int(num) if (num and kid in _SQUADRON_KEYWORD_NUMBERED) else None
+        found.append({"key": kid, "value": value})
+    return found
+
+
+# 手工修正：效果文本残缺/错字导致关键字无法被正则提取的中队（如 rebel_040 的「护卫 Escort」缺冒号）
+_SQUADRON_KEYWORD_OVERRIDES = {
+    "rebel_squadrons_040": [{"key": "assault", "value": None}, {"key": "escort", "value": None}],
+}
+
+
+# ---------- 中队防御标记（defense_token） ----------
+# 从「自带防御标记：…」解析防御标记。注意：抑制 = Brace（此前误映射为 Contain）、驱散 = Scatter。
+_DEFENSE_TOKEN_ZH = {
+    "抑制": "brace",
+    "驱散": "scatter",
+    "回避": "evade",
+    "传导": "redirect",
+    "防控": "contain",
+    "奇袭": "salvo",
+}
+
+
+def extract_defense_tokens(effect):
+    """从「自带防御标记：…」解析防御标记 id 列表（去图标前缀，中文标签 → id）。"""
+    if not effect:
+        return []
+    m = re.search(r"自带防御标记[：:]\s*(.*)$", effect)
+    if not m:
+        return []
+    tokens = []
+    for part in re.split(r"[，,、]", m.group(1)):
+        part = part.strip()
+        if not part:
+            continue
+        for zh, tid in _DEFENSE_TOKEN_ZH.items():
+            if zh in part:
+                tokens.append(tid)
+                break
+    return tokens
+
+
+def cleanup_squadron_effect(effect, ace):
+    """清理中队效果：非 ace 清空；ace 删除关键字条目与「自带防御标记」，保留自定义效果
+    （即第一个关键字条目 / 自带防御标记之前的部分）。"""
+    if not effect:
+        return ""
+    if not ace:
+        return ""
+    cut = len(effect)
+    m = _SQUADRON_KEYWORD_RE.search(effect)
+    if m:
+        cut = min(cut, m.start())
+    m2 = re.search(r"自带防御标记", effect)
+    if m2:
+        cut = min(cut, m2.start())
+    return effect[:cut].strip()
+
+
 def strip_modification_label(text):
     """去掉效果文本中作为“卡牌类型标签”的那一个“改装”，保留正文语义。
 
@@ -206,9 +329,13 @@ ICON_LABEL_MAP = {
     "导航": "command-navigate",
     "回避": "defense-evade",
     "防控": "defense-contain",
-    "抑制": "defense-contain",
+    "抑制": "defense-brace",
     "传导": "defense-redirect",
     "暴击": "attack-critical",
+    "命中": "attack-hit",
+    "精确": "attack-accuracy",
+    "奇袭": "defense-salvo",
+    "驱散": "defense-scatter",
     "任意": "command-any",
 }
 
@@ -693,6 +820,15 @@ def main():
                 c["faq"] = faq
                 faq_count += 1
     print("FAQ 提取: %d 张卡 带 faq 字段" % faq_count)
+
+    # 中队关键字/防御标记提取 + 效果清理：关键字与防御标记从 effect 拆出为独立字段，
+    # effect 只保留自定义效果（非 ace 清空；ace 去掉关键字条目与「自带防御标记」）。
+    for c in card_sources["squadrons"]:
+        effect = c.get("effect") or ""
+        kw = _SQUADRON_KEYWORD_OVERRIDES.get(c["id"]) or extract_squadron_keywords(effect)
+        c["squadron_keyword"] = kw
+        c["defense_token"] = extract_defense_tokens(effect)
+        c["effect"] = cleanup_squadron_effect(effect, c.get("ace"))
 
     # 按阵营分布写出：ships/squadrons/titles → assets/<type>/<faction>/cards.json
     for category in ("ships", "squadrons", "titles"):

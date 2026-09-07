@@ -9,11 +9,25 @@
     "points": 19,
     "image": "assets/squadrons/rebel/images/page_001_img_1.jpeg",
     "slots": [],
-    "effect": "在1个位于距离1且带有护卫关键字的友方中队在1次攻击中承受伤害前，你可以将总伤害值降低1点。如果你这么做了，则在距离1选择1个带有护卫关键字的友方中队。该中队承受1点伤害。轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。护卫Escort：与你交战中的中队不能对不带护卫关键字的中队进行攻击，除非 它执行的是反击。自带防御标记：[[icon:defense-contain]]抑制，[[icon:defense-contain]]抑制",
+    "effect": "在1个位于距离1且带有护卫关键字的友方中队在1次攻击中承受伤害前，你可以将总伤害值降低1点。如果你这么做了，则在距离1选择1个带有护卫关键字的友方中队。该中队承受1点伤害。",
     "unique": true,
     "ace": true,
     "limit": 1,
-    "faq": "在里肯将军效果影响下，在结算其能力时，你不可选择1个已被消灭但仍留在游戏区域内的友方中队。"
+    "faq": "在里肯将军效果影响下，在结算其能力时，你不可选择1个已被消灭但仍留在游戏区域内的友方中队。",
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "escort",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
   },
   {
     "id": "rebel_squadrons_002",
@@ -25,10 +39,28 @@
     "points": 22,
     "image": "assets/squadrons/rebel/images/page_002_img_1.jpeg",
     "slots": [],
-    "effect": "轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。狙击Snipe 4：你可以在距离2使用4个对-中队武装的蓝色骰子攻击敌方中队。该次攻击将忽视反击关键字。自带防御标记：[[icon:defense-contain]]抑制，[[icon:defense-contain]]抑制",
+    "effect": "",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "rogue",
+        "value": null
+      },
+      {
+        "key": "snipe",
+        "value": 4
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
   },
   {
     "id": "rebel_squadrons_003",
@@ -40,10 +72,21 @@
     "points": 15,
     "image": "assets/squadrons/rebel/images/page_003_img_1.jpeg",
     "slots": [],
-    "effect": "轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。集群Swarm：在攻击1个与其他友方中队交战中的中队时，你可以重投1个骰子。",
+    "effect": "",
     "unique": true,
     "ace": false,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "swarm",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "rebel_squadrons_004",
@@ -55,10 +98,24 @@
     "points": 24,
     "image": "assets/squadrons/rebel/images/page_004_img_1.jpeg",
     "slots": [],
-    "effect": "在攻击时，在你距离1每有1个敌方中队或敌方战舰，你便可以重投1颗骰子。轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。自带防御标记：[[icon:defense-contain]]抑制，[[icon:defense-contain]]抑制",
+    "effect": "在攻击时，在你距离1每有1个敌方中队或敌方战舰，你便可以重投1颗骰子。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "rogue",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
   },
   {
     "id": "rebel_squadrons_005",
@@ -70,11 +127,25 @@
     "points": 16,
     "image": "assets/squadrons/rebel/images/page_005_img_1.jpeg",
     "slots": [],
-    "effect": "当你所攻击的1个中队承受至少1点伤害时，你可以将它的激活条切换到已激活的那侧去。如果它已经是已激活状态时，则改为再承受1点额外的伤害。轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。笨重Heavy：你不会禁止和你交战中的中队移动或攻击战舰。自带防御标记：[[icon:defense-contain]]抑制，[[icon:defense-contain]]抑制",
+    "effect": "当你所攻击的1个中队承受至少1点伤害时，你可以将它的激活条切换到已激活的那侧去。如果它已经是已激活状态时，则改为再承受1点额外的伤害。",
     "unique": true,
     "ace": true,
     "limit": 1,
-    "faq": "如果在你攻击时防御方者没有承受伤害，但是另1 个敌方中队因为其他效果而承受了伤害（如比格斯·夜明者的效果），这将不会触发你的切换激活条效果。"
+    "faq": "如果在你攻击时防御方者没有承受伤害，但是另1 个敌方中队因为其他效果而承受了伤害（如比格斯·夜明者的效果），这将不会触发你的切换激活条效果。",
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "heavy",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
   },
   {
     "id": "rebel_squadrons_006",
@@ -86,10 +157,17 @@
     "points": 12,
     "image": "assets/squadrons/rebel/images/page_006_img_1.jpeg",
     "slots": [],
-    "effect": "轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。",
+    "effect": "",
     "unique": true,
     "ace": false,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "rebel_squadrons_007",
@@ -101,10 +179,21 @@
     "points": 12,
     "image": "assets/squadrons/rebel/images/page_007_img_1.jpeg",
     "slots": [],
-    "effect": "轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。反击Counter 1：在1个中队对你发起非-反击攻击后，你可以使用1个对-中队武装的蓝色骰子来攻击该中队，即使 你被摧毁。",
+    "effect": "",
     "unique": true,
     "ace": false,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "counter",
+        "value": 1
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "rebel_squadrons_008",
@@ -116,10 +205,24 @@
     "points": 24,
     "image": "assets/squadrons/rebel/images/page_008_img_1.jpeg",
     "slots": [],
-    "effect": "在战舰阶段开始时，你可以视为被[[icon:command-squadron]]中队指令激活进行激活。坚决Grit：当你只与1个中队交战时你不会被禁止移动。侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。自带防御标记：[[icon:defense-contain]]抑制，[[icon:defense-contain]]抑制",
+    "effect": "在战舰阶段开始时，你可以视为被[[icon:command-squadron]]中队指令激活进行激活。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "grit",
+        "value": null
+      },
+      {
+        "key": "rogue",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
   },
   {
     "id": "rebel_squadrons_009",
@@ -131,10 +234,23 @@
     "points": 28,
     "image": "assets/squadrons/rebel/images/page_009_img_1.jpeg",
     "slots": [],
-    "effect": "在中队阶段开始时，选择至多2个位于距离1-2的友方中队。直到该轮结束为止，这些中队得到侠盗关键字。坚决Grit：当你只与1个中队交战时你不会被禁止移动。侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。自带防御标记：[[icon:defense-contain]]抑制",
+    "effect": "在中队阶段开始时，选择至多2个位于距离1-2的友方中队。直到该轮结束为止，这些中队得到侠盗关键字。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "grit",
+        "value": null
+      },
+      {
+        "key": "rogue",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace"
+    ]
   },
   {
     "id": "rebel_squadrons_010",
@@ -146,11 +262,25 @@
     "points": 19,
     "image": "assets/squadrons/rebel/images/page_010_img_1.jpeg",
     "slots": [],
-    "effect": "当1个位于距离1-2的友方中队防御时，它可花费你的防御标记。反击Counter 2：在1个中队对你发起非-反击攻击后，你可以使用2个对-中队武装的蓝色骰子来攻击该中队，即使 你被摧毁。情报Intel：只要是在你距离1的友方中队，得到坚决关键字。自带防御标记：[[icon:defense-contain]]抑制，[[icon:defense-contain]]抑制",
+    "effect": "当1个位于距离1-2的友方中队防御时，它可花费你的防御标记。",
     "unique": true,
     "ace": true,
     "limit": 1,
-    "faq": "除非简奥斯她自己正在防御，否则她的防御标记不能被1个精确标志的效果选为目标。\n旧版的给敌中队笨重已被1.5版改掉"
+    "faq": "除非简奥斯她自己正在防御，否则她的防御标记不能被1个精确标志的效果选为目标。\n旧版的给敌中队笨重已被1.5版改掉",
+    "squadron_keyword": [
+      {
+        "key": "counter",
+        "value": 2
+      },
+      {
+        "key": "intel",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
   },
   {
     "id": "rebel_squadrons_011",
@@ -162,10 +292,28 @@
     "points": 19,
     "image": "assets/squadrons/rebel/images/page_011_img_1.jpeg",
     "slots": [],
-    "effect": "在攻击战舰时，你可以花费1个带有[[icon:attack-critical]]暴击标志的骰子。如果你这么做了，则防御方将获得1个你所选择的突袭标记。突袭Assault：当攻击战舰时，你可以花费1个带命中标志的骰子。如果你这么做了，防御方将得到1个你所选择的突袭标记。隐匿Cloak：在中队阶段结束时，你至多可以移动距离1，即使你正处于交战中。侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。自带防御标记：[[icon:defense-contain]]抑制，[[icon:defense-contain]]抑制",
+    "effect": "在攻击战舰时，你可以花费1个带有[[icon:attack-critical]]暴击标志的骰子。如果你这么做了，则防御方将获得1个你所选择的突袭标记。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "assault",
+        "value": null
+      },
+      {
+        "key": "cloak",
+        "value": null
+      },
+      {
+        "key": "rogue",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
   },
   {
     "id": "rebel_squadrons_012",
@@ -177,10 +325,28 @@
     "points": 22,
     "image": "assets/squadrons/rebel/images/page_012_img_1.jpeg",
     "slots": [],
-    "effect": "当1个敌方中队位于你距离1时，它的速度降低2，最低为1。轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。坚决Grit：当你只与1个中队交战时你不会被禁止移动。侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。自带防御标记：[[icon:defense-contain]]抑制，驱散",
+    "effect": "当1个敌方中队位于你距离1时，它的速度降低2，最低为1。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "grit",
+        "value": null
+      },
+      {
+        "key": "rogue",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "scatter"
+    ]
   },
   {
     "id": "rebel_squadrons_013",
@@ -192,10 +358,20 @@
     "points": 18,
     "image": "assets/squadrons/rebel/images/page_013_img_1.jpeg",
     "slots": [],
-    "effect": "在攻击战舰时，如果该防御船体区没有护盾，则你可以重投你攻击池中任意数量的骰子。轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。自带防御标记：[[icon:defense-contain]]抑制，[[icon:defense-contain]]抑制",
+    "effect": "在攻击战舰时，如果该防御船体区没有护盾，则你可以重投你攻击池中任意数量的骰子。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
   },
   {
     "id": "rebel_squadrons_014",
@@ -207,10 +383,24 @@
     "points": 24,
     "image": "assets/squadrons/rebel/images/page_014_img_1.jpeg",
     "slots": [],
-    "effect": "在攻击时，你可以丢弃1个防御标记来将1颗骰子调整到任意面去。但该骰子不能再次被修正。在防御时，你可以花费1个你的防御标记来要求攻击方重投你所选择的1颗或更多骰子。坚决Grit：当你只与1个中队交战时你不会被禁止移动。侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。自带防御标记：[[icon:defense-contain]]抑制，[[icon:defense-contain]]抑制",
+    "effect": "在攻击时，你可以丢弃1个防御标记来将1颗骰子调整到任意面去。但该骰子不能再次被修正。在防御时，你可以花费1个你的防御标记来要求攻击方重投你所选择的1颗或更多骰子。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "grit",
+        "value": null
+      },
+      {
+        "key": "rogue",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
   },
   {
     "id": "rebel_squadrons_015",
@@ -222,10 +412,20 @@
     "points": 14,
     "image": "assets/squadrons/rebel/images/page_015_img_1.jpeg",
     "slots": [],
-    "effect": "当另1个位于距离1且带有集群关键字的友方中队在攻击1个中队时，它可以重投1颗骰子（在集群关键字所提供的重投效果后再额外重投）。集群Swarm：在攻击1个与其他友方中队交战中的中队时，你可以重投1个骰子。自带防御标记：[[icon:defense-contain]]抑制，驱散",
+    "effect": "当另1个位于距离1且带有集群关键字的友方中队在攻击1个中队时，它可以重投1颗骰子（在集群关键字所提供的重投效果后再额外重投）。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "swarm",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "scatter"
+    ]
   },
   {
     "id": "rebel_squadrons_016",
@@ -237,10 +437,24 @@
     "points": 20,
     "image": "assets/squadrons/rebel/images/page_016_img_1.jpeg",
     "slots": [],
-    "effect": "在攻击战舰时，将防御方视为没有护盾。轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。自带防御标记：[[icon:defense-contain]]抑制，[[icon:defense-contain]]抑制",
+    "effect": "在攻击战舰时，将防御方视为没有护盾。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "rogue",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
   },
   {
     "id": "rebel_squadrons_017",
@@ -252,10 +466,24 @@
     "points": 21,
     "image": "assets/squadrons/rebel/images/page_017_img_1.jpeg",
     "slots": [],
-    "effect": "每次激活限生效1回，当1个友方战舰攻击位于你距离1处的战舰，且你与1个或更少的中队处于交战中，则该友方攻击者可以花费1颗骰子来将另1颗骰子改到带有1个[[icon:attack-critical]]暴击标志的那面去。轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。坚决Grit：当你只与1个中队交战时你不会被禁止移动。自带防御标记：[[icon:defense-contain]]抑制，[[icon:defense-contain]]抑制",
+    "effect": "每次激活限生效1回，当1个友方战舰攻击位于你距离1处的战舰，且你与1个或更少的中队处于交战中，则该友方攻击者可以花费1颗骰子来将另1颗骰子改到带有1个[[icon:attack-critical]]暴击标志的那面去。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "grit",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
   },
   {
     "id": "rebel_squadrons_018",
@@ -267,10 +495,24 @@
     "points": 22,
     "image": "assets/squadrons/rebel/images/page_018_img_1.jpeg",
     "slots": [],
-    "effect": "在中队阶段开始时，你可以将你的激活条切换到已激活那侧去。如果你这么做了，则你可以将1个贴附诡雷标记放置 在距离1处。坚决Grit：当你只与1个中队交战时你不会被禁止移动。侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。自带防御标记：[[icon:defense-contain]]抑制，[[icon:defense-contain]]抑制",
+    "effect": "在中队阶段开始时，你可以将你的激活条切换到已激活那侧去。如果你这么做了，则你可以将1个贴附诡雷标记放置 在距离1处。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "grit",
+        "value": null
+      },
+      {
+        "key": "rogue",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
   },
   {
     "id": "rebel_squadrons_019",
@@ -282,10 +524,20 @@
     "points": 17,
     "image": "assets/squadrons/rebel/images/page_019_img_1.jpeg",
     "slots": [],
-    "effect": "位于你距离1且带有轰炸关键字的友方中队获得“[[icon:attack-critical]]暴击：该防御船体区失去 1点护盾”。轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。自带防御标记：[[icon:defense-contain]]抑制，[[icon:defense-contain]]抑制",
+    "effect": "位于你距离1且带有轰炸关键字的友方中队获得“[[icon:attack-critical]]暴击：该防御船体区失去 1点护盾”。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
   },
   {
     "id": "rebel_squadrons_020",
@@ -297,10 +549,24 @@
     "points": 21,
     "image": "assets/squadrons/rebel/images/page_020_img_1.jpeg",
     "slots": [],
-    "effect": "蓝色[[icon:attack-critical]]暴击：如果该防御方是战舰，则你可以指定并丢弃它的1个防御标记。轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。坚决Grit：当你只与1个中队交战时你不会被禁止移动。自带防御标记：[[icon:defense-contain]]抑制，[[icon:defense-contain]]抑制",
+    "effect": "蓝色[[icon:attack-critical]]暴击：如果该防御方是战舰，则你可以指定并丢弃它的1个防御标记。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "grit",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
   },
   {
     "id": "rebel_squadrons_021",
@@ -312,10 +578,21 @@
     "points": 14,
     "image": "assets/squadrons/rebel/images/page_021_img_1.jpeg",
     "slots": [],
-    "effect": "轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。",
+    "effect": "",
     "unique": true,
     "ace": false,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "rogue",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "rebel_squadrons_022",
@@ -327,10 +604,20 @@
     "points": 17,
     "image": "assets/squadrons/rebel/images/page_022_img_1.jpeg",
     "slots": [],
-    "effect": "在执行1次反击攻击时，每个[[icon:attack-critical]]暴击标志将使该次总伤害值增加1点。反击Counter 3：在1个中队对你发起非-反击攻击后，你可以使用3个对-中队武装的蓝色骰子来攻击该中队，即使 你被摧毁。自带防御标记：[[icon:defense-contain]]抑制，驱散",
+    "effect": "在执行1次反击攻击时，每个[[icon:attack-critical]]暴击标志将使该次总伤害值增加1点。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "counter",
+        "value": 3
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "scatter"
+    ]
   },
   {
     "id": "rebel_squadrons_023",
@@ -342,10 +629,20 @@
     "points": 19,
     "image": "assets/squadrons/rebel/images/page_023_img_1.jpeg",
     "slots": [],
-    "effect": "在攻击中队时，你可以花费1颗带有1个[[icon:attack-critical]]暴击标志的蓝色骰子。如果你这么做了，则每个位于该防御方距离1的其他敌方中队都承受1点伤害。轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。自带防御标记：[[icon:defense-contain]]抑制，[[icon:defense-contain]]抑制",
+    "effect": "在攻击中队时，你可以花费1颗带有1个[[icon:attack-critical]]暴击标志的蓝色骰子。如果你这么做了，则每个位于该防御方距离1的其他敌方中队都承受1点伤害。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
   },
   {
     "id": "rebel_squadrons_024",
@@ -357,10 +654,20 @@
     "points": 16,
     "image": "assets/squadrons/rebel/images/page_024_img_1.jpeg",
     "slots": [],
-    "effect": "当你与敌方中队交战时，你不会被阻止进行移动或攻击战舰。反击Counter 2：在1个中队对你发起非-反击攻击后，你可以使用2个对-中队武装的蓝色骰子来攻击该中队，即使 你被摧毁。自带防御标记：[[icon:defense-contain]]抑制，驱散",
+    "effect": "当你与敌方中队交战时，你不会被阻止进行移动或攻击战舰。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "counter",
+        "value": 2
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "scatter"
+    ]
   },
   {
     "id": "rebel_squadrons_025",
@@ -372,10 +679,24 @@
     "points": 19,
     "image": "assets/squadrons/rebel/images/page_025_img_1.jpeg",
     "slots": [],
-    "effect": "在攻击1个已激活的中队时，你可以追加2颗蓝色骰子到你的攻击池中。轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。护卫Escort：与你交战中的中队不能对不带护卫关键字的中队进行攻击，除非 它执行的是反击。自带防御标记：[[icon:defense-contain]]抑制，[[icon:defense-contain]]抑制",
+    "effect": "在攻击1个已激活的中队时，你可以追加2颗蓝色骰子到你的攻击池中。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "escort",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
   },
   {
     "id": "rebel_squadrons_026",
@@ -387,9 +708,16 @@
     "points": 11,
     "image": "assets/squadrons/rebel/images/page_026_img_1.jpeg",
     "slots": [],
-    "effect": "反击Counter 2：在1个中队对你发起非-反击攻击后，你可以使用2个对-中队武装的蓝色骰子来攻击该中队，即使 你被摧毁。",
+    "effect": "",
     "unique": false,
-    "ace": false
+    "ace": false,
+    "squadron_keyword": [
+      {
+        "key": "counter",
+        "value": 2
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "rebel_squadrons_027",
@@ -401,9 +729,16 @@
     "points": 14,
     "image": "assets/squadrons/rebel/images/page_027_img_1.jpeg",
     "slots": [],
-    "effect": "轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。",
+    "effect": "",
     "unique": false,
-    "ace": false
+    "ace": false,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "rebel_squadrons_028",
@@ -415,9 +750,20 @@
     "points": 14,
     "image": "assets/squadrons/rebel/images/page_028_img_1.jpeg",
     "slots": [],
-    "effect": "轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。狙击Snipe 3：你可以在距离2使用3个对-中队武装的蓝色骰子攻击敌方中队。该次攻击将忽视反击关键字。",
+    "effect": "",
     "unique": false,
-    "ace": false
+    "ace": false,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "snipe",
+        "value": 3
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "rebel_squadrons_029",
@@ -429,10 +775,21 @@
     "points": 12,
     "image": "assets/squadrons/rebel/images/page_029_img_1.jpeg",
     "slots": [],
-    "effect": "反击Counter 2：在1个中队对你发起非-反击攻击后，你可以使用2个对-中队武装的蓝色骰子来攻击该中队，即使 你被摧毁。情报Intel：只要是在你距离1的友方中队，得到坚决关键字。",
+    "effect": "",
     "unique": false,
     "ace": false,
-    "faq": "旧版的给敌中队笨重已被1.5版改掉"
+    "faq": "旧版的给敌中队笨重已被1.5版改掉",
+    "squadron_keyword": [
+      {
+        "key": "counter",
+        "value": 2
+      },
+      {
+        "key": "intel",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "rebel_squadrons_030",
@@ -444,9 +801,24 @@
     "points": 14,
     "image": "assets/squadrons/rebel/images/page_030_img_1.jpeg",
     "slots": [],
-    "effect": "轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。坚决Grit：当你只与1个中队交战时你不会被禁止移动。侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。",
+    "effect": "",
     "unique": false,
-    "ace": false
+    "ace": false,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "grit",
+        "value": null
+      },
+      {
+        "key": "rogue",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "rebel_squadrons_031",
@@ -458,9 +830,24 @@
     "points": 16,
     "image": "assets/squadrons/rebel/images/page_031_img_1.jpeg",
     "slots": [],
-    "effect": "轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。坚决Grit：当你只与1个中队交战时你不会被禁止移动。笨重Heavy：你不会禁止和你交战中的中队移动或攻击战舰。",
+    "effect": "",
     "unique": false,
-    "ace": false
+    "ace": false,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "grit",
+        "value": null
+      },
+      {
+        "key": "heavy",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "rebel_squadrons_032",
@@ -472,9 +859,24 @@
     "points": 14,
     "image": "assets/squadrons/rebel/images/page_032_img_1.jpeg",
     "slots": [],
-    "effect": "笨重Heavy：你不会禁止和你交战中的中队移动或攻击战舰。转播Relay 1：当友方战舰结算[[icon:command-squadron]]中队指令时，如果你在它的激活范围内，则它所激活的1个中队可以改为在你距离 1-3。战略Strategic：当你在1个或更多任务标记的距离1结束移动时，你可以移动其中1个标记只要它保持在你的距离1即可。",
+    "effect": "",
     "unique": false,
-    "ace": false
+    "ace": false,
+    "squadron_keyword": [
+      {
+        "key": "heavy",
+        "value": null
+      },
+      {
+        "key": "relay",
+        "value": 1
+      },
+      {
+        "key": "strategic",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "rebel_squadrons_033",
@@ -486,9 +888,20 @@
     "points": 13,
     "image": "assets/squadrons/rebel/images/page_033_img_1.jpeg",
     "slots": [],
-    "effect": "轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。护卫Escort：与你交战中的中队不能对不带护卫关键字的中队进行攻击，除非 它执行的是反击。",
+    "effect": "",
     "unique": false,
-    "ace": false
+    "ace": false,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "escort",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "rebel_squadrons_034",
@@ -500,9 +913,20 @@
     "points": 10,
     "image": "assets/squadrons/rebel/images/page_034_img_1.jpeg",
     "slots": [],
-    "effect": "轰炸Bomber：攻击战舰时，你的每个标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。笨重Heavy：你不会禁止和你交战中的中队移动或攻击战舰。",
+    "effect": "",
     "unique": false,
-    "ace": false
+    "ace": false,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "heavy",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "rebel_squadrons_035",
@@ -514,9 +938,20 @@
     "points": 13,
     "image": "assets/squadrons/rebel/images/page_035_img_1.jpeg",
     "slots": [],
-    "effect": "反击Counter 1：在1个中队对你发起非-反击攻击后，你可以使用1个对-中队武装的蓝色骰子来攻击该中队，即使 你被摧毁。护卫Escort：与你交战中的中队不能对不带护卫关键字的中队进行攻击，除非 它执行的是反击。",
+    "effect": "",
     "unique": false,
-    "ace": false
+    "ace": false,
+    "squadron_keyword": [
+      {
+        "key": "counter",
+        "value": 1
+      },
+      {
+        "key": "escort",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "rebel_squadrons_036",
@@ -528,9 +963,16 @@
     "points": 7,
     "image": "assets/squadrons/rebel/images/page_036_img_1.jpeg",
     "slots": [],
-    "effect": "集群Swarm：在攻击1个与其他友方中队交战中的中队时，你可以重投1个骰子。",
+    "effect": "",
     "unique": false,
-    "ace": false
+    "ace": false,
+    "squadron_keyword": [
+      {
+        "key": "swarm",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "rebel_squadrons_037",
@@ -542,9 +984,16 @@
     "points": 16,
     "image": "assets/squadrons/rebel/images/page_037_img_1.jpeg",
     "slots": [],
-    "effect": "侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。",
+    "effect": "",
     "unique": false,
-    "ace": false
+    "ace": false,
+    "squadron_keyword": [
+      {
+        "key": "rogue",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "rebel_squadrons_038",
@@ -556,10 +1005,17 @@
     "points": 9,
     "image": "assets/squadrons/rebel/images/page_038_img_1.jpeg",
     "slots": [],
-    "effect": "笨重Heavy：你不会禁止和你交战中的中队移动或攻击战舰。",
+    "effect": "",
     "unique": true,
     "ace": false,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "heavy",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "rebel_squadrons_039",
@@ -571,10 +1027,21 @@
     "points": 15,
     "image": "assets/squadrons/rebel/images/page_039_img_1.jpeg",
     "slots": [],
-    "effect": "转播Relay 1：当友方战舰结算[[icon:command-squadron]]中队指令时，如果你在它的激活范围内，则它所激活的1个中队可以改为在你距离 1-3。狙击Snipe 3：你可以在距离2使用3个对-中队武装的蓝色骰子攻击敌方中队。该次攻击将忽视反击关键字。",
+    "effect": "",
     "unique": true,
     "ace": false,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "relay",
+        "value": 1
+      },
+      {
+        "key": "snipe",
+        "value": 3
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "rebel_squadrons_040",
@@ -586,10 +1053,21 @@
     "points": 24,
     "image": "assets/squadrons/rebel/images/page_040_img_1.jpeg",
     "slots": [],
-    "effect": "当你激活时，如果你是被[[icon:command-squadron]]中队指令激活的，选择距离1的最多2个非独特中队，选择的中队可以视作如同被该[[icon:command-squadron]]中队指令一同激活。突击 Assult：当你攻击舰船时，你可以花费一个带命中图标的骰子，防御方获得一个你选择的突袭标记。护卫 Escort",
+    "effect": "当你激活时，如果你是被[[icon:command-squadron]]中队指令激活的，选择距离1的最多2个非独特中队，选择的中队可以视作如同被该[[icon:command-squadron]]中队指令一同激活。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "assault",
+        "value": null
+      },
+      {
+        "key": "escort",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "rebel_squadrons_041",
@@ -601,9 +1079,20 @@
     "points": 23,
     "image": "assets/squadrons/rebel/images/page_041_img_1.jpeg",
     "slots": [],
-    "effect": "周围距离1-2带有护卫词条的友方中队获得老练1（在攻击时可以重投1个骰子）轰炸Bomber：攻击战舰时，你的每个[[icon:attack-critical]]暴击标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。闪避Dodge 1：当你防御来自中队的攻击时，在花费防御标记阶段，你可以重骰对手一颗攻击骰。",
+    "effect": "周围距离1-2带有护卫词条的友方中队获得老练1（在攻击时可以重投1个骰子）",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "dodge",
+        "value": 1
+      }
+    ],
+    "defense_token": []
   }
 ]

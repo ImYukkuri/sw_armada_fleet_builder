@@ -10,6 +10,7 @@ window.FleetData = (function () {
   const FILES = {
     config: "data/config.json",
     objectives: "data/objectives.json",
+    squadron_keywords: "data/squadron_keywords.json",
     // 舰船 / 中队 4 阵营全列（共和国/分离势力文件尚未录入时由 loadCategory 容错跳过）
     ships: [
       "assets/ships/imperial/cards.json", "assets/ships/rebel/cards.json",
@@ -52,6 +53,7 @@ window.FleetData = (function () {
     config: null,
     cards: { ships: [], squadrons: [], upgrades: [], titles: [], objectives: [] },
     icons: {}, // slotId -> inline svg（fill=currentColor）
+    squadronKeywords: [],   // data/squadron_keywords.json（中队关键字规则表）
     loaded: false,
 
     // load(onProgress?)：onProgress(fraction, label) 可选，切页/启动进度条用。
@@ -62,12 +64,14 @@ window.FleetData = (function () {
       const step = function (fraction, label) { if (report) report(fraction, label); };
 
       step(0.1, "正在加载基础配置…");
-      const [config, objectives] = await Promise.all([
+      const [config, objectives, squadronKeywords] = await Promise.all([
         fetchJSON(FILES.config),
         fetchJSON(FILES.objectives),
+        fetchJSON(FILES.squadron_keywords),
       ]);
       this.config = config;
       this.cards.objectives = objectives;
+      this.squadronKeywords = squadronKeywords;
 
       step(0.28, "正在加载舰船数据…");
       this.cards.ships = await loadCategory(FILES.ships);
@@ -115,6 +119,10 @@ window.FleetData = (function () {
     },
     objective(id) {
       return this.cards.objectives.find(function (c) { return c.id === id; }) || null;
+    },
+    // 中队关键字规则（data/squadron_keywords.json）
+    squadronKeyword(id) {
+      return (this.squadronKeywords || []).find(function (k) { return k.id === id; }) || null;
     },
     anyCard(id) {
       return this.ship(id) || this.squadron(id) || this.upgrade(id) || this.title(id) || this.objective(id);

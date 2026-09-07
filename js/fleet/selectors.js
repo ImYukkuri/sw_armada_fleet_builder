@@ -125,6 +125,99 @@ window.FleetSelectors = (function () {
     );
   }
 
+  /* ---- 中队卡片（关键词/防御标记 tag + 点开浮窗看全部规则） ---- */
+  // 关键词 tag（醒目）+ 防御标记 tag（带图标）；点击任意 tag → 浮窗显示该单位全部关键词/防御标记/自定义效果
+  function squadronTags(card) {
+    var parts = [];
+    (card.squadron_keyword || []).forEach(function (kw) {
+      var rule = ctx.data.squadronKeyword(kw.key);
+      var label = (rule ? rule.nameZh : kw.key) + (kw.value != null ? " " + kw.value : "");
+      parts.push(
+        '<span class="sq-tag sq-tag--keyword" data-action="squadron-keywords" data-id="' + escapeHtml(card.id) + '" role="button" tabindex="0">' +
+        escapeHtml(label) + "</span>"
+      );
+    });
+    (card.defense_token || []).forEach(function (tid) {
+      var rule = FleetRules.defenseTokenRule(tid);
+      var label = rule ? rule.nameZh : tid;
+      parts.push(
+        '<span class="sq-tag sq-tag--defense" data-action="squadron-keywords" data-id="' + escapeHtml(card.id) + '" role="button" tabindex="0" title="' + (rule ? escapeHtml(rule.effect) : "") + '">' +
+        '<span class="armada-icon armada-icon--defense-' + escapeHtml(tid) + '" aria-hidden="true"></span>' + escapeHtml(label) + "</span>"
+      );
+    });
+    return parts.length ? '<span class="sq-tags">' + parts.join("") + "</span>" : "";
+  }
+
+  // 中队选择卡：左大图 + 右侧 卡名(大字)/tag/自定义效果（effect 已清理，关键字与防御标记走 tag）
+  function squadronCard(card, meta, blockedMsg) {
+    var blocked = !!blockedMsg;
+    var effect = card.effect ? ArmadaIcons.toHtml(card.effect) : "";
+    var actionAttr = blocked
+      ? ' data-blocked="1"'
+      : ' data-action="sel-pick" data-id="' + escapeHtml(card.id) + '"';
+    return (
+      '<button class="sel-card sel-card--squadron' + (blocked ? " is-blocked" : "") + '"' + actionAttr + ">" +
+      cardThumb(card, card.name) +
+      '<span class="sel-main">' +
+      '<span class="sel-name">' + escapeHtml(card.name || "未命名") + "</span>" +
+      (card.nameEn ? '<span class="sel-en">' + escapeHtml(card.nameEn) + "</span>" : "") +
+      squadronTags(card) +
+      (effect ? '<span class="sel-effect">' + effect + "</span>" : "") +
+      (meta ? '<span class="sel-meta">' + escapeHtml(meta) + "</span>" : "") +
+      (blockedMsg ? '<span class="sel-warn">' + escapeHtml(blockedMsg) + "</span>" : "") +
+      "</span>" +
+      '<span class="sel-pts">' + (card.points == null ? "" : card.points) + "</span>" +
+      "</button>"
+    );
+  }
+
+  // 浮窗内容：该单位全部关键词规则 + 防御标记效果 + 剩余自定义效果
+  function squadronKeywordsContent(card) {
+    var html = "";
+    (card.squadron_keyword || []).forEach(function (kw) {
+      var rule = ctx.data.squadronKeyword(kw.key);
+      if (!rule) return;
+      var label = rule.nameZh + (kw.value != null ? " " + kw.value : "") + " " + rule.nameEn;
+      var ruleText = kw.value != null ? rule.rule.split("X").join(String(kw.value)) : rule.rule;
+      html +=
+        '<div class="sq-popup-item sq-popup-item--keyword">' +
+        '<b class="sq-popup-item-name">' + escapeHtml(label) + "</b>" +
+        '<span class="sq-popup-item-rule">' + ArmadaIcons.toHtml(ruleText) + "</span>" +
+        "</div>";
+    });
+    (card.defense_token || []).forEach(function (tid) {
+      var rule = FleetRules.defenseTokenRule(tid);
+      if (!rule) return;
+      html +=
+        '<div class="sq-popup-item sq-popup-item--defense">' +
+        '<b class="sq-popup-item-name"><span class="armada-icon armada-icon--defense-' + escapeHtml(tid) + '" aria-hidden="true"></span>' + escapeHtml(rule.nameZh + " " + rule.nameEn) + "</b>" +
+        '<span class="sq-popup-item-rule">' + escapeHtml(rule.effect) + "</span>" +
+        "</div>";
+    });
+    if (card.effect) {
+      html += '<div class="sq-popup-effect">' + ArmadaIcons.toHtml(card.effect) + "</div>";
+    }
+    return html;
+  }
+
+  function openSquadronKeywordsPopup(card) {
+    var overlay = document.createElement("div");
+    overlay.className = "overlay sq-popup-overlay";
+    overlay.innerHTML =
+      '<div class="sq-popup">' +
+      '<div class="sq-popup-head">' +
+      "<h3>" + escapeHtml(card.name || "") + "</h3>" +
+      (card.nameEn ? '<span class="sq-popup-en">' + escapeHtml(card.nameEn) + "</span>" : "") +
+      "</div>" +
+      '<div class="sq-popup-body">' + squadronKeywordsContent(card) + "</div>" +
+      '<button class="btn sq-popup-close" data-sq-close>关闭</button>' +
+      "</div>";
+    overlay.addEventListener("click", function (e) {
+      if (e.target === overlay || (e.target.closest && e.target.closest("[data-sq-close]"))) overlay.remove();
+    });
+    document.body.appendChild(overlay);
+  }
+
   /* 舰船选择卡片：一行槽位图标（指挥官/称号为隐式特殊槽，随后是各升级槽，仅展示） */
   function shipSlotIcons(card) {
     var slots = ["commander", "title"].concat((card && card.slots) || []);
@@ -213,9 +306,9 @@ window.FleetSelectors = (function () {
         return tags.join(" · ");
       };
       return sqAllowed.map(function (c) {
-        return cardItem(c, sqMeta(c));
+        return squadronCard(c, sqMeta(c));
       }).concat(sqBlocked.map(function (b) {
-        return cardItem(b.card, sqMeta(b.card), "", "", b.msg);
+        return squadronCard(b.card, sqMeta(b.card), b.msg);
       }));
     }
     if (state.kind === "objective") {
@@ -387,6 +480,10 @@ window.FleetSelectors = (function () {
       var action = btn.dataset.action;
       if (action === "sel-back" || action === "sel-close") close();
       else if (action === "sel-pick") pick(btn.dataset.id);
+      else if (action === "squadron-keywords") {
+        var sqCard = ctx.data.squadron(btn.dataset.id);
+        if (sqCard) openSquadronKeywordsPopup(sqCard);
+      }
     });
     root.addEventListener("input", function (e) {
       var inp = e.target.closest("[data-action='sel-search']");

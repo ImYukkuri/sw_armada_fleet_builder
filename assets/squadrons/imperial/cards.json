@@ -9,10 +9,21 @@
     "points": 9,
     "image": "assets/squadrons/imperial/images/page_001_img_1.jpeg",
     "slots": [],
-    "effect": "反击Counter 1：在1个中队对你发起非-反击攻击后，你可以使用1个对-中队武装的蓝色骰子来攻击该中队，即使 你被摧毁。护卫Escort：与你交战中的中队不能对不带护卫关键字的中队进行攻击，除非 它执行的是反击。",
+    "effect": "",
     "unique": true,
     "ace": false,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "counter",
+        "value": 1
+      },
+      {
+        "key": "escort",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "imperial_squadrons_002",
@@ -24,10 +35,24 @@
     "points": 24,
     "image": "assets/squadrons/imperial/images/page_002_img_1.jpeg",
     "slots": [],
-    "effect": "在你激活时，选择1个位于距离1的敌方战舰或中队。该舰或中队承受1点伤害。轰炸Bomber：攻击战舰时，你的每个[[icon:attack-critical]]暴击标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。自带防御标记：[[icon:defense-contain]]抑制，[[icon:defense-contain]]抑制",
+    "effect": "在你激活时，选择1个位于距离1的敌方战舰或中队。该舰或中队承受1点伤害。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "rogue",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
   },
   {
     "id": "imperial_squadrons_003",
@@ -39,10 +64,23 @@
     "points": 23,
     "image": "assets/squadrons/imperial/images/page_003_img_1.jpeg",
     "slots": [],
-    "effect": "在攻击时，如果你剩下6点或更少的船体值，你可以追加1颗设置到精确标志的蓝色骰子到你的攻击池中。坚决Grit：当你只与1个中队交战时你不会被禁止移动。侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。自带防御标记：[[icon:defense-contain]]抑制",
+    "effect": "在攻击时，如果你剩下6点或更少的船体值，你可以追加1颗设置到精确标志的蓝色骰子到你的攻击池中。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "grit",
+        "value": null
+      },
+      {
+        "key": "rogue",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace"
+    ]
   },
   {
     "id": "imperial_squadrons_004",
@@ -54,10 +92,28 @@
     "points": 16,
     "image": "assets/squadrons/imperial/images/page_004_img_1.jpeg",
     "slots": [],
-    "effect": "当1个友方战舰攻击1个位于你距离1的战舰时，它可以将1颗骰子改到带1个精确标志的那面去。轰炸Bomber：攻击战舰时，你的每个[[icon:attack-critical]]暴击标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。坚决Grit：当你只与1个中队交战时你不会被禁止移动。笨重Heavy：你不会禁止和你交战中的中队移动或攻击战舰。自带防御标记：[[icon:defense-contain]]抑制，[[icon:defense-contain]]抑制",
+    "effect": "当1个友方战舰攻击1个位于你距离1的战舰时，它可以将1颗骰子改到带1个精确标志的那面去。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "grit",
+        "value": null
+      },
+      {
+        "key": "heavy",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
   },
   {
     "id": "imperial_squadrons_005",
@@ -69,10 +125,24 @@
     "points": 17,
     "image": "assets/squadrons/imperial/images/page_005_img_1.jpeg",
     "slots": [],
-    "effect": "在你在防御时，该次攻击视为被阻碍。反击Counter 2：在1个中队对你发起非-反击攻击后，你可以使用2个对-中队武装的蓝色骰子来攻击该中队，即使 你被摧毁。集群Swarm：在攻击1个与其他友方中队交战中的中队时，你可以重投1个骰子。自带防御标记：[[icon:defense-contain]]抑制，驱散",
+    "effect": "在你在防御时，该次攻击视为被阻碍。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "counter",
+        "value": 2
+      },
+      {
+        "key": "swarm",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "scatter"
+    ]
   },
   {
     "id": "imperial_squadrons_006",
@@ -84,11 +154,25 @@
     "points": 23,
     "image": "assets/squadrons/imperial/images/page_006_img_1.jpeg",
     "slots": [],
-    "effect": "在你的激活中，代替攻击，你可以选择 1个位于距离1-2的友方中队。该中队可以发起1次攻击（即使它已激活过）。笨重Heavy：你不会禁止和你交战中的中队移动或攻击战舰。转播Relay 2：当友方战舰结算[[icon:command-squadron]]中队指令时，如果你在它的激活范围内，则它所激活的2个中队可以改为在你距离 1-3。自带防御标记：[[icon:defense-contain]]抑制，[[icon:defense-contain]]抑制",
+    "effect": "在你的激活中，代替攻击，你可以选择 1个位于距离1-2的友方中队。该中队可以发起1次攻击（即使它已激活过）。",
     "unique": true,
     "ace": true,
     "limit": 1,
-    "faq": "此卡效果只能在金东上校自己未交战或是因为某些效果而无法攻击才可以使用；被此卡效果指定发起攻击的中队并不算做被激活。"
+    "faq": "此卡效果只能在金东上校自己未交战或是因为某些效果而无法攻击才可以使用；被此卡效果指定发起攻击的中队并不算做被激活。",
+    "squadron_keyword": [
+      {
+        "key": "heavy",
+        "value": null
+      },
+      {
+        "key": "relay",
+        "value": 2
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
   },
   {
     "id": "imperial_squadrons_007",
@@ -100,10 +184,20 @@
     "points": 20,
     "image": "assets/squadrons/imperial/images/page_007_img_1.jpeg",
     "slots": [],
-    "effect": "在攻击时，你的每个[[icon:attack-critical]]暴击标志都能使总伤害值增加1点。屏卫 Screen：当你防御时，距离1以内的每个不带屏卫词条的中队使你获得闪避1（重骰对手攻击骰），上限为2。自带防御标记：[[icon:defense-contain]]抑制，[[icon:defense-contain]]抑制",
+    "effect": "在攻击时，你的每个[[icon:attack-critical]]暴击标志都能使总伤害值增加1点。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "screen",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
   },
   {
     "id": "imperial_squadrons_008",
@@ -115,11 +209,25 @@
     "points": 20,
     "image": "assets/squadrons/imperial/images/page_008_img_1.jpeg",
     "slots": [],
-    "effect": "当另1个友方中队位于你距离1-2时，它获得反击1或其反击值增加1。情报Intel：只要是在你距离1的友方中队，得到坚决关键字。集群Swarm：在攻击1个与其他友方中队交战中的中队时，你可以重投1个骰子。自带防御标记：[[icon:defense-contain]]抑制，驱散",
+    "effect": "当另1个友方中队位于你距离1-2时，它获得反击1或其反击值增加1。",
     "unique": true,
     "ace": true,
     "limit": 1,
-    "faq": "旧版的给敌中队笨重已被1.5版改掉"
+    "faq": "旧版的给敌中队笨重已被1.5版改掉",
+    "squadron_keyword": [
+      {
+        "key": "intel",
+        "value": null
+      },
+      {
+        "key": "swarm",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "scatter"
+    ]
   },
   {
     "id": "imperial_squadrons_009",
@@ -131,10 +239,21 @@
     "points": 10,
     "image": "assets/squadrons/imperial/images/page_009_img_1.jpeg",
     "slots": [],
-    "effect": "轰炸Bomber：攻击战舰时，你的每个[[icon:attack-critical]]暴击标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。坚决Grit：当你只与1个中队交战时你不会被禁止移动。",
+    "effect": "",
     "unique": true,
     "ace": false,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "grit",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "imperial_squadrons_010",
@@ -146,10 +265,23 @@
     "points": 20,
     "image": "assets/squadrons/imperial/images/page_010_img_1.jpeg",
     "slots": [],
-    "effect": "当1个带有情报或转播关键字的敌方中队在距离1激活时，它承受1点伤害。突袭Assault：当攻击战舰时，你可以花费1个带命中标志的骰子。如果你这么做了，防御方将得到1个你所选择的突袭标记。侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。自带防御标记：[[icon:defense-contain]]抑制",
+    "effect": "当1个带有情报或转播关键字的敌方中队在距离1激活时，它承受1点伤害。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "assault",
+        "value": null
+      },
+      {
+        "key": "rogue",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace"
+    ]
   },
   {
     "id": "imperial_squadrons_011",
@@ -161,10 +293,28 @@
     "points": 24,
     "image": "assets/squadrons/imperial/images/page_011_img_1.jpeg",
     "slots": [],
-    "effect": "在你的激活期间，取代攻击，你可以将 1个位于你距离1中队之的激活条切换到已激活那侧去。如果它已激活，则你可以将该中队放置在位于你距离1内的任意位置去。轰炸Bomber：攻击战舰时，你的每个[[icon:attack-critical]]暴击标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。坚决Grit：当你只与1个中队交战时你不会被禁止移动。侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。自带防御标记：[[icon:defense-contain]]抑制，[[icon:defense-contain]]抑制",
+    "effect": "在你的激活期间，取代攻击，你可以将 1个位于你距离1中队之的激活条切换到已激活那侧去。如果它已激活，则你可以将该中队放置在位于你距离1内的任意位置去。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "grit",
+        "value": null
+      },
+      {
+        "key": "rogue",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
   },
   {
     "id": "imperial_squadrons_012",
@@ -176,10 +326,20 @@
     "points": 16,
     "image": "assets/squadrons/imperial/images/page_012_img_1.jpeg",
     "slots": [],
-    "effect": "当另1个位于你距离1且带有集群关键字的友方中队在攻击1个中队时，他可以追加1颗蓝色骰子到它的攻击池中。集群Swarm：在攻击1个与其他友方中队交战中的中队时，你可以重投1个骰子。自带防御标记：[[icon:defense-contain]]抑制，驱散",
+    "effect": "当另1个位于你距离1且带有集群关键字的友方中队在攻击1个中队时，他可以追加1颗蓝色骰子到它的攻击池中。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "swarm",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "scatter"
+    ]
   },
   {
     "id": "imperial_squadrons_013",
@@ -191,10 +351,23 @@
     "points": 19,
     "image": "assets/squadrons/imperial/images/page_013_img_1.jpeg",
     "slots": [],
-    "effect": "你无视敌方中队的护卫与反击关键字。反击Counter 2：在1个中队对你发起非-反击攻击后，你可以使用2个对-中队武装的蓝色骰子来攻击该中队，即使 你被摧毁。侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。自带防御标记：驱散",
+    "effect": "你无视敌方中队的护卫与反击关键字。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "counter",
+        "value": 2
+      },
+      {
+        "key": "rogue",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "scatter"
+    ]
   },
   {
     "id": "imperial_squadrons_014",
@@ -206,11 +379,24 @@
     "points": 19,
     "image": "assets/squadrons/imperial/images/page_014_img_1.jpeg",
     "slots": [],
-    "effect": "在中队阶段开始时，你可以将你的激活条切换到已激活的那一侧去。如果你这么做了，则你可以对每个位于距离1的敌方中队执行1次对-中队攻击。将这些攻击视为被阻碍。反击Counter 1：在1个中队对你发起非-反击攻击后，你可以使用1个对-中队武装的蓝色骰子来攻击该中队，即使 你被摧毁。侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。自带防御标记：驱散",
+    "effect": "在中队阶段开始时，你可以将你的激活条切换到已激活的那一侧去。如果你这么做了，则你可以对每个位于距离1的敌方中队执行1次对-中队攻击。将这些攻击视为被阻碍。",
     "unique": true,
     "ace": true,
     "limit": 1,
-    "faq": "在结算此卡能力时，你可对每个位于距离1 的敌方中队各执行1次攻击。当你与1个或更多带护卫关键字的中队交战时，必须先把他们选为目标，并对每个护卫中队都攻击1次。如果攻击完还有1个或更多护卫中队存活，则你必须停止攻击。"
+    "faq": "在结算此卡能力时，你可对每个位于距离1 的敌方中队各执行1次攻击。当你与1个或更多带护卫关键字的中队交战时，必须先把他们选为目标，并对每个护卫中队都攻击1次。如果攻击完还有1个或更多护卫中队存活，则你必须停止攻击。",
+    "squadron_keyword": [
+      {
+        "key": "counter",
+        "value": 1
+      },
+      {
+        "key": "rogue",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "scatter"
+    ]
   },
   {
     "id": "imperial_squadrons_015",
@@ -222,10 +408,24 @@
     "points": 21,
     "image": "assets/squadrons/imperial/images/page_015_img_1.jpeg",
     "slots": [],
-    "effect": "在攻击时，你可以将1颗骰子改到带有1 个[[icon:attack-critical]]暴击标志的那面去。轰炸Bomber：攻击战舰时，你的每个[[icon:attack-critical]]暴击标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。坚决Grit：当你只与1个中队交战时你不会被禁止移动。自带防御标记：[[icon:defense-contain]]抑制，[[icon:defense-contain]]抑制",
+    "effect": "在攻击时，你可以将1颗骰子改到带有1 个[[icon:attack-critical]]暴击标志的那面去。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "grit",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
   },
   {
     "id": "imperial_squadrons_016",
@@ -237,11 +437,25 @@
     "points": 16,
     "image": "assets/squadrons/imperial/images/page_016_img_1.jpeg",
     "slots": [],
-    "effect": "在距离1的友方中队可对位于近距射程的敌方战舰使用它们全部炮组武装格子内的骰子进行攻击。轰炸Bomber：攻击战舰时，你的每个[[icon:attack-critical]]暴击标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。笨重Heavy：你不会禁止和你交战中的中队移动或攻击战舰。自带防御标记：[[icon:defense-contain]]抑制，[[icon:defense-contain]]抑制",
+    "effect": "在距离1的友方中队可对位于近距射程的敌方战舰使用它们全部炮组武装格子内的骰子进行攻击。",
     "unique": true,
     "ace": true,
     "limit": 1,
-    "faq": "在距离1的友方中队可攻击位于近距射程的战舰，而不被限制在距离1，这包含莱姆少校自己。当1个友方中队以此方式攻击时，它无视射程尺上的骰子颜色限制，而能投全部的炮组武装格子中的骰子。"
+    "faq": "在距离1的友方中队可攻击位于近距射程的战舰，而不被限制在距离1，这包含莱姆少校自己。当1个友方中队以此方式攻击时，它无视射程尺上的骰子颜色限制，而能投全部的炮组武装格子中的骰子。",
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "heavy",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
   },
   {
     "id": "imperial_squadrons_017",
@@ -253,10 +467,20 @@
     "points": 15,
     "image": "assets/squadrons/imperial/images/page_017_img_1.jpeg",
     "slots": [],
-    "effect": "在你移动后，每个与你交战的中队承受 1点伤害。集群Swarm：在攻击1个与其他友方中队交战中的中队时，你可以重投1个骰子。自带防御标记：[[icon:defense-contain]]抑制，驱散",
+    "effect": "在你移动后，每个与你交战的中队承受 1点伤害。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "swarm",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "scatter"
+    ]
   },
   {
     "id": "imperial_squadrons_018",
@@ -268,10 +492,23 @@
     "points": 22,
     "image": "assets/squadrons/imperial/images/page_018_img_1.jpeg",
     "slots": [],
-    "effect": "当1个位于距离1-2且不在障碍物上的任务标记被移动或从游戏区域中移除时，你可以视为被激活那样移动至多距离1 并发起攻击。坚决Grit：当你只与1个中队交战时你不会被禁止移动。侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。自带防御标记：[[icon:defense-contain]]抑制",
+    "effect": "当1个位于距离1-2且不在障碍物上的任务标记被移动或从游戏区域中移除时，你可以视为被激活那样移动至多距离1 并发起攻击。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "grit",
+        "value": null
+      },
+      {
+        "key": "rogue",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace"
+    ]
   },
   {
     "id": "imperial_squadrons_019",
@@ -283,10 +520,23 @@
     "points": 27,
     "image": "assets/squadrons/imperial/images/page_019_img_1.jpeg",
     "slots": [],
-    "effect": "在攻击时，你可以花费1个防御标记来 重投你攻击池中任意数量的骰子。而在 你激活时，你可以恢复1个你已丢弃的防御标记。反击Counter 1：在1个中队对你发起非-反击攻击后，你可以使用1个对-中队武装的蓝色骰子来攻击该中队，即使 你被摧毁。侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。自带防御标记：[[icon:defense-contain]]抑制",
+    "effect": "在攻击时，你可以花费1个防御标记来 重投你攻击池中任意数量的骰子。而在 你激活时，你可以恢复1个你已丢弃的防御标记。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "counter",
+        "value": 1
+      },
+      {
+        "key": "rogue",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace"
+    ]
   },
   {
     "id": "imperial_squadrons_020",
@@ -298,10 +548,21 @@
     "points": 12,
     "image": "assets/squadrons/imperial/images/page_020_img_1.jpeg",
     "slots": [],
-    "effect": "狙击Snipe 4：你可以在距离2使用4个对-中队武装的蓝色骰子攻击敌方中队。该次攻击将忽视反击关键字。集群Swarm：在攻击1个与其他友方中队交战中的中队时，你可以重投1个骰子。",
+    "effect": "",
     "unique": true,
     "ace": false,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "snipe",
+        "value": 4
+      },
+      {
+        "key": "swarm",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "imperial_squadrons_021",
@@ -313,10 +574,24 @@
     "points": 18,
     "image": "assets/squadrons/imperial/images/page_021_img_1.jpeg",
     "slots": [],
-    "effect": "当1个与你交战中的中队执行1次非-反击攻击后，如果它不是攻击你，则它承受1点伤害。反击Counter 2：在1个中队对你发起非-反击攻击后，你可以使用2个对-中队武装的蓝色骰子来攻击该中队，即使 你被摧毁。集群Swarm：在攻击1个与其他友方中队交战中的中队时，你可以重投1个骰子。自带防御标记：[[icon:defense-contain]]抑制，驱散",
+    "effect": "当1个与你交战中的中队执行1次非-反击攻击后，如果它不是攻击你，则它承受1点伤害。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "counter",
+        "value": 2
+      },
+      {
+        "key": "swarm",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "scatter"
+    ]
   },
   {
     "id": "imperial_squadrons_022",
@@ -328,10 +603,24 @@
     "points": 17,
     "image": "assets/squadrons/imperial/images/page_022_img_1.jpeg",
     "slots": [],
-    "effect": "当你有1个已就绪的防御标记时，你获得护卫关键字。坚决Grit：当你只与1个中队交战时你不会被禁止移动。侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。自带防御标记：[[icon:defense-contain]]抑制，驱散",
+    "effect": "当你有1个已就绪的防御标记时，你获得护卫关键字。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "grit",
+        "value": null
+      },
+      {
+        "key": "rogue",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "scatter"
+    ]
   },
   {
     "id": "imperial_squadrons_023",
@@ -343,10 +632,21 @@
     "points": 13,
     "image": "assets/squadrons/imperial/images/page_023_img_1.jpeg",
     "slots": [],
-    "effect": "轰炸Bomber：攻击战舰时，你的每个[[icon:attack-critical]]暴击标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。护卫Escort：与你交战中的中队不能对不带护卫关键字的中队进行攻击，除非 它执行的是反击。",
+    "effect": "",
     "unique": true,
     "ace": false,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "escort",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "imperial_squadrons_024",
@@ -358,11 +658,21 @@
     "points": 13,
     "image": "assets/squadrons/imperial/images/page_024_img_1.jpeg",
     "slots": [],
-    "effect": "当1个敌方中队与另1个中队处于交战时，它就不能攻击你。集群Swarm：在攻击1个与其他友方中队交战中的中队时，你可以重投1个骰子。自带防御标记：[[icon:defense-contain]]抑制，驱散",
+    "effect": "当1个敌方中队与另1个中队处于交战时，它就不能攻击你。",
     "unique": true,
     "ace": true,
     "limit": 1,
-    "faq": "1个与其他中队交战中的敌方中队不可对瓦伦·鲁多执行1次反击攻击。"
+    "faq": "1个与其他中队交战中的敌方中队不可对瓦伦·鲁多执行1次反击攻击。",
+    "squadron_keyword": [
+      {
+        "key": "swarm",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "scatter"
+    ]
   },
   {
     "id": "imperial_squadrons_025",
@@ -374,11 +684,21 @@
     "points": 18,
     "image": "assets/squadrons/imperial/images/page_025_img_1.jpeg",
     "slots": [],
-    "effect": "在防御1次攻击后，只要你有花费过1个防御标记，你就可以移动至多距离1，即使你处于交战中。隐匿Cloak：在中队阶段结束时，你至多可以移动距离1，即使你正处于交战中。自带防御标记：[[icon:defense-contain]]抑制，驱散",
+    "effect": "在防御1次攻击后，只要你有花费过1个防御标记，你就可以移动至多距离1，即使你处于交战中。",
     "unique": true,
     "ace": true,
     "limit": 1,
-    "faq": "在细语者由于登加等效果执行1次反击攻击时，该攻击必须先结算完，然后细语者再结算它的防御后移动效果。"
+    "faq": "在细语者由于登加等效果执行1次反击攻击时，该攻击必须先结算完，然后细语者再结算它的防御后移动效果。",
+    "squadron_keyword": [
+      {
+        "key": "cloak",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "scatter"
+    ]
   },
   {
     "id": "imperial_squadrons_026",
@@ -390,10 +710,20 @@
     "points": 15,
     "image": "assets/squadrons/imperial/images/page_026_img_1.jpeg",
     "slots": [],
-    "effect": "在攻击时，你可以选择另1个位于距离1 的友方中队。如果你这么做了，则该中队承受1点伤害且你可以重投任意数量的攻击骰。护卫Escort：与你交战中的中队不能对不带护卫关键字的中队进行攻击，除非 它执行的是反击。自带防御标记：[[icon:defense-contain]]抑制，[[icon:defense-contain]]抑制",
+    "effect": "在攻击时，你可以选择另1个位于距离1 的友方中队。如果你这么做了，则该中队承受1点伤害且你可以重投任意数量的攻击骰。",
     "unique": true,
     "ace": true,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "escort",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
   },
   {
     "id": "imperial_squadrons_027",
@@ -405,9 +735,20 @@
     "points": 15,
     "image": "assets/squadrons/imperial/images/page_027_img_1.jpeg",
     "slots": [],
-    "effect": "反击Counter 1：在1个中队对你发起非-反击攻击后，你可以使用1个对-中队武装的蓝色骰子来攻击该中队，即使 你被摧毁。侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。",
+    "effect": "",
     "unique": false,
-    "ace": false
+    "ace": false,
+    "squadron_keyword": [
+      {
+        "key": "counter",
+        "value": 1
+      },
+      {
+        "key": "rogue",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "imperial_squadrons_028",
@@ -419,9 +760,20 @@
     "points": 18,
     "image": "assets/squadrons/imperial/images/page_028_img_1.jpeg",
     "slots": [],
-    "effect": "轰炸Bomber：攻击战舰时，你的每个[[icon:attack-critical]]暴击标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。",
+    "effect": "",
     "unique": false,
-    "ace": false
+    "ace": false,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "rogue",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "imperial_squadrons_029",
@@ -433,10 +785,21 @@
     "points": 12,
     "image": "assets/squadrons/imperial/images/page_029_img_1.jpeg",
     "slots": [],
-    "effect": "情报Intel：只要是在你距离1的友方中队，得到坚决关键字。集群Swarm：在攻击1个与其他友方中队交战中的中队时，你可以重投1个骰子。",
+    "effect": "",
     "unique": false,
     "ace": false,
-    "faq": "旧版的给敌中队笨重已被1.5版改掉"
+    "faq": "旧版的给敌中队笨重已被1.5版改掉",
+    "squadron_keyword": [
+      {
+        "key": "intel",
+        "value": null
+      },
+      {
+        "key": "swarm",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "imperial_squadrons_030",
@@ -448,9 +811,24 @@
     "points": 14,
     "image": "assets/squadrons/imperial/images/page_030_img_1.jpeg",
     "slots": [],
-    "effect": "笨重Heavy：你不能阻止交战的中队攻击战舰或移动。转播Relay 2：当友方战舰结算[[icon:command-squadron]]中队指令时，如果你在它的激活范围内，则它所激活的2个中队可以改为在你距离 1-3。战略Strategic：当你在1个或更多任务标记的距离1结束移动时，你可以移动其中1个标记只要它保持在你的距离1即可。",
+    "effect": "",
     "unique": false,
-    "ace": false
+    "ace": false,
+    "squadron_keyword": [
+      {
+        "key": "heavy",
+        "value": null
+      },
+      {
+        "key": "relay",
+        "value": 2
+      },
+      {
+        "key": "strategic",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "imperial_squadrons_031",
@@ -462,9 +840,20 @@
     "points": 18,
     "image": "assets/squadrons/imperial/images/page_031_img_1.jpeg",
     "slots": [],
-    "effect": "突袭Assault：当攻击战舰时，你可以花费1个带命中标志的骰子。如果你这么做了，防御方将得到1个你所选择的突袭标记。侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。",
+    "effect": "",
     "unique": false,
-    "ace": false
+    "ace": false,
+    "squadron_keyword": [
+      {
+        "key": "assault",
+        "value": null
+      },
+      {
+        "key": "rogue",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "imperial_squadrons_032",
@@ -476,9 +865,16 @@
     "points": 12,
     "image": "assets/squadrons/imperial/images/page_032_img_1.jpeg",
     "slots": [],
-    "effect": "护卫Escort：与你交战中的中队不能对不带护卫关键字的中队进行攻击，除非 它执行的是反击。",
+    "effect": "",
     "unique": false,
-    "ace": false
+    "ace": false,
+    "squadron_keyword": [
+      {
+        "key": "escort",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "imperial_squadrons_033",
@@ -490,24 +886,46 @@
     "points": 9,
     "image": "assets/squadrons/imperial/images/page_033_img_1.jpeg",
     "slots": [],
-    "effect": "轰炸Bomber：攻击战舰时，你的每个[[icon:attack-critical]]暴击标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。笨重Heavy：你不会禁止和你交战中的中队移动或攻击战舰。",
+    "effect": "",
     "unique": false,
-    "ace": false
+    "ace": false,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "heavy",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "imperial_squadrons_040",
     "type": "squadron",
     "faction": "imperial",
-    "name": "黑色中队 TIE防御者中队",
+    "name": "黑暗中队 TIE防御者中队",
     "nameEn": "•Dark Squadron",
     "size": null,
     "points": 17,
     "image": "assets/squadrons/imperial/images/page_040_img_1.jpeg",
     "slots": [],
-    "effect": "轰炸Bomber：攻击战舰时，你的每个[[icon:attack-critical]]暴击标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。坚决Grit：当你只与1个中队交战时你不会被禁止移动。",
+    "effect": "",
     "unique": true,
     "ace": false,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "swarm",
+        "value": null
+      },
+      {
+        "key": "grit",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "imperial_squadrons_034",
@@ -519,9 +937,16 @@
     "points": 16,
     "image": "assets/squadrons/imperial/images/page_034_img_1.jpeg",
     "slots": [],
-    "effect": "轰炸Bomber：攻击战舰时，你的每个[[icon:attack-critical]]暴击标志将增加1点伤害到总伤害而且你可以结算[[icon:attack-critical]]暴击效果。",
+    "effect": "",
     "unique": false,
-    "ace": false
+    "ace": false,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "imperial_squadrons_035",
@@ -533,9 +958,16 @@
     "points": 8,
     "image": "assets/squadrons/imperial/images/page_035_img_1.jpeg",
     "slots": [],
-    "effect": "集群Swarm：在攻击1个与其他友方中队交战中的中队时，你可以重投1个骰子。",
+    "effect": "",
     "unique": false,
-    "ace": false
+    "ace": false,
+    "squadron_keyword": [
+      {
+        "key": "swarm",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "imperial_squadrons_036",
@@ -547,9 +979,20 @@
     "points": 11,
     "image": "assets/squadrons/imperial/images/page_036_img_1.jpeg",
     "slots": [],
-    "effect": "反击Counter 2：在1个中队对你发起非-反击攻击后，你可以使用2个对-中队武装的蓝色骰子来攻击该中队，即使 你被摧毁。集群Swarm：在攻击1个与其他友方中队交战中的中队时，你可以重投1个骰子。",
+    "effect": "",
     "unique": false,
-    "ace": false
+    "ace": false,
+    "squadron_keyword": [
+      {
+        "key": "counter",
+        "value": 2
+      },
+      {
+        "key": "swarm",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "imperial_squadrons_041",
@@ -559,12 +1002,23 @@
     "nameEn": "•Shadow Squadron",
     "size": null,
     "points": 15,
-    "image": "assets/squadrons/imperial/images/page_040_img_1.jpeg",
+    "image": "assets/squadrons/imperial/images/page_041_img_1.jpeg",
     "slots": [],
-    "effect": "隐匿Cloak：在中队阶段结束时，你至多可以移动距离1，即使你正处于交战中。屏卫 Screen：当你防御时，距离1以内的每个不带屏卫词条的中队使你获得闪避1（重骰对手攻击骰），上限为2。",
+    "effect": "",
     "unique": true,
     "ace": false,
-    "limit": 1
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "cloak",
+        "value": null
+      },
+      {
+        "key": "screen",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "imperial_squadrons_037",
@@ -576,9 +1030,20 @@
     "points": 13,
     "image": "assets/squadrons/imperial/images/page_037_img_1.jpeg",
     "slots": [],
-    "effect": "隐匿Cloak：在中队阶段结束时，你至多可以移动距离1，即使你正处于交战中。闪避Dodge 1：当你防御来自中队的攻击时，在花费防御标记阶段，你可以重骰对手一颗攻击骰。",
+    "effect": "",
     "unique": false,
-    "ace": false
+    "ace": false,
+    "squadron_keyword": [
+      {
+        "key": "cloak",
+        "value": null
+      },
+      {
+        "key": "dodge",
+        "value": 1
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "imperial_squadrons_038",
@@ -590,9 +1055,24 @@
     "points": 22,
     "image": "assets/squadrons/imperial/images/page_038_img_1.jpeg",
     "slots": [],
-    "effect": "反击Counter 1：在1个中队对你发起非-反击攻击后，你可以使用1个对-中队武装的蓝色骰子来攻击该中队，即使 你被摧毁。笨重Heavy：你不会禁止和你交战中的中队移动或攻击战舰。侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。",
+    "effect": "",
     "unique": false,
-    "ace": false
+    "ace": false,
+    "squadron_keyword": [
+      {
+        "key": "counter",
+        "value": 1
+      },
+      {
+        "key": "heavy",
+        "value": null
+      },
+      {
+        "key": "rogue",
+        "value": null
+      }
+    ],
+    "defense_token": []
   },
   {
     "id": "imperial_squadrons_039",
@@ -604,8 +1084,19 @@
     "points": 15,
     "image": "assets/squadrons/imperial/images/page_039_img_1.jpeg",
     "slots": [],
-    "effect": "坚决Grit：当你只与1个中队交战时你不会被禁止移动。侠盗Rogue：你在中队阶段激活时可以移动和攻击(以任何顺序执行)。",
+    "effect": "",
     "unique": false,
-    "ace": false
+    "ace": false,
+    "squadron_keyword": [
+      {
+        "key": "grit",
+        "value": null
+      },
+      {
+        "key": "rogue",
+        "value": null
+      }
+    ],
+    "defense_token": []
   }
 ]

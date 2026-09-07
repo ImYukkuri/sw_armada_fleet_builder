@@ -1,0 +1,21 @@
+[
+  { "id": "adept", "nameZh": "老练", "nameEn": "Adept", "numbered": true, "rule": "在攻击时，你可以重投最多X个骰子。" },
+  { "id": "battery", "nameZh": "炮组", "nameEn": "Battery", "numbered": true, "rule": "当使用指定的武装骰子进行攻击时，如果你是被[[icon:command-squadron]]中队指令激活的话，你可以追加X个攻击池中已存在之颜色骰子到攻击池里面。" },
+  { "id": "anti_squadron", "nameZh": "对-中队", "nameEn": "Anti-Squadron", "numbered": true, "rule": "当使用指定的武装骰子进行攻击时，如果你是被[[icon:command-squadron]]中队指令激活的话，你可以追加X个攻击池中已存在之颜色骰子到攻击池里面。" },
+  { "id": "assault", "nameZh": "突袭", "nameEn": "Assault", "numbered": false, "rule": "当攻击战舰时，你可以花费1个[[icon:attack-hit]]命中骰子。如果你这么做了，防御方将得到1个你所选择的突袭标记。" },
+  { "id": "bomber", "nameZh": "轰炸", "nameEn": "Bomber", "numbered": false, "rule": "当攻击战舰时，你的每个[[icon:attack-critical]]暴击标志将增加1点伤害到总伤害而且你可以结算暴击效果。" },
+  { "id": "cloak", "nameZh": "隐匿", "nameEn": "Cloak", "numbered": false, "rule": "在中队阶段结束时，你至多可以移动距离1，即使你正处于交战中。" },
+  { "id": "counter", "nameZh": "反击", "nameEn": "Counter", "numbered": true, "rule": "在1个中队对你发起非-反击攻击后，你可以使用X个对-中队武装的蓝骰子来攻击该中队，即使你被摧毁。" },
+  { "id": "dodge", "nameZh": "回避", "nameEn": "Dodge", "numbered": true, "rule": "当你被中队攻击时，在“花费防御标记”步骤你可以选择X个攻击骰子被重投。" },
+  { "id": "escort", "nameZh": "护卫", "nameEn": "Escort", "numbered": false, "rule": "与你交战的中队除非是进行反击否则不能攻击其他不具有护卫关键字的中队。" },
+  { "id": "grit", "nameZh": "坚决", "nameEn": "Grit", "numbered": false, "rule": "当你只与1个中队交战时你不会被禁止移动。" },
+  { "id": "heavy", "nameZh": "笨重", "nameEn": "Heavy", "numbered": false, "rule": "你不会禁止和你交战中的中队移动或攻击战舰。" },
+  { "id": "intel", "nameZh": "情报", "nameEn": "Intel", "numbered": false, "rule": "只要是在你距离1的友方中队，得到坚决关键字。" },
+  { "id": "relay", "nameZh": "转播", "nameEn": "Relay", "numbered": true, "rule": "当友方战舰结算[[icon:command-squadron]]中队指令时，如果你在它的激活范围内，则它所激活的X个中队可以改为在你距离1-3。" },
+  { "id": "rogue", "nameZh": "侠盗", "nameEn": "Rogue", "numbered": false, "rule": "你在中队阶段激活时可以移动和攻击(以任何顺序执行)。" },
+  { "id": "scout", "nameZh": "侦察", "nameEn": "Scout", "numbered": false, "rule": "在部署舰队时，你可以被部署在部署区外而且无须限制在友方战舰的距离1-2，但仍必须距离敌舰或中队距离1-5。" },
+  { "id": "screen", "nameZh": "屏障", "nameEn": "Screen", "numbered": false, "rule": "当你被中队攻击时，每个与攻击方交战中且不具有屏障关键字的友方中队将提供你回避1，最多不超过3。" },
+  { "id": "snipe", "nameZh": "狙击", "nameEn": "Snipe", "numbered": true, "rule": "你可以在距离2使用X个对-中队武装的蓝骰子攻击敌方中队。该次攻击将忽视反击关键字。" },
+  { "id": "strategic", "nameZh": "战略", "nameEn": "Strategic", "numbered": false, "rule": "当你在1个或更多任务标记的距离1结束移动时，你可以移动其中1个标记只要它保持在你的距离1即可。" },
+  { "id": "swarm", "nameZh": "集群", "nameEn": "Swarm", "numbered": false, "rule": "在攻击1个与其他友方中队交战中的中队时，你可以重投1个骰子。" }
+]

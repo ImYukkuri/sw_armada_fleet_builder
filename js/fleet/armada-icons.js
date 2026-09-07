@@ -29,7 +29,12 @@
     "upgrade-commander": {label: "指挥官升级", src: `${basePath}upgrade-commander.png`},
     "upgrade-officer": {label: "士官升级", src: `${basePath}upgrade-officer.png`},
     "upgrade-defensive-retrofit": {label: "防御改装升级", src: `${basePath}upgrade-defensive-retrofit.png`},
-    "attack-critical": {label: "暴击标志", src: `${basePath}attack-critical.png`}
+    "attack-critical": {label: "暴击标志", src: `${basePath}attack-critical.png`},
+    "attack-hit": {label: "命中标志", src: `${basePath}attack-hit.png`},
+    "attack-accuracy": {label: "精确标志", src: `${basePath}attack-accuracy.png`},
+    "defense-salvo": {label: "奇袭防御标记", src: `${basePath}defense-salvo.png`},
+    "defense-brace": {label: "抑制防御标记", src: `${basePath}defense-brace.png`},
+    "defense-scatter": {label: "驱散防御标记", src: `${basePath}defense-scatter.png`}
   });
 
   const labelToIcon = Object.freeze({
@@ -42,9 +47,13 @@
     "导航": "command-navigate",
     "回避": "defense-evade",
     "防控": "defense-contain",
-    "抑制": "defense-contain",     // 中队版“防控防御标记”（同一种标记）
+    "抑制": "defense-brace",       // 抑制 = Brace（此前误映射为 Contain）
     "传导": "defense-redirect",
     "暴击": "attack-critical",
+    "命中": "attack-hit",
+    "精确": "attack-accuracy",
+    "奇袭": "defense-salvo",
+    "驱散": "defense-scatter",
     "任意": "command-any"
   });
 

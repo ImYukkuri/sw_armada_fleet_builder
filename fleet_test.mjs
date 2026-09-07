@@ -108,6 +108,9 @@ check("帝国 victory_i 未被共和国版覆盖(仍为帝国)",
 check("共和国 13 艘舰图片文件全部存在",
   repShips.every((c) => fs.existsSync(c.image)), repShips.filter((c) => !fs.existsSync(c.image)).map((c) => c.image).join(","));
 check("分离势力舰船缺失被容错(加载仍成功)", data.shipsOf("separatist").length === 0);
+check("中队关键字提取(squadron_keyword)",
+  JSON.stringify(data.squadron("imperial_squadrons_001").squadron_keyword) === JSON.stringify([{ key: "counter", value: 1 }, { key: "escort", value: null }]) &&
+  JSON.stringify(data.squadron("rebel_squadrons_028").squadron_keyword) === JSON.stringify([{ key: "bomber", value: null }, { key: "snipe", value: 3 }]));
 
 /* ---------------- 头部与初始状态 ---------------- */
 check("阵营主题已设置", els["faction-title"].textContent.includes("帝国"), els["faction-title"].textContent);
@@ -227,7 +230,8 @@ check("commander_002 faq 含莫蒂", !!c002.faq && c002.faq.includes("莫蒂"), 
 check("commander_002 effect 不再含 [FAQ：", !c002.effect.includes("[FAQ："));
 const rs010 = data.squadron("rebel_squadrons_010");
 check("简奥斯 FAQ+勘误 两段拆为 2 行", (rs010.faq || "").split("\n").length === 2, rs010.faq || "无");
-check("简奥斯 effect 保留关键字块(反击Counter/自带防御标记)", rs010.effect.includes("反击Counter") && rs010.effect.includes("自带防御标记"));
+check("简奥斯 effect 已剥离关键字与防御标记", !rs010.effect.includes("反击Counter") && !rs010.effect.includes("自带防御标记") && rs010.effect.includes("它可花费你的防御标记"));
+check("简奥斯 提取出关键字与防御标记", JSON.stringify(rs010.squadron_keyword) === JSON.stringify([{ key: "counter", value: 2 }, { key: "intel", value: null }]) && JSON.stringify(rs010.defense_token) === JSON.stringify(["brace", "brace"]));
 const o028 = data.upgrade("officer_028");
 check("officer_028 正文 1.5版FAQ 未被误拆", o028.effect.includes("1.5版FAQ中被官方禁掉"));
 check("officer_028 尾部真 FAQ 段已提取", !!o028.faq, o028.faq || "无");
@@ -284,10 +288,11 @@ check("舰船卡图含点击放大(onclick)", overview.includes("Lightbox.open")
 // 中队选择：图标 token 已转义为 <img> + 效果全文显示
 clickBtn("fleet-overview", { action: "add-squadron" });
 check("中队选择器打开", els["selector-root"].innerHTML.includes("选择中队"));
-check("中队卡防御标记图标已渲染(armada-icon--defense-contain)", selBodyEl.innerHTML.includes('armada-icon--defense-contain"'));
+check("中队卡防御标记图标已渲染(armada-icon--defense-brace)", selBodyEl.innerHTML.includes('armada-icon--defense-brace"'));
 check("中队卡暴击图标已渲染(armada-icon--attack-critical)", selBodyEl.innerHTML.includes('armada-icon--attack-critical"'));
 check("无残留原始icon token", !selBodyEl.innerHTML.includes("[[icon:"));
-check("中队卡效果全文显示(不截断)", selBodyEl.innerHTML.includes("自带防御标记") && selBodyEl.innerHTML.includes("侠盗Rogue"));
+check("中队卡关键词/防御标记渲染为 tag", selBodyEl.innerHTML.includes("sq-tag--keyword") && selBodyEl.innerHTML.includes("sq-tag--defense"));
+check("中队卡 effect 已清理(不含关键字与防御标记原文)", !selBodyEl.innerHTML.includes("自带防御标记") && !selBodyEl.innerHTML.includes("侠盗Rogue"));
 selClick({ action: "sel-close" });
 check("中队选择器可关闭", !FleetSelectors.isOpen());
 

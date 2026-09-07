@@ -40,3 +40,8 @@
 .armada-icon--upgrade-officer { -webkit-mask-image: url("../icons/web/upgrade-officer.png"); mask-image: url("../icons/web/upgrade-officer.png"); }
 .armada-icon--upgrade-defensive-retrofit { -webkit-mask-image: url("../icons/web/upgrade-defensive-retrofit.png"); mask-image: url("../icons/web/upgrade-defensive-retrofit.png"); }
 .armada-icon--attack-critical { -webkit-mask-image: url("../icons/web/attack-critical.png"); mask-image: url("../icons/web/attack-critical.png"); }
+.armada-icon--attack-hit { -webkit-mask-image: url("../icons/web/attack-hit.png"); mask-image: url("../icons/web/attack-hit.png"); }
+.armada-icon--attack-accuracy { -webkit-mask-image: url("../icons/web/attack-accuracy.png"); mask-image: url("../icons/web/attack-accuracy.png"); }
+.armada-icon--defense-salvo { -webkit-mask-image: url("../icons/web/defense-salvo.png"); mask-image: url("../icons/web/defense-salvo.png"); }
+.armada-icon--defense-brace { -webkit-mask-image: url("../icons/web/defense-brace.png"); mask-image: url("../icons/web/defense-brace.png"); }
+.armada-icon--defense-scatter { -webkit-mask-image: url("../icons/web/defense-scatter.png"); mask-image: url("../icons/web/defense-scatter.png"); }

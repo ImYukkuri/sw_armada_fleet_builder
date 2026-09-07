@@ -631,10 +631,10 @@
   flex: 1;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 10px 12px 20px;
+  padding: 6px 8px 14px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 6px;
 }
 .sel-empty { padding: 40px 16px; text-align: center; color: var(--text-faint); font-size: 13px; }
 
@@ -642,18 +642,24 @@
 .sel-card {
   display: grid;
   grid-template-columns: minmax(0, 5fr) minmax(0, 6fr) auto;
-  gap: 14px;
+  gap: 10px;
   align-items: center;
   width: 100%;
-  padding: 14px 18px 14px 14px;
+  padding: 8px 10px 8px 8px;
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 10px;
   background: rgba(12, 19, 32, 0.55);
   color: var(--text);
   cursor: pointer;
   font-family: inherit;
   text-align: left;
 }
+/* 中队卡：卡图占比更大（约 55%），右侧卡名/tag/自定义效果 */
+.sel-card--squadron {
+  grid-template-columns: minmax(0, 11fr) minmax(0, 9fr) auto;
+  gap: 10px;
+}
+.sel-card--squadron .sel-thumb { max-width: none; }
 .sel-card:active { border-color: var(--accent); }
 .sel-card.is-blocked {                 /* 改装卡已被该舰占用：边框标红 + 提示 */
   border-color: rgba(255, 90, 90, 0.65);
@@ -691,6 +697,64 @@
   line-height: 1.6;
   white-space: normal;          /* 全文显示，不截断 */
 }
+
+/* 中队 tag：关键词（醒目）+ 防御标记（带图标），点击弹浮窗看全部规则 */
+.sq-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 2px;
+}
+.sq-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 11px;
+  line-height: 1.5;
+  cursor: pointer;
+  user-select: none;
+}
+.sq-tag--keyword {
+  font-weight: 700;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  background: transparent;
+}
+.sq-tag--keyword:hover { background: rgba(150, 180, 255, 0.12); }
+.sq-tag--defense {
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+  background: rgba(12, 19, 32, 0.5);
+}
+.sq-tag--defense:hover { color: var(--text); border-color: var(--accent); }
+.sq-tag .armada-icon { width: 1em; height: 1em; margin: 0; vertical-align: -0.1em; }
+
+/* 中队关键字/防御标记浮窗 */
+.sq-popup-overlay { align-items: center; padding: 16px; }
+.sq-popup {
+  width: min(480px, 94vw);
+  max-height: 84vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.sq-popup-head h3 { font-size: 16px; color: var(--text); }
+.sq-popup-en { font-size: 12px; color: var(--text-faint); }
+.sq-popup-body { display: flex; flex-direction: column; gap: 10px; }
+.sq-popup-item { display: flex; flex-direction: column; gap: 2px; }
+.sq-popup-item-name { font-size: 13px; color: var(--accent); }
+.sq-popup-item--defense .sq-popup-item-name { color: var(--text); }
+.sq-popup-item-rule { font-size: 12.5px; color: var(--text-dim); line-height: 1.6; }
+.sq-popup-effect { font-size: 12.5px; color: var(--text-dim); line-height: 1.6; border-top: 1px solid var(--border); padding-top: 8px; }
+.sq-popup-close { margin-top: 4px; }
 .sel-faq {
   display: block;
   margin-top: 5px;
@@ -791,13 +855,14 @@
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
 }
 
-/* 卡片详档：左侧卡图（占大部分）+ 右侧详情（小字号），升级卡/称号/指挥官专用 */
+/* 卡片详档：上面卡图 + 下面详情（上下布局，小字号），升级卡/称号/指挥官专用 */
 .lightbox-frame--card {
-  width: min(760px, 96vw);
+  width: min(420px, 94vw);
   max-height: 94vh;
 }
 .lb-card {
   display: flex;
+  flex-direction: column;
   align-items: stretch;
   width: 100%;
   max-height: 94vh;
@@ -808,23 +873,21 @@
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
 }
 .lb-card-art {
-  flex: 0 0 60%;
-  width: 60%;
-  min-width: 0;
+  width: 100%;
+  max-height: 54vh;
   object-fit: contain;
   background: #0a0f18;
 }
 .lb-card-info {
-  flex: 1;
   min-width: 0;
-  max-height: 94vh;
+  max-height: 40vh;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 14px;
+  padding: 12px 14px 14px;
   display: flex;
   flex-direction: column;
-  gap: 7px;
-  border-left: 1px solid var(--border);
+  gap: 6px;
+  border-top: 1px solid var(--border);
 }
 .lb-card-name { font-size: 16px; font-weight: 700; color: var(--text); line-height: 1.35; }
 .lb-card-en { font-size: 11px; color: var(--text-faint); }
