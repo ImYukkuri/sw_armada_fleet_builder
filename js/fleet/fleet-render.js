@@ -9,11 +9,14 @@
  * 列表末尾放「＋ 添加舰船 / ＋ 添加中队」按钮（槽位式添加）。
  * 所有卡图 object-fit: contain + 点击 Lightbox 放大（升级 slot 图标 svg 除外）。 */
 window.FleetRender = (function () {
-  // 显示偏好（选择器“显示FAQ”开关同步到这里）：总览已装备条目默认不显示 FAQ/勘误 段
-  var prefs = { showFaq: false };
+  // 显示偏好（页头“显示完整卡牌效果”开关、选择器“显示FAQ”开关同步到这里）：
+  // 总览已装备条目默认不显示完整效果/完整卡图，也不显示 FAQ/勘误 段。
+  var prefs = { showFaq: false, showEffect: false };
 
   function setPrefs(p) {
-    if (p && typeof p.showFaq === "boolean") prefs.showFaq = p.showFaq;
+    if (!p) return;
+    if (typeof p.showFaq === "boolean") prefs.showFaq = p.showFaq;
+    if (typeof p.showEffect === "boolean") prefs.showEffect = p.showEffect;
   }
 
   function escapeHtml(s) {
@@ -91,36 +94,57 @@ window.FleetRender = (function () {
     return cells.length ? '<div class="slot-row">' + cells.join("") + "</div>" : "";
   }
 
-  /* ---- 已装备条目（显示在舰船下方，slotId 区分指挥官/称号/普通槽） ---- */
+  /* ---- 已装备条目（舰船下方的附属列表，slotId 区分指挥官/称号/普通槽）
+   * 紧凑一行：槽位图标 + 槽位中文名 + 卡图（默认截中段）+ 名称/英文名 + 分数 + 删除。
+   * 勾选“显示完整卡牌效果”后：卡图改整卡显示（contain），下方展开完整效果/FAQ。 ---- */
   function equipItem(data, shipInstance, slotId, slotIndex, card) {
     var idx = slotIndex != null ? ' data-slot-index="' + slotIndex + '"' : "";
     var isDual = !!(card.slots && card.slots.length > 1);
+    var slotLabel = FleetRules.slotLabel(data, slotId);
+    var slotSvg = data.slotIcon(slotId);
+    var showFull = !!prefs.showEffect;
     var clearAttrs =
       'data-action="clear-upgrade" data-id="' + escapeHtml(shipInstance.instanceId) +
       '" data-slot="' + escapeHtml(slotId) + '"' + idx;
-    var tag = FleetRules.slotLabel(data, slotId);
     // 双槽卡整组占用两个槽位：不可直接替换（须先删除再重装），仅保留删除按钮
     var openBtn = isDual
       ? '<button class="equip-open is-locked" disabled title="双槽位卡占用两个槽位，需先删除才能更换" aria-label="双槽位卡需先删除才能更换">'
       : '<button class="equip-open" data-action="open-upgrade" data-id="' + escapeHtml(shipInstance.instanceId) +
         '" data-slot="' + escapeHtml(slotId) + '"' + idx + ' aria-label="更换 ' + escapeHtml(card.name) + '">';
+    // 槽位徽记：图标 + 中文槽位名（用户要求：每个升级卡显示槽位图标 + 槽位名称）
+    var slotBadge =
+      '<span class="equip-slot">' +
+      (slotSvg ? '<span class="slot-ico">' + slotSvg + "</span>" : "") +
+      '<span class="equip-slot-name">' + escapeHtml(slotLabel) + "</span>" +
+      "</span>";
+    // 卡图：默认截中段（cover 便于辨认）；勾选“完整效果”后整卡显示（is-full）
+    var thumb =
+      '<img class="equip-thumb' + (showFull ? " is-full" : "") + '" src="' + escapeHtml(card.image) +
+      '" alt="' + escapeHtml(card.name) + '" loading="lazy" ' + Lightbox.cardOnclick(card, slotLabel) + ">";
+    // 完整效果 + FAQ 仅在对应开关打开时渲染（默认收起，页头/选择器开关控制）
+    var effect = showFull && card.effect
+      ? '<div class="equip-effect">' + ArmadaIcons.toHtml(card.effect) + "</div>"
+      : "";
+    var faq = prefs.showFaq && card.faq
+      ? '<div class="equip-faq"><b>FAQ：</b>' + String(card.faq).split("\n").map(function (line) {
+          return '<span class="equip-faq-line">' + ArmadaIcons.toHtml(line) + "</span>";
+        }).join("") + "</div>"
+      : "";
     return (
       '<div class="equip-item' + (isDual ? " is-dual" : "") + '" data-slot="' + escapeHtml(slotId) + '">' +
+      '<div class="equip-row">' +
       openBtn +
-      '<img class="equip-thumb" src="' + escapeHtml(card.image) + '" alt="' + escapeHtml(card.name) + '" loading="lazy" ' + lb() + ">" +
+      slotBadge +
+      thumb +
       '<span class="equip-main">' +
-      '<span class="equip-name">' + (tag ? '<span class="equip-tag">' + escapeHtml(tag) + "</span>" : "") + escapeHtml(card.name) + "</span>" +
+      '<span class="equip-name">' + escapeHtml(card.name) + "</span>" +
       (card.nameEn ? '<span class="equip-en">' + escapeHtml(card.nameEn) + "</span>" : "") +
-      '<span class="equip-effect">' + (card.effect ? ArmadaIcons.toHtml(card.effect) : "") + "</span>" +
-      (prefs.showFaq && card.faq
-        ? '<span class="equip-faq"><b>FAQ：</b>' + String(card.faq).split("\n").map(function (line) {
-            return '<span class="equip-faq-line">' + ArmadaIcons.toHtml(line) + "</span>";
-          }).join("") + "</span>"
-        : "") +
       "</span>" +
       '<span class="equip-pts">' + (card.points == null ? "?" : card.points) + "</span>" +
       "</button>" +
       '<button class="equip-del" ' + clearAttrs + ' aria-label="卸下 ' + escapeHtml(card.name) + '">×</button>' +
+      "</div>" +
+      (effect || faq ? '<div class="equip-body">' + effect + faq + "</div>" : "") +
       "</div>"
     );
   }
@@ -161,7 +185,7 @@ window.FleetRender = (function () {
     var shipId = fleet.commanderShipId || "";
     return (
       '<div class="fleet-commander">' +
-      '<img class="cmd-art" src="' + escapeHtml(cmd.image) + '" alt="' + escapeHtml(cmd.name) + '" loading="lazy" ' + lb() + ">" +
+      '<img class="cmd-art" src="' + escapeHtml(cmd.image) + '" alt="' + escapeHtml(cmd.name) + '" loading="lazy" ' + Lightbox.cardOnclick(cmd, "指挥官") + ">" +
       '<div class="cmd-info">' +
       '<span class="cmd-role">指挥官 Commander</span>' +
       '<span class="cmd-name">' + escapeHtml(cmd.name) + "</span>" +

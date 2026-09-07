@@ -310,8 +310,14 @@ overview = els["fleet-overview"].innerHTML;
 check("军官已装备显示", overview.includes("奇拉内奥"));
 check("已装备条目显示在舰船下方(equip-item)", overview.includes("equip-item"));
 check("已装备槽位图标变暗(slot-btn is-equipped)", overview.includes("slot-btn is-equipped"));
-check("已装备条目效果全文显示(不截断)", overview.includes("即使交战中也可移动"));
+check("已装备条目默认不显示效果(收起)", !overview.includes("即使交战中也可移动"));
 check("已装备条目默认不显示 FAQ 段(速度为3 在 faq)", !overview.includes("速度为3"));
+// 页头开关「完整卡牌效果」：勾选后显示完整效果 + 整卡图（equip-thumb is-full）
+FleetRender.setPrefs({ showEffect: true });
+const effHtml = FleetRender.renderOverview(data, fleet, FleetCalculator.calculateFleetPoints(data, fleet));
+check("勾选完整卡牌效果后显示完整效果", effHtml.includes("即使交战中也可移动"));
+check("勾选后卡图整卡显示(equip-thumb is-full)", effHtml.includes("equip-thumb is-full"));
+FleetRender.setPrefs({ showEffect: false });
 // 两艘阿奎腾斯(55×2) + 军官(10) = 120
 check("分数含两艘舰+军官 120", els["points-box"].innerHTML.includes("120"));
 
@@ -415,7 +421,7 @@ check("指挥官卡图可点击放大(Lightbox)", overview.includes("Lightbox.op
 // 指挥官作为升级卡显示在旗舰条目里（req: 一眼看出它在哪条船上）
 check("指挥官在旗舰舰船条目中显示(带 指挥官 标签)",
   overview.includes('equip-item" data-slot="commander"') &&
-  overview.includes('equip-tag">指挥官</span>') &&
+  overview.includes('equip-slot-name">指挥官</span>') &&
   overview.includes("康斯坦丁"),
   "cmd-on-ship");
 
@@ -441,7 +447,7 @@ check("舰船含 称号 槽位图标(排在其他升级槽之后)", overview.inc
 clickBtn("fleet-overview", { action: "open-upgrade", id: cmdShipId, slot: "title" });
 selClick({ action: "sel-pick", id: "imperial_title_001" });   // 阿奎腾斯级轻巡洋舰 限定
 overview = els["fleet-overview"].innerHTML;
-check("称号装备后舰船下方显示称号条目", !overview.includes("imperial_title_001") && overview.includes("半牛马号"));
+check("称号装备后舰船下方显示称号条目", overview.includes("半牛马号"));
 check("称号槽位图标变暗", overview.includes('data-slot="title"') && /slot-btn is-equipped" data-action="open-upgrade"[^>]*data-slot="title"/.test(overview));
 
 // unique 舰队级：副本舰队，同一 unique 称号不能出现在两艘舰
@@ -490,7 +496,7 @@ check("涡轮激光选择器含改装卡 + 普通卡", selBodyEl.innerHTML.inclu
 check("改装卡在 sel-meta 显示改装徽章", selBodyEl.innerHTML.includes("改装 · 涡轮激光"), "meta");
 selClick({ action: "sel-pick", id: "turbolasers_001" });
 overview = els["fleet-overview"].innerHTML;
-check("装备后改装卡作为普通升级条目显示", overview.includes("双联涡轮激光炮塔") && overview.includes("追加1颗红色骰子"));
+check("装备后改装卡作为普通升级条目显示(名称+槽位名)", overview.includes("双联涡轮激光炮塔") && overview.includes('equip-slot-name">涡轮激光</span>'));
 // 再开同槽：另一张改装卡标红 + 提示（普通卡不受影响）
 clickBtn("fleet-overview", { action: "open-upgrade", id: cmdShipId, slot: "turbolasers", slotIndex: "3" });
 check("已装改装后其它改装卡标红(sel-card is-blocked)", selBodyEl.innerHTML.includes('sel-card is-blocked"'), "blocked");
@@ -542,7 +548,7 @@ function shipEntryBlock(html, instanceId) {
 const dualBlock = shipEntryBlock(overview, dualInst.instanceId);
 check("渲染：双槽卡在舰船下方只显示一个条目(shared 跳过)", (dualBlock.match(/equip-item/g) || []).length === 1,
   "items=" + (dualBlock.match(/equip-item/g) || []).length);
-check("渲染：双槽卡条目带 武器小组 标签", dualBlock.includes('equip-tag">武器小组</span>') && dualBlock.includes("登舰步兵"));
+check("渲染：双槽卡条目带 武器小组 槽位名", dualBlock.includes('equip-slot-name">武器小组</span>') && dualBlock.includes("登舰步兵"));
 check("渲染：进攻改装槽位图标标注双槽共用", dualBlock.includes("双槽共用"));
 check("渲染：两个槽位图标都变暗且锁定(不可直接替换)",
   (dualBlock.match(/slot-btn is-equipped is-locked"/g) || []).length === 2 &&

@@ -74,10 +74,20 @@ window.FleetSelectors = (function () {
   }
 
   /* ---- 卡片（大图版：左侧卡图 ~40% contain，右侧卡名/效果，最右侧独立分数） ---- */
+  // 升级卡 / 称号 点击大图走「卡片详档」lightbox（左图 + 右详情），其余走普通大图
+  function cardLightboxMeta(card) {
+    if (!card) return "";
+    if (card.type === "title") return "称号";
+    if (card.type === "upgrade") return FleetRules.slotLabel(ctx.data, card.slot);
+    return "";
+  }
   function cardThumb(card, alt) {
+    var onclick = (card && (card.type === "upgrade" || card.type === "title"))
+      ? Lightbox.cardOnclick(card, cardLightboxMeta(card))
+      : 'onclick="event.stopPropagation(); Lightbox.open(this.src, this.alt)"';
     return (
       '<img class="sel-thumb" src="' + escapeHtml(card.image) + '" alt="' + escapeHtml(alt) + '" loading="lazy" ' +
-      'onclick="event.stopPropagation(); Lightbox.open(this.src, this.alt)">'
+      onclick + ">"
     );
   }
 

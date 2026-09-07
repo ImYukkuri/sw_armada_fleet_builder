@@ -232,6 +232,15 @@
       if (backLink) backLink.addEventListener("click", function () { FleetIO.clearStorage(faction.id); });
     }
 
+    // 页头开关「完整卡牌效果」：默认关；勾选后总览里已装备升级卡展开完整效果 + 完整卡图
+    const showEffectsEl = document.getElementById("show-effects");
+    if (showEffectsEl) {
+      showEffectsEl.addEventListener("change", function () {
+        FleetRender.setPrefs({ showEffect: showEffectsEl.checked });
+        render();
+      });
+    }
+
     FleetSelectors.configure({
       data: data,
       fleet: fleet,
