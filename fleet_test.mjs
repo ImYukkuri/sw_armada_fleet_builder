@@ -968,6 +968,16 @@ check("打印版式中文覆盖(printZh=true 含 pc-ov + 效果)",
   psZh.includes("pc-ov") && psZh.includes("指挥官") && psZh.includes("pc-card--commander"));
 check("打印版式关闭中文覆盖(printZh=false 无 pc-ov)", !psEn.includes("pc-ov"));
 check("打印版式中队关键字覆盖(含 pc-kw)", psZh.includes("pc-kw"));
+check("打印版式嵌入图标改用真实 <img>(armada-icon-img)",
+  psZh.includes("armada-icon-img") && psZh.includes("icons/web/command-navigate.png") &&
+  !psZh.includes('class="armada-icon armada-icon--command-navigate"'));
+check("打印版式关闭中文覆盖无图标 img", !psEn.includes("armada-icon-img"));
+check("ArmadaIcons.toHtml 默认仍为 mask span(非 img)",
+  ArmadaIcons.toHtml("[[icon:attack-critical]]").includes("armada-icon--attack-critical") &&
+  !ArmadaIcons.toHtml("[[icon:attack-critical]]").includes("armada-icon-img"));
+check("ArmadaIcons.toHtml asImage 输出 <img> 且带 src",
+  ArmadaIcons.toHtml("[[icon:attack-critical]]", {asImage: true}).includes('class="armada-icon-img"') &&
+  ArmadaIcons.toHtml("[[icon:attack-critical]]", {asImage: true}).includes('src="icons/web/attack-critical.png"'));
 
 console.log("\nfleet_test 结果: " + (failures === 0 ? "全部通过 ✓" : failures + " 项失败 ✗"));
 process.exit(failures === 0 ? 0 : 1);

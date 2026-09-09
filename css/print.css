@@ -121,12 +121,15 @@
   object-fit: cover;
 }
 
-/* 覆盖层：背景色由 JS 内联设置（升级/指挥官 #FAFAF3；中队按势力着色）。 */
+/* 覆盖层：背景色由 JS 内联设置（升级/指挥官 #FAFAF3；中队按势力着色）。
+ * print-color-adjust:exact 强制打印时保留背景色（浏览器默认丢弃背景）。 */
 .pc-ov {
   position: absolute;
   overflow: hidden;
   box-sizing: border-box;
   padding: 0.6mm 0.8mm;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 /* 升级/指挥官：垂直 52%–86%，水平左右各 16% */
 .pc-card--upgrade .pc-ov,
@@ -155,6 +158,15 @@
 .pc-kw { font-weight: 700; }
 .pc-special { margin-top: 0.5mm; }
 .pc-effect .armada-icon { width: 1em; height: 1em; margin: 0 0.05em; vertical-align: -0.1em; }
+/* 打印覆盖层内的嵌入图标改用真实 <img>（CSS mask 在打印时常被丢弃），
+ * brightness(0) 将白色/深色剪影统一压成深色，与打印正文一致。 */
+.pc-effect .armada-icon-img {
+  width: 1em;
+  height: 1em;
+  margin: 0 0.05em;
+  vertical-align: -0.1em;
+  filter: brightness(0);
+}
 
 /* ---- 打印：只显示打印版式 ---- */
 @media print {

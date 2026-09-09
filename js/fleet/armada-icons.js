@@ -117,7 +117,7 @@
    * 最后把 token 替换为 <span class="armada-icon armada-icon--<id>">，其余文本全部 HTML 转义。
    * 可直接拼入 innerHTML；图标颜色由 CSS（mask + currentColor）随字体颜色渲染。 */
   function toHtml(sourceText, options) {
-    const settings = Object.assign({solidifyPdfMarkers: true, normalizeWhitespace: true}, options);
+    const settings = Object.assign({solidifyPdfMarkers: true, normalizeWhitespace: true, asImage: false}, options);
     let text = settings.solidifyPdfMarkers ? solidifyPdfMarkers(sourceText) : String(sourceText);
     if (settings.normalizeWhitespace) text = text.replace(/\s+/g, " ").trim();
     let out = "";
@@ -128,8 +128,13 @@
       if (match.index > cursor) out += escapeHtml(text.slice(cursor, match.index));
       const def = icons[match[1]];
       if (def) {
-        out += '<span class="armada-icon armada-icon--' + match[1] +
-          '" title="' + escapeHtml(def.label) + '" aria-hidden="true" data-icon="' + match[1] + '"></span>';
+        // asImage：打印/导出场景用真实 <img>（CSS mask + background-color 在打印时
+        // 常被浏览器丢弃，图片则总能打印）。配合 css 的 filter:brightness(0) 统一压深色。
+        out += settings.asImage
+          ? '<img class="armada-icon-img" src="' + escapeHtml(def.src) + '" alt="" title="' +
+            escapeHtml(def.label) + '" aria-hidden="true" data-icon="' + match[1] + '">'
+          : '<span class="armada-icon armada-icon--' + match[1] +
+            '" title="' + escapeHtml(def.label) + '" aria-hidden="true" data-icon="' + match[1] + '"></span>';
       } else {
         out += escapeHtml(match[0]);
       }

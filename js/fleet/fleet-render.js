@@ -363,7 +363,7 @@ window.FleetRender = (function () {
 
   function effectContent(card) {
     if (!card.effect) return "";
-    return '<div class="pc-effect">' + ArmadaIcons.toHtml(card.effect) + "</div>";
+    return '<div class="pc-effect">' + ArmadaIcons.toHtml(card.effect, {asImage: true}) + "</div>";
   }
 
   function squadronContent(data, card) {
@@ -372,7 +372,7 @@ window.FleetRender = (function () {
       var label = (rule ? rule.nameZh : k.key) + (k.value != null ? " " + k.value : "");
       return '<div class="pc-kw">' + escapeHtml(label) + "</div>";
     }).join("");
-    var special = card.effect ? '<div class="pc-special">' + ArmadaIcons.toHtml(card.effect) + "</div>" : "";
+    var special = card.effect ? '<div class="pc-special">' + ArmadaIcons.toHtml(card.effect, {asImage: true}) + "</div>" : "";
     return '<div class="pc-effect">' + kw + special + "</div>";
   }
 
