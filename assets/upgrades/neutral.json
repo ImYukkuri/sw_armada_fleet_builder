@@ -755,7 +755,7 @@
     "type": "upgrade",
     "slot": "offensive_retrofit",
     "faction": null,
-    "name": "高级应答网络",
+    "name": "先进应答器网络",
     "nameEn": "Advanced Transponder Net",
     "size": null,
     "points": 5,
@@ -1295,33 +1295,6 @@
       "requiresFlagship": false,
       "requiredTitles": []
     }
-  },
-  {
-    "id": "officer_051",
-    "type": "upgrade",
-    "slot": "officer",
-    "faction": null,
-    "name": "战略顾问",
-    "nameEn": "Strategic Advisor",
-    "size": null,
-    "points": 4,
-    "image": "assets/upgrades/officer/images/page_051_img_1.jpeg",
-    "slots": [],
-    "effect": "此卡在1.5版FAQ中被官方禁掉，以后再也不能于正式比赛环境中使用大型战舰 限定 在轮到你激活时，你可以消耗此卡来跳过你的激活回合（改为由你的对手接着激活战舰，然后再轮到激活）。",
-    "modification": false,
-    "restrictions": {
-      "factions": [],
-      "sizes": [
-        "large"
-      ],
-      "shipIds": [],
-      "shipNames": [],
-      "shipTraits": [],
-      "requiresFlagship": false,
-      "requiredTitles": []
-    },
-    "banned": true,
-    "faq": "只有在装备此卡的战舰未激活，且可在此回合激活的情况下，才能结算此卡的效果。"
   },
   {
     "id": "officer_052",

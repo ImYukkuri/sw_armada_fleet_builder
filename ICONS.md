@@ -8,7 +8,7 @@
 
 | 系统 | 用途 | 文件位置 | 用法 |
 |------|------|----------|------|
-| **行内转义图标**（ArmadaIcons） | 卡面「效果文本」里的内嵌小图标（指令 / 防御标记 / 骰子面等） | `icons/web/*.png`（64×64 RGBA 剪影） | `[[icon:<id>]]` token |
+| **行内转义图标**（ArmadaIcons） | 卡面「效果文本」里的内嵌小图标（指令 / 防御标记 / 升级槽 / 骰子面等） | `icons/web/*.png`（RGBA 剪影）+ `assets/*.svg`（升级槽图标直接复用） | `[[icon:<id>]]` token |
 | **槽位图标**（Slot SVG） | 写表器 UI 的槽位行、舰船选择卡的槽位图标 | `assets/*.svg`（`fill=currentColor`） | `data.slotIcon(slotId)` |
 
 - 行内图标由 `js/fleet/armada-icons.js` 渲染：`[[icon:<id>]]` → `<span class="armada-icon armada-icon--<id>">`，用 CSS `mask-image` + `background-color: currentColor` 上色（跟随字体颜色）。
@@ -16,7 +16,7 @@
 
 ---
 
-## 二、行内转义图标（17 个）
+## 二、行内转义图标（28 个）
 
 ### 指令 Command（5）
 
@@ -39,15 +39,26 @@
 | `defense-brace` | 抑制防御标记 | `defense-brace.png` | `[[icon:defense-brace]]` |
 | `defense-scatter` | 驱散防御标记 | `defense-scatter.png` | `[[icon:defense-scatter]]` |
 
-### 升级槽 Upgrade（3）
+### 升级槽 Upgrade（14）
+
+前 3 个用 PNG（`icons/web/*.png`），其余 11 个直接复用槽位 SVG（`assets/*.svg`）作 mask。
 
 | id | 中文标签 | 图片文件 | token |
 |----|----------|----------|-------|
 | `upgrade-commander` | 指挥官升级 | `upgrade-commander.png` | `[[icon:upgrade-commander]]` |
 | `upgrade-officer` | 士官升级 | `upgrade-officer.png` | `[[icon:upgrade-officer]]` |
 | `upgrade-defensive-retrofit` | 防御改装升级 | `upgrade-defensive-retrofit.png` | `[[icon:upgrade-defensive-retrofit]]` |
-
-> 注意：「进攻改装」「实验改装」等其余升级槽目前**没有**行内转义图标（只有下方的槽位 SVG）。
+| `upgrade-fleet-support` | 舰队支援升级 | `fleet-support.svg` | `[[icon:upgrade-fleet-support]]` |
+| `upgrade-support-team` | 支援小组升级 | `support-team.svg` | `[[icon:upgrade-support-team]]` |
+| `upgrade-fleet-command` | 舰队指挥升级 | `fleet-command.svg` | `[[icon:upgrade-fleet-command]]` |
+| `upgrade-weapons-team` | 武器小组升级 | `weapons-team.svg` | `[[icon:upgrade-weapons-team]]` |
+| `upgrade-ion-cannons` | 离子炮升级 | `ion-cannon.svg` | `[[icon:upgrade-ion-cannons]]` |
+| `upgrade-offensive-retrofit` | 进攻改装升级 | `offensive-retro.svg` | `[[icon:upgrade-offensive-retrofit]]` |
+| `upgrade-ordnance` | 军械升级 | `ordnance.svg` | `[[icon:upgrade-ordnance]]` |
+| `upgrade-turbolasers` | 涡轮激光升级 | `turbolaser.svg` | `[[icon:upgrade-turbolasers]]` |
+| `upgrade-experimental-retrofit` | 实验改装升级 | `experimental-retro.svg` | `[[icon:upgrade-experimental-retrofit]]` |
+| `upgrade-superweapon` | 超级武器升级 | `super-weapon.svg` | `[[icon:upgrade-superweapon]]` |
+| `upgrade-title` | 称号 | `title.svg` | `[[icon:upgrade-title]]` |
 
 ### 骰子面 Dice（3）
 
@@ -81,6 +92,17 @@
 | 指挥官 | `upgrade-commander` |
 | 士官 | `upgrade-officer` |
 | 防御改装 | `upgrade-defensive-retrofit` |
+| 舰队支援 | `upgrade-fleet-support` |
+| 支援小组 | `upgrade-support-team` |
+| 舰队指挥 | `upgrade-fleet-command` |
+| 武器小组 | `upgrade-weapons-team` |
+| 离子炮 | `upgrade-ion-cannons` |
+| 进攻改装 | `upgrade-offensive-retrofit` |
+| 军械 | `upgrade-ordnance` |
+| 涡轮激光 | `upgrade-turbolasers` |
+| 实验改装 | `upgrade-experimental-retrofit` |
+| 超级武器 | `upgrade-superweapon` |
+| 称号 | `upgrade-title` |
 | 暴击 | `attack-critical` |
 | 命中 | `attack-hit` |
 | 精确 | `attack-accuracy` |
@@ -161,6 +183,6 @@
 
 ## 附：图标清单速查
 
-- 行内转义图标：**17 个**（指令 5 + 防御标记 6 + 升级槽 3 + 骰子面 3）
+- 行内转义图标：**28 个**（指令 5 + 防御标记 6 + 升级槽 14 + 骰子面 3）
 - 槽位图标：**14 个** SVG
 - 阵营徽记：**4 个** SVG

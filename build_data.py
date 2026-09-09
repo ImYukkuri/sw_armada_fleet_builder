@@ -321,6 +321,17 @@ COMMANDER_FACTION = {
 # 与 js/fleet/armada-icons.js 的 labelToIcon 保持一致；「抑制」= 中队版防控标记，同为 defense-contain。
 ICON_LABEL_MAP = {
     "防御改装": "upgrade-defensive-retrofit",
+    "舰队支援": "upgrade-fleet-support",
+    "支援小组": "upgrade-support-team",
+    "舰队指挥": "upgrade-fleet-command",
+    "武器小组": "upgrade-weapons-team",
+    "离子炮": "upgrade-ion-cannons",
+    "进攻改装": "upgrade-offensive-retrofit",
+    "军械": "upgrade-ordnance",
+    "涡轮激光": "upgrade-turbolasers",
+    "实验改装": "upgrade-experimental-retrofit",
+    "超级武器": "upgrade-superweapon",
+    "称号": "upgrade-title",
     "指挥官": "upgrade-commander",
     "士官": "upgrade-officer",
     "中队": "command-squadron",

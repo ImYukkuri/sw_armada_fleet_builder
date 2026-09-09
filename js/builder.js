@@ -50,6 +50,51 @@
     render();
   }
 
+  /* ---- 导出 PDF / 打印（预览浮层 + window.print） ---- */
+  let printOverlay = null;
+
+  function closePrintView() {
+    if (printOverlay) {
+      printOverlay.remove();
+      printOverlay = null;
+    }
+    document.body.classList.remove("printing");
+  }
+
+  function openPrintView() {
+    closePrintView();
+    const calc = FleetCalculator.calculateFleetPoints(data, fleet);
+    const overlay = document.createElement("div");
+    overlay.className = "print-overlay";
+    overlay.innerHTML =
+      '<div class="print-controls">' +
+      '<label class="print-zh-toggle"><input type="checkbox" id="print-zh" checked> 打印中文卡面</label>' +
+      '<button class="btn print-btn" data-print-act="print">打印</button>' +
+      '<button class="btn print-btn" data-print-act="close">关闭</button>' +
+      "</div>" +
+      '<div class="print-sheet-wrap" id="print-sheet-wrap"></div>';
+    document.body.appendChild(overlay);
+    document.body.classList.add("printing");
+    printOverlay = overlay;
+
+    function refresh() {
+      const zh = overlay.querySelector("#print-zh").checked;
+      overlay.querySelector("#print-sheet-wrap").innerHTML =
+        FleetRender.renderPrintSheet(data, fleet, calc, { printZh: zh });
+    }
+    refresh();
+
+    overlay.addEventListener("click", function (e) {
+      const btn = e.target.closest("[data-print-act]");
+      if (!btn) return;
+      if (btn.dataset.printAct === "print") window.print();
+      else if (btn.dataset.printAct === "close") closePrintView();
+    });
+    overlay.addEventListener("change", function (e) {
+      if (e.target && e.target.id === "print-zh") refresh();
+    });
+  }
+
   /* ---- 启动 / 切页 遮罩 + 进度条 ---- */
   function bootEl(id) { return document.getElementById(id); }
 
@@ -280,6 +325,7 @@
       render();
     }
     else if (a === "open-objective") FleetSelectors.openObjective(category);
+    else if (a === "fleet-print") openPrintView();
     else if (a === "fleet-export-json") downloadJson();
     else if (a === "fleet-export-compressed") exportCompressedModal();
     else if (a === "fleet-import") openImportModal();

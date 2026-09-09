@@ -320,36 +320,6 @@
     }
   },
   {
-    "id": "officer_028",
-    "type": "upgrade",
-    "slot": "officer",
-    "faction": "rebel",
-    "name": "贝尔 奥加纳",
-    "nameEn": "•Bail Organa",
-    "size": null,
-    "points": 4,
-    "image": "assets/upgrades/officer/images/page_028_img_1.jpeg",
-    "slots": [],
-    "effect": "此卡在1.5版FAQ中被官方禁掉，以后再也不能于正式比赛环境中使用义军中型不大型战舰 限定 在部署舰队后，你可以选择将1个轮数标记放置在此卡上。在不该标记相应游戏轮次的战舰阶段开始时，如果你是后手玩家，则你必须激活。如果你是先手玩家，则你可以选择获得最多2个你自选的指令标记。",
-    "modification": false,
-    "restrictions": {
-      "factions": [
-        "rebel"
-      ],
-      "sizes": [
-        "large",
-        "medium"
-      ],
-      "shipIds": [],
-      "shipNames": [],
-      "shipTraits": [],
-      "requiresFlagship": false,
-      "requiredTitles": []
-    },
-    "banned": true,
-    "faq": "如果装备此卡的战舰被放在场外，你不能结算此卡的效果来放置轮数标记。如果此卡被比如达斯维达的1个效果丢弃，则在游戏中它不再有效。"
-  },
-  {
     "id": "officer_029",
     "type": "upgrade",
     "slot": "officer",

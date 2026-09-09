@@ -660,6 +660,39 @@
   gap: 10px;
 }
 .sel-card--squadron .sel-thumb { max-width: none; }
+
+/* 缩略显示：升级卡网格（每行 3-4 个，仅卡图 + 下方中文名） */
+.sel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 6px;
+}
+.sel-card--thumb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 6px;
+  min-width: 0;
+}
+.sel-card--thumb .sel-thumb {
+  width: 100%;
+  max-width: none;
+  aspect-ratio: 5 / 7;
+  object-fit: contain;
+  border-radius: 6px;
+}
+.sel-card--thumb .sel-name {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+  color: var(--text);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
 .sel-card:active { border-color: var(--accent); }
 .sel-card.is-blocked {                 /* 改装卡已被该舰占用：边框标红 + 提示 */
   border-color: rgba(255, 90, 90, 0.65);

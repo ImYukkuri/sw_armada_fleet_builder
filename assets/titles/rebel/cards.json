@@ -613,7 +613,7 @@
     },
     "unique": true
   },
-    {
+  {
     "id": "rebel_title_031",
     "type": "title",
     "faction": "rebel",
@@ -990,16 +990,16 @@
     "unique": true
   },
   {
-    "id": "rebel_title_031",
+    "id": "rebel_title_032",
     "type": "title",
     "faction": "rebel",
     "name": "义军一号",
     "nameEn": "•Rebel One",
     "size": null,
     "points": 6,
-    "image": "assets/titles/rebel/images/page_031_img_1.jpeg",
+    "image": "assets/titles/rebel/images/page_032_img_1.jpeg",
     "slots": [],
-    "effect": "在你防御时，你可以弃掉你的一个[[icon:weapons_team]]或[[icon:support_team]]改装并消耗此卡来花费一个被[[icon:attack-accuracy]]指定的防御标记。当攻击时，你可以选择弃掉此卡。若如此做，你的每个弃掉的[[icon:weapons_team]]或[[icon:support_team]]改装卡使你增加一颗骰子。每颗骰子必须不同颜色。",
+    "effect": "在你防御时，你可以弃掉你的一个[[icon:upgrade-weapons-team]]或[[icon:upgrade-support-team]]改装并消耗此卡来花费一个被[[icon:attack-accuracy]]指定的防御标记。当攻击时，你可以选择弃掉此卡。若如此做，你的每个弃掉的[[icon:upgrade-weapons-team]]或[[icon:upgrade-support-team]]改装卡使你增加一颗骰子。每颗骰子必须不同颜色。",
     "shipId": [
       "reb_providence"
     ],

@@ -318,6 +318,7 @@ window.FleetRender = (function () {
       (calc.isOverLimit ? '<span class="act-over-label">超出限制</span>' : "") +
       "</div>" +
       '<div class="act-tools">' +
+      '<button class="btn act-btn" data-action="fleet-print">导出 PDF</button>' +
       '<button class="btn act-btn" data-action="fleet-export-json">导出 JSON</button>' +
       '<button class="btn act-btn" data-action="fleet-export-compressed">压缩分享</button>' +
       '<button class="btn act-btn" data-action="fleet-import">导入</button>' +
@@ -335,10 +336,135 @@ window.FleetRender = (function () {
     );
   }
 
+  /* ---- 打印版式（导出 PDF · 卡牌详印） ----
+   * 卡片尺寸（mm，宽×高，竖版）：大船 46.67×80、升级/称号 28.67×40、中队/指挥官/任务 63×88。
+   * 中文覆盖：升级卡/称号/指挥官 → #FAFAF3 + 效果全文；中队 → 势力背景色 + 关键字(每行一个)+特殊效果。
+   * 覆盖区域：升级/指挥官 垂直 52%–86%、水平左右各 16%；中队 垂直 62%–90%、水平左右各 8%。
+   * 舰船/任务卡不覆盖；所有覆盖区域即使无文本也始终显示背景框。 */
+  var SQ_BG = {
+    rebel: "#FDF5EE",
+    imperial: "#DDE9F0",
+    republic: "#F7F3EA",
+    separatist: "#EAF2FB",
+  };
+  var UPGRADE_BG = "#FAFAF3";
+
+  function pcCard(card, cls, ovBg, ovContent) {
+    var ov = ovBg
+      ? '<div class="pc-ov" style="background:' + ovBg + '">' + (ovContent || "") + "</div>"
+      : "";
+    return (
+      '<div class="pc-card ' + cls + '">' +
+      '<img class="pc-img" src="' + escapeHtml(card.image) + '" alt="' + escapeHtml(card.name) + '">' +
+      ov +
+      "</div>"
+    );
+  }
+
+  function effectContent(card) {
+    if (!card.effect) return "";
+    return '<div class="pc-effect">' + ArmadaIcons.toHtml(card.effect) + "</div>";
+  }
+
+  function squadronContent(data, card) {
+    var kw = (card.squadron_keyword || []).map(function (k) {
+      var rule = data.squadronKeyword(k.key);
+      var label = (rule ? rule.nameZh : k.key) + (k.value != null ? " " + k.value : "");
+      return '<div class="pc-kw">' + escapeHtml(label) + "</div>";
+    }).join("");
+    var special = card.effect ? '<div class="pc-special">' + ArmadaIcons.toHtml(card.effect) + "</div>" : "";
+    return '<div class="pc-effect">' + kw + special + "</div>";
+  }
+
+  function renderPrintSheet(data, fleet, calc, opts) {
+    var printZh = !opts || opts.printZh !== false;
+    var faction = data.faction(fleet.faction);
+    var fname = faction ? faction.name : (fleet.faction || "");
+    var sqBg = SQ_BG[fleet.faction] || "#FDF5EE";
+    var parts = [];
+
+    parts.push(
+      '<div class="ps-head">' +
+      '<div class="ps-faction">' + escapeHtml(fname) + " · 舰队写表</div>" +
+      '<div class="ps-points">' + calc.total + " / " + calc.pointsLimit + " 分</div>" +
+      "</div>"
+    );
+
+    if (fleet.commander) {
+      var cmd = data.upgrade(fleet.commander);
+      if (cmd) {
+        var flagName = "";
+        if (fleet.commanderShipId) {
+          var fs = (fleet.ships || []).filter(function (s) { return s.instanceId === fleet.commanderShipId; })[0];
+          if (fs) {
+            var fsc = data.ship(fs.cardId);
+            flagName = fsc ? fsc.name : "";
+          }
+        }
+        parts.push(
+          '<div class="ps-section">' +
+          '<div class="ps-label">指挥官</div>' +
+          '<div class="ps-commander">' +
+          pcCard(cmd, "pc-card--commander", printZh ? UPGRADE_BG : null, printZh ? effectContent(cmd) : "") +
+          (flagName ? '<div class="ps-flagship">旗舰：' + escapeHtml(flagName) + "</div>" : "") +
+          "</div>" +
+          "</div>"
+        );
+      }
+    }
+
+    if (fleet.ships.length) {
+      var shipHtml = fleet.ships.map(function (s) {
+        var sc = data.ship(s.cardId) || {};
+        var ups = [];
+        (s.upgrades || []).forEach(function (u) {
+          if (!u.cardId || u.shared) return;
+          var c = data.upgrade(u.cardId);
+          if (c) ups.push(c);
+        });
+        if (s.title) {
+          var t = data.title(s.title);
+          if (t) ups.push(t);
+        }
+        var upHtml = ups.map(function (c) {
+          return pcCard(c, "pc-card--upgrade", printZh ? UPGRADE_BG : null, printZh ? effectContent(c) : "");
+        }).join("");
+        return (
+          '<div class="ps-ship">' +
+          pcCard(sc, "pc-card--ship", "") +
+          '<div class="ps-upgrades">' + upHtml + "</div>" +
+          "</div>"
+        );
+      }).join("");
+      parts.push('<div class="ps-section"><div class="ps-label">舰船</div>' + shipHtml + "</div>");
+    }
+
+    if (fleet.squadrons.length) {
+      var sqHtml = fleet.squadrons.map(function (sq) {
+        var c = data.squadron(sq.cardId);
+        if (!c) return "";
+        return pcCard(c, "pc-card--squadron", printZh ? sqBg : null, printZh ? squadronContent(data, c) : "");
+      }).join("");
+      parts.push('<div class="ps-section"><div class="ps-label">中队</div><div class="ps-squadrons">' + sqHtml + "</div></div>");
+    }
+
+    var objHtml = ["assault", "defense", "navigation"].map(function (cat) {
+      var o = data.objective(fleet.objectives[cat]);
+      if (!o) return "";
+      return pcCard(o, "pc-card--objective", "");
+    }).join("");
+    if (objHtml) {
+      parts.push('<div class="ps-section"><div class="ps-label">任务卡</div><div class="ps-objectives">' + objHtml + "</div></div>");
+    }
+
+    return '<div class="print-sheet">' + parts.join("") + "</div>";
+  }
+
   return {
     renderOverview: renderOverview,
     renderActionBar: renderActionBar,
     renderHeaderPoints: renderHeaderPoints,
+    renderPrintSheet: renderPrintSheet,
     setPrefs: setPrefs,
   };
 })();

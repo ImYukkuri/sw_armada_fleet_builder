@@ -190,8 +190,8 @@ check("旗舰可更换为其它指挥官", r.allowed, JSON.stringify(r.reasons))
 /* ---------------- 按阵营拆分加载 + FAQ/勘误 字段 ---------------- */
 check("加载器按阵营拆分后舰船总数(60, 帝国24+义军23+共和国13)", data.cards.ships.length === 60, "n=" + data.cards.ships.length);
 check("中队总数 82(含手工录入 6 张)", data.cards.squadrons.length === 82, "n=" + data.cards.squadrons.length);
-check("称号总数 81(含新增 诺提利安 + 共和国/分离势力 19 张)", data.cards.titles.length === 81, "n=" + data.cards.titles.length);
-check("升级总数 225(19 张 title 已迁出, 双阵营卡去重)", data.cards.upgrades.length === 225, "n=" + data.cards.upgrades.length);
+check("称号总数 82(义军 32 含义军一号 + 帝国31 + 共和国/分离 19)", data.cards.titles.length === 82, "n=" + data.cards.titles.length);
+check("升级总数 223(已删 战略顾问/贝尔奥加纳 2 张禁卡, 双阵营卡去重)", data.cards.upgrades.length === 223, "n=" + data.cards.upgrades.length);
 ["defensive_retrofit_008", "turbolasers_012", "fleet_command_003"].forEach(function (id) {
   const dup = data.cards.upgrades.filter((c) => c.id === id);
   check("双阵营升级卡去重(" + id + ")", dup.length === 1, "n=" + dup.length);
@@ -204,6 +204,7 @@ const allUpIds = data.cards.upgrades.map((c) => c.id);
 check("升级 id 全局唯一(无双阵营卡之外重复)", new Set(allUpIds).size === allUpIds.length, "n=" + allUpIds.length + ", 唯一=" + new Set(allUpIds).size);
 const allTitleIds = data.cards.titles.map((c) => c.id);
 check("称号 id 全局唯一", new Set(allTitleIds).size === allTitleIds.length, "n=" + allTitleIds.length + ", 唯一=" + new Set(allTitleIds).size);
+check("义军一号 已挂到神意级航母(reb_providence)", !!data.title("rebel_title_032") && data.title("rebel_title_032").name === "义军一号" && (data.title("rebel_title_032").shipId || []).indexOf("reb_providence") !== -1);
 check("title_011 是称号而非升级卡", !!data.title("title_011") && !data.upgrade("title_011") && data.title("title_011").type === "title", JSON.stringify(data.title("title_011")));
 check("title_028 是称号而非升级卡", !!data.title("title_028") && !data.upgrade("title_028") && data.title("title_028").type === "title", JSON.stringify(data.title("title_028")));
 check("共和国指挥官 贝尔奥加纳 有分离图像链接(commander_031)", !!data.upgrade("commander_031") && data.upgrade("commander_031").image === "assets/upgrades/commander/republic/page_001_img_1.jpeg", data.upgrade("commander_031") && data.upgrade("commander_031").image);
@@ -232,9 +233,7 @@ const rs010 = data.squadron("rebel_squadrons_010");
 check("简奥斯 FAQ+勘误 两段拆为 2 行", (rs010.faq || "").split("\n").length === 2, rs010.faq || "无");
 check("简奥斯 effect 已剥离关键字与防御标记", !rs010.effect.includes("反击Counter") && !rs010.effect.includes("自带防御标记") && rs010.effect.includes("它可花费你的防御标记"));
 check("简奥斯 提取出关键字与防御标记", JSON.stringify(rs010.squadron_keyword) === JSON.stringify([{ key: "counter", value: 2 }, { key: "intel", value: null }]) && JSON.stringify(rs010.defense_token) === JSON.stringify(["brace", "brace"]));
-const o028 = data.upgrade("officer_028");
-check("officer_028 正文 1.5版FAQ 未被误拆", o028.effect.includes("1.5版FAQ中被官方禁掉"));
-check("officer_028 尾部真 FAQ 段已提取", !!o028.faq, o028.faq || "无");
+check("禁卡 战略顾问/贝尔奥加纳 已删除", !data.upgrade("officer_028") && !data.upgrade("officer_051"));
 
 /* ---------------- 义军中队数据 + unique/limit 执行 ---------------- */
 const rebelCards = data.cards.squadrons.filter((c) => c.id.startsWith("rebel_"));
@@ -310,6 +309,17 @@ check("升级选择器标题含 军官", els["selector-root"].innerHTML.includes
 check("升级列表含 奇拉内奥 上将", selBodyEl.innerHTML.includes("奇拉内奥"));
 // 帝国军官卡：不应出现义军军官
 check("升级列表不含义军军官(过滤)", !selBodyEl.innerHTML.includes("韦奇 安蒂列斯"));
+// 军官槽排序：势力特有卡(帝国)优先于通用卡(neutral)
+check("军官槽 势力特有卡排在通用卡之前",
+  selBodyEl.innerHTML.indexOf("奇拉内奥") !== -1 &&
+  selBodyEl.innerHTML.indexOf("航图士官") !== -1 &&
+  selBodyEl.innerHTML.indexOf("奇拉内奥") < selBodyEl.innerHTML.indexOf("航图士官"));
+// 缩略显示：网格 + 缩略卡
+check("升级选择器含 缩略显示 开关", els["selector-root"].innerHTML.includes('data-action="pref-thumb"'));
+prefChange("pref-thumb", true);
+check("缩略显示切换为网格布局(sel-grid + thumb)", selBodyEl.innerHTML.includes("sel-grid") && selBodyEl.innerHTML.includes("sel-card--thumb"));
+prefChange("pref-thumb", false);
+check("关闭缩略显示恢复列表", !selBodyEl.innerHTML.includes("sel-grid"));
 selClick({ action: "sel-pick", id: "officer_001" });
 overview = els["fleet-overview"].innerHTML;
 check("军官已装备显示", overview.includes("奇拉内奥"));
@@ -344,7 +354,7 @@ check("英文/FAQ开关默认关闭(不显示英文原文和FAQ)", !selBodyEl.in
 const selRootHtml = els["selector-root"].innerHTML;
 check("任务选择页顶部含两个偏好开关(显示英文/显示FAQ)", selRootHtml.includes("pref-en") && selRootHtml.includes("pref-faq"));
 function prefChange(action, checked) {
-  const tgt = { dataset: { action }, checked, closest(sel) { return sel === "[data-action='pref-en'],[data-action='pref-faq']" ? tgt : null; } };
+  const tgt = { dataset: { action }, checked, closest(sel) { return sel === "[data-action='pref-en'],[data-action='pref-faq'],[data-action='pref-thumb']" ? tgt : null; } };
   els["selector-root"]._ls.change({ target: tgt });
 }
 // 打开 显示英文 -> 卡片英文原文出现，中文保留
@@ -937,6 +947,27 @@ check("损坏存档被清键", !_store.has(AUTO_KEY));
 const rebelSave = FleetIO.serializePlain(Object.assign({}, liveFleet, { faction: "rebel" }));
 const r13 = await FleetIO.importFromText(rebelSave, data);
 check("存档 faction 供切页判断(异阵营)", r13.ok && r13.faction === "rebel");
+
+/* ---------------- 打印版式（导出 PDF） ---------------- */
+const _pc = FleetState.create("imperial", 400);
+FleetState.addShip("imperial_i", ["officer", "weapons_team", "offensive_retrofit", "offensive_retrofit", "ion_cannons", "turbolasers"]);
+const _s0 = FleetState.get().ships[0];
+FleetState.setCommander(_s0.instanceId, "commander_001");
+FleetState.setUpgrade(_s0.instanceId, 0, "officer_001", null, null);
+FleetState.setUpgrade(_s0.instanceId, 1, "weapons_team_017", 2, null);   // 双槽
+FleetState.setTitle(_s0.instanceId, "imperial_title_001", null);
+FleetState.addSquadron("imperial_squadrons_001");                          // 反击1 + 护卫
+FleetState.setObjective("assault", "advanced_gunnery");
+const _calc = FleetCalculator.calculateFleetPoints(data, FleetState.get());
+const psZh = FleetRender.renderPrintSheet(data, FleetState.get(), _calc, { printZh: true });
+const psEn = FleetRender.renderPrintSheet(data, FleetState.get(), _calc, { printZh: false });
+check("打印版式含 print-sheet + 舰船/升级/中队/任务卡卡片",
+  psZh.includes("print-sheet") && psZh.includes("pc-card--ship") && psZh.includes("pc-card--upgrade") &&
+  psZh.includes("pc-card--squadron") && psZh.includes("pc-card--objective"));
+check("打印版式中文覆盖(printZh=true 含 pc-ov + 效果)",
+  psZh.includes("pc-ov") && psZh.includes("指挥官") && psZh.includes("pc-card--commander"));
+check("打印版式关闭中文覆盖(printZh=false 无 pc-ov)", !psEn.includes("pc-ov"));
+check("打印版式中队关键字覆盖(含 pc-kw)", psZh.includes("pc-kw"));
 
 console.log("\nfleet_test 结果: " + (failures === 0 ? "全部通过 ✓" : failures + " 项失败 ✗"));
 process.exit(failures === 0 ? 0 : 1);

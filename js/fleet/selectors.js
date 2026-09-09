@@ -10,7 +10,7 @@ window.FleetSelectors = (function () {
   let state = null;        // { kind, shipInstanceId, slotId, slotIndex, category, query }
   let bodyEl = null;
   // 任务卡显示偏好：英文原文 / FAQ 是否显示（默认全关，选择器顶部开关控制）
-  let objPrefs = { showEn: false, showFaq: false };
+  let objPrefs = { showEn: false, showFaq: false, showThumb: false };
 
   function configure(cfg) {
     ctx = cfg;
@@ -88,6 +88,31 @@ window.FleetSelectors = (function () {
     return (
       '<img class="sel-thumb" src="' + escapeHtml(card.image) + '" alt="' + escapeHtml(alt) + '" loading="lazy" ' +
       onclick + ">"
+    );
+  }
+
+  // 升级卡排序权重：势力特有卡(匹配当前阵营)=0，通用/其它=1（特有卡排在前面）
+  function upgradeSpecificity(card) {
+    var r = card.restrictions || {};
+    if (Array.isArray(r.factions) && r.factions.length) {
+      return r.factions.indexOf(ctx.fleet.faction) !== -1 ? 0 : 1;
+    }
+    if (card.faction) return card.faction === ctx.fleet.faction ? 0 : 1;
+    return 1;
+  }
+
+  // 缩略卡：仅卡图 + 下方中文名（缩略显示网格布局用）
+  function thumbCard(card, blockedMsg) {
+    var blocked = !!blockedMsg;
+    var actionAttr = blocked
+      ? ' data-blocked="1"'
+      : ' data-action="sel-pick" data-id="' + escapeHtml(card.id) + '"';
+    return (
+      '<button class="sel-card sel-card--thumb' + (blocked ? " is-blocked" : "") + '"' + actionAttr +
+      ' title="' + escapeHtml(blockedMsg || card.name) + '">' +
+      cardThumb(card, card.name) +
+      '<span class="sel-name">' + escapeHtml(card.name || "未命名") + "</span>" +
+      "</button>"
     );
   }
 
@@ -328,7 +353,10 @@ window.FleetSelectors = (function () {
       } else {
         // 指挥官槽：upgradesOfSlot("commander")；普通槽：该槽全部升级卡
         // （改装类按自身槽出现，非独立槽；双槽卡在自身任一槽的选择界面都出现）
-        pool = ctx.data.upgradesOfSlot(state.slotId);
+        // 势力特有卡优先，通用(neutral)卡靠后（军官槽等含大量通用卡的槽位更直观）
+        pool = ctx.data.upgradesOfSlot(state.slotId).slice().sort(function (a, b) {
+          return upgradeSpecificity(a) - upgradeSpecificity(b);
+        });
       }
       var allowed = [];
       var blocked = [];
@@ -375,6 +403,13 @@ window.FleetSelectors = (function () {
         meta.push((c.points == null ? "?" : c.points) + " 分");
         return meta.join(" · ");
       };
+      if (objPrefs.showThumb) {
+        return allowed.map(function (c) {
+          return thumbCard(c);
+        }).concat(blocked.map(function (b) {
+          return thumbCard(b.card, b.msg);
+        }));
+      }
       return allowed.map(function (c) {
         return cardItem(c, metaOf(c));
       }).concat(blocked.map(function (b) {
@@ -390,9 +425,13 @@ window.FleetSelectors = (function () {
     if (!state) return "";
     var enChecked = objPrefs.showEn ? " checked" : "";
     var faqChecked = objPrefs.showFaq ? " checked" : "";
+    var thumbChecked = objPrefs.showThumb ? " checked" : "";
     var html = '<div class="sel-prefs" role="group" aria-label="显示偏好">';
     if (state.kind === "objective") {
       html += '<label class="sel-pref"><input type="checkbox" data-action="pref-en"' + enChecked + "> 显示英文</label>";
+    }
+    if (state.kind === "upgrade") {
+      html += '<label class="sel-pref"><input type="checkbox" data-action="pref-thumb"' + thumbChecked + "> 缩略显示</label>";
     }
     html += '<label class="sel-pref"><input type="checkbox" data-action="pref-faq"' + faqChecked + "> 显示FAQ</label>";
     return html + "</div>";
@@ -423,8 +462,9 @@ window.FleetSelectors = (function () {
   function renderBody() {
     if (!bodyEl) return;
     var items = listData();
+    var isThumb = objPrefs.showThumb && state && state.kind === "upgrade";
     bodyEl.innerHTML = items.length
-      ? items.join("")
+      ? (isThumb ? '<div class="sel-grid">' + items.join("") + "</div>" : items.join(""))
       : '<div class="sel-empty">' + (state.kind === "upgrade" ? "没有可装备的卡（限制过滤后为空）" : "没有符合条件的结果") + "</div>";
   }
 
@@ -492,9 +532,10 @@ window.FleetSelectors = (function () {
       renderBody();
     });
     root.addEventListener("change", function (e) {
-      var cb = e.target.closest("[data-action='pref-en'],[data-action='pref-faq']");
+      var cb = e.target.closest("[data-action='pref-en'],[data-action='pref-faq'],[data-action='pref-thumb']");
       if (!cb) return;
       if (cb.dataset.action === "pref-en") objPrefs.showEn = cb.checked;
+      else if (cb.dataset.action === "pref-thumb") objPrefs.showThumb = cb.checked;
       else {
         objPrefs.showFaq = cb.checked;
         // 总览常驻表面（选中卡行 equipItem 的 FAQ 段）也随开关刷新；onChange 只碰

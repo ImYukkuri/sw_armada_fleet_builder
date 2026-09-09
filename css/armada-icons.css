@@ -39,6 +39,17 @@
 .armada-icon--upgrade-commander { -webkit-mask-image: url("../icons/web/upgrade-commander.png"); mask-image: url("../icons/web/upgrade-commander.png"); }
 .armada-icon--upgrade-officer { -webkit-mask-image: url("../icons/web/upgrade-officer.png"); mask-image: url("../icons/web/upgrade-officer.png"); }
 .armada-icon--upgrade-defensive-retrofit { -webkit-mask-image: url("../icons/web/upgrade-defensive-retrofit.png"); mask-image: url("../icons/web/upgrade-defensive-retrofit.png"); }
+.armada-icon--upgrade-fleet-support { -webkit-mask-image: url("../assets/fleet-support.svg"); mask-image: url("../assets/fleet-support.svg"); }
+.armada-icon--upgrade-support-team { -webkit-mask-image: url("../assets/support-team.svg"); mask-image: url("../assets/support-team.svg"); }
+.armada-icon--upgrade-fleet-command { -webkit-mask-image: url("../assets/fleet-command.svg"); mask-image: url("../assets/fleet-command.svg"); }
+.armada-icon--upgrade-weapons-team { -webkit-mask-image: url("../assets/weapons-team.svg"); mask-image: url("../assets/weapons-team.svg"); }
+.armada-icon--upgrade-ion-cannons { -webkit-mask-image: url("../assets/ion-cannon.svg"); mask-image: url("../assets/ion-cannon.svg"); }
+.armada-icon--upgrade-offensive-retrofit { -webkit-mask-image: url("../assets/offensive-retro.svg"); mask-image: url("../assets/offensive-retro.svg"); }
+.armada-icon--upgrade-ordnance { -webkit-mask-image: url("../assets/ordnance.svg"); mask-image: url("../assets/ordnance.svg"); }
+.armada-icon--upgrade-turbolasers { -webkit-mask-image: url("../assets/turbolaser.svg"); mask-image: url("../assets/turbolaser.svg"); }
+.armada-icon--upgrade-experimental-retrofit { -webkit-mask-image: url("../assets/experimental-retro.svg"); mask-image: url("../assets/experimental-retro.svg"); }
+.armada-icon--upgrade-superweapon { -webkit-mask-image: url("../assets/super-weapon.svg"); mask-image: url("../assets/super-weapon.svg"); }
+.armada-icon--upgrade-title { -webkit-mask-image: url("../assets/title.svg"); mask-image: url("../assets/title.svg"); }
 .armada-icon--attack-critical { -webkit-mask-image: url("../icons/web/attack-critical.png"); mask-image: url("../icons/web/attack-critical.png"); }
 .armada-icon--attack-hit { -webkit-mask-image: url("../icons/web/attack-hit.png"); mask-image: url("../icons/web/attack-hit.png"); }
 .armada-icon--attack-accuracy { -webkit-mask-image: url("../icons/web/attack-accuracy.png"); mask-image: url("../icons/web/attack-accuracy.png"); }
