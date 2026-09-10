@@ -75,11 +75,7 @@
   margin-bottom: 4mm;
 }
 
-/* 指挥官 */
-.ps-commander { display: flex; align-items: flex-start; gap: 6mm; }
-.ps-flagship { font-size: 3.5mm; color: #444; padding-top: 2mm; }
-
-/* 舰船块：大船卡 + 右侧 2 行升级卡（flex-wrap 自然换行，超出向下续排） */
+/* 舰船块：大船卡 + 右侧升级卡（flex-wrap 自然换行，超出向下续排） */
 .ps-ship {
   display: flex;
   align-items: flex-start;
@@ -110,7 +106,6 @@
 }
 .pc-card--ship { width: 46.67mm; height: 80mm; }
 .pc-card--upgrade { width: 28.67mm; height: 40mm; }
-.pc-card--commander { width: 63mm; height: 88mm; }
 .pc-card--squadron { width: 63mm; height: 88mm; }
 .pc-card--objective { width: 63mm; height: 88mm; }
 
@@ -131,13 +126,12 @@
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
 }
-/* 升级/指挥官：垂直 52%–86%，水平左右各 16% */
-.pc-card--upgrade .pc-ov,
-.pc-card--commander .pc-ov {
+/* 升级卡（含指挥官）：垂直 52%–90%，水平左右各 16% */
+.pc-card--upgrade .pc-ov {
   top: 52%;
   left: 16%;
   width: 68%;
-  height: 34%;
+  height: 38%;
 }
 /* 中队：垂直 62%–90%，水平左右各 8% */
 .pc-card--squadron .pc-ov {
@@ -153,7 +147,6 @@
   color: #1a1a1a;
   overflow: hidden;
 }
-.pc-card--commander .pc-effect { font-size: 2.6mm; }
 .pc-card--squadron .pc-effect { font-size: 2.4mm; }
 .pc-kw { font-weight: 700; }
 .pc-special { margin-top: 0.5mm; }

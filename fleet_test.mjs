@@ -964,8 +964,11 @@ const psEn = FleetRender.renderPrintSheet(data, FleetState.get(), _calc, { print
 check("打印版式含 print-sheet + 舰船/升级/中队/任务卡卡片",
   psZh.includes("print-sheet") && psZh.includes("pc-card--ship") && psZh.includes("pc-card--upgrade") &&
   psZh.includes("pc-card--squadron") && psZh.includes("pc-card--objective"));
-check("打印版式中文覆盖(printZh=true 含 pc-ov + 效果)",
-  psZh.includes("pc-ov") && psZh.includes("指挥官") && psZh.includes("pc-card--commander"));
+check("打印版式中文覆盖(printZh=true 含 pc-ov + 效果)", psZh.includes("pc-ov"));
+check("指挥官不再单独成栏(无 ps-commander / pc-card--commander / ps-flagship)",
+  !psZh.includes("ps-commander") && !psZh.includes("pc-card--commander") && !psZh.includes("ps-flagship"));
+check("指挥官作为旗舰升级卡之一(含其卡图)",
+  psZh.includes(data.upgrade("commander_001").image) && psZh.includes("pc-card--upgrade"));
 check("打印版式关闭中文覆盖(printZh=false 无 pc-ov)", !psEn.includes("pc-ov"));
 check("打印版式中队关键字覆盖(含 pc-kw)", psZh.includes("pc-kw"));
 check("打印版式嵌入图标改用真实 <img>(armada-icon-img)",

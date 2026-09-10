@@ -337,10 +337,11 @@ window.FleetRender = (function () {
   }
 
   /* ---- 打印版式（导出 PDF · 卡牌详印） ----
-   * 卡片尺寸（mm，宽×高，竖版）：大船 46.67×80、升级/称号 28.67×40、中队/指挥官/任务 63×88。
+   * 卡片尺寸（mm，宽×高，竖版）：大船 46.67×80、升级/称号/指挥官 28.67×40、中队/任务 63×88。
    * 中文覆盖：升级卡/称号/指挥官 → #FAFAF3 + 效果全文；中队 → 势力背景色 + 关键字(每行一个)+特殊效果。
-   * 覆盖区域：升级/指挥官 垂直 52%–86%、水平左右各 16%；中队 垂直 62%–90%、水平左右各 8%。
-   * 舰船/任务卡不覆盖；所有覆盖区域即使无文本也始终显示背景框。 */
+   * 覆盖区域：升级/指挥官 垂直 52%–90%、水平左右各 16%；中队 垂直 62%–90%、水平左右各 8%。
+   * 舰船/任务卡不覆盖；所有覆盖区域即使无文本也始终显示背景框。
+   * 指挥官不单独成栏，作为旗舰的升级卡之一（置于该舰升级卡最前）。 */
   var SQ_BG = {
     rebel: "#FDF5EE",
     imperial: "#DDE9F0",
@@ -390,33 +391,14 @@ window.FleetRender = (function () {
       "</div>"
     );
 
-    if (fleet.commander) {
-      var cmd = data.upgrade(fleet.commander);
-      if (cmd) {
-        var flagName = "";
-        if (fleet.commanderShipId) {
-          var fs = (fleet.ships || []).filter(function (s) { return s.instanceId === fleet.commanderShipId; })[0];
-          if (fs) {
-            var fsc = data.ship(fs.cardId);
-            flagName = fsc ? fsc.name : "";
-          }
-        }
-        parts.push(
-          '<div class="ps-section">' +
-          '<div class="ps-label">指挥官</div>' +
-          '<div class="ps-commander">' +
-          pcCard(cmd, "pc-card--commander", printZh ? UPGRADE_BG : null, printZh ? effectContent(cmd) : "") +
-          (flagName ? '<div class="ps-flagship">旗舰：' + escapeHtml(flagName) + "</div>" : "") +
-          "</div>" +
-          "</div>"
-        );
-      }
-    }
-
     if (fleet.ships.length) {
       var shipHtml = fleet.ships.map(function (s) {
         var sc = data.ship(s.cardId) || {};
         var ups = [];
+        if (fleet.commander && s.instanceId === fleet.commanderShipId) {
+          var cmd = data.upgrade(fleet.commander);
+          if (cmd) ups.push(cmd);
+        }
         (s.upgrades || []).forEach(function (u) {
           if (!u.cardId || u.shared) return;
           var c = data.upgrade(u.cardId);
