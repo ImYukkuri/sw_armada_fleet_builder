@@ -1450,5 +1450,81 @@
   "rebel_squadrons_037": {
     "points": 16,
     "en": "YT-2400"
+  },
+  "republic_squadrons_001": {
+    "points": 23,
+    "en": "•Ahsoka Tano"
+  },
+  "republic_squadrons_002": {
+    "points": 18,
+    "en": "•Anakin Skywalker"
+  },
+  "republic_squadrons_003": {
+    "points": 24,
+    "en": "•Anakin Skywalker"
+  },
+  "republic_squadrons_004": {
+    "points": 24,
+    "en": "•Anakin Skywalker (Twilight)"
+  },
+  "republic_squadrons_005": {
+    "points": 15,
+    "en": "ARC-170 Starfighter Squadron"
+  },
+  "republic_squadrons_006": {
+    "points": 17,
+    "en": "•\"Axe\""
+  },
+  "republic_squadrons_007": {
+    "points": 10,
+    "en": "BTL-B Y-wing Squadron"
+  },
+  "republic_squadrons_008": {
+    "points": 15,
+    "en": "Delta-7 Aethersprite Squadron"
+  },
+  "republic_squadrons_009": {
+    "points": 21,
+    "en": "•\"Five-Seven\""
+  },
+  "republic_squadrons_010": {
+    "points": 14,
+    "en": "G9 Rigger-class Freighter"
+  },
+  "republic_squadrons_011": {
+    "points": 16,
+    "en": "•\"Kickback\""
+  },
+  "republic_squadrons_012": {
+    "points": 22,
+    "en": "•Kit Fisto"
+  },
+  "republic_squadrons_013": {
+    "points": 14,
+    "en": "LAAT/i Gunship"
+  },
+  "republic_squadrons_014": {
+    "points": 20,
+    "en": "•Luminara Unduli"
+  },
+  "republic_squadrons_015": {
+    "points": 14,
+    "en": "•\"Matchstick\""
+  },
+  "republic_squadrons_016": {
+    "points": 20,
+    "en": "•\"Odd Ball\""
+  },
+  "republic_squadrons_017": {
+    "points": 21,
+    "en": "•Plo Koon"
+  },
+  "republic_squadrons_018": {
+    "points": 17,
+    "en": "•R2-D2 (Twilight)"
+  },
+  "republic_squadrons_019": {
+    "points": 12,
+    "en": "V-19 Torrent Squadron"
   }
 }

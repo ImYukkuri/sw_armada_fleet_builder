@@ -1,0 +1,558 @@
+[
+  {
+    "id": "republic_squadrons_001",
+    "type": "squadron",
+    "faction": "republic",
+    "name": "阿索卡 塔诺 Delta-7 星际战机中队",
+    "nameEn": "•Ahsoka Tano",
+    "size": null,
+    "points": 23,
+    "image": "assets/squadrons/republic/ahsoka-tano-delta-7-aethersprite-squadron.webp",
+    "slots": [],
+    "effect": "在你移动后，你可以选择1个位于距离1的另1个友方中队。该中队使用2颗蓝骰的对-中队武装，对1个位于距离1的敌方中队进行1次攻击（即使它已被激活）。",
+    "unique": true,
+    "ace": true,
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "adept",
+        "value": 1
+      },
+      {
+        "key": "counter",
+        "value": 2
+      },
+      {
+        "key": "grit",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "scatter"
+    ]
+  },
+  {
+    "id": "republic_squadrons_002",
+    "type": "squadron",
+    "faction": "republic",
+    "name": "安纳金 天行者 BTL-B Y翼战机中队",
+    "nameEn": "•Anakin Skywalker",
+    "size": null,
+    "points": 18,
+    "image": "assets/squadrons/republic/anakin-skywalker-btl-b-y-wing-squadron.webp",
+    "slots": [],
+    "effect": "在你的激活期间，你可以消耗1个防御标记，以在本次激活结束前忽视交战。",
+    "unique": true,
+    "ace": true,
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "adept",
+        "value": 2
+      },
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "heavy",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
+  },
+  {
+    "id": "republic_squadrons_003",
+    "type": "squadron",
+    "faction": "republic",
+    "name": "安纳金 天行者 Delta-7 星际战机中队",
+    "nameEn": "•Anakin Skywalker",
+    "size": null,
+    "points": 24,
+    "image": "assets/squadrons/republic/anakin-skywalker-delta-7-aethersprite-squadron.webp",
+    "slots": [],
+    "effect": "在你的激活期间攻击1个中队时，在结算伤害步骤结束时，你可以选择至多2个位于防御方距离1的敌方中队。如果防御方受到伤害，则被选择的中队各承受1点伤害。",
+    "unique": true,
+    "ace": true,
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "adept",
+        "value": 2
+      },
+      {
+        "key": "counter",
+        "value": 2
+      },
+      {
+        "key": "dodge",
+        "value": 1
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "scatter"
+    ]
+  },
+  {
+    "id": "republic_squadrons_004",
+    "type": "squadron",
+    "faction": "republic",
+    "name": "安纳金 天行者 暮光号",
+    "nameEn": "•Anakin Skywalker (Twilight)",
+    "size": null,
+    "points": 24,
+    "image": "assets/squadrons/republic/anakin-skywalker-twilight-community.webp",
+    "slots": [],
+    "effect": "如果你部署时位于所有友方战舰的距离2之外，则承受2点伤害。攻击中队时，如果你的剩余船体值为5或更少，则你的每个红色[[icon:attack-critical]]图标为总伤害增加1。",
+    "unique": true,
+    "ace": true,
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "adept",
+        "value": 2
+      },
+      {
+        "key": "rogue",
+        "value": null
+      },
+      {
+        "key": "scout",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "evade"
+    ]
+  },
+  {
+    "id": "republic_squadrons_005",
+    "type": "squadron",
+    "faction": "republic",
+    "name": "ARC-170 星际战斗机中队",
+    "nameEn": "ARC-170 Starfighter Squadron",
+    "size": null,
+    "points": 15,
+    "image": "assets/squadrons/republic/arc-170-starfighter-squadron.webp",
+    "slots": [],
+    "effect": "",
+    "unique": false,
+    "ace": false,
+    "limit": null,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "counter",
+        "value": 1
+      }
+    ],
+    "defense_token": []
+  },
+  {
+    "id": "republic_squadrons_006",
+    "type": "squadron",
+    "faction": "republic",
+    "name": "“斧头” V-19 激流中队",
+    "nameEn": "•\"Axe\"",
+    "size": null,
+    "points": 17,
+    "image": "assets/squadrons/republic/axe-v-19-torrent-squadron.webp",
+    "slots": [],
+    "effect": "在1个位于距离1的另1个友方中队于1次攻击中承受伤害前，你可以消耗1个防御标记，将总伤害降低1点。",
+    "unique": true,
+    "ace": true,
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "escort",
+        "value": null
+      },
+      {
+        "key": "swarm",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "evade"
+    ]
+  },
+  {
+    "id": "republic_squadrons_007",
+    "type": "squadron",
+    "faction": "republic",
+    "name": "BTL-B Y翼战机中队",
+    "nameEn": "BTL-B Y-wing Squadron",
+    "size": null,
+    "points": 10,
+    "image": "assets/squadrons/republic/btl-b-y-wing-squadron.webp",
+    "slots": [],
+    "effect": "",
+    "unique": false,
+    "ace": false,
+    "limit": null,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "heavy",
+        "value": null
+      }
+    ],
+    "defense_token": []
+  },
+  {
+    "id": "republic_squadrons_008",
+    "type": "squadron",
+    "faction": "republic",
+    "name": "Delta-7 星际战机中队",
+    "nameEn": "Delta-7 Aethersprite Squadron",
+    "size": null,
+    "points": 15,
+    "image": "assets/squadrons/republic/delta-7-aethersprite-squadron-errata-community.webp",
+    "slots": [],
+    "effect": "",
+    "unique": false,
+    "ace": false,
+    "limit": null,
+    "squadron_keyword": [
+      {
+        "key": "adept",
+        "value": 1
+      },
+      {
+        "key": "counter",
+        "value": 2
+      },
+      {
+        "key": "dodge",
+        "value": 1
+      }
+    ],
+    "defense_token": []
+  },
+  {
+    "id": "republic_squadrons_009",
+    "type": "squadron",
+    "faction": "republic",
+    "name": "“五七” LAAT/i 炮艇",
+    "nameEn": "•\"Five-Seven\"",
+    "size": null,
+    "points": 21,
+    "image": "assets/squadrons/republic/five-seven-laat-i-gunship-community.webp",
+    "slots": [],
+    "effect": "当1个友方非唯一中队攻击1个中队时，如果防御方位于你的距离1，你可以消耗1个防御标记。如果你这么做了，攻击方可以将1颗骰子改为1个仅含1个[[icon:attack-hit]]图标而没有其它图标的面。",
+    "unique": true,
+    "ace": true,
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "assault",
+        "value": null
+      },
+      {
+        "key": "grit",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
+  },
+  {
+    "id": "republic_squadrons_010",
+    "type": "squadron",
+    "faction": "republic",
+    "name": "G9 装配者级货船",
+    "nameEn": "G9 Rigger-class Freighter",
+    "size": null,
+    "points": 14,
+    "image": "assets/squadrons/republic/g9-rigger-class-freighter-community.webp",
+    "slots": [],
+    "effect": "",
+    "unique": false,
+    "ace": false,
+    "limit": null,
+    "squadron_keyword": [
+      {
+        "key": "rogue",
+        "value": null
+      }
+    ],
+    "defense_token": []
+  },
+  {
+    "id": "republic_squadrons_011",
+    "type": "squadron",
+    "faction": "republic",
+    "name": "“后坐力” V-19 激流中队",
+    "nameEn": "•\"Kickback\"",
+    "size": null,
+    "points": 16,
+    "image": "assets/squadrons/republic/kickback-v-19-torrent-squadron.webp",
+    "slots": [],
+    "effect": "在你进行1次攻击后，你可以移动至多距离1，即使你正处于交战中。",
+    "unique": true,
+    "ace": true,
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "escort",
+        "value": null
+      },
+      {
+        "key": "swarm",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
+  },
+  {
+    "id": "republic_squadrons_012",
+    "type": "squadron",
+    "faction": "republic",
+    "name": "基特 菲斯托 Delta-7 星际战机中队",
+    "nameEn": "•Kit Fisto",
+    "size": null,
+    "points": 22,
+    "image": "assets/squadrons/republic/kit-fisto-delta-7-aethersprite-squadron-errata-community.webp",
+    "slots": [],
+    "effect": "当你消耗1个防御标记时，你可以改为将其弃置。如果你这么做了，则将总伤害降低3点，而不是结算该标记的效果。",
+    "unique": true,
+    "ace": true,
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "adept",
+        "value": 2
+      },
+      {
+        "key": "counter",
+        "value": 2
+      },
+      {
+        "key": "intel",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
+  },
+  {
+    "id": "republic_squadrons_013",
+    "type": "squadron",
+    "faction": "republic",
+    "name": "LAAT/i 炮艇",
+    "nameEn": "LAAT/i Gunship",
+    "size": null,
+    "points": 14,
+    "image": "assets/squadrons/republic/laat-i-gunship-community.webp",
+    "slots": [],
+    "effect": "",
+    "unique": false,
+    "ace": false,
+    "limit": null,
+    "squadron_keyword": [
+      {
+        "key": "assault",
+        "value": null
+      },
+      {
+        "key": "grit",
+        "value": null
+      },
+      {
+        "key": "heavy",
+        "value": null
+      }
+    ],
+    "defense_token": []
+  },
+  {
+    "id": "republic_squadrons_014",
+    "type": "squadron",
+    "faction": "republic",
+    "name": "卢米娜拉 昂杜利 Delta-7 星际战机中队",
+    "nameEn": "•Luminara Unduli",
+    "size": null,
+    "points": 20,
+    "image": "assets/squadrons/republic/luminara-unduli-delta-7-aethersprite-squadron-errata-community.webp",
+    "slots": [],
+    "effect": "当1个位于距离1的敌方中队攻击1个非唯一友方中队时，该次攻击视为被遮蔽。",
+    "unique": true,
+    "ace": true,
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "adept",
+        "value": 1
+      },
+      {
+        "key": "counter",
+        "value": 2
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "scatter"
+    ]
+  },
+  {
+    "id": "republic_squadrons_015",
+    "type": "squadron",
+    "faction": "republic",
+    "name": "“火柴” BTL-B Y翼战机中队",
+    "nameEn": "•\"Matchstick\"",
+    "size": null,
+    "points": 14,
+    "image": "assets/squadrons/republic/matchstick-btl-b-y-wing-squadron-errata-community.webp",
+    "slots": [],
+    "effect": "当1个友方战舰结算[[icon:command-squadron]]中队指令时，如果你在其激活范围内，则它激活的至多3个带有轰炸关键字的中队可以位于你的距离1-3。",
+    "unique": true,
+    "ace": true,
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "heavy",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "brace"
+    ]
+  },
+  {
+    "id": "republic_squadrons_016",
+    "type": "squadron",
+    "faction": "republic",
+    "name": "“怪球” ARC-170 星际战斗机中队",
+    "nameEn": "•\"Odd Ball\"",
+    "size": null,
+    "points": 20,
+    "image": "assets/squadrons/republic/odd-ball-arc-170-starfighter-squadron-errata-community.webp",
+    "slots": [],
+    "effect": "攻击时，如果你在本次激活中移动过，你可以重投至多2颗骰子。",
+    "unique": true,
+    "ace": true,
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "bomber",
+        "value": null
+      },
+      {
+        "key": "counter",
+        "value": 1
+      },
+      {
+        "key": "grit",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "evade"
+    ]
+  },
+  {
+    "id": "republic_squadrons_017",
+    "type": "squadron",
+    "faction": "republic",
+    "name": "普洛 孔 Delta-7 星际战机中队",
+    "nameEn": "•Plo Koon",
+    "size": null,
+    "points": 21,
+    "image": "assets/squadrons/republic/plo-koon-delta-7-aethersprite-squadron-errata-community.webp",
+    "slots": [],
+    "effect": "位于距离1的不具有反击关键字的非唯一友方中队获得反击1。",
+    "unique": true,
+    "ace": true,
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "adept",
+        "value": 2
+      },
+      {
+        "key": "counter",
+        "value": 2
+      }
+    ],
+    "defense_token": [
+      "brace",
+      "scatter"
+    ]
+  },
+  {
+    "id": "republic_squadrons_018",
+    "type": "squadron",
+    "faction": "republic",
+    "name": "R2-D2 暮光号",
+    "nameEn": "•R2-D2 (Twilight)",
+    "size": null,
+    "points": 17,
+    "image": "assets/squadrons/republic/r2-d2-twilight-community.webp",
+    "slots": [],
+    "effect": "在你的激活期间，你可以选择1个位于距离1-2且至少有1个指挥标记的友方战舰。如果你这么做了，该战舰必须选择并弃置1个指挥标记，然后1个位于你的距离1-2的友方战舰可以获得1个任意类型的指挥标记。",
+    "unique": true,
+    "ace": true,
+    "limit": 1,
+    "squadron_keyword": [
+      {
+        "key": "rogue",
+        "value": null
+      }
+    ],
+    "defense_token": [
+      "brace"
+    ]
+  },
+  {
+    "id": "republic_squadrons_019",
+    "type": "squadron",
+    "faction": "republic",
+    "name": "V-19 激流中队",
+    "nameEn": "V-19 Torrent Squadron",
+    "size": null,
+    "points": 12,
+    "image": "assets/squadrons/republic/v-19-torrent-squadron.webp",
+    "slots": [],
+    "effect": "",
+    "unique": false,
+    "ace": false,
+    "limit": null,
+    "squadron_keyword": [
+      {
+        "key": "escort",
+        "value": null
+      },
+      {
+        "key": "swarm",
+        "value": null
+      }
+    ],
+    "defense_token": []
+  }
+]

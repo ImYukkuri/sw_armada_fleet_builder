@@ -189,7 +189,16 @@ check("旗舰可更换为其它指挥官", r.allowed, JSON.stringify(r.reasons))
 
 /* ---------------- 按阵营拆分加载 + FAQ/勘误 字段 ---------------- */
 check("加载器按阵营拆分后舰船总数(60, 帝国24+义军23+共和国13)", data.cards.ships.length === 60, "n=" + data.cards.ships.length);
-check("中队总数 82(含手工录入 6 张)", data.cards.squadrons.length === 82, "n=" + data.cards.squadrons.length);
+check("中队总数 101(帝国+义军 82 含手工录入 6 张 + 共和国 19)",
+  data.cards.squadrons.length === 101, "n=" + data.cards.squadrons.length);
+check("共和国中队 19 张已列入",
+  data.cards.squadrons.filter((c) => c.faction === "republic").length === 19,
+  "n=" + data.cards.squadrons.filter((c) => c.faction === "republic").length);
+check("共和国中队 id/图片/点数完整",
+  data.cards.squadrons.filter((c) => c.faction === "republic").every((c) =>
+    /^republic_squadrons_\d{3}$/.test(c.id) && c.image.indexOf("assets/squadrons/republic/") === 0 &&
+    typeof c.points === "number" && c.points > 0 && Array.isArray(c.squadron_keyword) && Array.isArray(c.defense_token)),
+  "sample=" + data.cards.squadrons.filter((c) => c.faction === "republic")[0].id);
 check("称号总数 82(义军 32 含义军一号 + 帝国31 + 共和国/分离 19)", data.cards.titles.length === 82, "n=" + data.cards.titles.length);
 check("升级总数 223(已删 战略顾问/贝尔奥加纳 2 张禁卡, 双阵营卡去重)", data.cards.upgrades.length === 223, "n=" + data.cards.upgrades.length);
 ["defensive_retrofit_008", "turbolasers_012", "fleet_command_003"].forEach(function (id) {
